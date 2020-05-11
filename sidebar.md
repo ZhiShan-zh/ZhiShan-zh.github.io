@@ -7,8 +7,16 @@
   - 高性能网站
     - 高并发
       - 队列
+        - [队列的常见应用场景](./docs/programming/high_performance_website/high_concurrency/queue/common_application_scenarios_of_Nginx.md)
         - [常见队列类型](./docs/programming/high_performance_website/high_concurrency/queue/common_queue_types.md)
-        - [基于Canal实现数据异构](./docs/programming/high_performance_website/high_concurrency/queue/realizing_data_heterogeneity_based_on_Canal.md)
-	  - 负载均衡与反向代理
-	    - [负载均衡与反向代理](./docs/programming/high_performance_website/high_concurrency/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
+	      - [基于Canal实现数据异构](./docs/programming/high_performance_website/high_concurrency/queue/realizing_data_heterogeneity_based_on_Canal.md)
+	      - 消息队列
+	        - [RabbitMQ入门](./docs/programming/high_performance_website/high_concurrency/queue/message_queue/RabbitMQ/Getting_started_with_RabbitMQ.md)
+	  - 高可用
+	    - [负载均衡与反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
+	    - Nginx
+	      - [Nginx入门](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Getting_started_with_nginx.md)
+	      - [在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md)
+	      - [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_prohigh_concurrencyxy_in_Nginx.md)
+	      - [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md)
 
