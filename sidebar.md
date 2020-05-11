@@ -9,4 +9,6 @@
       - 队列
         - [常见队列类型](./docs/programming/high_performance_website/high_concurrency/queue/common_queue_types.md)
         - [基于Canal实现数据异构](./docs/programming/high_performance_website/high_concurrency/queue/realizing_data_heterogeneity_based_on_Canal.md)
+	  - 负载均衡与反向代理
+	    - [负载均衡与反向代理](./docs/programming/high_performance_website/high_concurrency/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
 
