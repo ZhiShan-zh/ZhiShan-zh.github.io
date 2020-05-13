@@ -14,7 +14,8 @@
         - [常见队列类型](./docs/programming/high_performance_website/high_concurrency/queue/common_queue_types.md)
         - [基于Canal实现数据异构](./docs/programming/high_performance_website/high_concurrency/queue/realizing_data_heterogeneity_based_on_Canal.md)
         - 消息队列
-          - [RabbitMQ入门](./docs/programming/high_performance_website/high_concurrency/queue/message_queue/RabbitMQ/Getting_started_with_RabbitMQ.md)
+          - RabbitMQ
+            - [RabbitMQ入门](./docs/programming/high_performance_website/high_concurrency/queue/message_queue/RabbitMQ/Getting_started_with_RabbitMQ.md)
     - 高可用
       - [负载均衡与反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
       - Nginx
@@ -33,6 +34,7 @@
         - [Redis为什么这么快](./docs/programming/database/NoSQL/redis/Reasons_why_Redis_is_so_fast.md)
         - [Redis中过期键的删除策略](./docs/programming/database/NoSQL/redis/Deletion_strategy_of_expired_keys_in_Redis.md)
         - [Redis中的数据逐出策略](./docs/programming/database/NoSQL/redis/Data_eviction_strategy_in_Redis.md)
+        - [Jedis中的管道Pipeline](./docs/programming/database/NoSQL/redis/Jedis_pipeline.md)
         - [在Spring中整合Redis](./docs/programming/database/NoSQL/redis/Use_redis_in_Spring_Framework.md)
   - 数据结构
   - 常用算法
