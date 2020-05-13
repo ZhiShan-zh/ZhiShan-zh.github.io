@@ -5,6 +5,9 @@
   - Python
   - Linux
   - 高性能网站
+    - 概述
+      - 架构
+        - [CAP原则](./docs/programming/high_performance_website/overview/Architecture/CAP_Principle.md)
     - 高并发
       - 队列
         - [队列的常见应用场景](./docs/programming/high_performance_website/high_concurrency/queue/common_application_scenarios_of_Nginx.md)
@@ -24,6 +27,13 @@
       - MySQL
         - [MySQL数据库优化](./docs/programming/database/relational_database/MySQL_optimization.md)
         - [事务的隔离级别](./docs/programming/database/relational_database/The_isolation_level_of_transaction.md)
+    - 非关系型数据库
+      - Redis
+        - [Redis入门](./docs/programming/database/NoSQL/redis/getting_started_with_redis.md)
+        - [Redis为什么这么快](./docs/programming/database/NoSQL/redis/Reasons_why_Redis_is_so_fast.md)
+        - [Redis中过期键的删除策略](./docs/programming/database/NoSQL/redis/Deletion_strategy_of_expired_keys_in_Redis.md)
+        - [Redis中的数据逐出策略](./docs/programming/database/NoSQL/redis/Data_eviction_strategy_in_Redis.md)
+        - [在Spring中整合Redis](./docs/programming/database/NoSQL/redis/Use_redis_in_Spring_Framework.md)
   - 数据结构
   - 常用算法
     - [缓存替换算法](./docs/programming/algorithm/Cache_algorithm.md)
