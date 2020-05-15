@@ -4,6 +4,8 @@
   - Java
   - Python
   - Linux
+  - 设计模式
+    - [面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md)
   - 高性能网站
     - 概述
       - 架构
@@ -28,6 +30,8 @@
       - MySQL
         - [MySQL数据库优化](./docs/programming/database/relational_database/MySQL_optimization.md)
         - [事务的隔离级别](./docs/programming/database/relational_database/The_isolation_level_of_transaction.md)
+        - [使用explain和`show profile`来分析SQL语句](./docs/programming/database/relational_database/Use_explain_and_show-profile_to_analyze_SQL_statements.md)
+        - [`ORDER BY`的工作原理](./docs/programming/database/relational_database/How_order_by_works.md)
     - 非关系型数据库
       - Redis
         - [Redis入门](./docs/programming/database/NoSQL/redis/getting_started_with_redis.md)
