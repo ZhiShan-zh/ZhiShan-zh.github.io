@@ -2,10 +2,33 @@
 - 音乐
 - 编程
   - Java
+    - Java基础
+      - [Java中的SPI机制](./docs/programming/java/Java_base/SPI_specification_in_Java.md)
+    - Spring
+      - Spring FrameWork
+        - [后处理bean的接口BeanPostProcessor和BeanFactoryPostProcessor](./docs/programming/java/spring/spring_framework/Post-processing_bean_interfaces_BeanPostProcessor_and_BeanFactoryPostProcessor.md)
+        - [Spring AOP面向切面编程](./docs/programming/java/spring/spring_framework/Spring_AOP-Aspect_Oriented_Programming.md)
+        - [Spring入门](./docs/programming/java/spring/spring_framework/Getting_started_with_Spring.md)
+        - [Spring配置](./docs/programming/java/spring/spring_framework/Spring_configuration.md)
+        - [Spring中整合Junit4测试](./docs/programming/java/spring/spring_framework/Test_with_Junit4_in_Spring.md)
+        - [SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md)
+        - [SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md)
+      - Spring Boot
+        - [Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md)
+        - [Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md)
+        - [Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md)
+        - [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md)
+        - [Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md)
+      - Spring Cloud
   - Python
   - Linux
   - 设计模式
     - [面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md)
+    - [观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md)
+    - [门面模式](./docs/programming/Design_Patterns/Facade_pattern.md)
+    - [装饰者模式](./docs/programming/Design_Patterns/Decorator_pattern.md)
+    - [责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md)
+    - [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md)
   - 高性能网站
     - 概述
       - 架构
