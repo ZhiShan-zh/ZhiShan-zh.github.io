@@ -20,6 +20,10 @@
         - [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md)
         - [Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md)
       - Spring Cloud
+        - [Spring Cloud介绍](./docs/programming/java/spring/spring_cloud/Introduction_to_Spring_Cloud.md)
+        - [服务调用方式](./docs/programming/java/spring/spring_cloud/Service_calling_method.md)
+        - [客户端负载均衡——Ribbon](./docs/programming/java/spring/spring_cloud/Load_balancing-Ribbon.md)
+        - [Ribbon中的负载均衡规则接口IRule](./docs/programming/java/spring/spring_cloud/Load_balancing_rules_interface-IRule_in_Ribbon.md)
   - Python
   - Linux
   - 设计模式
@@ -48,6 +52,7 @@
         - [在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md)
         - [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_prohigh_concurrencyxy_in_Nginx.md)
         - [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md)
+        - [Nginx负载均衡算法](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Load_balancing_algorithm-Nginx.md)
   - 数据库
     - 关系型数据库
       - MySQL
