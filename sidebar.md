@@ -4,6 +4,9 @@
   - Java
     - Java基础
       - [Java中的SPI机制](./docs/programming/java/Java_base/SPI_specification_in_Java.md)
+    - 网络编程
+      - [网络编程基础：BIO、NIO、AIO](./docs/programming/java/Network_programming/Network_programming_basics.md)
+      - [Netty](./docs/programming/java/Network_programming/Netty.md)
     - Tomcat
       - [Tomcat介绍](./docs/programming/java/tomcat/Introduction_of_Tomcat.md)
       - [Tomcat架构](./docs/programming/java/tomcat/Tomcat_architecture.md)
@@ -40,6 +43,7 @@
     - [装饰者模式](./docs/programming/Design_Patterns/Decorator_pattern.md)
     - [责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md)
     - [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md)
+    - [Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md)
   - 高性能网站
     - 概述
       - 架构
@@ -52,6 +56,9 @@
         - 消息队列
           - RabbitMQ
             - [RabbitMQ入门](./docs/programming/high_performance_website/high_concurrency/queue/message_queue/RabbitMQ/Getting_started_with_RabbitMQ.md)
+      - 并发编程
+        - [并发编程概述](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Overview.md)
+        - [Future模式](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Future_mode.md)
     - 高可用
       - [负载均衡与反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
       - Nginx
