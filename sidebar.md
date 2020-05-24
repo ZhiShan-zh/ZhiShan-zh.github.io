@@ -36,6 +36,13 @@
         - [查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md)
   - Python
   - Linux
+    - Shell
+      - [Shell入门](./docs/programming/linux/shell/Getting_startted_with_Shell.md)
+      - [Shell基础知识](./docs/programming/linux/shell/Basic_knowledge_of_Shell_programming.md)
+      - [Shell函数](./docs/programming/linux/shell/Functions_in_Shell.md)
+      - [Shell文件包含](./docs/programming/linux/shell/Shell_file_contains.md)
+      - Shell编程实践
+        - [使用Shell进行批量压缩](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_compression.md)
   - 设计模式
     - [面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md)
     - [观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md)
@@ -60,13 +67,16 @@
         - [并发编程概述](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Overview.md)
         - [Future模式](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Future_mode.md)
     - 高可用
-      - [负载均衡与反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
-      - Nginx
-        - [Nginx入门](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Getting_started_with_nginx.md)
-        - [在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md)
-        - [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_prohigh_concurrencyxy_in_Nginx.md)
-        - [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md)
-        - [Nginx负载均衡算法](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Load_balancing_algorithm-Nginx.md)
+      - 负载均衡与反向代理
+        - [负载均衡与反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
+        - Nginx
+          - [Nginx入门](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Getting_started_with_nginx.md)
+          - [在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md)
+          - [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_prohigh_concurrencyxy_in_Nginx.md)
+          - [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md)
+          - [Nginx负载均衡算法](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Load_balancing_algorithm-Nginx.md)
+      - 隔离
+        - 
   - 数据库
     - 关系型数据库
       - MySQL
