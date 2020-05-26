@@ -35,6 +35,18 @@
         - [Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md)
         - [查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md)
   - Python
+  - JavaScript
+    - NodeJS
+      - [Nodejs入门](./docs/programming/JavaScript/nodejs/Getting_started_with_nodejs.md)
+      - [NodeJS包资源管理器NPM](./docs/programming/JavaScript/nodejs/Node_Package_Manager-NPM.md)
+      - [前端资源加载、打包工具——Webpack](./docs/programming/JavaScript/nodejs/Front-end_resource_loading_and_packaging_tools-Webpack.md)
+    - VueJS
+      - [VueJS入门](./docs/programming/JavaScript/VueJS/Getting_started_with_VueJS.md)
+      - [VueJS常用指令](./docs/programming/JavaScript/VueJS/Common_commands-VueJS.md)
+      - [Vue实例的声明周期](./docs/programming/JavaScript/VueJS/Vue_instance_life_cycle.md)
+      - [VueJS中的Ajax](./docs/programming/JavaScript/VueJS/Ajax_in_VueJS.md)
+    - [Javascript闭包](./docs/programming/JavaScript/Closures_in_JavaScript.md)
+    - [ES6](./docs/programming/JavaScript/ES6.md)
   - Linux
     - Shell
       - [Shell入门](./docs/programming/linux/shell/Getting_startted_with_Shell.md)
@@ -95,4 +107,8 @@
   - 数据结构
   - 常用算法
     - [缓存替换算法](./docs/programming/algorithm/Cache_algorithm.md)
-
+  - 开发工具的使用
+    - VSCode
+      - [前端插件](./docs/programming/The_use_of_development_tools/VSCode/Front-end_plugin.md)
+    - Sublime
+      - [多位置同时编辑——Sublime3](./docs/programming/The_use_of_development_tools/Sublime/Simultaneous_editing_in_multiple_locations-Sublime3.md)
