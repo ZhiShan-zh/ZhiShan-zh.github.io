@@ -42,9 +42,7 @@ MVVM模式和MVC模式一样，主要目的是分离视图（View）和模型（
 </html>
 ```
 
-页面访问`test_vuejs.html`：
 
-![](https://zhishan-zh.github.io/media/vuejs_20200526163826.png)
 
 # 3 插值表达式
 

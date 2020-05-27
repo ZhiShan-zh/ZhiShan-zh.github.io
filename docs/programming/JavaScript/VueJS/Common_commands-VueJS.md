@@ -234,8 +234,6 @@ v-on简写方式：
 </html>
 ```
 
-![](https://zhishan-zh.github.io/media/vuejs_20200526200636.png)
-
 # 3 `v-bind`
 
 `v-bind`用于绑定数据和元素属性的
@@ -270,8 +268,6 @@ v-on简写方式：
     </body>
 </html>
 ```
-
-![](https://zhishan-zh.github.io/media/vuejs_20200526202158.png)
 
 v-bind简写方式：
 
@@ -319,8 +315,6 @@ v-model的作用是对应表单`<input>`、`<textarea>` 及 `<select>` 元素上
 </html>
 ```
 
-![](https://zhishan-zh.github.io/media/vuejs_20200526203458.png)
-
 # 5 `v-for`
 
 ## 5.1 遍历数组
@@ -351,8 +345,6 @@ v-model的作用是对应表单`<input>`、`<textarea>` 及 `<select>` 元素上
 </html>
 ```
 
-![](https://zhishan-zh.github.io/media/vuejs_20200526203813.png)
-
 ## 5.2 遍历对象
 
 ```java
@@ -381,7 +373,7 @@ v-model的作用是对应表单`<input>`、`<textarea>` 及 `<select>` 元素上
 </html>
 ```
 
-![](https://zhishan-zh.github.io/media/vuejs_20200526204230.png)
+
 
 ## 5.3 操作对象数组
 
@@ -429,7 +421,7 @@ v-model的作用是对应表单`<input>`、`<textarea>` 及 `<select>` 元素上
 </html>
 ```
 
-![](/home/zh/文档/ZhiShan-zh.github.io/media/vuejs_20200526204755.png)
+
 
 # 6 `v-if`与`v-show`
 
