@@ -20,32 +20,30 @@
 
 ### 1.4.1 Spring FrameWork
 
-- [后处理bean的接口BeanPostProcessor和BeanFactoryPostProcessor](./docs/programming/java/spring/spring_framework/Post-processing_bean_interfaces_BeanPostProcessor_and_BeanFactoryPostProcessor.md)
-- [Spring AOP面向切面编程](./docs/programming/java/spring/spring_framework/Spring_AOP-Aspect_Oriented_Programming.md)
-- [Spring入门](./docs/programming/java/spring/spring_framework/Getting_started_with_Spring.md)
-- [Spring配置](./docs/programming/java/spring/spring_framework/Spring_configuration.md)
-- [Spring中整合Junit4测试](./docs/programming/java/spring/spring_framework/Test_with_Junit4_in_Spring.md)
-- [SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md)
-- [SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md) | [后处理bean的接口BeanPostProcessor和BeanFactoryPostProcessor](./docs/programming/java/spring/spring_framework/Post-processing_bean_interfaces_BeanPostProcessor_and_BeanFactoryPostProcessor.md) |
+| [Spring入门](./docs/programming/java/spring/spring_framework/Getting_started_with_Spring.md) | [Spring配置](./docs/programming/java/spring/spring_framework/Spring_configuration.md) |
+| [Spring中整合Junit4测试](./docs/programming/java/spring/spring_framework/Test_with_Junit4_in_Spring.md) | [Spring AOP面向切面编程](./docs/programming/java/spring/spring_framework/Spring_AOP-Aspect_Oriented_Programming.md) |
+| [SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md) |                                                              |
 
 ### 1.4.2 Spring Boot
 
-- [Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md)
-- [Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md)
-- [Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md)
-- [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md)
-- [Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md) | [Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md) |
+| [Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md) | [Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md) |
+| [Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md) |                                                              |
 
 ### 1.4.3 Spring Cloud
 
-- [Spring Cloud介绍](./docs/programming/java/spring/spring_cloud/Introduction_to_Spring_Cloud.md)
-- [服务调用方式](./docs/programming/java/spring/spring_cloud/Service_calling_method.md)
-- [客户端负载均衡——Ribbon](./docs/programming/java/spring/spring_cloud/Load_balancing-Ribbon.md)
-- [Ribbon中的负载均衡规则接口IRule](./docs/programming/java/spring/spring_cloud/Load_balancing_rules_interface-IRule_in_Ribbon.md)
-- [Feign中的负载均衡和服务熔断](./docs/programming/java/spring/spring_cloud/Load_balancing_and_service_fuse_in_Feign.md)
-- [Hystrix 容错机制和数据监控](./docs/programming/java/spring/spring_cloud/Fault_tolerance_mechanism_and_data_monitoring_in_Hystrix.md)
-- [Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md)
-- [查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Spring Cloud介绍](./docs/programming/java/spring/spring_cloud/Introduction_to_Spring_Cloud.md) | [服务调用方式](./docs/programming/java/spring/spring_cloud/Service_calling_method.md) |
+| [客户端负载均衡——Ribbon](./docs/programming/java/spring/spring_cloud/Load_balancing-Ribbon.md) | [Ribbon中的负载均衡规则接口IRule](./docs/programming/java/spring/spring_cloud/Load_balancing_rules_interface-IRule_in_Ribbon.md) |
+| [Feign中的负载均衡和服务熔断](./docs/programming/java/spring/spring_cloud/Load_balancing_and_service_fuse_in_Feign.md) | [Hystrix 容错机制和数据监控](./docs/programming/java/spring/spring_cloud/Fault_tolerance_mechanism_and_data_monitoring_in_Hystrix.md) |
+| [Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md) | [查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md) |
+|                                                              |                                                              |
 
 # 2 Python
 
@@ -67,8 +65,6 @@
 - [Vue实例的声明周期](./docs/programming/JavaScript/VueJS/Vue_instance_life_cycle.md)
 - [VueJS中的Ajax](./docs/programming/JavaScript/VueJS/Ajax_in_VueJS.md)
 
-
-
 # 4 Linux
 
 ## 4.1 Shell
@@ -84,13 +80,12 @@
 
 # 5 设计模式
 
-- [面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md)
-- [观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md)
-- [门面模式](./docs/programming/Design_Patterns/Facade_pattern.md)
-- [装饰者模式](./docs/programming/Design_Patterns/Decorator_pattern.md)
-- [责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md)
-- [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md)
-- [Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md) | [观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md) |
+| [门面模式](./docs/programming/Design_Patterns/Facade_pattern.md) | [装饰者模式](./docs/programming/Design_Patterns/Decorator_pattern.md) |
+| [责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md) | [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md) |
+| [Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md) |                                                              |
 
 # 6 高性能网站
 
@@ -127,15 +122,15 @@
 
 #### 6.3.1.1 Nginx
 
-- [Nginx入门](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Getting_started_with_nginx.md)
-- [在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md)
-- [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_prohigh_concurrencyxy_in_Nginx.md)
-- [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md)
-- [Nginx负载均衡算法](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Load_balancing_algorithm-Nginx.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Nginx入门](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Getting_started_with_nginx.md) | [在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md) |
+| [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_prohigh_concurrencyxy_in_Nginx.md) | [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md) |
+| [Nginx负载均衡算法](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Load_balancing_algorithm-Nginx.md) |                                                              |
 
 ### 6.3.2 隔离
 
-- 
+
 
 # 7 数据库
 
@@ -143,21 +138,20 @@
 
 ### 7.1.1 MySQL
 
-- [MySQL数据库优化](./docs/programming/database/relational_database/MySQL_optimization.md)
-- [事务的隔离级别](./docs/programming/database/relational_database/The_isolation_level_of_transaction.md)
-- [使用explain和`show profile`来分析SQL语句](./docs/programming/database/relational_database/Use_explain_and_show-profile_to_analyze_SQL_statements.md)
-- [`ORDER BY`的工作原理](./docs/programming/database/relational_database/How_order_by_works.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [MySQL数据库优化](./docs/programming/database/relational_database/MySQL_optimization.md) | [事务的隔离级别](./docs/programming/database/relational_database/The_isolation_level_of_transaction.md) |
+| [使用explain和`show profile`来分析SQL语句](./docs/programming/database/relational_database/Use_explain_and_show-profile_to_analyze_SQL_statements.md) | [`ORDER BY`的工作原理](./docs/programming/database/relational_database/How_order_by_works.md) |
 
 ## 7.2 非关系型数据库
 
 ### 7.2.1 Redis
 
-- [Redis入门](./docs/programming/database/NoSQL/redis/getting_started_with_redis.md)
-- [Redis为什么这么快](./docs/programming/database/NoSQL/redis/Reasons_why_Redis_is_so_fast.md)
-- [Redis中过期键的删除策略](./docs/programming/database/NoSQL/redis/Deletion_strategy_of_expired_keys_in_Redis.md)
-- [Redis中的数据逐出策略](./docs/programming/database/NoSQL/redis/Data_eviction_strategy_in_Redis.md)
-- [Jedis中的管道Pipeline](./docs/programming/database/NoSQL/redis/Jedis_pipeline.md)
-- [在Spring中整合Redis](./docs/programming/database/NoSQL/redis/Use_redis_in_Spring_Framework.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Redis入门](./docs/programming/database/NoSQL/redis/getting_started_with_redis.md) | [在Spring中整合Redis](./docs/programming/database/NoSQL/redis/Use_redis_in_Spring_Framework.md) |
+| [Redis为什么这么快](./docs/programming/database/NoSQL/redis/Reasons_why_Redis_is_so_fast.md) | [Redis中过期键的删除策略](./docs/programming/database/NoSQL/redis/Deletion_strategy_of_expired_keys_in_Redis.md) |
+| [Redis中的数据逐出策略](./docs/programming/database/NoSQL/redis/Data_eviction_strategy_in_Redis.md) | [Jedis中的管道Pipeline](./docs/programming/database/NoSQL/redis/Jedis_pipeline.md) |
 
 # 8 数据结构
 
@@ -169,23 +163,21 @@
 
 ## 10.1 Lucene
 
-- [Lucene全文检索技术概述](./docs/programming/Retrieval_technology/Lucene/The_overview_of_full-text_search_technology-Lucene.md)
-- [Lucene入门](./docs/programming/Retrieval_technology/Lucene/Getting_started_with_Lucene.md)
-- [分词器](./docs/programming/Retrieval_technology/Lucene/Analyzer.md)
-- [Field域](./docs/programming/Retrieval_technology/Lucene/Field.md)
-- [索引维护](./docs/programming/Retrieval_technology/Lucene/Index_maintenance.md)
-- [搜索](./docs/programming/Retrieval_technology/Lucene/Search.md)
-- [相关度排序](./docs/programming/Retrieval_technology/Lucene/Relevance_ranking.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Lucene全文检索技术概述](./docs/programming/Retrieval_technology/Lucene/The_overview_of_full-text_search_technology-Lucene.md) | [Lucene入门](./docs/programming/Retrieval_technology/Lucene/Getting_started_with_Lucene.md) |
+| [分词器](./docs/programming/Retrieval_technology/Lucene/Analyzer.md) | [Field域](./docs/programming/Retrieval_technology/Lucene/Field.md) |
+| [索引维护](./docs/programming/Retrieval_technology/Lucene/Index_maintenance.md) | [搜索](./docs/programming/Retrieval_technology/Lucene/Search.md) |
+| [相关度排序](./docs/programming/Retrieval_technology/Lucene/Relevance_ranking.md) |                                                              |
 
 ## 10.2 ElasticSearch
 
-- [ElasticSearch入门](./docs/programming/Retrieval_technology/ElasticSearch/Getting_started_with_ElasticSearch.md)
-- [IK分词器](./docs/programming/Retrieval_technology/ElasticSearch/analysis_ik.md)
-- [映射](./docs/programming/Retrieval_technology/ElasticSearch/mapping.md)
-- [在Java中使用ElasticSearch](./docs/programming/Retrieval_technology/ElasticSearch/Using_ElasticSearch_in_Java.md)
-- [ElasticSearch集群管理](./docs/programming/Retrieval_technology/ElasticSearch/Cluster_management-ElasticSearch.md)
-- [节点](./docs/programming/Retrieval_technology/ElasticSearch/node-ElasticSearch.md)
-- [传输模块](./docs/programming/Retrieval_technology/ElasticSearch/transport-ElasticSearch.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [ElasticSearch入门](./docs/programming/Retrieval_technology/ElasticSearch/Getting_started_with_ElasticSearch.md) | [IK分词器](./docs/programming/Retrieval_technology/ElasticSearch/analysis_ik.md) |
+| [映射](./docs/programming/Retrieval_technology/ElasticSearch/mapping.md) | [在Java中使用ElasticSearch](./docs/programming/Retrieval_technology/ElasticSearch/Using_ElasticSearch_in_Java.md) |
+| [ElasticSearch集群管理](./docs/programming/Retrieval_technology/ElasticSearch/Cluster_management-ElasticSearch.md) | [节点](./docs/programming/Retrieval_technology/ElasticSearch/node-ElasticSearch.md) |
+| [传输模块](./docs/programming/Retrieval_technology/ElasticSearch/transport-ElasticSearch.md) |                                                              |
 
 # 11 开发工具的使用
 
