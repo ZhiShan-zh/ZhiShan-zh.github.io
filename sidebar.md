@@ -47,11 +47,17 @@
 - <font style="font-size: x-large;font-weight: bold;">Linux</font>
   - <font style="font-size: large;font-weight: bold;">Shell</font>
     - [Shell入门](./docs/programming/linux/shell/Getting_startted_with_Shell.md)
-    - [Shell基础知识](./docs/programming/linux/shell/Basic_knowledge_of_Shell_programming.md)
+    - [Shell变量](./docs/programming/linux/shell/variable-Shell.md)
+    - [Shell字符串](./docs/programming/linux/shell/string-Shell.md)
+    - [Shell数组](./docs/programming/linux/shell/array_in_Shell.md)
+    - [Shell中的test](./docs/programming/linux/shell/test-Shell.md)
+    - [Shell中流程控制](./docs/programming/linux/shell/Process_control_in_Shell.md)
     - [Shell函数](./docs/programming/linux/shell/Functions_in_Shell.md)
     - [Shell文件包含](./docs/programming/linux/shell/Shell_file_contains.md)
+    - [Shell中的()、(())以及{}](./docs/programming/linux/shell/parenthesis_and_double-parenthesis_big-parantheses.md)
     - <font style="font-size: medium;font-weight: bold;">Shell编程实践</font>
       - [使用Shell进行批量压缩](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_compression.md)
+      - [使用Shell进行迭代重命名](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_renaming.md)
 - <font style="font-size: x-large;font-weight: bold;">设计模式</font>
   - [面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md)
   - [观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md)
