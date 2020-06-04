@@ -143,3 +143,14 @@
     - [Dockerfile](./docs/programming/Virtualization/Docker/Dockerfile.md)
     - [Docker私有仓库](./docs/programming/Virtualization/Docker/private_registry-Docker.md)
 
+- <font style="font-size: x-large;font-weight: bold;">网络爬虫</font>
+  - [网络爬虫概述](./docs/programming/web_crawler/the_overview_of_web_crawl.md)
+  - <font style="font-size: large;font-weight: bold;">Webmagic——Java</font>
+    - [WebMagic架构](./docs/programming/web_crawler/Webmagic/webmagic_architecture.md)
+    - [WebMagic的项目组成](./docs/programming/web_crawler/Webmagic/webmagic_project_composition.md)
+    - [WebMagic入门](./docs/programming/web_crawler/Webmagic/getting_started_with_webmagic.md)
+    - [实现PageProcessor](./docs/programming/web_crawler/Webmagic/PageProcessor.md)
+    - [使用Pipeline保存结果](./docs/programming/web_crawler/Webmagic/Pipeline.md)
+    - [设置代理ProxyProvider](./docs/programming/web_crawler/Webmagic/ProxyProvider.md)
+    - [使用和定制Scheduler](./docs/programming/web_crawler/Webmagic/Scheduler.md)
+    - [URL去重接口DuplicateRemover](./docs/programming/web_crawler/Webmagic/DuplicateRemover.md)

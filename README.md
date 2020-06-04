@@ -193,12 +193,25 @@
 | [在Docker中应用部署](./docs/programming/Virtualization/Docker/Deploy_applications_in_Docker.md) | [迁移与备份——Docker](./docs/programming/Virtualization/Docker/Migration_and_backup-docker.md) |
 | [Dockerfile](./docs/programming/Virtualization/Docker/Dockerfile.md) | [Docker私有仓库](./docs/programming/Virtualization/Docker/private_registry-Docker.md) |
 
-# 12 开发工具的使用
+# 12 网络爬虫
 
-## 12.1 VSCode
+- [网络爬虫概述](./docs/programming/web_crawler/the_overview_of_web_crawl.md)
+
+## 12.1 Webmagic——Java
+
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [WebMagic架构](./docs/programming/web_crawler/Webmagic/webmagic_architecture.md) | [WebMagic的项目组成](./docs/programming/web_crawler/Webmagic/webmagic_project_composition.md) |
+| [WebMagic入门](./docs/programming/web_crawler/Webmagic/getting_started_with_webmagic.md) | [实现PageProcessor](./docs/programming/web_crawler/Webmagic/PageProcessor.md) |
+| [使用Pipeline保存结果](./docs/programming/web_crawler/Webmagic/Pipeline.md) | [设置代理ProxyProvider](./docs/programming/web_crawler/Webmagic/ProxyProvider.md) |
+| [使用和定制Scheduler](./docs/programming/web_crawler/Webmagic/Scheduler.md) | [URL去重接口DuplicateRemover](./docs/programming/web_crawler/Webmagic/DuplicateRemover.md) |
+
+# 13 开发工具的使用
+
+## 13.1 VSCode
 
 - [前端插件](./docs/programming/The_use_of_development_tools/VSCode/Front-end_plugin.md)
 
-## 12.2 Sublime
+## 13.2 Sublime
 
 - [多位置同时编辑——Sublime3](./docs/programming/The_use_of_development_tools/Sublime/Simultaneous_editing_in_multiple_locations-Sublime3.md)
