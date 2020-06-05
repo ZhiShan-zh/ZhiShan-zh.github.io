@@ -117,6 +117,9 @@
     - [前端插件](./docs/programming/The_use_of_development_tools/VSCode/Front-end_plugin.md)
   - <font style="font-size: large;font-weight: bold;">Sublime</font>
     - [多位置同时编辑——Sublime3](./docs/programming/The_use_of_development_tools/Sublime/Simultaneous_editing_in_multiple_locations-Sublime3.md)
+- <font style="font-size: large;font-weight: bold;">Python</font>
+    - [pip](./docs/programming/The_use_of_development_tools/python/pip.md)
+    - [Python及其模块版本控制](./docs/programming/The_use_of_development_tools/python/Version_management_of_Python_and_its_modules.md)
 - <font style="font-size: x-large;font-weight: bold;">检索技术</font>
   - <font style="font-size: large;font-weight: bold;">Lucene</font>
     - [Lucene全文检索技术概述](./docs/programming/Retrieval_technology/Lucene/The_overview_of_full-text_search_technology-Lucene.md)
@@ -157,3 +160,6 @@
 - <font style="font-size: x-large;font-weight: bold;">人工智能</font>
   - [人工智能概述](./docs/programming/Artificial_Intelligence/The_overview_of_Artificial_Intelligence.md)
   - [机器学习概述](./docs/programming/Artificial_Intelligence/The_overview_of_Machine_learning.md)
+  - <font style="font-size: large;font-weight: bold;">算法——机器学习</font>
+    - K-近邻算法
+      - 

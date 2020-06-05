@@ -213,10 +213,18 @@
 # 13 人工智能
 
 - [人工智能概述](./docs/programming/Artificial_Intelligence/The_overview_of_Artificial_Intelligence.md)
-
 - [机器学习概述](./docs/programming/Artificial_Intelligence/The_overview_of_Machine_learning.md)
 
-  
+## 13.1 机器学习算法
+
+### 13.1.1 K-近邻算法
+
+| 分项 | 分项 |      |
+| ---- | ---- | ---- |
+|      |      |      |
+|      |      |      |
+
+
 
 # 14 开发工具的使用
 
@@ -227,3 +235,8 @@
 ## 14.2 Sublime
 
 - [多位置同时编辑——Sublime3](./docs/programming/The_use_of_development_tools/Sublime/Simultaneous_editing_in_multiple_locations-Sublime3.md)
+
+## 14.3 Python
+
+- [pip](./docs/programming/The_use_of_development_tools/python/pip.md)
+- [Python及其模块版本控制](./docs/programming/The_use_of_development_tools/python/Version_management_of_Python_and_its_modules.md)
