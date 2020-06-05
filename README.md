@@ -47,6 +47,10 @@
 
 # 2 Python
 
+## 2.1 Python基础
+
+- [Python内置函数之eval()、exec()、compile()函数](./docs/programming/python/Basic_knowledge_of_Python/Functions_eval_exec_compile_in_python.md)
+
 # 3 JavaScript
 
 - [Javascript闭包](./docs/programming/JavaScript/Closures_in_JavaScript.md)
@@ -206,12 +210,20 @@
 | [使用Pipeline保存结果](./docs/programming/web_crawler/Webmagic/Pipeline.md) | [设置代理ProxyProvider](./docs/programming/web_crawler/Webmagic/ProxyProvider.md) |
 | [使用和定制Scheduler](./docs/programming/web_crawler/Webmagic/Scheduler.md) | [URL去重接口DuplicateRemover](./docs/programming/web_crawler/Webmagic/DuplicateRemover.md) |
 
-# 13 开发工具的使用
+# 13 人工智能
 
-## 13.1 VSCode
+- [人工智能概述](./docs/programming/Artificial_Intelligence/The_overview_of_Artificial_Intelligence.md)
+
+- [机器学习概述](./docs/programming/Artificial_Intelligence/The_overview_of_Machine_learning.md)
+
+  
+
+# 14 开发工具的使用
+
+## 14.1 VSCode
 
 - [前端插件](./docs/programming/The_use_of_development_tools/VSCode/Front-end_plugin.md)
 
-## 13.2 Sublime
+## 14.2 Sublime
 
 - [多位置同时编辑——Sublime3](./docs/programming/The_use_of_development_tools/Sublime/Simultaneous_editing_in_multiple_locations-Sublime3.md)

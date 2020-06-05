@@ -32,6 +32,8 @@
       - [Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md)
       - [查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md)
 - <font style="font-size: x-large;font-weight: bold;">Python</font>
+  - <font style="font-size: large;font-weight: bold;">Python基础</font>
+    - [Python内置函数之eval()、exec()、compile()函数](./docs/programming/python/Basic_knowledge_of_Python/Functions_eval_exec_compile_in_python.md)
 - <font style="font-size: x-large;font-weight: bold;">JavaScript</font>
   - <font style="font-size: large;font-weight: bold;">NodeJS</font>
     - [Nodejs入门](./docs/programming/JavaScript/nodejs/Getting_started_with_nodejs.md)
@@ -115,7 +117,6 @@
     - [前端插件](./docs/programming/The_use_of_development_tools/VSCode/Front-end_plugin.md)
   - <font style="font-size: large;font-weight: bold;">Sublime</font>
     - [多位置同时编辑——Sublime3](./docs/programming/The_use_of_development_tools/Sublime/Simultaneous_editing_in_multiple_locations-Sublime3.md)
-
 - <font style="font-size: x-large;font-weight: bold;">检索技术</font>
   - <font style="font-size: large;font-weight: bold;">Lucene</font>
     - [Lucene全文检索技术概述](./docs/programming/Retrieval_technology/Lucene/The_overview_of_full-text_search_technology-Lucene.md)
@@ -133,7 +134,6 @@
     - [ElasticSearch集群管理](./docs/programming/Retrieval_technology/ElasticSearch/Cluster_management-ElasticSearch.md)
     - [节点](./docs/programming/Retrieval_technology/ElasticSearch/node-ElasticSearch.md)
     - [传输模块](./docs/programming/Retrieval_technology/ElasticSearch/transport-ElasticSearch.md)
-
 - <font style="font-size: x-large;font-weight: bold;">虚拟化</font>
   - <font style="font-size: large;font-weight: bold;">Docker</font>
     - [Docker入门](./docs/programming/Virtualization/Docker/Getting_started_with_Docker.md)
@@ -142,7 +142,6 @@
     - [迁移与备份——Docker](./docs/programming/Virtualization/Docker/Migration_and_backup-docker.md)
     - [Dockerfile](./docs/programming/Virtualization/Docker/Dockerfile.md)
     - [Docker私有仓库](./docs/programming/Virtualization/Docker/private_registry-Docker.md)
-
 - <font style="font-size: x-large;font-weight: bold;">网络爬虫</font>
   - [网络爬虫概述](./docs/programming/web_crawler/the_overview_of_web_crawl.md)
   - <font style="font-size: large;font-weight: bold;">Webmagic——Java</font>
@@ -154,3 +153,7 @@
     - [设置代理ProxyProvider](./docs/programming/web_crawler/Webmagic/ProxyProvider.md)
     - [使用和定制Scheduler](./docs/programming/web_crawler/Webmagic/Scheduler.md)
     - [URL去重接口DuplicateRemover](./docs/programming/web_crawler/Webmagic/DuplicateRemover.md)
+
+- <font style="font-size: x-large;font-weight: bold;">人工智能</font>
+  - [人工智能概述](./docs/programming/Artificial_Intelligence/The_overview_of_Artificial_Intelligence.md)
+  - [机器学习概述](./docs/programming/Artificial_Intelligence/The_overview_of_Machine_learning.md)
