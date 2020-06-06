@@ -121,4 +121,8 @@ $ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 - 如：`virtualenv -p /home/zh/.pyenv/versions/3.6.10/bin/python ai`
 
-**激活虚拟环境**： `source ai/bin/activate` （env_name为Python运行环境名称）<br />**推出当前虚拟环境**： `deactivate` 
+**激活虚拟环境**： `source env_name/bin/activate` （env_name为Python运行环境名称）<br />
+
+- 如果env_name不再当前命令行所在目录，则需要写env_name绝对路径。比如： `source /home/zh/ai/bin/activate`
+
+**推出当前虚拟环境**： `deactivate` 
