@@ -145,3 +145,65 @@ drwxr-xr-x. 2 root root 4096 Mar 30 20:34 sbin
 直接在浏览器nginx主机的ip地址，就能访问nginx。默认是80端口。
 
 **注意**：需要查看是否关闭防火墙。
+
+
+
+# 4 配置nginx
+
+Nginx配置文件路径：`/usr/local/nginx/nginx.conf`
+
+```
+user  nobody nobody;	#定义Nginx运行的用户和用户组
+worker_processes  4;	#nginx进程数，建议设置为等于CPU总核心数。
+error_log  logs/error.log	info;	#全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]
+worker_rlimit_nofile 1024;	#一个nginx进程打开的最多文件描述符数目，所以建议与ulimit -n的值保持一致。
+pid	logs/nginx.pid;	#进程文件
+
+#工作模式及连接数上限
+events {
+		use epoll;#参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型是Linux 2.6以上版本内核中的高性能网络I/O模型
+	    worker_connections  1024;#单个进程最大连接数（最大连接数=连接数*进程数）
+}
+
+#设定http服务器，利用它的反向代理功能提供负载均衡支持
+http {
+    include       mime.types;#文件扩展名与文件类型映射表
+    default_type  application/octet-stream;#默认文件类型
+    #设定负载均衡的服务器列表
+    upstream  tomcatxxxcom  {  
+         server   192.168.56.200:8080;  
+         server   192.168.56.201:8080; 	 
+    }
+	#设定日志格式
+    log_format  www_xy_com  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+					  
+    sendfile        on;#开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off。
+    keepalive_timeout  65; #长连接超时时间，单位是秒
+
+    #gzip  on;
+	#设定虚拟主机，默认为监听80端口
+    server {
+        listen       80;
+        server_name  tomcat.xxx.com; # 域名可以有多个，用空格隔开
+
+        #charset koi8-r;
+		#设定本虚拟主机的访问日志
+        access_log  /data/logs/access.log  www_xy_com;
+		#对 "/" 启用反向代理 
+	   	location / {
+			   proxy_pass        http://tomcatxxxcom;  
+               proxy_set_header   Host             $host;  
+               proxy_set_header   X-Real-IP        $remote_addr;  
+               proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+        }
+        
+        #error_page   500 502 503 504  /50x.html;
+        location = /50x.html {
+            root   html;
+        }
+    }
+}
+```
+

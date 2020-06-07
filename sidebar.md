@@ -162,4 +162,6 @@
   - [机器学习概述](./docs/programming/Artificial_Intelligence/The_overview_of_Machine_learning.md)
   - <font style="font-size: large;font-weight: bold;">算法——机器学习</font>
     - K-近邻算法
-      - 
+      - [K-近邻算法概述](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/KNN_overview.md)
+      - [KNN入门](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/Getting_started_with_KNN.md)
+      - [距离度量](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/distance_measure.md)

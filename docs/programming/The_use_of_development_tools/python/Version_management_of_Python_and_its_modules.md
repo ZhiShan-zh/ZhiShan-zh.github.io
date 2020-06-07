@@ -59,18 +59,28 @@ $ git checkout v0.1.0
 - `pyenv local python版本` 切换当前文件夹下的 python 版本
 - `pyenv shell python版本` 切换当前 shell 中的 python 版本
 - `pyenv version` 查看当前使用的 python 版本
-### 1.1.4 卸载 pyenv
+### 1.1.4 pyenv离线安装python
+
+1. 进入pyenv目录：`cd ~/.pyenv/`
+
+2. 在pyenv目录下创建cache目录：`mkdir cache`
+
+3. 把从python官网下载python版本放到cache目录中。
+4. 比如下载连接：`https://www.python.org/ftp/python/3.6.10/Python-3.6.10.tar.xz`
+5. 需要的Python版本下载完毕，并放到`~/.pyenv/chache`目录之后，可以使用安装`pyenv install ...`python版本。比如`pyenv install 3.6.10`
+
+### 1.1.5 卸载 pyenv
 
 - 如果你只是想禁用 `pyenv`，那么把 `pyenv init` 从 shell 的配置文件中移除，然后重启 shell 就行了（移除后 `pyenv` 命令仍然能使用，但是版本切换命令不会生效）。
 - 完整卸载 pyenv。执行上一步，然后把 pyenv 的根目录删除即可全部删除 pyenv（通过 `pyenv install ...` 安装的 python 版本都会删除）。
 ```powershell
 rm -rf $(pyenv root)
 ```
-### 1.1.5 卸载 pyenv 安装的 python 版本
+### 1.1.6 卸载 pyenv 安装的 python 版本
 
 - 使用 `pyenv uninstall ...` 命令。
 - 直接删除 `versions` 文件夹下的对应 python 版本文件夹。
-### 1.1.6 pyenv 其他操作命令
+### 1.1.7 pyenv 其他操作命令
 参见 [commands.md](https://link.jianshu.com?t=https://github.com/pyenv/pyenv/blob/master/COMMANDS.md)<br />
 <br />
 

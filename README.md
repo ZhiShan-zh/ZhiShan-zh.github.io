@@ -127,6 +127,7 @@
 ### 6.3.1 负载均衡与反向代理
 
 - [负载均衡与反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
+- [LVS](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/LVS.md)
 
 #### 6.3.1.1 Nginx
 
@@ -219,12 +220,10 @@
 
 ### 13.1.1 K-近邻算法
 
-| 分项 | 分项 |      |
-| ---- | ---- | ---- |
-|      |      |      |
-|      |      |      |
-
-
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [K-近邻算法概述](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/KNN_overview.md) | [KNN入门](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/Getting_started_with_KNN.md) |
+| [距离度量](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/distance_measure.md) |                                                              |
 
 # 14 开发工具的使用
 
