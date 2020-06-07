@@ -162,6 +162,9 @@
 - <font style="font-size: x-large;font-weight: bold;">人工智能</font>
   - [人工智能概述](./docs/programming/Artificial_Intelligence/The_overview_of_Artificial_Intelligence.md)
   - [机器学习概述](./docs/programming/Artificial_Intelligence/The_overview_of_Machine_learning.md)
+  - <font style="font-size: large;font-weight: bold;">基础知识</font>
+    - 知识表示
+      - [知识和知识表示的相关概念](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/Related_concepts_of_knowledge_and_knowledge_representation.md)
   - <font style="font-size: large;font-weight: bold;">算法——机器学习</font>
     - K-近邻算法
       - [K-近邻算法概述](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/KNN_overview.md)

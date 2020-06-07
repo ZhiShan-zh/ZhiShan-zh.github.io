@@ -217,9 +217,18 @@
 - [人工智能概述](./docs/programming/Artificial_Intelligence/The_overview_of_Artificial_Intelligence.md)
 - [机器学习概述](./docs/programming/Artificial_Intelligence/The_overview_of_Machine_learning.md)
 
-## 13.1 机器学习算法
+## 13.1 基础知识
 
-### 13.1.1 K-近邻算法
+### 13.1.1 知识表示
+
+| 分项                                                         | 分项 |
+| ------------------------------------------------------------ | ---- |
+| [知识和知识表示的相关概念](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/Related_concepts_of_knowledge_and_knowledge_representation.md) |      |
+|                                                              |      |
+
+## 13.2 机器学习算法
+
+### 13.2.1 K-近邻算法
 
 | 分项                                                         | 分项                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
