@@ -128,6 +128,7 @@
 
 - [负载均衡与反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
 - [LVS](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/LVS.md)
+- [LVS+Nginx+Keepalived](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/LVS+Nginx+Keepalived.md)
 
 #### 6.3.1.1 Nginx
 

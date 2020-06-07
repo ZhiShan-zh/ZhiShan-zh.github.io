@@ -86,6 +86,8 @@
   - <font style="font-size: large;font-weight: bold;">高可用</font>
     - <font style="font-size: medium;font-weight: bold;">负载均衡与反向代理</font>
       - [负载均衡与反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
+      - [LVS](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/LVS.md)
+      - [LVS+Nginx+Keepalived](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/LVS+Nginx+Keepalived.md)
       - Nginx
         - [Nginx入门](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Getting_started_with_nginx.md)
         - [在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md)
