@@ -79,12 +79,13 @@
 | [Shell数组](./docs/programming/linux/shell/array_in_Shell.md) | [Shell字符串](./docs/programming/linux/shell/string-Shell.md) |
 | [Shell中流程控制](./docs/programming/linux/shell/Process_control_in_Shell.md) | [Shell中的test](./docs/programming/linux/shell/test-Shell.md) |
 | [Shell文件包含](./docs/programming/linux/shell/Shell_file_contains.md) | [Shell函数](./docs/programming/linux/shell/Functions_in_Shell.md) |
-| [Shell中的()、(())以及{}](./docs/programming/linux/shell/parenthesis_and_double-parenthesis_big-parantheses.md) |                                                              |
+| [Shell中的()、(())以及{}](./docs/programming/linux/shell/parenthesis_and_double-parenthesis_big-parantheses.md) | [执行Shell脚本的方式sh、bash、./、source](./docs/programming/linux/shell/bash-sh-source.md) |
 
 ### 4.1.1 Shell编程实践
 
 - [使用Shell进行批量压缩](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_compression.md)
 - [使用Shell进行迭代重命名](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_renaming.md)
+- [便利使用virtualenv](./docs/programming/linux/shell/Shell_programming_practice/Easy_to_use_virtualenv.md)
 
 # 5 设计模式
 

@@ -57,9 +57,11 @@
     - [Shell函数](./docs/programming/linux/shell/Functions_in_Shell.md)
     - [Shell文件包含](./docs/programming/linux/shell/Shell_file_contains.md)
     - [Shell中的()、(())以及{}](./docs/programming/linux/shell/parenthesis_and_double-parenthesis_big-parantheses.md)
+    - [执行Shell脚本的方式sh、bash、./、source](./docs/programming/linux/shell/bash-sh-source.md)
     - <font style="font-size: medium;font-weight: bold;">Shell编程实践</font>
       - [使用Shell进行批量压缩](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_compression.md)
       - [使用Shell进行迭代重命名](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_renaming.md)
+      - [便利使用virtualenv](./docs/programming/linux/shell/Shell_programming_practice/Easy_to_use_virtualenv.md)
 - <font style="font-size: x-large;font-weight: bold;">设计模式</font>
   - [面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md)
   - [观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md)
