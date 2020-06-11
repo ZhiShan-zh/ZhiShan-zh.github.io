@@ -18,7 +18,7 @@
 
 ## 1.4 Spring
 
-### 1.4.1 Spring FrameWork
+### 1.4.1 Spring Framework
 
 | 分项                                                         | 分项                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -31,9 +31,19 @@
 
 | 分项                                                         | 分项                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md) | [Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md) |
-| [Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md) | [Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md) |
-| [Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md) |                                                              |
+| [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md) | [Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md) |
+| [Spring Boot 怎么处理异常](./docs/programming/java/spring/spring_boot/How_SpringBoot_handles_exceptions.md) | [Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md) |
+| [Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md) | [Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md) |
+| [Spring Boot开启CORS跨域支持](./docs/programming/java/spring/spring_boot/Spring_Boot_opens_CORS_cross-domain_support.md) |                                                              |
+
+#### 1.4.2.1 整合数据库
+
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [SpringBoot整合JDBC](./docs/programming/java/spring/spring_boot/database/Using_JDBC_with_Spring_Boot.md) | [SpringBoot中整合SpringDataJPA](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_JPA_with_Spring_Boot.md) |
+|                                                              |                                                              |
+
+
 
 ### 1.4.3 Spring Cloud
 
@@ -43,7 +53,7 @@
 | [客户端负载均衡——Ribbon](./docs/programming/java/spring/spring_cloud/Load_balancing-Ribbon.md) | [Ribbon中的负载均衡规则接口IRule](./docs/programming/java/spring/spring_cloud/Load_balancing_rules_interface-IRule_in_Ribbon.md) |
 | [Feign中的负载均衡和服务熔断](./docs/programming/java/spring/spring_cloud/Load_balancing_and_service_fuse_in_Feign.md) | [Hystrix 容错机制和数据监控](./docs/programming/java/spring/spring_cloud/Fault_tolerance_mechanism_and_data_monitoring_in_Hystrix.md) |
 | [Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md) | [查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md) |
-|                                                              |                                                              |
+| [Spring Cloud本地配置中心](./docs/programming/java/spring/spring_cloud/Native_Configuration_Center_of_Spring Cloud .md) | [Spring Cloud远程配置中心](./docs/programming/java/spring/spring_cloud/Remote_Configuration_Center_of_Spring_Cloud.md) |
 
 # 2 Python
 
@@ -55,19 +65,23 @@
 
 - [Javascript闭包](./docs/programming/JavaScript/Closures_in_JavaScript.md)
 - [ES6](./docs/programming/JavaScript/ES6.md)
+- [模块化相关规范](./docs/programming/JavaScript/Module_Definition_Specifications.md)
+- [跨域](./docs/programming/JavaScript/Cross-domain.md)
 
 ## 3.1 NodeJS
 
-- [Nodejs入门](./docs/programming/JavaScript/nodejs/Getting_started_with_nodejs.md)
-- [NodeJS包资源管理器NPM](./docs/programming/JavaScript/nodejs/Node_Package_Manager-NPM.md)
-- [前端资源加载、打包工具——Webpack](./docs/programming/JavaScript/nodejs/Front-end_resource_loading_and_packaging_tools-Webpack.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Nodejs入门](./docs/programming/JavaScript/nodejs/Getting_started_with_nodejs.md) | [NodeJS包资源管理器NPM](./docs/programming/JavaScript/nodejs/Node_Package_Manager-NPM.md) |
+| [前端资源加载、打包工具——Webpack](./docs/programming/JavaScript/nodejs/Front-end_resource_loading_and_packaging_tools-Webpack.md) |                                                              |
 
 ## 3.2 VueJS
 
-- [VueJS入门](./docs/programming/JavaScript/VueJS/Getting_started_with_VueJS.md)
-- [VueJS常用指令](./docs/programming/JavaScript/VueJS/Common_commands-VueJS.md)
-- [Vue实例的声明周期](./docs/programming/JavaScript/VueJS/Vue_instance_life_cycle.md)
-- [VueJS中的Ajax](./docs/programming/JavaScript/VueJS/Ajax_in_VueJS.md)
+| 分项                                                         | 分项                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [VueJS入门](./docs/programming/JavaScript/VueJS/Getting_started_with_VueJS.md) | [VueJS常用指令](./docs/programming/JavaScript/VueJS/Common_commands-VueJS.md) |
+| [Vue实例的声明周期](./docs/programming/JavaScript/VueJS/Vue_instance_life_cycle.md) | [VueJS中的Ajax](./docs/programming/JavaScript/VueJS/Ajax_in_VueJS.md) |
+| [路由框架vue-router](./docs/programming/JavaScript/VueJS/vue-router.md) |                                                              |
 
 # 4 Linux
 
@@ -141,7 +155,15 @@
 
 ### 6.3.2 隔离
 
+- [隔离概述](./docs/programming/high_performance_website/high_availability/isolation/overview.md)
 
+### 6.3.3 限流
+
+### 6.3.4 降级
+
+### 6.3.5 超时和重试机制
+
+- [超时和重试机制概述](./docs/programming/high_performance_website/high_availability/timeout_and_retry_mechanism/overview.md)
 
 # 7 数据库
 

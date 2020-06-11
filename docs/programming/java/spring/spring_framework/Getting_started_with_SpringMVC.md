@@ -6,7 +6,7 @@
 ## 1.1 什么是SpringMVC
 
 
-SpringMVC是spring组织出品的一个前端表现层框架
+SpringMVC是Spring组织出品的一个前端表现层框架。
 
 
 ## 1.2 SpringMVC的作用
@@ -14,8 +14,6 @@ SpringMVC是spring组织出品的一个前端表现层框架
 
 - 接收请求中的参数
 - 将处理好的数据返回给页面
-
-
 
 ## 1.3 SpringMVC处理流程
 
@@ -26,12 +24,10 @@ SpringMVC是spring组织出品的一个前端表现层框架
 ## 1.4 SpringMVC和Struts2对比
 
 
-- springmvc的入口是一个servlet即前端控制器，而struts2入口是一个filter过虑器。
-- springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。
-  - springMvc使用方法级别的局部变量来接收参数, 由于局部变量用完就销毁, 所以线程安全, 所以springMvc中的controller使用的是单例
+- SpringMVC的入口是一个servlet即前端控制器，而struts2入口是一个filter过虑器。
+- SpringMVC是基于方法开发（一个url对应一个方法），请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。
+  - SpringMVC使用方法级别的局部变量来接收参数，由于局部变量用完就销毁，所以线程安全，所以SpringMVC中的controller使用的是单例
 - Struts采用值栈存储请求和响应的数据，通过OGNL存取数据，springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过request域传输到页面。Jsp视图解析器默认使用jstl。
-
-
 
 # 2 SpringMVC入门案例
 
@@ -296,8 +292,7 @@ public class ItemsDaoImpl implements ItemsDao{
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 	<!-- 开启注解扫描 -->
-	<context:component-scan
-		base-package="com.zh.springmvc" />
+	<context:component-scan base-package="com.zh.springmvc" />
 	<!-- 视图解析器 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="viewClass"

@@ -3,19 +3,17 @@
 # 1 Spring概述
 ## 1.1 Spring简介
 
-- Spring框架是一个容器,是一个对象的容器。
+- Spring框架是一个容器，是一个对象的容器。
 - Spring可以用来负责管理项目中的所有对象。
-  - WEB层可以负责管理action对象那个
-  - service层可以负责管理xxxService对象
-  - dao层可以负责管理SessionFactory和xxxDao对象
+  - WEB层可以负责管理action对象；
+  - service层可以负责管理xxxService对象；
+  - dao层可以负责管理SessionFactory和xxxDao对象。
 - 可以将对象的依赖注入、生命周期维护都交给Spring管理，减少自己管理的麻烦
   - Spring框架可以将负责的对象关系简化。
   - 依赖注入的目的是解偶。
 - Spring支持AOP开发，这是基于动态代理的。
 - 市场占有率：3\~4成使用hibernate5\~6成使用Struts，9成都是用Spring
 - Spring不仅可以用来WEB开发，其他程序都可以。
-
-
 
 ## 1.2 Spring的作用
 
@@ -24,16 +22,12 @@
 - 提供声明式事务，进行事务管理。
 - 集成其他框架。
 
-
-
 ## 1.3 Spring框架的核心:loC和DI
 ### 1.3.1 IoC（Inverse Of Control）反转控制
 
-- 没有Spring框架时，所有对象以及对象的依赖关系，都由我们开发人员手动维护
-- 有了Spring框架后，对象的创建以及依赖关系的维护都反转了，程序（Spring）来维护
+- 没有Spring框架时，所有对象以及对象的依赖关系，都由我们开发人员手动维护；
+- 有了Spring框架后，对象的创建以及依赖关系的维护都反转了，由Spring程序来维护；
 - 反转指的就是对象的创建以及依赖关系维护的反转。
-
-
 
 ### 1.3.2 DI（Dependency Injection）依赖注入
 
@@ -47,8 +41,6 @@
 - IOC的概念范围更大一些
 - 要想实现IOC思想，必须具有DI技术的支持。
 
-
-
 ### 1.3.4 loC容器系列的实现
 
 - BeanFactory：
@@ -58,8 +50,6 @@
 - applicationContext：
   - 是Spring的底层接口。
   - **特点**：容器创建时，就会创建出所有对象。就是创建ApplicationContext创建时
-
-
 
 # 2 Java普通项目整合Spring入门案例
 ## 2.1 新建Java Project
@@ -180,8 +170,11 @@ public class ClassTest {
 }
 ```
 输出：
+
+```
 User 被创建了!
 com.zh.springstart.testclass.User@4cf777e8
+```
 
 
 # 3 Java Maven整合Spring入门案例

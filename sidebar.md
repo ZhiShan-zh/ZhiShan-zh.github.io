@@ -17,11 +17,16 @@
       - [SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md)
       - [SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md)
     - <font style="font-size: medium;font-weight: bold;">Spring Boot</font>
+      - [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md)
+      - [Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md)
+      - [Spring Boot 怎么处理异常](./docs/programming/java/spring/spring_boot/How_SpringBoot_handles_exceptions.md)
+      - [Spring Boot开启CORS跨域支持](./docs/programming/java/spring/spring_boot/Spring_Boot_opens_CORS_cross-domain_support.md)
       - [Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md)
       - [Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md)
       - [Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md)
-      - [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md)
-      - [Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md)
+      - 整合数据库
+          - [SpringBoot整合JDBC](./docs/programming/java/spring/spring_boot/database/Using_JDBC_with_Spring_Boot.md)
+          - [SpringBoot中整合SpringDataJPA](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_JPA_with_Spring_Boot.md)
     - <font style="font-size: medium;font-weight: bold;">Spring Cloud</font>
       - [Spring Cloud介绍](./docs/programming/java/spring/spring_cloud/Introduction_to_Spring_Cloud.md)
       - [服务调用方式](./docs/programming/java/spring/spring_cloud/Service_calling_method.md)
@@ -31,10 +36,16 @@
       - [Hystrix 容错机制和数据监控](./docs/programming/java/spring/spring_cloud/Fault_tolerance_mechanism_and_data_monitoring_in_Hystrix.md)
       - [Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md)
       - [查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md)
+      - [Spring Cloud本地配置中心](./docs/programming/java/spring/spring_cloud/Native_Configuration_Center_of_Spring Cloud .md)
+      - [Spring Cloud远程配置中心](./docs/programming/java/spring/spring_cloud/Remote_Configuration_Center_of_Spring_Cloud.md)
 - <font style="font-size: x-large;font-weight: bold;">Python</font>
   - <font style="font-size: large;font-weight: bold;">Python基础</font>
     - [Python内置函数之eval()、exec()、compile()函数](./docs/programming/python/Basic_knowledge_of_Python/Functions_eval_exec_compile_in_python.md)
 - <font style="font-size: x-large;font-weight: bold;">JavaScript</font>
+  - [Javascript闭包](./docs/programming/JavaScript/Closures_in_JavaScript.md)
+  - [ES6](./docs/programming/JavaScript/ES6.md)
+  - [模块化相关规范](./docs/programming/JavaScript/Module_Definition_Specifications.md)
+  - [跨域](./docs/programming/JavaScript/Cross-domain.md)
   - <font style="font-size: large;font-weight: bold;">NodeJS</font>
     - [Nodejs入门](./docs/programming/JavaScript/nodejs/Getting_started_with_nodejs.md)
     - [NodeJS包资源管理器NPM](./docs/programming/JavaScript/nodejs/Node_Package_Manager-NPM.md)
@@ -44,8 +55,7 @@
     - [VueJS常用指令](./docs/programming/JavaScript/VueJS/Common_commands-VueJS.md)
     - [Vue实例的声明周期](./docs/programming/JavaScript/VueJS/Vue_instance_life_cycle.md)
     - [VueJS中的Ajax](./docs/programming/JavaScript/VueJS/Ajax_in_VueJS.md)
-  - [Javascript闭包](./docs/programming/JavaScript/Closures_in_JavaScript.md)
-  - [ES6](./docs/programming/JavaScript/ES6.md)
+    - [路由框架vue-router](./docs/programming/JavaScript/VueJS/vue-router.md)
 - <font style="font-size: x-large;font-weight: bold;">Linux</font>
   - <font style="font-size: large;font-weight: bold;">Shell</font>
     - [Shell入门](./docs/programming/linux/shell/Getting_startted_with_Shell.md)
@@ -97,7 +107,9 @@
         - [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md)
         - [Nginx负载均衡算法](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Load_balancing_algorithm-Nginx.md)
     - <font style="font-size: medium;font-weight: bold;">隔离</font>
-      - 
+      - [隔离概述](./docs/programming/high_performance_website/high_availability/isolation/overview.md)
+    - 超时和重试机制
+        - [超时和重试机制概述](./docs/programming/high_performance_website/high_availability/timeout_and_retry_mechanism/overview.md)
 - <font style="font-size: x-large;font-weight: bold;">数据库</font>
   - <font style="font-size: large;font-weight: bold;">关系型数据库</font>
     - <font style="font-size: medium;font-weight: bold;">MySQL</font>

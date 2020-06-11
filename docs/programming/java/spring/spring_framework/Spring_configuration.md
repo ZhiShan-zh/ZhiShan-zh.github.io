@@ -19,19 +19,19 @@ http://www.springframework.org/schema/beans/spring-beans.xsd ">
 **配置说明：**
 
 - **bean元素**: 将对象配置到spring容器中
-  - **name属性**:	给配置到容器中的对象起一个标识.获得对象时要根据该标识获得.
-  - **class属性**:   要放置到spring容器中的对象的完整类名
-  - **id属性(一般不用，不用记)**: 功能同name属性一模一样.名字规则必须符合id的规范。
+  - **name属性**:	给配置到容器中的对象起一个标识，获得对象时要根据该标识获得；
+  - **class属性**:   要放置到Spring容器中的对象的完整类名；
+  - **id属性(一般不用，不用记)**：功能同name属性一样，名字规则必须符合id的规范。
     - id必须唯一
     - id中不能包含特殊字符
-- **scope属性**: 决定bean在容器中的域范围.整合struts2的action时会使用。Action需要指定为多例的。
-  - **singleton(默认值)**：单例的.该对象会在容器启动时创建。并且只会创建一个对象.容器关闭时销毁。
+- **scope属性**：决定bean在容器中的域范围，整合struts2的Action时会使用，Action需要指定为多例的。
+  - **singleton(默认值)**：单例的，该对象会在容器启动时创建。并且只会创建一个对象，容器关闭时销毁。
   - **prototype**：原型多例。每次获得时创建多例对象。每次获得都是全新的对象，每次获得时创建，Spring不负责对prototype对象的销毁。
-  - **request(了解)：**在web环境中.对象与当前请求生命周期相同。
-  - **session(了解)：**在web环境中.对象与当前会话生命周期相同。
-- 指定对象生命周期方法的属性(了解)
-  - init-method:	指定对象的初始化方法
-  - destroy-method: 指定对象的销毁方法
+  - **request(了解)：**在web环境中，对象与当前请求生命周期相同。
+  - **session(了解)：**在web环境中，对象与当前会话生命周期相同。
+- 指定对象生命周期方法的属性
+  - init-method：指定对象的初始化方法；
+  - destroy-method：指定对象的销毁方法。
 
 
 
@@ -123,7 +123,7 @@ public class User2 {
 http://www.springframework.org/schema/beans/spring-beans.xsd ">
 	<!-- 引入其他配置文件 -->
 	<import resource="springcontext_bean.xml"/>
-  <import resource="com/zh/springmaventest/entity/springcontext_bean2.xml"/>
+  	<import resource="com/zh/springmaventest/entity/springcontext_bean2.xml"/>
 </beans>
 ```
 
@@ -188,13 +188,20 @@ public class SpringWay {
 }
 ```
 输出：
+
+```
 User 被创建了!
 User2 被创建了!
 com.zh.springmaventest.entity.User@1e127982
 com.zh.springmaventest.entity.User2@60c6f5b
-
+```
 
 # 3 Spring中对象的创建方式
+
+- 构造方法创建（默认和推荐的方式）
+- 静态工厂创建
+- 动态工厂创建
+
 ## 3.1 构造方法创建（默认和推荐的方式）
 
 
@@ -276,14 +283,20 @@ http://www.springframework.org/schema/beans/spring-beans.xsd ">
 </beans>
 ```
 
-
 # 4 Spring属性注入
+
+- 构造方法注入（推荐）
+- set方法注入
+    - property元素注入（推荐）
+    - p命名空间注入
+    - SPEL（Spring Expression ）Spring表达式注入
+- 复杂类型注入
+- IoC⾃动装载
+
 ## 4.1 构造方法注入（推荐）
 
 1. 在实体类中创建相应的有参构造函数
 1. 配置文件中配置注入的属性
-
-
 
 ### 4.1.1 实体类
 User类：
@@ -679,8 +692,6 @@ IoC 负责创建对象，DI 负责完成对象的依赖注⼊，通过配置 pro
 - **byName**：通过属性名⾃动装载
 - **byType**：通过属性的数据类型⾃动装载
 
-
-
 ### 4.4.1 实体类
 
 
@@ -821,7 +832,10 @@ http://www.springframework.org/schema/beans/spring-beans.xsd ">
 
 # 5 Spring的继承和依赖
 ## 5.1 Spring的继承
-与 Java 的继承不同，Java 是类层⾯的继承，⼦类可以继承⽗类的内部结构信息；Spring 是对象层⾯的继承，⼦对象可以继承⽗对象的属性值。
+- Java 是类层⾯的继承，⼦类可以继承⽗类的内部结构信息；
+
+- Spring 是对象层⾯的继承，⼦对象可以继承⽗对象的属性值。
+
 Spring 的继承关注点在于具体的对象，⽽不在于类，即不同的两个类的实例化对象可以完成继承，前提是⼦对象必须包含⽗对象的所有属性，同时可以在此基础上添加其他的属性。
 
 ```xml
@@ -852,7 +866,7 @@ Spring 的继承关注点在于具体的对象，⽽不在于类，即不同的�
 
 
 ## 5.2 Spring的依赖
-与继承类似，依赖也是描述 bean 和 bean 之间的⼀种关系，配置依赖之后，被依赖的 bean ⼀定先创建，再创建依赖的 bean，A 依赖于 B，先创建 B，再创建 A。
+与继承类似，依赖也是描述 bean 和 bean 之间的⼀种关系，配置依赖之后，被依赖的 bean ⼀定先创建，再创建依赖的 bean，比如A 依赖于 B，先创建 B，再创建 A。
 
 
 ```xml
@@ -883,12 +897,10 @@ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 ## 6.2 注解使用步骤
 
 1. 除了Spring 4+2基础包外，还需要导入spring-aop包。
-  1. `spring-framework-4.2.4.RELEASE\libs\spring-aop-4.2.4.RELEASE.jar`
+      1. `spring-framework-4.2.4.RELEASE\libs\spring-aop-4.2.4.RELEASE.jar`
 2. 在Spring主配置文件中引入context约束
-  1. 约束文件位置：`spring-framework-4.2.4.RELEASE\schema\context\spring-context-4.2.xsd`
+      1. 约束文件位置：`spring-framework-4.2.4.RELEASE\schema\context\spring-context-4.2.xsd`
 3. 使用context约束中的元素打开注解配置开关。
-
-
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -910,17 +922,14 @@ http://www.springframework.org/schema/context/spring-context.xsd ">
   - 比如要配置com.zh.dao和com.zh.service这两个包下的注解配置时，可以直接使用com.zh
 4. 在类中书写注解配置。
 
-
-
 ## 6.3 注册对象
 
 
 ```java
 //@Component("userDao")，是最早出现的，已经不推荐使用，后来为了区分不同模块的注解出现了下边三个功能相同的注解。
-//@Controller("userDao")//web层
-//@Service("userDao")//Service层
-@Repository("userDao")//Dao层
-//相当于XML中的： <bean name="userDao" class="com.zh.dao.UserDaoImpl" />
+//@Controller("userController")//web层
+//@Service("userService")//Service层
+@Repository("userDao")//Dao层注解，相当于XML中的： <bean name="userDao" class="com.zh.dao.UserDaoImpl" />
 public class UserDaoImpl implements UserDao {
 	//省略N行代码
 }
@@ -997,7 +1006,7 @@ import com.zh.springstart.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
-	@Autowired //自动装配,根据类型.	
+	@Autowired //自动装配，根据类型。
 	private UserDao ud;
 }
 ```
@@ -1069,7 +1078,7 @@ public class UserServiceImpl implements UserService {
 	public void init(){
 		System.out.println("UserServiceImpl 被创建了!");
 	}
-	@ //容器销毁之前调用的释放资源方法
+	@PreDestroy //容器销毁之前调用的释放资源方法
 	public void destory(){
 		System.out.println("UserServiceImpl 被销毁了!");
 	}

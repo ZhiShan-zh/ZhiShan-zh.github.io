@@ -46,38 +46,31 @@ AOP 是对⾯向对象编程的⼀个补充，在运⾏时，动态地将代码�
 - 使系统更容易扩展。
 - 更好的代码复⽤。
 - ⾮业务代码更加集中，不分散，便于统⼀管理。
-- 业务代码更加简洁存粹，不参杂其他代码的影响。
+- 业务代码更加简洁纯粹，不参杂其他代码的影响。
 
-
-
-## 1.4 Spring AOP
+# 2 Spring AOP
 
 
 - Spring帮我们把AOP进行了封装。
 - Spring封装了动态代理技术
-  - 只需要按规则进行配置，Spring就可以帮我们“书写”动态代理代码
+  - 只需要按规则进行配置，Spring就可以帮我们“书写”动态代理代码。
 
-
-
-## 1.5 Spring实现AOP的代理方式
+## 2.1 Spring实现AOP的代理方式
 
 
 - **JDK动态代理**
   - 特点：被代理对象必须实现接口，否则不能进行代理
 - **第三方CGLib代理**
-  - 特点：不需要接口也可以进行代理，CGLib属于继承代理，该类是被代理类的子类。
+  - 特点：不需要接口也可以进行代理，CGLib属于继承代理，代理类是被代理类的子类。
 - **总结**：支持两种代理就可以对所有类生成代理对象。
 
-
-
-### 1.5.1 AOP思想中的名词解释
+## 2.2 AOP思想中的名词解释
 
 
 **目标对象（target）**：被代理对象。
 
 
 **连接点（JoinPoint）**：代理对象中可以被代理的方法。
-
 
 **切入点（PointCut）**：真正需要代理的方法或已经被代理的方法。
 
@@ -87,26 +80,20 @@ AOP 是对⾯向对象编程的⼀个补充，在运⾏时，动态地将代码�
 
 **代理对象（proxy）**：对目标对象执行代理后生成的对象。
 
-
-**切面（aspect）**：通知+切点。
-
+**切面（aspect）**：通知+切入点。
 
 **织入（weaving）**：动词，将通知织入目标对象生成代理对象的过程。
 
 
 因此：动态代理就是将通知织入目标对象的切点生成代理对象。
 
+## 2.3  使用原生Java实现两种代理方式
 
-### 1.5.2 使用原生Java实现两种代理方式
-
-
-#### 1.5.2.1 JDK动态代理
-
+### 2.3.1  JDK动态代理
 
 特点：被代理对象必须实现接口，否则不能进行代理
 
-
-##### 1.5.2.1.1 目标对象接口
+#### 2.3.1.1 目标对象接口
 
 
 ```java
@@ -157,8 +144,22 @@ public class UserDaoImpl implements UserDao{
 }
 ```
 
-
 ##### 1.5.2.1.3 执行代理类
+
+执行代理需要实现接口：`java.lang.reflect.InvocationHandler`，其接口声明为：
+
+```java
+package java.lang.reflect;
+public interface InvocationHandler {
+    /*
+    Processes a method invocation on a proxy instance and returns the result.  This method will be invoked on an invocation handler when a method is invoked on a proxy instance that it is associated with.
+    */
+    public Object invoke(Object proxy, Method method, Object[] args)
+        throws Throwable;
+}
+```
+
+
 
 
 ```java
@@ -224,35 +225,26 @@ public class JdkProxyTest {
 }
 ```
 
-
 输出：
 
-
-> 开启事务!
-
-UserDaoImpl.save()
-
-关闭事务!
-
+```
 开启事务!
-
-UserDaoImpl.delete()
-
+UserDaoImpl.save()
 关闭事务!
-
+开启事务!
+UserDaoImpl.delete()
+关闭事务!
 true
-
 false
+```
 
-
-
-#### 1.5.2.2 CGLib代理
+#### 2.3.1.2 CGLib代理
 
 
 动态生成一个要代理类的子类，子类重写要代理的类的所有不是final的方法。
 
 
-特点：不需要接口也可以进行代理，CGLib属于继承代理，该类是被代理的对象的子类。
+特点：不需要接口也可以进行代理，CGLib属于继承代理，代理类是被代理类的子类。
 
 
 CGLib代理=> 依赖包在spring-core中已经整合了
@@ -261,13 +253,27 @@ CGLib代理=> 依赖包在spring-core中已经整合了
 CGLIB的缺点：对于final方法无法进行代理。
 
 
-##### 1.5.2.2.1 代理对象
+##### 2.3.1.2.1 代理对象
 
 
 和JDK动态代理相同
 
+##### 2.3.1.2.2 执行代理类
 
-##### 1.5.2.2.2 执行代理类
+执行代理类需要实现接口`org.springframework.cglib.proxy.MethodInterceptor`，其声明为：
+
+```java
+package org.springframework.cglib.proxy;
+
+import java.lang.reflect.Method;
+
+public abstract interface MethodInterceptor extends Callback {
+	public abstract Object intercept(Object paramObject, Method paramMethod, Object[] paramArrayOfObject,
+			MethodProxy paramMethodProxy) throws Throwable;
+}
+```
+
+
 
 
 ```java
@@ -310,7 +316,7 @@ public class UserDaoProxyFactory2 implements MethodInterceptor {
 ```
 
 
-##### 1.5.2.2.3 测试CGLIB
+##### 2.3.1.2.3 测试CGLIB
 
 
 ```java
@@ -334,10 +340,10 @@ public class CglibTest {
 ```
 
 
-### 1.5.3 Spring中使用AOP的步骤
+### 2.3.2 Spring中使用AOP的步骤
 
 
-#### 1.5.3.1 需要的jar包
+#### 2.3.2.1 需要的jar包
 
 
 - Spring基础包4+2
@@ -356,7 +362,7 @@ public class CglibTest {
 
 
 
-#### 1.5.3.2 dao
+#### 2.3.2.2 dao
 
 
 ```java
@@ -403,7 +409,7 @@ public class UserDaoImpl implements UserDao{
 ```
 
 
-#### 1.5.3.3 service
+#### 2.3.2.3 service
 
 
 ```java
@@ -456,17 +462,17 @@ public class UserServiceImpl implements UserService {
 ```
 
 
-#### 1.5.3.4 通知类
+#### 2.3.2.4 通知类
 
 
 spring一共支持5中通知类型：
 
 
-- 前置通知	在目标方法执行之前调用。
-- 环绕通知	在目标方法执行之前和之后调用。
-- 后置通知	在目标方法执行之后调用.如果目标方法抛出异常,通知不会执行。
-- 后置通知	在目标方法执行之后调用.如果目标方法抛出异常,通知仍然执行。
-- 异常拦截通知  在目标方法执行出现异常时执行的代码。
+- 前置通知：在目标方法执行之前调用。
+- 环绕通知：在目标方法执行之前和之后调用。
+- 后置通知：在目标方法执行之后调用，如果目标方法抛出异常，通知不会执行。
+- 后置通知：在目标方法执行之后调用，如果目标方法抛出异常，通知仍然执行。
+- 异常拦截通知：在目标方法执行出现异常时执行的代码。
 
 
 
@@ -514,7 +520,7 @@ public class MyAdvice {
 ```
 
 
-#### 1.5.3.5 Spring配置文件
+#### 2.3.2.5 Spring配置文件
 
 
 ```xml
@@ -562,7 +568,7 @@ public class MyAdvice {
 ```
 
 
-#### 1.5.3.6 测试
+#### 2.3.2.6 测试
 
 
 ```java
@@ -605,62 +611,44 @@ public class SpringAOPTest{
 }
 ```
 
-
 **执行`fun1()`输出**：
 
-
-> log4j:WARN No appenders could be found for logger (org.springframework.test.context.junit4.SpringJUnit4ClassRunner).
-
+```
+log4j:WARN No appenders could be found for logger (org.springframework.test.context.junit4.SpringJUnit4ClassRunner).
 log4j:WARN Please initialize the log4j system properly.
-
 我是前置通知!
-
 java.lang.ArithmeticException: / by zero
-
 我是环绕通知,前置部分!
-
 UserDaoImpl.save()
-
 at com.zh.springaop.service.impl.UserServiceImpl.save(UserServiceImpl.java:13)
-
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-
 (此处省略N行输出)at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
-
 at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
-
 我是环绕通知,出现异常后执行
-
 我是后置通知!,出现异常仍然执行!
-
 我是异常拦截通知!,出大事了!!
-
-	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
-
+at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
 at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
-
 at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+```
+
+### 2.3.3 注解代替XML的AOP
 
 
-
-#### 1.5.4 注解代替XML的AOP
-
-
-#### 1.5.4.1 依赖包
+#### 2.3.3.1 依赖包
 
 
 和XML配置AOP的依赖包一致
 
 
-#### 1.5.4.2 目标类
+#### 2.3.3.2 目标类
 
 
 就是XML配置AOP中的dao和service曾代码。
 
 
-#### 1.5.4.3 通知类
+#### 2.3.3.3 通知类
 
 
 ```java
@@ -735,7 +723,7 @@ public class MyAdvice2 {
 ```
 
 
-#### 1.5.4.4 Spring配置文件
+#### 2.3.3.4 Spring配置文件
 
 
 位置：`/springaop/src/applicationcontext2.xml`
@@ -757,7 +745,7 @@ public class MyAdvice2 {
 ```
 
 
-#### 1.5.4.5 测试
+#### 2.3.3.5 测试
 
 
 ```java

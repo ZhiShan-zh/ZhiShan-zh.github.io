@@ -8,17 +8,15 @@
 
 1. 用户发送请求至前端控制器DispatcherServlet
 2. DispatcherServlet收到请求调用HandlerMapping处理器映射器。
-3. 处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。
+3. 处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器拦截器（如果有则生成）一并返回给DispatcherServlet。
 4. DispatcherServlet通过HandlerAdapter处理器适配器调用处理器
-5. 执行处理器(Controller，也叫后端控制器)。
+5. 执行处理器（Controller，也叫后端控制器）。
 6. Controller执行完成返回ModelAndView
 7. HandlerAdapter将controller执行结果ModelAndView返回给DispatcherServlet
 8. DispatcherServlet将ModelAndView传给ViewReslover视图解析器
 9. ViewReslover解析后返回具体View
 10. DispatcherServlet对View进行渲染视图（即将模型数据填充至视图中）。
 11. DispatcherServlet响应用户
-
-
 
 # 2 组件说明
 
@@ -41,12 +39,10 @@
   - springmvc框架提供了很多的View视图类型的支持，包括：jstlView、freemarkerView、pdfView等。我们最常用的视图就是jsp。
   - 一般情况下需要通过页面标签或页面模版技术将模型数据通过页面展示给用户，需要由程序员根据业务需求开发具体的页面。
 
+说明：在SpringMVC的各个组件中，处理器映射器、处理器适配器、视图解析器称为**SpringMVC的三大组件**。
 
 
-说明：在springmvc的各个组件中，处理器映射器、处理器适配器、视图解析器称为**springmvc的三大组件**。
-
-
-需要用户实现的组件有handler、view
+需要用户实现的组件有处理器Handler和视图View
 
 
 # 3 默认加载组件
@@ -100,8 +96,7 @@ org.springframework.web.servlet.FlashMapManager=org.springframework.web.servlet.
 
 # 5 注解映射器和适配器
 
-
-## 4.1 注解式处理器映射器RequestMappingHandlerMapping
+## 5.1 注解式处理器映射器RequestMappingHandlerMapping
 
 
 注解式处理器映射器，对类中标记`@ResquestMapping`的方法进行映射，根据ResquestMapping定义的url匹配ResquestMapping标记的方法，匹配成功返回HandlerMethod对象给前端控制器，HandlerMethod对象中封装url对应的方法Method。
@@ -124,9 +119,7 @@ org.springframework.web.servlet.FlashMapManager=org.springframework.web.servlet.
 
 - `@RequestMapping`：定义请求url到处理器功能方法的映射
 
-
-
-## 4.2 注解式处理器适配器RequestMappingHandlerAdapter
+## 5.2 注解式处理器适配器RequestMappingHandlerAdapter
 
 
 注解式处理器适配器，对标记`@ResquestMapping`的方法进行适配。
@@ -143,22 +136,18 @@ org.springframework.web.servlet.FlashMapManager=org.springframework.web.servlet.
 <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
 ```
 
-
-## 4.3 `<mvc:annotation-driven>`
+## 5.3 `<mvc:annotation-driven>`
 
 
 注意：springmvc使用`<mvc:annotation-driven>`自动加载RequestMappingHandlerMapping和RequestMappingHandlerAdapter，可用在springmvc.xml配置文件中使用`<mvc:annotation-driven>`替代注解处理器和适配器的配置。
 
+## 5.4 springmvc中注解扫描和注解驱动要不要配置, 有什么区别?
 
-## 4.4 springmvc中注解扫描和注解驱动要不要配置, 有什么区别?
-
-- 注解驱动和注解扫描没有任何关系,不要混淆我们的概念；
+- 注解驱动和注解扫描没有任何关系，不要混淆我们的概念；
 - **注解扫描**是替我们开启 `@Controller` , `@Service` 等这样的注解；
 - **注解驱动**：是替我们自动的配置最新版的处理器映射器和处理器适配器，这样就不用让springmvc自动去找 `dispatcher.properties` 配置文件了, 就会加快我们系统的速度。
 
-
-
-# 5 视图解析器
+# 6 视图解析器
 
 
 配置文件：`springmvc.xml`

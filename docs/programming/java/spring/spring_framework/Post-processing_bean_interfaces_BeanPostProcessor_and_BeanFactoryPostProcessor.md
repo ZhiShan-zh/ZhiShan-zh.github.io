@@ -84,7 +84,7 @@ BeanFactoryPostProcessor可以与bean definitions打交道，但是千万不要�
 
 - **使用注解进行依赖注入失败**；
 
-  - 在Spring Boot启动的时候调用`org.springframework.context.support.AbstractApplicationContext`的refresh()，此方法中`postProcessBeanFactory(beanFactory);`在`registerBeanPostProcessors(beanFactory);`之前调用。
+  - 在Spring Boot启动的时候调用`org.springframework.context.support.AbstractApplicationContext`的`refresh()`，此方法中`postProcessBeanFactory(beanFactory);`在`registerBeanPostProcessors(beanFactory);`之前调用。
   - `@AutoWired`起作用依赖AutowiredAnnotationBeanPostProcessor，`@Resource`依赖CommonAnnotationBeanPostProcessor，这俩都是BeanPostProcessor的实现。
   - 如果bean被提前实例化，则AutowiredAnnotationBeanPostProcessor和CommonAnnotationBeanPostProcessor还没注册，也就无法执行了。
 
