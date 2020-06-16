@@ -20,40 +20,31 @@
 
 ### 1.4.1 Spring Framework
 
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md) | [后处理bean的接口BeanPostProcessor和BeanFactoryPostProcessor](./docs/programming/java/spring/spring_framework/Post-processing_bean_interfaces_BeanPostProcessor_and_BeanFactoryPostProcessor.md) |
-| [Spring入门](./docs/programming/java/spring/spring_framework/Getting_started_with_Spring.md) | [Spring配置](./docs/programming/java/spring/spring_framework/Spring_configuration.md) |
-| [Spring中整合Junit4测试](./docs/programming/java/spring/spring_framework/Test_with_Junit4_in_Spring.md) | [Spring AOP面向切面编程](./docs/programming/java/spring/spring_framework/Spring_AOP-Aspect_Oriented_Programming.md) |
-| [SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md) |                                                              |
+|          类别 | 笔记列表                                                     |
+| ------------: | ------------------------------------------------------------ |
+|    Spring基础 | [Spring入门](./docs/programming/java/spring/spring_framework/Getting_started_with_Spring.md)<br/>[Spring配置](./docs/programming/java/spring/spring_framework/Spring_configuration.md)<br/>[Spring AOP面向切面编程](./docs/programming/java/spring/spring_framework/Spring_AOP-Aspect_Oriented_Programming.md)<br/>[Spring中整合Junit4测试](./docs/programming/java/spring/spring_framework/Test_with_Junit4_in_Spring.md) |
+|    Spring高级 | [后处理bean的接口BeanPostProcessor和BeanFactoryPostProcessor](./docs/programming/java/spring/spring_framework/Post-processing_bean_interfaces_BeanPostProcessor_and_BeanFactoryPostProcessor.md) |
+| SpringMVC基础 | [SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md)<br/>[SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md) |
 
 ### 1.4.2 Spring Boot
 
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md) | [Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md) |
-| [Spring Boot 怎么处理异常](./docs/programming/java/spring/spring_boot/How_SpringBoot_handles_exceptions.md) | [Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md) |
-| [Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md) | [Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md) |
-| [Spring Boot开启CORS跨域支持](./docs/programming/java/spring/spring_boot/Spring_Boot_opens_CORS_cross-domain_support.md) |                                                              |
-
-#### 1.4.2.1 整合数据库
-
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [SpringBoot整合JDBC](./docs/programming/java/spring/spring_boot/database/Using_JDBC_with_Spring_Boot.md) | [SpringBoot中整合SpringDataJPA](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_JPA_with_Spring_Boot.md) |
-|                                                              |                                                              |
-
-
+|            类别 | 笔记列表                                                     |
+| --------------: | ------------------------------------------------------------ |
+| Spring Boot基础 | [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md)<br/>[Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md)<br/>[Spring Boot 怎么处理异常](./docs/programming/java/spring/spring_boot/How_SpringBoot_handles_exceptions.md)<br/>[Spring Boot开启CORS跨域支持](./docs/programming/java/spring/spring_boot/Spring_Boot_opens_CORS_cross-domain_support.md) |
+|      整合数据库 | [SpringBoot整合JDBC](./docs/programming/java/spring/spring_boot/database/Using_JDBC_with_Spring_Boot.md)<br/>[SpringBoot中整合SpringDataJPA](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_JPA_with_Spring_Boot.md)<br/>[SpringBoot中整合SpringDataRedis](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_Redis_with_Spring_Boot.md)<br/>[使用SpringCache抽象工具](./docs/programming/java/spring/spring_boot/database/Spring_cache.md) |
+| Spring Boot高级 | [Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md)<br/>[Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md)<br/>[Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md) |
 
 ### 1.4.3 Spring Cloud
 
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Spring Cloud介绍](./docs/programming/java/spring/spring_cloud/Introduction_to_Spring_Cloud.md) | [服务调用方式](./docs/programming/java/spring/spring_cloud/Service_calling_method.md) |
-| [客户端负载均衡——Ribbon](./docs/programming/java/spring/spring_cloud/Load_balancing-Ribbon.md) | [Ribbon中的负载均衡规则接口IRule](./docs/programming/java/spring/spring_cloud/Load_balancing_rules_interface-IRule_in_Ribbon.md) |
-| [Feign中的负载均衡和服务熔断](./docs/programming/java/spring/spring_cloud/Load_balancing_and_service_fuse_in_Feign.md) | [Hystrix 容错机制和数据监控](./docs/programming/java/spring/spring_cloud/Fault_tolerance_mechanism_and_data_monitoring_in_Hystrix.md) |
-| [Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md) | [查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md) |
-| [Spring Cloud本地配置中心](./docs/programming/java/spring/spring_cloud/Native_Configuration_Center_of_Spring Cloud .md) | [Spring Cloud远程配置中心](./docs/programming/java/spring/spring_cloud/Remote_Configuration_Center_of_Spring_Cloud.md) |
+|             类别 | 笔记列表                                                     |
+| ---------------: | ------------------------------------------------------------ |
+| Spring Cloud基础 | [Spring Cloud介绍](./docs/programming/java/spring/spring_cloud/Introduction_to_Spring_Cloud.md)<br/>[服务调用方式](./docs/programming/java/spring/spring_cloud/Service_calling_method.md) |
+|   服务注册和发现 |                                                              |
+|   软负载均衡调用 | [客户端负载均衡——Ribbon](./docs/programming/java/spring/spring_cloud/Load_balancing-Ribbon.md)<br/>[Ribbon中的负载均衡规则接口IRule](./docs/programming/java/spring/spring_cloud/Load_balancing_rules_interface-IRule_in_Ribbon.md)<br/>[Feign中的负载均衡和服务熔断](./docs/programming/java/spring/spring_cloud/Load_balancing_and_service_fuse_in_Feign.md) |
+|         熔断机制 | [Hystrix 容错机制和数据监控](./docs/programming/java/spring/spring_cloud/Fault_tolerance_mechanism_and_data_monitoring_in_Hystrix.md) |
+|         配置中心 | [配置中心](./docs/programming/java/spring/spring_cloud/Configuration_Center.md)<br/>[Spring Cloud Config](./docs/programming/java/spring/spring_cloud/Spring_Cloud_Config.md) |
+|          API网关 | [Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md)<br/>[查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md) |
+|     服务优化工具 | [Zipkin分布式跟踪系统](./docs/programming/java/spring/spring_cloud/Zipkin-a_distributed_tracing_system.md) |
 
 # 2 Python
 

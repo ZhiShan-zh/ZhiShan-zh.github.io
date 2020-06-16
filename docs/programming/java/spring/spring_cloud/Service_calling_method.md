@@ -28,6 +28,7 @@ RestTemplate默认依赖JDK提供http连接的能力（HttpURLConnection），�
 此项目基于《[Spring Cloud Eureka服务治理、服务发现](https://www.yuque.com/zhishan/bttt5g/wox6l8)》父工程的子项目。
 ![image.png](https://zhishan-zh.github.io/media/1583636535345-482256ea-d24b-45f5-bd2b-3e620941fdd6.png)
 初始pom文件内容：
+
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -83,7 +84,7 @@ public class Student {
 ```
 
 
-## 2.4 Handler:访问服务提供者的接口
+## 2.4 Handler：访问服务提供者的接口
 ```java
 package com.zh.resttemplate.controller;
 

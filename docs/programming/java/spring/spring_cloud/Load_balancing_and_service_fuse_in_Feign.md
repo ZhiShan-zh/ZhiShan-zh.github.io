@@ -2,6 +2,8 @@
 
 # 1 Feign简介
 ## 1.1 什么是 Feign
+Feign是简化Java HTTP客户端开发的工具（java-to-httpclient-binder），它的灵感来自于Retrofit、JAXRS-2.0和WebSocket。Feign的初衷是降低统一绑定Denominator到HTTP API的复杂度，不区分是否为restful。
+
 与 Ribbon 一样，Feign 也是由 Netflix 提供的，Feign 是一个声明式、模版化的 Web Service 客户端，它简化了开发者编写 Web 服务客户端的操作，开发者可以通过简单的接口和注解来调用 HTTP API，Spring Cloud Feign，它整合了 Ribbon 和 Hystrix，具有可插拔、基于注解、负载均衡、服务熔断等一系列便捷功能。
 
 相比较于 Ribbon + RestTemplate 的方式，Feign 大大简化了代码的开发，Feign 支持多种注解，包括 Feign 注解、JAX-RS 注解、Spring MVC 注解等，Spring Cloud 对 Feign 进行了优化，整合了 Ribbon 和 Eureka，从而让 Feign 的使用更加方便。
@@ -124,12 +126,18 @@ public interface FeignProviderClient {
 
     @GetMapping("/student/index")
     public String index();
+    
+    @RequestMapping(value="/student/{id}", method = RequestMethod.GET)
+	public Student findById(@PathVariable("id") long id);
 }
 ```
 注解说明：
 
-- `@FeignClient(value = "provider")`：定义服务提供者名字为`provider`的`feign`客户端
+- `@FeignClient(value = "provider")`：
+    - 定义服务提供者名字为`provider`的`feign`客户端
+    - 如果微服务名provider有多个，如果访问此类中的接口，便会启用负载均衡，默认为轮询的策略。
 - `@XxxMapping("/student/findAll")`：其中`/student/findAll`为服务提供者服务接口的映射地址。
+- `@PathVariable("id")`：注解一定要指定参数名称，否则出错。
 ## 2.7 创建Handler
 使用注解`@Autowired`使用上面所定义`feign`的客户端
 ```java
@@ -192,7 +200,7 @@ feign:
 
 - `feign.hystrix.enabled` ：是否开启熔断器。
 
- 添加熔断机制之后application.yml的全部配置信息：
+ 添加熔断机制之后`application.yml`的全部配置信息：
 ```yaml
 server:
   port: 8050
@@ -233,12 +241,11 @@ public class FeignError implements FeignProviderClient{
 	public String index() {
 		return "服务器维护中......";
 	}
-
 }
 ```
 
 #### 2.9.2.3 设置FeignProviderClient降级处理方法
-在 FeignProviderClient 定义处通过 `@FeignClient`  的 fallback 属性设置映射,设置降级处理方法。
+在 FeignProviderClient 定义处通过 `@FeignClient`  的 fallback 属性设置映射，设置降级处理方法。
 ```java
 package com.zh.feign.feign;
 

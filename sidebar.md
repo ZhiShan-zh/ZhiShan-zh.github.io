@@ -27,6 +27,8 @@
       - 整合数据库
           - [SpringBoot整合JDBC](./docs/programming/java/spring/spring_boot/database/Using_JDBC_with_Spring_Boot.md)
           - [SpringBoot中整合SpringDataJPA](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_JPA_with_Spring_Boot.md)
+          - [SpringBoot中整合SpringDataRedis](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_Redis_with_Spring_Boot.md)
+          - [使用SpringCache抽象工具](./docs/programming/java/spring/spring_boot/database/Spring_cache.md)
     - <font style="font-size: medium;font-weight: bold;">Spring Cloud</font>
       - [Spring Cloud介绍](./docs/programming/java/spring/spring_cloud/Introduction_to_Spring_Cloud.md)
       - [服务调用方式](./docs/programming/java/spring/spring_cloud/Service_calling_method.md)
@@ -36,8 +38,9 @@
       - [Hystrix 容错机制和数据监控](./docs/programming/java/spring/spring_cloud/Fault_tolerance_mechanism_and_data_monitoring_in_Hystrix.md)
       - [Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md)
       - [查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md)
-      - [Spring Cloud本地配置中心](./docs/programming/java/spring/spring_cloud/Native_Configuration_Center_of_Spring Cloud .md)
-      - [Spring Cloud远程配置中心](./docs/programming/java/spring/spring_cloud/Remote_Configuration_Center_of_Spring_Cloud.md)
+      - [配置中心](./docs/programming/java/spring/spring_cloud/Configuration_Center.md)
+      - [Spring Cloud Config](./docs/programming/java/spring/spring_cloud/Spring_Cloud_Config.md)
+      - [Zipkin分布式跟踪系统](./docs/programming/java/spring/spring_cloud/Zipkin-a_distributed_tracing_system.md)
 - <font style="font-size: x-large;font-weight: bold;">Python</font>
   - <font style="font-size: large;font-weight: bold;">Python基础</font>
     - [Python内置函数之eval()、exec()、compile()函数](./docs/programming/python/Basic_knowledge_of_Python/Functions_eval_exec_compile_in_python.md)
