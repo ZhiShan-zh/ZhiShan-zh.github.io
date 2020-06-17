@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>互联网开发工程师知识笔记总结</title>
+  <title>开发笔记</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="keywords" content="doc,docs,doocs,documentation,github,gitee,advanced-program,ZhiShan_zh">
   <meta name="description" content="互联网开发工程师知识笔记总结，维护者：张海">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
   <link rel="stylesheet" href="//unpkg.com/docsify-dark-mode@0.6.1/dist/style.css" />
+  <!-- markdown脑图支持之css文件 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
   <!--
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
@@ -26,10 +28,14 @@
         </ul>
       </li>
     </ul>
-    -->
-  </nav>
-  <div id="app">本系列知识由开发爱好者张海发布</div>
+  </nav>-->
+  <div id="app">本系列知识笔记由开发爱好者张海发布</div>
   <script>
+  	// markdown脑图 begin
+  	var num = 0;
+	mermaid.initialize({ startOnLoad: false });
+	// markdown脑图 end
+
     window.$docsify = {
       name: '程序开发',
       repo: 'ZhiShan-zh/ZhiShan-zh.github.io',
@@ -51,11 +57,11 @@
       search: {
         maxAge: 1800000,
         paths: [
-          '/docs/music/',
-          '/docs/photography/',
-          '/docs/programming/',
+          'docs/music/',
+          'docs/photography/',
+          'docs/programming/',
         ],
-        depth: 3
+        depth: 10
       },
       darkMode: {
         light: {
@@ -88,7 +94,21 @@
             return html + footer
           })
         }
-      ]
+      ]，
+      // markdown脑图 begin
+      markdown: {
+	    renderer: {
+	      code: function(code, lang) {
+	        if (lang === "mermaid") {
+	          return (
+	            '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+	          );
+	        }
+	        return this.origin.code.apply(this, arguments);
+	      }
+	    }
+	  }
+	  // markdown脑图 end
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
@@ -104,5 +124,7 @@
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
   <script src="//unpkg.com/docsify-dark-mode@0.6.1/dist/index.js"></script>
   <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- markdown脑图支持之js文件 -->
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 </body>
 </html>
