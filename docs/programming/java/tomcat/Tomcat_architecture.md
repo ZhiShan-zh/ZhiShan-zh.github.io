@@ -57,7 +57,6 @@ HTTP协议是浏览器与服务器之间的数据传送协议。作为应用层�
 
 ![image-20200416141341006.png](https://zhishan-zh.github.io/media/1587091985106-dca1d03f-7896-424b-85d0-a4d722cacceb.png)
 
-
 ## 2.3 Tomcat整体架构
 
 
@@ -74,9 +73,7 @@ HTTP协议是浏览器与服务器之间的数据传送协议。作为应用层�
 
 ![image-20200416141929506.png](https://zhishan-zh.github.io/media/1587092003169-947484a8-7d3d-45ec-8d7d-3b30de315745.png)
 
-
 # 3 连接器 - Coyote
-
 
 ## 3.1 架构介绍
 
@@ -90,7 +87,7 @@ Coyote 封装了底层的网络通信（Socket 请求及响应处理），为Cat
 Coyote 作为独立的模块，只负责具体协议和IO的相关操作， 与Servlet 规范实现没有直接关系，因此即便是 Request 和 Response 对象也并未实现Servlet规范对应的接口， 而是在Catalina 中将他们进一步封装为ServletRequest 和 ServletResponse 。
 
 
-![image-20200416143052457.png](Coyotemedia/1587092021278-83140f4c-1d19-4c71-b50c-2af92fe48bab.png)
+![image-20200416143052457.png](https://zhishan-zh.github.io/media/1587092021278-83140f4c-1d19-4c71-b50c-2af92fe48bab.png)
 
 
 ## 3.2 IO模型与协议
@@ -98,8 +95,7 @@ Coyote 作为独立的模块，只负责具体协议和IO的相关操作， 与S
 
 在Coyote中，Tomcat支持的多种I/O模型和应用层协议。
 
-
-Tomcat 支持的IO模型（自8.5/9.0 版本起，Tomcat 移除了 对 BIO 的支持）：
+**Tomcat 支持的IO模型（自8.5/9.0 版本起，Tomcat 移除了 对 BIO 的支持）**：
 
 | IO模型 | 描述 |
 | --- | --- |
@@ -107,9 +103,7 @@ Tomcat 支持的IO模型（自8.5/9.0 版本起，Tomcat 移除了 对 BIO 的�
 | NIO2 | 异步I/O，采用JDK 7最新的NIO2类库实现。 |
 | APR | 采用Apache可移植运行库实现，是C/C++编写的本地库。如果选择该方案，需要单独安装APR库。 |
 
-
-
-Tomcat 支持的应用层协议 ：
+**Tomcat 支持的应用层协议** ：
 
 | 应用层协议 | 描述 |
 | --- | --- |
@@ -117,12 +111,10 @@ Tomcat 支持的应用层协议 ：
 | A JP | 用于和Web服务器集成（如Apache），以实现对静态资源的优化以及集群部署，当前支持A JP/1.3。 |
 | HTTP/2 | HTTP 2.0大幅度的提升了Web性能。下一代HTTP协议 ， 自8.5以及9.0版本之后支持。 |
 
+**协议分层** ：
 
 
-协议分层 ：
-
-
-![image-20200416144013627.png](Coyotemedia/1587092039392-841cdfd1-b508-488e-9e21-6a1c4ff71f64.png)
+![image-20200416144013627.png](https://zhishan-zh.github.io/media/1587092039392-841cdfd1-b508-488e-9e21-6a1c4ff71f64.png)
 
 
 在 8.0 之前 ， Tomcat 默认采用的I/O方式为 BIO ， 之后改为 NIO。 无论 NIO、NIO2 还是 APR， 在性能方面均优于以往的BIO。 如果采用APR， 甚至可以达到 Apache HTTP Server 的影响性能。
@@ -142,13 +134,10 @@ Tomcat为了实现支持多种I/O模型和应用层协议，一个容器可能�
 - **Processor**
   - Coyote 协议处理接口 ，如果说EndPoint是用来实现TCP/IP协议的，那么Processor用来实现HTTP协议，Processor接收来自EndPoint的Socket，读取字节流解析成Tomcat Request和Response对象，并通过Adapter将其提交到容器处理，Processor是对应用层协议的抽象。
 - **ProtocolHandler**
-  - Coyote 协议接口， 通过Endpoint 和 Processor ， 实现针对具体协议的处理能
+  - Coyote 协议接口， 通过Endpoint 和 Processor ， 实现针对具体协议的处理能力。Tomcat 按照协议和I/O 提供了6个实现类 ： AjpNioProtocol ， AjpAprProtocol，AjpNio2Protocol ， Http11NioProtocol ，Http11Nio2Protocol ，Http11AprProtocol。我们在配置`tomcat/conf/server.xml`时 ， 至少要指定具体的ProtocolHandler , 当然也可以指定协议名称 ， 如 ：HTTP/1.1 ，如果安装了APR，那么将使用Http11AprProtocol ， 否则使用 Http11NioProtocol 。
 
-力。Tomcat 按照协议和I/O 提供了6个实现类 ： AjpNioProtocol ， AjpAprProtocol，AjpNio2Protocol ， Http11NioProtocol ，Http11Nio2Protocol ，Http11AprProtocol。我们在配置tomcat/conf/server.xml 时 ， 至少要指定具体的ProtocolHandler , 当然也可以指定协议名称 ， 如 ：HTTP/1.1 ，如果安装了APR，那么将使用Http11AprProtocol ， 否则使用 Http11NioProtocol 。
 - **Adapter**
   - 由于协议不同，客户端发过来的请求信息也不尽相同，Tomcat定义了自己的Request类来“存放”这些请求信息。ProtocolHandler接口负责解析请求并生成Tomcat Request类。但是这个Request对象不是标准的ServletRequest，也就意味着，不能用Tomcat Request作为参数来调用容器。Tomcat设计者的解决方案是引入CoyoteAdapter，这是适配器模式的经典运用，连接器调用CoyoteAdapter的Sevice方法，传入的是Tomcat Request对象，CoyoteAdapter负责将Tomcat Request转成ServletRequest，再调用容器的Service方法。
-
-
 
 # 4 容器 - Catalina
 
@@ -157,7 +146,6 @@ Tomcat是一个由一系列可配置的组件构成的Web容器，而Catalina是
 
 
 Catalina是Servlet容器实现，包含了之前说到的所有容器组件，以及后边会涉及到的安全、会话、管理等Servlet容器架构的各个方面，它通过松耦合的方式集成Coyote，以完成按照请求协议进行数据读写。同时，它还包括我们的启动入口、Shell程序等。
-
 
 ## 4.1 Catalina 地位
 
@@ -211,18 +199,15 @@ Tomcat设计了4种容器，分别是Engine、Host、Context和Wrapper。这4种
 | Context | 表示一个Web应用程序， 一个Web应用可包含多个Wrapper。<br/>Connector和Context是多对多的关系，因为一个应用Context可能不止一个连接，比如，HTTP连接和HTTPS连接。 |
 | Wrapper | 表示一个Servlet，Wrapper 作为容器中的最底层，不能包含子容器  |
 
-
-
 我们也可以再通过Tomcat的`server.xml`配置文件来加深对Tomcat容器的理解。Tomcat采用了组件化的设计，它的构成组件都是可配置的，其中最外层的是Server，其他组件按照一定的格式要求配置在这个顶层容器中。
 
 
 ```xml
 <Server>
 	<Service>
-    	  <Connector/>
+    	<Connector/>
         <Connector/>
-    		<Connector/>
-        <Connector/>
+    	<Connector/>
         <Engine>
         	<Host>
             	<Context></Context>
@@ -268,7 +253,7 @@ Container接口扩展了LifeCycle接口，LifeCycle接口用来统一管理各�
 步骤 :
 
 
-1. 启动tomcat ， 需要调用 `bin/startup.bat` (在linux 目录下 , 需要调用 `bin/startup.sh`) ， 在startup.bat 脚本中, 调用了`catalina.bat`。
+1. 启动tomcat ， 需要调用 `bin/startup.bat` (在linux 目录下 , 需要调用 `bin/startup.sh`) ， 在`startup.bat` 脚本中, 调用了`catalina.bat`。
 2. 在`catalina.bat` 脚本文件中，调用了BootStrap 中的main方法。
 3. 在BootStrap 的main 方法中调用了 init 方法 ， 来创建Catalina 及 初始化类加载器。
 4. 在BootStrap 的main 方法中调用了 load 方法 ， 在其中又调用了Catalina的load方法。
@@ -310,17 +295,14 @@ Container接口扩展了LifeCycle接口，LifeCycle接口用来统一管理各�
 
 ProtocolHandler ： Coyote协议接口，通过封装Endpoint和Processor ， 实现针对具体协议的处理功能。Tomcat按照协议和IO提供了6个实现类。
 
-
-AJP协议：
+**AJP协议**：
 
 
 1. AjpNioProtocol ：采用NIO的IO模型。
 2. AjpNio2Protocol：采用NIO2的IO模型。
 3. AjpAprProtocol ：采用APR的IO模型，需要依赖于APR库。
 
-
-
-HTTP协议：
+**HTTP协议**：
 
 
 1. Http11NioProtocol ：采用NIO的IO模型，默认使用的协议（如果服务器没有安装APR）。
@@ -1316,7 +1298,7 @@ protected class Acceptor extends AbstractEndpoint.Acceptor {
 ## 5.4 总结
 
 
-从启动流程图中以及源码中，我们可以看出Tomcat的启动过程非常标准化， 统一按照生命周期管理接口Lifecycle的定义进行启动。首先调用init() 方法进行组件的逐级初始化操作，然后再调用start()方法进行启动。
+从启动流程图中以及源码中，我们可以看出Tomcat的启动过程非常标准化， 统一按照生命周期管理接口Lifecycle的定义进行启动。首先调用`init()`方法进行组件的逐级初始化操作，然后再调用`start()`方法进行启动。
 
 
 每一级的组件除了完成自身的处理外，还要负责调用子组件响应的生命周期管理方法， 组件与组件之间是松耦合的，因为我们可以很容易的通过配置文件进行修改和替换。

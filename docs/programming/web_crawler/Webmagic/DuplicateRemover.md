@@ -8,7 +8,7 @@
 
 | 类                          | 说明                                                      |
 | --------------------------- | --------------------------------------------------------- |
-| HashSetDuplicateRemover     | 使用HashSet来进行去重，占用内存较大                       |
+| HashSetDuplicateRemover     | 使用HashSet来进行去重，占用内存较大对待                   |
 | BloomFilterDuplicateRemover | 使用BloomFilter来进行去重，占用内存较小，但是可能漏抓页面 |
 
 所有默认的Scheduler都使用HashSetDuplicateRemover来进行去重，（除开RedisScheduler是使用Redis的set进行去重）。如果你的URL较多，使用HashSetDuplicateRemover会比较占用内存，所以也可以尝试以下BloomFilterDuplicateRemover，使用方式：

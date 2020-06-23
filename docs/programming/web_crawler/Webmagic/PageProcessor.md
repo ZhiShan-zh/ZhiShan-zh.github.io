@@ -148,7 +148,224 @@ JsonPath是于XPath很类似的一个语言，它用于从Json中快速定位一
 page.addTargetRequests(page.getHtml().links().regex("(https://github\\.com/\\w+/\\w+)").all());
 ```
 
-这段代码的分为两部分，`page.getHtml().links().regex("(https://github\\.com/\\w+/\\w+)").all()`用于获取所有满足`https://github\.com/\w+/\w+`这个正则表达式的链接，`page.addTargetRequests()`则将这些链接加入到待抓取的队列中去。
+这段代码的分为两部分：
+
+- `page.getHtml().links().regex("(https://github\\.com/\\w+/\\w+)").all()`用于获取所有满足`https://github\.com/\w+/\w+`这个正则表达式的链接；
+- `page.addTargetRequests()`则将这些链接加入到待抓取的队列中去。
+    - `void addTargetRequests(List<String> requests)`：传入一个URL列表。
+    - `void addTargetRequests(List<String> requests, long priority)`：传入一个URL列表，对每个URL创建一个Request实例，并设置此Request实例为指定的优先级priority。
+        - priority：值越大处理的越早。
+    - `void addTargetRequest(String requestString)`：传入一个URL连接。
+    - `void addTargetRequest(Request request)`：传入一个request对象。
+
+### 4.2.1 Request
+
+```java
+package us.codecraft.webmagic;
+
+import us.codecraft.webmagic.model.HttpRequestBody;
+import us.codecraft.webmagic.utils.Experimental;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Object contains url to crawl.<br>
+ * It contains some additional information.<br>
+ *
+ * @author code4crafter@gmail.com <br>
+ * @since 0.1.0
+ */
+public class Request implements Serializable {
+
+    private static final long serialVersionUID = 2062192774891352043L;
+
+    public static final String CYCLE_TRIED_TIMES = "_cycle_tried_times";
+
+    private String url;
+
+    private String method;//请求方法，POST GET等，使用us.codecraft.webmagic.utils.HttpConstant中的静态内部类Method中的静态属性来做参数即可
+
+    private HttpRequestBody requestBody;//请求体
+
+    /**
+     * Store additional information in extras.
+     */
+    private Map<String, Object> extras;//存放额外的信息
+
+    /**
+     * cookies for current url, if not set use Site's cookies
+     */
+    private Map<String, String> cookies = new HashMap<String, String>();
+
+    private Map<String, String> headers = new HashMap<String, String>();
+
+    /**
+     * Priority of the request.<br>
+     * The bigger will be processed earlier. <br>
+     * @see us.codecraft.webmagic.scheduler.PriorityScheduler
+     */
+    private long priority;//优先级，优先级数字越大，越早被处理
+
+    /**
+     * When it is set to TRUE, the downloader will not try to parse response body to text.
+     *
+     */
+    private boolean binaryContent = false;
+
+    private String charset;//编码
+
+    public Request() {
+    }
+
+    public Request(String url) {
+        this.url = url;
+    }
+
+    public long getPriority() {
+        return priority;
+    }
+
+    /**
+     * Set the priority of request for sorting.<br>
+     * Need a scheduler supporting priority.<br>
+     * @see us.codecraft.webmagic.scheduler.PriorityScheduler
+     *
+     * @param priority priority
+     * @return this
+     */
+    @Experimental
+    public Request setPriority(long priority) {
+        this.priority = priority;
+        return this;
+    }
+
+    public Object getExtra(String key) {
+        if (extras == null) {
+            return null;
+        }
+        return extras.get(key);
+    }
+
+    public Request putExtra(String key, Object value) {
+        if (extras == null) {
+            extras = new HashMap<String, Object>();
+        }
+        extras.put(key, value);
+        return this;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public Map<String, Object> getExtras() {
+        return extras;
+    }
+
+    public Request setExtras(Map<String, Object> extras) {
+        this.extras = extras;
+        return this;
+    }
+
+    public Request setUrl(String url) {
+        this.url = url;
+        return this;
+    }
+
+    /**
+     * The http method of the request. Get for default.
+     * @return httpMethod
+     * @see us.codecraft.webmagic.utils.HttpConstant.Method
+     * @since 0.5.0
+     */
+    public String getMethod() {
+        return method;
+    }
+
+    public Request setMethod(String method) {
+        this.method = method;
+        return this;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = url != null ? url.hashCode() : 0;
+        result = 31 * result + (method != null ? method.hashCode() : 0);
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Request request = (Request) o;
+
+        if (url != null ? !url.equals(request.url) : request.url != null) return false;
+        return method != null ? method.equals(request.method) : request.method == null;
+    }
+
+    public Request addCookie(String name, String value) {
+        cookies.put(name, value);
+        return this;
+    }
+
+    public Request addHeader(String name, String value) {
+        headers.put(name, value);
+        return this;
+    }
+
+    public Map<String, String> getCookies() {
+        return cookies;
+    }
+
+    public Map<String, String> getHeaders() {
+        return headers;
+    }
+
+    public HttpRequestBody getRequestBody() {
+        return requestBody;
+    }
+
+    public void setRequestBody(HttpRequestBody requestBody) {
+        this.requestBody = requestBody;
+    }
+
+    public boolean isBinaryContent() {
+        return binaryContent;
+    }
+
+    public Request setBinaryContent(boolean binaryContent) {
+        this.binaryContent = binaryContent;
+        return this;
+    }
+
+    public String getCharset() {
+        return charset;
+    }
+
+    public Request setCharset(String charset) {
+        this.charset = charset;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Request{" +
+                "url='" + url + '\'' +
+                ", method='" + method + '\'' +
+                ", extras=" + extras +
+                ", priority=" + priority +
+                ", headers=" + headers +
+                ", cookies="+ cookies+
+                '}';
+    }
+}
+```
+
+
 
 ## 4.3 使用Selectable抽取元素和获取结果
 

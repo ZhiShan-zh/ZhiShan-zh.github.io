@@ -1,9 +1,14 @@
 - <font style="font-size: x-large;font-weight: bold;">Java</font>
   - <font style="font-size: large;font-weight: bold;">Java基础</font>
+    - [Java中类的生命周期](./docs/programming/java/Java_base/Life_cycle_of_classes_in_Java.md)
     - [Java中的SPI机制](./docs/programming/java/Java_base/SPI_specification_in_Java.md)
+    - 关键字解释
+        - [final](./docs/programming/java/Java_base/final.md)
   - <font style="font-size: large;font-weight: bold;">网络编程</font>
     - [网络编程基础：BIO、NIO、AIO](./docs/programming/java/Network_programming/Network_programming_basics.md)
     - [Netty](./docs/programming/java/Network_programming/Netty.md)
+  - <font style="font-size: large;font-weight: bold;">Java8新特性</font>
+      - [Java8新时间API](./docs/programming/java/java8/Date_and_time_API_in_Java8.md)
   - <font style="font-size: large;font-weight: bold;">Tomcat</font>
     - [Tomcat介绍](./docs/programming/java/tomcat/Introduction_of_Tomcat.md)
     - [Tomcat架构](./docs/programming/java/tomcat/Tomcat_architecture.md)
@@ -41,6 +46,11 @@
       - [配置中心](./docs/programming/java/spring/spring_cloud/Configuration_Center.md)
       - [Spring Cloud Config](./docs/programming/java/spring/spring_cloud/Spring_Cloud_Config.md)
       - [Zipkin分布式跟踪系统](./docs/programming/java/spring/spring_cloud/Zipkin-a_distributed_tracing_system.md)
+  - <font style="font-size: large;font-weight: bold;">JVM-HotSpot</font>
+    - <font style="font-size: large;font-weight: bold;">虚拟机监控工具</font>
+      - [虚拟机监控工具概述](./docs/programming/java/jvm/HotSpot/Overview.md)
+      - [Attach 机制](./docs/programming/java/jvm/HotSpot/Attach_Mechanism.md)
+      - [查看JVM进程](./docs/programming/java/jvm/HotSpot/View_JVM_process.md)
 - <font style="font-size: x-large;font-weight: bold;">Python</font>
   - <font style="font-size: large;font-weight: bold;">Python基础</font>
     - [Python内置函数之eval()、exec()、compile()函数](./docs/programming/python/Basic_knowledge_of_Python/Functions_eval_exec_compile_in_python.md)
@@ -83,8 +93,15 @@
   - [责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md)
   - [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md)
   - [Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md)
+  - [策略模式](./docs/programming/Design_Patterns/Strategy_pattern.md)
+  - [模板方法模式](./docs/programming/Design_Patterns/Template_method_pattern.md)
+  - [建造者模式](./docs/programming/Design_Patterns/Builder_pattern.md)
+  - [抽象工厂模式](./docs/programming/Design_Patterns/Abstract_factory_pattern.md)
+  - [工厂方法模式](./docs/programming/Design_Patterns/Factory_method_pattern.md)
+  - [单例模式](./docs/programming/Design_Patterns/Singleton_pattern.md)
 - <font style="font-size: x-large;font-weight: bold;">高性能网站</font>
   - <font style="font-size: large;font-weight: bold;">概述</font>
+    - [分布式和集群系统下的身份认证](./docs/programming/java/Java_base/Identity_authentication_in_distributed_and_cluster_systems.md)
     - <font style="font-size: medium;font-weight: bold;">架构</font>
       - [CAP原则](./docs/programming/high_performance_website/overview/Architecture/CAP_Principle.md)
   - <font style="font-size: large;font-weight: bold;">高并发</font>
@@ -97,6 +114,7 @@
           - [RabbitMQ入门](./docs/programming/high_performance_website/high_concurrency/queue/message_queue/RabbitMQ/Getting_started_with_RabbitMQ.md)
     - <font style="font-size: medium;font-weight: bold;">并发编程</font>
       - [并发编程概述](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Overview.md)
+      - [并发编程基础](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Basics_of_concurrent_programming.md)
       - [Future模式](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Future_mode.md)
   - <font style="font-size: large;font-weight: bold;">高可用</font>
     - <font style="font-size: medium;font-weight: bold;">负载均衡与反向代理</font>
@@ -106,7 +124,7 @@
       - Nginx
         - [Nginx入门](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Getting_started_with_nginx.md)
         - [在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md)
-        - [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_prohigh_concurrencyxy_in_Nginx.md)
+        - [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_proxy_in_Nginx.md)
         - [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md)
         - [Nginx负载均衡算法](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Load_balancing_algorithm-Nginx.md)
     - <font style="font-size: medium;font-weight: bold;">隔离</font>
@@ -129,6 +147,8 @@
       - [Jedis中的管道Pipeline](./docs/programming/database/NoSQL/redis/Jedis_pipeline.md)
       - [在Spring中整合Redis](./docs/programming/database/NoSQL/redis/Use_redis_in_Spring_Framework.md)
 - <font style="font-size: x-large;font-weight: bold;">数据结构</font>
+    - <font style="font-size: large;font-weight: bold;">查找（Searching）</font>
+        - [动态查找表（Dynamic Search Table）](./docs/programming/data_structure/searching/Dynamic_Search_Table.md)
 - <font style="font-size: x-large;font-weight: bold;">常用算法</font>
   - [缓存替换算法](./docs/programming/algorithm/Cache_algorithm.md)
 - <font style="font-size: x-large;font-weight: bold;">开发工具的使用</font>
@@ -175,7 +195,6 @@
     - [设置代理ProxyProvider](./docs/programming/web_crawler/Webmagic/ProxyProvider.md)
     - [使用和定制Scheduler](./docs/programming/web_crawler/Webmagic/Scheduler.md)
     - [URL去重接口DuplicateRemover](./docs/programming/web_crawler/Webmagic/DuplicateRemover.md)
-
 - <font style="font-size: x-large;font-weight: bold;">人工智能</font>
   - [人工智能概述](./docs/programming/Artificial_Intelligence/The_overview_of_Artificial_Intelligence.md)
   - [机器学习概述](./docs/programming/Artificial_Intelligence/The_overview_of_Machine_learning.md)

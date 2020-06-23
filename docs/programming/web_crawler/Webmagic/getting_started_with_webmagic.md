@@ -94,12 +94,10 @@ public class GithubRepoPageProcessor implements PageProcessor {
 
 此时启动项目，发现log4j的报错信息：
 
-> <p style="color:red">
 > log4j:WARN No appenders could be found for logger (us.codecraft.webmagic.scheduler.QueueScheduler).
 > 
 > log4j:WARN Please initialize the log4j system properly.
 > log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
-> </p>
 
 解决方案是：在项目更目录下新建``log4j.properties`文件，其路径为`webmagicmaven/src/main/resources/log4j.properties`：
 

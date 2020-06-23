@@ -37,8 +37,6 @@ Redis的管道（Pipeline）在客户端通常会设置一个命令缓冲区来�
 
 如果发生了resharding（重新切分。水平扩展集群，而水平扩展集群即新增master节点，Redis Cluster就需要重新划分slot）/rebalance（分配权重），会导致slot变动，则打包好的管道中的部分命令可能会收到MOVED或ASK错误，需要在代码中处理。一般而言，遇到MOVED需要触发一次映射刷新，遇到ASK则需要一次ASKING操作。
 
-
-
 # 2 入门案例
 
 ```java

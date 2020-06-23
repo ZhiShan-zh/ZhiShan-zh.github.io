@@ -307,7 +307,9 @@ public class FutureTest {
 
 - `failureaccess-1.0.1.jar`
 - `guava-29.0-jre.jar`
+
 ### 3.4.1 接口声明
+
 Guava的ListenableFuture扩展了Future接口，是一个可以监听结果的Future。就是它可以监听异步执行的过程，执行完了，自动触发后续操作。
 ```java
 package com.google.common.util.concurrent;
@@ -756,7 +758,7 @@ public static void test1() throws Exception {
         return "result from service2";
     });
     CompletableFuture<String> future3 = service.getHttpData("http://www.jd.com");
-    future2.a\thenCombineAsync(future3, (future2Result, future3Result) -> {
+    future2.thenCombineAsync(future3, (future2Result, future3Result) -> {
         // 处理业务
     }).exceptionally(e -> {
         // 处理异常

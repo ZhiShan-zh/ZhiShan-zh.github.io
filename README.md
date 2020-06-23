@@ -2,14 +2,22 @@
 
 # 1 Java
 
-## 1.1 Java基础
+## 1.1 Java
 
-- [Java中的SPI机制](./docs/programming/java/Java_base/SPI_specification_in_Java.md)
+| 类别        | 笔记                                                         |
+| ----------- | ------------------------------------------------------------ |
+| 关键字解释  | [final](./docs/programming/java/Java_base/final.md)          |
+| 类的管理    | [Java中的SPI机制](./docs/programming/java/Java_base/SPI_specification_in_Java.md)<br>[Java中类的生命周期](./docs/programming/java/Java_base/Life_cycle_of_classes_in_Java.md) |
+| 网络编程    | [网络编程基础：BIO、NIO、AIO](./docs/programming/java/Network_programming/Network_programming_basics.md)<br>[Netty](./docs/programming/java/Network_programming/Netty.md) |
+| Java8新特性 | [Java8新时间API](./docs/programming/java/java8/Date_and_time_API_in_Java8.md) |
 
-## 1.2 网络编程
+## 1.2 JVM-HotSpot
 
-- [网络编程基础：BIO、NIO、AIO](./docs/programming/java/Network_programming/Network_programming_basics.md)
-- [Netty](./docs/programming/java/Network_programming/Netty.md)
+| 类别           | 笔记                                                         |
+| -------------- | ------------------------------------------------------------ |
+| 虚拟机监控工具 | [虚拟机监控工具概述](./docs/programming/java/jvm/HotSpot/Overview.md)<br>[Attach 机制](./docs/programming/java/jvm/HotSpot/Attach_Mechanism.md)<br>[查看JVM进程](./docs/programming/java/jvm/HotSpot/View_JVM_process.md) |
+|                |                                                              |
+|                |                                                              |
 
 ## 1.3 Tomcat
 
@@ -99,11 +107,16 @@
 | [面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md) | [观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md) |
 | [门面模式](./docs/programming/Design_Patterns/Facade_pattern.md) | [装饰者模式](./docs/programming/Design_Patterns/Decorator_pattern.md) |
 | [责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md) | [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md) |
-| [Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md) |                                                              |
+| [Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md) | [策略模式](./docs/programming/Design_Patterns/Strategy_pattern.md) |
+| [模板方法模式](./docs/programming/Design_Patterns/Template_method_pattern.md) | [建造者模式](./docs/programming/Design_Patterns/Builder_pattern.md) |
+| [抽象工厂模式](./docs/programming/Design_Patterns/Abstract_factory_pattern.md) | [工厂方法模式](./docs/programming/Design_Patterns/Factory_method_pattern.md) |
+| [单例模式](./docs/programming/Design_Patterns/Singleton_pattern.md) |                                                              |
 
 # 6 高性能网站
 
 ## 6.1 概述
+
+- [分布式和集群系统下的身份认证](./docs/programming/java/Java_base/Identity_authentication_in_distributed_and_cluster_systems.md)
 
 ### 6.1.1 架构
 
@@ -126,6 +139,7 @@
 ### 6.2.2 并发编程
 
 - [并发编程概述](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Overview.md)
+- [并发编程基础](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Basics_of_concurrent_programming.md)
 - [Future模式](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Future_mode.md)
 
 ## 6.3 高可用
@@ -141,7 +155,7 @@
 | 分项                                                         | 分项                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Nginx入门](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Getting_started_with_nginx.md) | [在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md) |
-| [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_prohigh_concurrencyxy_in_Nginx.md) | [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md) |
+| [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_proxy_in_Nginx.md) | [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md) |
 | [Nginx负载均衡算法](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Load_balancing_algorithm-Nginx.md) |                                                              |
 
 ### 6.3.2 隔离
@@ -178,6 +192,16 @@
 | [Redis中的数据逐出策略](./docs/programming/database/NoSQL/redis/Data_eviction_strategy_in_Redis.md) | [Jedis中的管道Pipeline](./docs/programming/database/NoSQL/redis/Jedis_pipeline.md) |
 
 # 8 数据结构
+
+## 查找（Searching）
+
+| 笔记                                                         | 笔记 |
+| ------------------------------------------------------------ | ---- |
+| [动态查找表（Dynamic Search Table）](./docs/programming/data_structure/searching/Dynamic_Search_Table.md) |      |
+|                                                              |      |
+|                                                              |      |
+
+
 
 # 9 常用算法
 

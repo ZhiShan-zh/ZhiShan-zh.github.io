@@ -1,4 +1,4 @@
-# 1 Java中的SPI规范
+# Java中的SPI规范
 
 # 1 SPI概述
 
@@ -12,7 +12,7 @@ SPI全称（service provider interface），是JDK内置的一种服务提供发
 
 当服务的提供者，提供了服务接口的一种实现之后，在jar包的`META-INF/services/`目录里同时创建一个以服务接口全路径名称命名的文件，如`java.sql.Driver`文件。该文件里就是实现该服务接口的具体实现类，每一行为一个实现类的全路径名称。而当外部程序装配这个模块的时候，就能通过该jar包`META-INF/services/`里的配置文件找到具体的实现类名，并装载实例化，完成模块的注入。
 
-基于这样一个约定就能很好的找到服务接口的实现类，而不需要再代码里写死指定。
+基于这样一个约定就能很好的找到服务接口的实现类，而不需要在代码里写死指定。
 
 JDK提供服务实现查找的一个工具类为`java.util.ServiceLoader`。
 
@@ -99,9 +99,10 @@ public class SPITest {
 
 输出：
 
-> SPIInterfacce接口的实现1提供服务
-
+```
+SPIInterfacce接口的实现1提供服务
 SPIInterfacce接口的实现2提供服务
+```
 
 
 # 3 SPI规范之路径规范
@@ -112,7 +113,7 @@ SPIInterfacce接口的实现2提供服务
 
 ServiceLoader是在内部类迭代器LazyIterator的hasNextService获取实现类的全路径名称，然后在LazyIterator的nextService里边创建实例并返回。
 
-当程序中调用ServiceLoader的静态方法`public static <S> ServiceLoader<S> load(Class<S> service)`来初始化ServiceLoader，具体过程如下：
+程序中调用ServiceLoader的静态方法`public static <S> ServiceLoader<S> load(Class<S> service)`来初始化ServiceLoader，具体过程如下：
 
 程序中调用：`ServiceLoader<SPIInterfacce> s = ServiceLoader.load(SPIInterfacce.class);`，load方法获取当前线程的类加载器后调用`public static <S> ServiceLoader<S> load(Class<S> service, ClassLoader loader)`方法
 
