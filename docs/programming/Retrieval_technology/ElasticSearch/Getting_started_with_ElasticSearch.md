@@ -133,8 +133,8 @@ ES的配置文件的地址根据安装形式的不同而不同：
 属性配置方式示例：
 
 ```yaml
-cluster.name: xuecheng
-node.name: xc_node_1
+cluster.name: elasticsearch
+node.name: es_node_1
 network.host: 0.0.0.0
 http.port: 9200
 transport.tcp.port: 9300
@@ -325,6 +325,7 @@ ElasticSearch的索引库是一个逻辑概念，它包括了分词列表及文�
 参数说明：
 
 - `number_of_shards`：设置分片的数量，在集群中通常设置多个分片，表示一个索引库将拆分成多片分别存储不同的结点，提高了ElasticSearch的处理能力和高可用性，如果使用单机环境，则设置为1。
+    - 索引库创建之后，分片的数量不能随意变更，但副本的数量可以改变。
 - `number_of_replicas`：设置副本的数量，设置副本是为了提高ElasticSearch的高可靠性，单机环境设置为0.
 
 返回值：
@@ -338,12 +339,6 @@ ElasticSearch的索引库是一个逻辑概念，它包括了分词列表及文�
 ```
 
 ### 4.1.2 使用head插件创建
-
-![](https://zhishan-zh.github.io/media/ElasticSearch-20200528001753.png)
-
-效果如下：
-
-![](https://zhishan-zh.github.io/media/ElasticSearch-20200528001933.png)
 
 ## 4.2 创建映射
 
@@ -388,14 +383,10 @@ post 请求：http://localhost:9200/Index_library/doc/_mapping
 }
 ```
 
-映射创建成功，查看head界面：
-
-![](https://zhishan-zh.github.io/media/ElasticSearch-20200528002938.png)
-
 ## 4.3 创建文档
 
 ES中的文档相当于MySQL数据库表中的记录。
-发送put 或Post：`http://localhost:9200/Index_library/doc/id值`（如果不指定id值ES会自动生成ID）
+发送PUT或POST：`http://localhost:9200/Index_library/doc/id值`（如果不指定id值ES会自动生成ID）
 
 如：http://localhost:9200/Index_library/doc/4028e58161bcf7f40161bcf8b77c0000
 
@@ -428,16 +419,10 @@ ES中的文档相当于MySQL数据库表中的记录。
 }
 ```
 
-通过head查询数据：
-
-![](https://zhishan-zh.github.io/media/ElasticSearch-20200528003653.png)
-
 ## 4.4 搜索文档
 
 ### 4.4.1 根据课程id查询文档
 发送get：http://localhost:9200/Index_library/doc/4028e58161bcf7f40161bcf8b77c0000
-
-![](https://zhishan-zh.github.io/media/ElasticSearch-20200528003851.png)
 
 ### 4.4.2 查询所有记录
 

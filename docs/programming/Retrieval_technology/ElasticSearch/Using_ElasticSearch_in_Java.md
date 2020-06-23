@@ -11,8 +11,10 @@ ES提供多种不同的客户端：
 - TransportClient：ES提供的传统客户端，官方计划8.0版本删除此客户端。
 - RestClient
   - RestClient是官方推荐使用的，它包括两种：`Java Low Level REST Client`和 `Java High Level REST Client`。
-  - ES在6.0之后提供 `Java High Level REST Client`， 两种客户端官方更推荐使用` Java High Level REST Client`，不过当
-    前它还处于完善中，有些功能还没有。
+  - 前者（`Java Low Level REST Client`）是一个低级客户端，通过Http与elasticsearch集群进行通信，可以做到负载均衡、故障转移、持久化链接、自动发现集群节点等功能，同时支持所有elasticsearch版本，但是需要自己对请求和相应做编解码（自己写JSON）；
+  - 后者（`Java High Level REST Client`）是一个高级客户端，对增删改差进行了封装，不需要处理编解码，类似之前的TransportClient，但是兼容性较差，对客户端和集群版本要求较高。
+  - 因为`Java Low Level REST Client`没有提供增删改差方法，只能自己写json并选择Http请求的方法进行实现，一般使用较少，只有`Java High Level REST Client`无法满足的情况下才会使用。
+  - ES在6.0之后提供 `Java High Level REST Client`， 两种客户端官方更推荐使用` Java High Level REST Client`，不过当前它还处于完善中，有些功能还没有。
   - 这里准备采用 `Java High Level REST Client`，如果它有不支持的功能，则使用`Java Low Level REST Client`。
 
 `Java High Level REST Client`依赖为（maven）：
@@ -217,13 +219,22 @@ public class TestIndex {
 		createIndexRequest.settings(Settings.builder().put("number_of_shards", "1").put("number_of_replicas", "0"));
 		// 指定映射
 		createIndexRequest.mapping("doc",
-				" {\n" + " \t\"properties\": {\n" + "            \"studymodel\":{\n"
-						+ "             \"type\":\"keyword\"\n" + "           },\n" + "            \"name\":{\n"
-						+ "             \"type\":\"keyword\"\n" + "           },\n" + "           \"description\": {\n"
-						+ "              \"type\": \"text\",\n" + "              \"analyzer\":\"ik_max_word\",\n"
-						+ "              \"search_analyzer\":\"ik_smart\"\n" + "           },\n"
-						+ "           \"pic\":{\n" + "             \"type\":\"text\",\n"
-						+ "             \"index\":false\n" + "           }\n" + " \t}\n" + "}",
+				" {\n" + " \t\"properties\": {\n" + 
+		                "            \"studymodel\":{\n" + 
+                        		"             \"type\":\"keyword\"\n" + 
+                        "           },\n" + 
+                        "            \"name\":{\n"+ 
+                                "             \"type\":\"keyword\"\n" + 
+                        "           },\n" + 
+                        "           \"description\": {\n"+ 
+                                "              \"type\": \"text\",\n" + 
+                                "              \"analyzer\":\"ik_max_word\",\n"+ 
+                                "              \"search_analyzer\":\"ik_smart\"\n" + 						 "           },\n"+ 
+                        "           \"pic\":{\n" + 
+                                "             \"type\":\"text\",\n"+ 
+                                "             \"index\":false\n" + 
+                        "           }\n" + 
+                " \t}\n" + "}",
 				XContentType.JSON);
 		// 操作索引的客户端
 		IndicesClient indices = client.indices();

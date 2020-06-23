@@ -94,7 +94,7 @@ public class Student implements Serializable{
 ```
 
 ## 2.4 创建StudentHandler
-注意：这里用key为stu存到redis，但是从终端连接redis查询发现没有这个key，是因为spring data redis对可以进行了序列化，redis库里边的key和stu是由区别的。
+注意：这里用key为stu存到redis，但是从终端连接redis查询发现没有这个key，是因为spring data redis对可以进行了序列化，redis库里边的key和stu是有区别的。
 ```java
 package com.zh.redisspringboot.controller;
 
