@@ -42,3 +42,23 @@ console.log("fun is " + fun);//fun is bbb
 console.log("fun is " + fun());//再次输出aaa，并输出fun is bbb
 ```
 
+## 2.3 在括号外赋值的函数表达式
+
+```javascript
+// node中运行
+> fun = function test(){return "a"};
+[Function: test]
+> fun = function test(){return "a"}();
+'a'
+> fun
+'a'
+> fun = (function test(){return "a"})();
+'a'
+> fun
+'a'
+> fun = (function (){return "a"})();
+'a'
+> fun
+'a'
+```
+

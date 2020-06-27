@@ -10,6 +10,10 @@
 - `javax.servlet.http.HttpServlet`
 - `org.springframework.web.servlet.mvc.AbstractController`
 
+## 1.3 应用场景
+
+- 比如项目中需要对PDF和word文档进行处理，整个流程是一样的，但对与这两种文档的处理方法不同，此时则可使用模板方法模式。
+
 # 2 入门案例
 
 ```java

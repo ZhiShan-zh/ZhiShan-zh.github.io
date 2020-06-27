@@ -26,7 +26,7 @@ public interface ImportSelector {
 }
 ```
 
-DeferredImportSelector接口继承ImportSelector,他和ImportSelector的区别在于装载bean的时机上，DeferredImportSelector需要等所有的`@Configuration`都执行完毕后才会进行装载。
+DeferredImportSelector接口继承ImportSelector，他和ImportSelector的区别在于装载bean的时机上，DeferredImportSelector需要等所有的`@Configuration`都执行完毕后才会进行装载。
 
 DeferredImportSelector接口的声明：`public interface DeferredImportSelector extends ImportSelector`
 

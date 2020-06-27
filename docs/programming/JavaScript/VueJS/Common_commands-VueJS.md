@@ -347,7 +347,7 @@ v-model的作用是对应表单`<input>`、`<textarea>` 及 `<select>` 元素上
 
 ## 5.2 遍历对象
 
-```java
+```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -420,8 +420,6 @@ v-model的作用是对应表单`<input>`、`<textarea>` 及 `<select>` 元素上
     </body>
 </html>
 ```
-
-
 
 # 6 `v-if`与`v-show`
 

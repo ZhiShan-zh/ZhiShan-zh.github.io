@@ -7,15 +7,16 @@
 | 类别        | 笔记                                                         |
 | ----------- | ------------------------------------------------------------ |
 | 关键字解释  | [final](./docs/programming/java/Java_base/final.md)          |
-| 类的管理    | [Java中的SPI机制](./docs/programming/java/Java_base/SPI_specification_in_Java.md)<br>[Java中类的生命周期](./docs/programming/java/Java_base/Life_cycle_of_classes_in_Java.md) |
-| 网络编程    | [网络编程基础：BIO、NIO、AIO](./docs/programming/java/Network_programming/Network_programming_basics.md)<br>[Netty](./docs/programming/java/Network_programming/Netty.md) |
+| 类的管理    | [Java中的SPI机制](./docs/programming/java/Java_base/SPI_specification_in_Java.md)<br />[Java中类的生命周期](./docs/programming/java/Java_base/Life_cycle_of_classes_in_Java.md)<br />[编译时常量和运行时常量](./docs/programming/java/Java_base/compile-constant_and_runtime-constant_in_Java.md)<br />[注解解释](./docs/programming/java/Java_base/Annotation_explanation.md) |
+| 反射机制    | [Class类](./docs/programming/java/reflection/Class.md)<br />[Java反射机制](./docs/programming/java/reflection/Java_Reflection.md)<br />[JDK动态代理Proxy](./docs/programming/java/reflection/Proxy.md) |
+| 网络编程    | [网络编程基础：BIO、NIO、AIO](./docs/programming/java/Network_programming/Network_programming_basics.md)<br />[Netty](./docs/programming/java/Network_programming/Netty.md) |
 | Java8新特性 | [Java8新时间API](./docs/programming/java/java8/Date_and_time_API_in_Java8.md) |
 
 ## 1.2 JVM-HotSpot
 
 | 类别           | 笔记                                                         |
 | -------------- | ------------------------------------------------------------ |
-| 虚拟机监控工具 | [虚拟机监控工具概述](./docs/programming/java/jvm/HotSpot/Overview.md)<br>[Attach 机制](./docs/programming/java/jvm/HotSpot/Attach_Mechanism.md)<br>[查看JVM进程](./docs/programming/java/jvm/HotSpot/View_JVM_process.md) |
+| 虚拟机监控工具 | [虚拟机监控工具概述](./docs/programming/java/jvm/HotSpot/Overview.md)<br />[Attach 机制](./docs/programming/java/jvm/HotSpot/Attach_Mechanism.md)<br />[查看JVM进程](./docs/programming/java/jvm/HotSpot/View_JVM_process.md) |
 |                |                                                              |
 |                |                                                              |
 
@@ -35,6 +36,8 @@
 | SpringMVC基础 | [SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md)<br/>[SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md) |
 
 ### 1.4.2 Spring Boot
+
+[Spring Boot自测](./docs/programming/java/spring/spring_boot/self-test_in_Spring_Boot.md)
 
 |            类别 | 笔记列表                                                     |
 | --------------: | ------------------------------------------------------------ |
@@ -65,6 +68,8 @@
 - [Javascript闭包](./docs/programming/JavaScript/Closures_in_JavaScript.md)
 - [ES6](./docs/programming/JavaScript/ES6.md)
 - [模块化相关规范](./docs/programming/JavaScript/Module_Definition_Specifications.md)
+- [JavaScript中的小括号](./docs/programming/JavaScript/parentheses_in_JavaScript.md)
+- [JavaScript 自执行函数表达式](./docs/programming/JavaScript/self-executing_function_expression-JavaScript.md)
 - [跨域](./docs/programming/JavaScript/Cross-domain.md)
 
 ## 3.1 NodeJS
@@ -102,15 +107,12 @@
 
 # 5 设计模式
 
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md) | [观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md) |
-| [门面模式](./docs/programming/Design_Patterns/Facade_pattern.md) | [装饰者模式](./docs/programming/Design_Patterns/Decorator_pattern.md) |
-| [责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md) | [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md) |
-| [Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md) | [策略模式](./docs/programming/Design_Patterns/Strategy_pattern.md) |
-| [模板方法模式](./docs/programming/Design_Patterns/Template_method_pattern.md) | [建造者模式](./docs/programming/Design_Patterns/Builder_pattern.md) |
-| [抽象工厂模式](./docs/programming/Design_Patterns/Abstract_factory_pattern.md) | [工厂方法模式](./docs/programming/Design_Patterns/Factory_method_pattern.md) |
-| [单例模式](./docs/programming/Design_Patterns/Singleton_pattern.md) |                                                              |
+| 类别     | 笔记                                                         |
+| -------- | ------------------------------------------------------------ |
+| 概述     | [设计模式自测](./docs/programming/Design_Patterns/self-test_for_design_pattern.md)<br />[面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md) |
+| 创建模式 | [工厂方法模式](./docs/programming/Design_Patterns/Factory_method_pattern.md)<br />[抽象工厂模式](./docs/programming/Design_Patterns/Abstract_factory_pattern.md)<br />[单例模式](./docs/programming/Design_Patterns/Singleton_pattern.md)<br />[建造者模式](./docs/programming/Design_Patterns/Builder_pattern.md)<br />[原型模式]() |
+| 结构模式 | [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md)<br />[门面模式](./docs/programming/Design_Patterns/Facade_pattern.md)<br />[装饰者模式](./docs/programming/Design_Patterns/Decorator_pattern.md)<br />[桥接模式]()<br />[过滤器模式]()<br />[组合模式]()<br />[享元模式]()<br />[代理模式]() |
+| 行为模式 | [模板方法模式](./docs/programming/Design_Patterns/Template_method_pattern.md)<br />[策略模式](./docs/programming/Design_Patterns/Strategy_pattern.md)<br />[责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md)<br />[观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md)<br />[Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md)<br />[解释器模式]()<br />[命令模式]()<br />[迭代器模式]()<br />[参观者模式]() |
 
 # 6 高性能网站
 
@@ -218,6 +220,8 @@
 
 ## 10.2 ElasticSearch
 
+[ElasticSearch自测](./docs/programming/Retrieval_technology/ElasticSearch/self-test_of_ElasticSearch.md)
+
 | 分项                                                         | 分项                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [ElasticSearch入门](./docs/programming/Retrieval_technology/ElasticSearch/Getting_started_with_ElasticSearch.md) | [IK分词器](./docs/programming/Retrieval_technology/ElasticSearch/analysis_ik.md) |
@@ -247,6 +251,10 @@
 | [WebMagic入门](./docs/programming/web_crawler/Webmagic/getting_started_with_webmagic.md) | [实现PageProcessor](./docs/programming/web_crawler/Webmagic/PageProcessor.md) |
 | [使用Pipeline保存结果](./docs/programming/web_crawler/Webmagic/Pipeline.md) | [设置代理ProxyProvider](./docs/programming/web_crawler/Webmagic/ProxyProvider.md) |
 | [使用和定制Scheduler](./docs/programming/web_crawler/Webmagic/Scheduler.md) | [URL去重接口DuplicateRemover](./docs/programming/web_crawler/Webmagic/DuplicateRemover.md) |
+
+## 12.2 Selenium与PhantomJS
+
+- [在Python中使用Selenium做爬虫](./docs/programming/web_crawler/Selenium_PhantomJS/Selenium_and_PhantomJS_in_Python.md)
 
 # 13 人工智能
 

@@ -2,8 +2,14 @@
   - <font style="font-size: large;font-weight: bold;">Java基础</font>
     - [Java中类的生命周期](./docs/programming/java/Java_base/Life_cycle_of_classes_in_Java.md)
     - [Java中的SPI机制](./docs/programming/java/Java_base/SPI_specification_in_Java.md)
+    - [编译时常量和运行时常量](./docs/programming/java/Java_base/compile-constant_and_runtime-constant_in_Java.md)
+    - [注解解释](./docs/programming/java/Java_base/Annotation_explanation.md)
     - 关键字解释
         - [final](./docs/programming/java/Java_base/final.md)
+    - 反射机制
+        - [Class类](./docs/programming/java/reflection/Class.md)
+        - [Java反射机制](./docs/programming/java/reflection/Java_Reflection.md)
+        - [JDK动态代理Proxy](./docs/programming/java/reflection/Proxy.md)
   - <font style="font-size: large;font-weight: bold;">网络编程</font>
     - [网络编程基础：BIO、NIO、AIO](./docs/programming/java/Network_programming/Network_programming_basics.md)
     - [Netty](./docs/programming/java/Network_programming/Netty.md)
@@ -22,6 +28,7 @@
       - [SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md)
       - [SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md)
     - <font style="font-size: medium;font-weight: bold;">Spring Boot</font>
+      - [Spring Boot自测](./docs/programming/java/spring/spring_boot/self-test_in_Spring_Boot.md)
       - [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md)
       - [Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md)
       - [Spring Boot 怎么处理异常](./docs/programming/java/spring/spring_boot/How_SpringBoot_handles_exceptions.md)
@@ -58,6 +65,8 @@
   - [Javascript闭包](./docs/programming/JavaScript/Closures_in_JavaScript.md)
   - [ES6](./docs/programming/JavaScript/ES6.md)
   - [模块化相关规范](./docs/programming/JavaScript/Module_Definition_Specifications.md)
+  - [JavaScript中的小括号](./docs/programming/JavaScript/parentheses_in_JavaScript.md)
+  - [JavaScript 自执行函数表达式](./docs/programming/JavaScript/self-executing_function_expression-JavaScript.md)
   - [跨域](./docs/programming/JavaScript/Cross-domain.md)
   - <font style="font-size: large;font-weight: bold;">NodeJS</font>
     - [Nodejs入门](./docs/programming/JavaScript/nodejs/Getting_started_with_nodejs.md)
@@ -86,6 +95,7 @@
       - [使用Shell进行迭代重命名](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_renaming.md)
       - [便利使用virtualenv](./docs/programming/linux/shell/Shell_programming_practice/Easy_to_use_virtualenv.md)
 - <font style="font-size: x-large;font-weight: bold;">设计模式</font>
+  - [设计模式自测](./docs/programming/Design_Patterns/self-test_for_design_pattern.md)
   - [面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md)
   - [观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md)
   - [门面模式](./docs/programming/Design_Patterns/Facade_pattern.md)
@@ -169,6 +179,7 @@
     - [搜索](./docs/programming/Retrieval_technology/Lucene/Search.md)
     - [相关度排序](./docs/programming/Retrieval_technology/Lucene/Relevance_ranking.md)
   - <font style="font-size: large;font-weight: bold;">ElasticSearch</font>
+    - [ElasticSearch自测](./docs/programming/Retrieval_technology/ElasticSearch/self-test_of_ElasticSearch.md)
     - [ElasticSearch入门](./docs/programming/Retrieval_technology/ElasticSearch/Getting_started_with_ElasticSearch.md)
     - [IK分词器](./docs/programming/Retrieval_technology/ElasticSearch/analysis_ik.md)
     - [映射](./docs/programming/Retrieval_technology/ElasticSearch/mapping.md)

@@ -1,5 +1,7 @@
 # Spring Boot启动流程
 
+# 1 启动流程
+
 ```java
 package com.zh.eurekaclient;
 
@@ -420,3 +422,153 @@ protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
     }
 }
 ```
+
+# 2 `@SpringBootApplication`注解都做了什么事？
+
+## 2.1 `@SpringBootApplication`注解的声明
+
+```java
+package org.springframework.boot.autoconfigure;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import org.springframework.beans.factory.support.BeanNameGenerator;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.context.TypeExcludeFilter;
+import org.springframework.context.annotation.AnnotationBeanNameGenerator;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.core.annotation.AliasFor;
+import org.springframework.data.repository.Repository;
+
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
+		@Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
+public @interface SpringBootApplication {
+	//此处省略N行代码
+}
+```
+
+注解说明：
+
+- `@ComponentScan`
+    - spring里有四大注解：`@Service`，`@Repository`，`@Component`，`@Controller`用来定义一个bean。
+    - `@ComponentScan`注解就是用来自动扫描被这些注解标识的类，最终生成ioc容器里的bean。
+    - 可以通过设置`@ComponentScan`的basePackages，includeFilters，excludeFilters属性来动态确定自动扫描范围，类型已经不扫描的类型．默认情况下:它扫描所有类型，并且扫描范围是`@ComponentScan`注解所在配置类包及子包的类。
+- `@SpringBootConfiguration`
+    - 这个注解的作用与`@Configuration`作用相同，都是用来声明当前类是一个配置类。
+    - 在配置类里可以通过`＠Bean`注解生成IOC容器管理的bean。
+- `@EnableAutoConfiguration`：参见[`@EnableAutoConfiguration`](# 2.2 `@EnableAutoConfiguration`)
+
+## 2.2 `@EnableAutoConfiguration`
+
+`@EnableAutoConfiguration`是springboot实现自动化配置的核心注解，通过这个注解把spring应用所需的bean注入容器中。
+
+`@EnableAutoConfiguration`源码通过`@Import`注入了一个ImportSelector的实现类
+AutoConfigurationImportSelector，这个ImportSelector最终实现根据我们的配置，动态加载所需的bean。
+
+参见[Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md)
+
+```java
+package org.springframework.boot.autoconfigure;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
+import org.springframework.context.annotation.Conditional;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.core.io.support.SpringFactoriesLoader;
+
+/**
+ * Enable auto-configuration of the Spring Application Context, attempting to guess and
+ * configure beans that you are likely to need. Auto-configuration classes are usually
+ * applied based on your classpath and what beans you have defined. For example, if you
+ * have {@code tomcat-embedded.jar} on your classpath you are likely to want a
+ * {@link TomcatServletWebServerFactory} (unless you have defined your own
+ * {@link ServletWebServerFactory} bean).
+ * <p>
+ * When using {@link SpringBootApplication @SpringBootApplication}, the auto-configuration
+ * of the context is automatically enabled and adding this annotation has therefore no
+ * additional effect.
+ * <p>
+ * Auto-configuration tries to be as intelligent as possible and will back-away as you
+ * define more of your own configuration. You can always manually {@link #exclude()} any
+ * configuration that you never want to apply (use {@link #excludeName()} if you don't
+ * have access to them). You can also exclude them via the
+ * {@code spring.autoconfigure.exclude} property. Auto-configuration is always applied
+ * after user-defined beans have been registered.
+ * <p>
+ * The package of the class that is annotated with {@code @EnableAutoConfiguration},
+ * usually via {@code @SpringBootApplication}, has specific significance and is often used
+ * as a 'default'. For example, it will be used when scanning for {@code @Entity} classes.
+ * It is generally recommended that you place {@code @EnableAutoConfiguration} (if you're
+ * not using {@code @SpringBootApplication}) in a root package so that all sub-packages
+ * and classes can be searched.
+ * <p>
+ * Auto-configuration classes are regular Spring {@link Configuration @Configuration}
+ * beans. They are located using the {@link SpringFactoriesLoader} mechanism (keyed
+ * against this class). Generally auto-configuration beans are
+ * {@link Conditional @Conditional} beans (most often using
+ * {@link ConditionalOnClass @ConditionalOnClass} and
+ * {@link ConditionalOnMissingBean @ConditionalOnMissingBean} annotations).
+ *
+ * @author Phillip Webb
+ * @author Stephane Nicoll
+ * @since 1.0.0
+ * @see ConditionalOnBean
+ * @see ConditionalOnMissingBean
+ * @see ConditionalOnClass
+ * @see AutoConfigureAfter
+ * @see SpringBootApplication
+ */
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@AutoConfigurationPackage
+@Import(AutoConfigurationImportSelector.class)
+public @interface EnableAutoConfiguration {
+
+	String ENABLED_OVERRIDE_PROPERTY = "spring.boot.enableautoconfiguration";
+
+	/**
+	 * Exclude specific auto-configuration classes such that they will never be applied.
+	 * @return the classes to exclude
+	 */
+	Class<?>[] exclude() default {};
+
+	/**
+	 * Exclude specific auto-configuration class names such that they will never be
+	 * applied.
+	 * @return the class names to exclude
+	 * @since 1.3.0
+	 */
+	String[] excludeName() default {};
+
+}
+```
+

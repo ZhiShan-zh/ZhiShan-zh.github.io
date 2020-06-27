@@ -159,6 +159,8 @@ import item from '@/components/item'
 
 实际生活中的应用界面，通常由多层嵌套的组件组合而成。同样地，URL 中各段动态路径也按某种结构对应嵌套的各层组件，例如：
 
+![](/home/zh/文档/ZhiShan-zh.github.io/media/vue_router_20200623230801.png)
+
 ```
 /about/address                        /about/linkman
 +------------------+                  +-----------------+
