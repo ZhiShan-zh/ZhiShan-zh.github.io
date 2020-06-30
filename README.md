@@ -182,6 +182,7 @@
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [MySQL数据库优化](./docs/programming/database/relational_database/MySQL_optimization.md) | [事务的隔离级别](./docs/programming/database/relational_database/The_isolation_level_of_transaction.md) |
 | [使用explain和`show profile`来分析SQL语句](./docs/programming/database/relational_database/Use_explain_and_show-profile_to_analyze_SQL_statements.md) | [`ORDER BY`的工作原理](./docs/programming/database/relational_database/How_order_by_works.md) |
+| [MySQL索引](./docs/programming/database/relational_database/MySQL-index.md) | [MySQL中的锁机制](./docs/programming/database/relational_database/Lock_mechanism_MySQL.md) |
 
 ## 7.2 非关系型数据库
 
@@ -192,6 +193,7 @@
 | [Redis入门](./docs/programming/database/NoSQL/redis/getting_started_with_redis.md) | [在Spring中整合Redis](./docs/programming/database/NoSQL/redis/Use_redis_in_Spring_Framework.md) |
 | [Redis为什么这么快](./docs/programming/database/NoSQL/redis/Reasons_why_Redis_is_so_fast.md) | [Redis中过期键的删除策略](./docs/programming/database/NoSQL/redis/Deletion_strategy_of_expired_keys_in_Redis.md) |
 | [Redis中的数据逐出策略](./docs/programming/database/NoSQL/redis/Data_eviction_strategy_in_Redis.md) | [Jedis中的管道Pipeline](./docs/programming/database/NoSQL/redis/Jedis_pipeline.md) |
+| [Redis缓存乱码问题](./docs/programming/database/NoSQL/redis/Chinese_garbled_in_Redis.md) |                                                              |
 
 # 8 数据结构
 

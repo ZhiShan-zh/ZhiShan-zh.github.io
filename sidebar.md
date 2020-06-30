@@ -148,6 +148,8 @@
       - [事务的隔离级别](./docs/programming/database/relational_database/The_isolation_level_of_transaction.md)
       - [使用explain和`show profile`来分析SQL语句](./docs/programming/database/relational_database/Use_explain_and_show-profile_to_analyze_SQL_statements.md)
       - [`ORDER BY`的工作原理](./docs/programming/database/relational_database/How_order_by_works.md)
+      - [MySQL索引](./docs/programming/database/relational_database/MySQL-index.md)
+      - [MySQL中的锁机制](./docs/programming/database/relational_database/Lock_mechanism_MySQL.md)
   - <font style="font-size: large;font-weight: bold;">非关系型数据库</font>
     - <font style="font-size: medium;font-weight: bold;">Redis</font>
       - [Redis入门](./docs/programming/database/NoSQL/redis/getting_started_with_redis.md)
