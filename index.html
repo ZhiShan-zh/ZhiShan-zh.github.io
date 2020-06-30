@@ -32,9 +32,11 @@
   <div id="app">本系列知识笔记由开发爱好者张海发布</div>
   <script>
   	// markdown脑图 begin
-  	var num = 0;
-	mermaid.initialize({ startOnLoad: false });
-	// markdown脑图 end
+  	/*
+    var num = 0;
+  	mermaid.initialize({ startOnLoad: false });
+  	*/
+    // markdown脑图 end
 
     window.$docsify = {
       name: '程序开发',
@@ -71,7 +73,7 @@
           '/': 'No Results'
         },
         // Headline depth, 1 - 6
-        depth: 2,
+        depth: 6,
 
         hideOtherSidebarContent: false, // whether or not to hide other sidebar content
 
@@ -112,19 +114,21 @@
         }
       ]，
       // markdown脑图 begin
+      /*
       markdown: {
-	    renderer: {
-	      code: function(code, lang) {
-	        if (lang === "mermaid") {
-	          return (
-	            '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
-	          );
-	        }
-	        return this.origin.code.apply(this, arguments);
-	      }
-	    }
-	  }
-	  // markdown脑图 end
+  	    renderer: {
+  	      code: function(code, lang) {
+  	        if (lang === "mermaid") {
+  	          return (
+  	            '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+  	          );
+  	        }
+  	        return this.origin.code.apply(this, arguments);
+  	      }
+  	    }
+  	  }
+      */
+  	  // markdown脑图 end
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
