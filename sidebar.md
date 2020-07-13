@@ -143,6 +143,8 @@
         - [超时和重试机制概述](./docs/programming/high_performance_website/high_availability/timeout_and_retry_mechanism/overview.md)
 - <font style="font-size: x-large;font-weight: bold;">数据库</font>
   - <font style="font-size: large;font-weight: bold;">关系型数据库</font>
+    - <font style="font-size: medium;font-weight: bold;">Java</font>
+      - [编辑SQL接口Statement](./docs/programming/database/relational_database/Statement-Compile_SQL.md)
     - <font style="font-size: medium;font-weight: bold;">MySQL</font>
       - [MySQL数据库优化](./docs/programming/database/relational_database/MySQL_optimization.md)
       - [事务的隔离级别](./docs/programming/database/relational_database/The_isolation_level_of_transaction.md)
@@ -158,6 +160,11 @@
       - [Redis中的数据逐出策略](./docs/programming/database/NoSQL/redis/Data_eviction_strategy_in_Redis.md)
       - [Jedis中的管道Pipeline](./docs/programming/database/NoSQL/redis/Jedis_pipeline.md)
       - [在Spring中整合Redis](./docs/programming/database/NoSQL/redis/Use_redis_in_Spring_Framework.md)
+  - <font style="font-size: large;font-weight: bold;">数据库中间件</font>
+      - [读写分离](./docs/programming/database/database_middleware/read-write_separation.md)
+      - [分库分表](./docs/programming/database/database_middleware/sharding.md)
+      - <font style="font-size: medium;font-weight: bold;">Apache ShardingSphereApache ShardingSphere</font>
+          - [ShardingSphere简介](./docs/programming/database/database_middleware/apache_shardingsphere/the_overview_of_apache_shardingsphere.md)
 - <font style="font-size: x-large;font-weight: bold;">数据结构</font>
     - <font style="font-size: large;font-weight: bold;">查找（Searching）</font>
         - [动态查找表（Dynamic Search Table）](./docs/programming/data_structure/searching/Dynamic_Search_Table.md)
@@ -219,3 +226,6 @@
       - [K-近邻算法概述](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/KNN_overview.md)
       - [KNN入门](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/Getting_started_with_KNN.md)
       - [距离度量](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/distance_measure.md)
+
+- <font style="font-size: x-large;font-weight: bold;">TCP/IP协议组</font>
+    - <font style="font-size: large;font-weight: bold;">HTTP协议</font>
