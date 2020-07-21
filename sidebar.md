@@ -226,6 +226,7 @@
       - [K-近邻算法概述](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/KNN_overview.md)
       - [KNN入门](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/Getting_started_with_KNN.md)
       - [距离度量](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/distance_measure.md)
-
 - <font style="font-size: x-large;font-weight: bold;">TCP/IP协议组</font>
     - <font style="font-size: large;font-weight: bold;">HTTP协议</font>
+- <font style="font-size: x-large;font-weight: bold;">Zookeeper</font>
+    - [Zookeeper概述](./docs/programming/zookeeper/the_overview_of_zookeeper.md)
