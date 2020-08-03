@@ -10,6 +10,8 @@
         - [Class类](./docs/programming/java/reflection/Class.md)
         - [Java反射机制](./docs/programming/java/reflection/Java_Reflection.md)
         - [JDK动态代理Proxy](./docs/programming/java/reflection/Proxy.md)
+    - Java消息服务
+        -   [Java消息服务](./docs/programming/java/Java_base/java_message_service.md)
   - <font style="font-size: large;font-weight: bold;">网络编程</font>
     - [网络编程基础：BIO、NIO、AIO](./docs/programming/java/Network_programming/Network_programming_basics.md)
     - [Netty](./docs/programming/java/Network_programming/Netty.md)
