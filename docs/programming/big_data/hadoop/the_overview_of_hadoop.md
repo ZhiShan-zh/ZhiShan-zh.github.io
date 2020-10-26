@@ -31,15 +31,15 @@
 
 ## 1.4 Hadoop生态圈以及各组成部分的简介
 
-- HDFS：分布式文件系统
-- MAPREDUCE：分布式运算程序开发框架
-- HIVE：基于大数据技术（文件系统+运算框架）的SQL数据仓库工具
-- HBASE：基于HADOOP的分布式海量数据库
-- ZOOKEEPER：分布式协调服务基础组件
-- Mahout：基于mapreduce/spark/flink等分布式运算框架的机器学习算法库
-- Oozie：工作流调度框架
-- Sqoop：数据导入导出工具
-- Flume：日志数据采集框架
+- **HDFS**：分布式文件系统
+- **MapReduce**：分布式运算程序开发框架
+- **Hive**：基于大数据技术（文件系统+运算框架）的SQL数据仓库工具
+- **HBase**：基于HADOOP的分布式海量数据库
+- **Zookeeper**：分布式协调服务基础组件
+- **Mahout**：基于MapReduce/Spark/Flink等分布式运算框架的机器学习算法库
+- **Oozie**：工作流调度框架
+- **Sqoop**：(发音：skup)，数据导入导出工具，是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql...)间进行数据的传递，可以将一个关系型数据库*（例如 ： MySQL ,Oracle ,Postgres等）*中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。
+- **Flume**：日志数据采集框架
 
 # 2 大数据技术应用示例：Web日志数据挖掘
 
@@ -65,10 +65,10 @@
 
 ![image-20200721171618305](https://zhishan-zh.github.io/media/bigdata_Data_processing_flow_20200721171618305.png)
 
-1. 数据采集：定制开发采集程序，或使用开源框架FLUME
-2. 数据预处理：定制开发mapreduce程序运行于hadoop集群
+1. 数据采集：定制开发采集程序，或使用开源框架Flume
+2. 数据预处理：定制开发MapReduce程序运行于hadoop集群
 3. 数据仓库技术：基于hadoop之上的Hive
-4. 数据导出：基于hadoop的sqoop数据导入导出工具
+4. 数据导出：基于hadoop的Sqoop数据导入导出工具
 5. 数据可视化：定制开发web程序或使用kettle等产品
 6. 整个过程的流程调度：hadoop生态圈中的oozie工具或其他类似开源产品
 
@@ -96,7 +96,7 @@
 
 `hadoop-env.sh`文件中定义了Hadoop运行时使用的环境变量，其中只有`JAVA_HOME`环境变量是用户需要配置的，使之指向Java安装目录。其它环境变量在默认配置下都可以很好的工作。在逐步熟悉Hadoop后，可以通过修改这个文件来做个性化设置（如日志目录的位置、Java类所在目录等）。
 
-- `HADOOP_LOG_DIR`：日志文件的存放目录，可以设置为/var/log/hadoop
+- `HADOOP_LOG_DIR`：日志文件的存放目录，可以设置为`/var/log/hadoop`
 - `HADOOP_SLAVES`：slaves文件的位置，一般无需修改
 - `HADOOP_SSH_OPTS`：P335
 - `HADOOP_SLAVE_SLEEP`：P335
@@ -243,7 +243,7 @@ export HADOOP_IDENT_STRING=$USER
 
 单机模式是Hadoop的默认模式。当首次解压Hadoop的源码包时，Hadoop无法了解硬件安装环境，便保守地选择了最小配置。在这种默认模式下`core-site.xml`、`hdfs-site.xml`、`mapred-site.xml`文件均为空，即使用系统的缺省最小配置。
 
-当配置文件为空时，Hadoop会完全运行在本地。因为不需要与其他节点交互，单机模式就不使用HDFS，也不加载任何Hadoop的守护进程。该模式主要用于开发调试MapReduce程序的应用逻辑。
+当配置文件为空时，Hadoop会完全运行在本地。因为不需要与其他节点交互，单机模式就不使用HDFS，也不加载任何Hadoop的守护进程。该模式**主要用于开发调试MapReduce程序的应用逻辑**。
 
 `hadoop-2.9.2/etc/hadoop/core-site.xml`文件详解：
 
@@ -257,11 +257,11 @@ export HADOOP_IDENT_STRING=$USER
 
 ### 3.2.2 伪分布式模式
 
-伪分布式模式在“单节点集群”上运行Hadoop， 所有的守护进程都运行在同一台机器上。该模式在单机模式之上增加了代码调试功能，允许你检查内存使用的情况、HDFS输入输出，以及其它守护进程的交互。
+伪分布式模式在“单节点集群”上运行Hadoop， 所有的守护进程都运行在同一台机器上。**该模式在单机模式之上增加了代码调试功能，允许你检查内存使用的情况、HDFS输入输出，以及其它守护进程的交互**。
 
 #### 3.2.2.1 `core-site.xml`配置
 
-- `fs.defaultFS`：制定NameNode的主机名和端口号
+- `fs.defaultFS`：指定NameNode的主机名和端口号
 - `hadoop.tmp.dir`：定义了临时目录，缺省为`/tmp/hadoop-${user.name}`。
 
 ```xml
@@ -475,191 +475,188 @@ HADOOP集群具体来说包含两个集群：
 - hdp-node-02   DataNode   NodeManager
 - hdp-node-03		DataNode   NodeManager
 
+
+
+SSH免密登录原理：每台主机`authorized_keys`文件里面包含的主机（ssh密钥），该主机都能无密码登录，所以只要每台主机的`authorized_keys`文件里面都放入其他主机（需要无密码登录的主机）的ssh密钥就行了。
+
+让Master节点可以无密码 SSH 登陆到各个 Slave 节点上：
+
+- 首先生成 Master 节点的公匙，在 Master 节点的终端中执行
+
+  ```shell
+  cd ~/.ssh               # 如果没有该目录，先执行一次ssh localhost
+  rm ./id_rsa*            # 删除之前生成的公匙（如果有）
+  ssh-keygen -t rsa       # 一直按回车就可以
+  cat ./id_rsa.pub >> ./authorized_keys
+  ```
+
+-  完成后可执行 `ssh Master的ip` 验证一下（可能需要输入 yes，成功后执行 `exit` 返回原来的终端）
+
+- 在 Master 节点将上公匙传输到 全部的Slave节点
+
+- 接着在 Slave1 节点上，将 ssh 公匙加入授权：
+
+  ```shell
+  mkdir ~/.ssh       # 如果不存在该文件夹需先创建，若已存在则忽略
+  cat ~/id_rsa.pub >> ~/.ssh/authorized_keys
+  rm ~/id_rsa.pub    # 用完就可以删掉了
+  ```
+
+  
+
 ## 4.1 使用centos:centos7(docker)搭建
 
-- 拉取镜像：`sudo docker pull centos:centos7`
+- 拉取镜像：`docker pull centos:centos7`
 
-- 创建hadoop自定义网络（网络模式为bridge）：`sudo docker network create --driver bridge hadoop_cluster`
+- 创建hadoop自定义网络（网络模式为bridge）：`docker network create --driver bridge hadoop_cluster`
 
-    - ```
-        NETWORK ID          NAME                DRIVER              SCOPE
-        3f79428b1e59        bridge              bridge              local
-        7ad744e75606        hadoop_cluster      bridge              local
-        3855964aa18e        host                host                local
-        757ba10e775c        none                null                local
-        ```
+    ```
+    NETWORK ID          NAME                DRIVER              SCOPE
+    7b9502d261b5        bridge              bridge              local
+    041a8525b1c7        hadoop_cluster      bridge              local
+    4631a046c450        host                host                local
+    cbc887db2441        none                null                local
+    ```
+
+    
 
 ### 4.1.1 使用centos:centos7创建基础镜像
 
-- 查询镜像：`sudo docker images`
+- 查询镜像：`docker images`
 
-    - ```
-        REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-        centos              7                   b5b4d78bc90c        2 months ago        203MB
-        ```
+    ```
+    REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+    centos              centos7             7e6257c9f8d8        2 months ago        203MB
+    ```
 
-- 启动容器加载镜像,同时进入启动的容器
+- 启动容器加载镜像，然后进入启动的容器
 
-    - ```shell
-        [zh@zh-inspironn4050 ~]$ sudo docker run -it --name centos-hadoop b5b4d78bc90c /bin/bash
-        [root@58f21c4424cf /]# 
-        ```
+    ```shell
+    PS C:\Users\ZhangHai> docker images
+    REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+    centos              centos7             7e6257c9f8d8        2 months ago        203MB
+    PS C:\Users\ZhangHai> docker run -dit --privileged --name centos-hadoop 7e6257c9f8d8 /usr/sbin/init
+    43da14944c58d4181eb4a9bb34ba11657b3b15ffb5176b460c0f60a60d06f738
+    PS C:\Users\ZhangHai> docker ps
+    CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+    43da14944c58        7e6257c9f8d8        "/usr/sbin/init"    36 seconds ago      Up 35 seconds                           centos-hadoop
+    PS C:\Users\ZhangHai> docker exec -it 43da14944c58 bash
+    [root@43da14944c58 /]#
+    ```
 
-- 配置时区：`[root@58f21c4424cf /]# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime`
+- 配置时区：`[root@43da14944c58 /]# ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime`
 
-- 配置ifconfig：`[root@58f21c4424cf /]# yum install net-tools.x86_64`
+- 配置ifconfig：`[root@43da14944c58 /]# yum install net-tools.x86_64`
 
 - 查看网卡信息：`ifconfig`
 
 - 安装openssh：`yum install openssh-server -y`
 
-    - 生成公钥、私钥：
+- 安装ssh客户端和which：
 
-        - `ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key`
+    - `yum -y install openssh-clients`
+    - `yum -y install which`
 
-            - ```
-                Generating public/private rsa key pair.
-                Enter passphrase (empty for no passphrase): 
-                Enter same passphrase again: 
-                Your identification has been saved in /etc/ssh/ssh_host_rsa_key.
-                Your public key has been saved in /etc/ssh/ssh_host_rsa_key.pub.
-                The key fingerprint is:
-                SHA256:bG5jYOvlmZjHSmnO1ZPFf7Q8r1JNZb8czqR43dryywM root@58f21c4424cf
-                The key's randomart image is:
-                +---[RSA 2048]----+
-                |                 |
-                |                o|
-                |               .o|
-                |       .   .   oo|
-                |      o S   + Bo=|
-                |     . * . + EoB+|
-                |      =.B + ..o*.|
-                |     * Oo+ .. +o+|
-                |      Bo+    ..*=|
-                +----[SHA256]-----+
-                ```
+- 测试ssh：
 
-            - passphrase：111111
-
-        - `ssh-keygen -t rsa -f /etc/ssh/ssh_host_ecdsa_key`
-
-            - ```
-                Generating public/private rsa key pair.
-                Enter passphrase (empty for no passphrase): 
-                Enter same passphrase again: 
-                Your identification has been saved in /etc/ssh/ssh_host_ecdsa_key.
-                Your public key has been saved in /etc/ssh/ssh_host_ecdsa_key.pub.
-                The key fingerprint is:
-                SHA256:ty252D3DtiCDovsc3gjsruZu50niWuRDmPqyKge0DSU root@58f21c4424cf
-                The key's randomart image is:
-                +---[RSA 2048]----+
-                |                 |
-                | E .             |
-                |  o              |
-                | =               |
-                |+ *     S .      |
-                |o* .   . . +     |
-                |.o*.o . o =..    |
-                |+*+B.=   = ==    |
-                |&XO== . . o.o+   |
-                +----[SHA256]-----+
-                ```
-
-        - `ssh-keygen -t rsa -f /etc/ssh/ssh_host_ed25519_key`
-
-            - ```
-                Generating public/private rsa key pair.
-                Enter passphrase (empty for no passphrase): 
-                Enter same passphrase again: 
-                Your identification has been saved in /etc/ssh/ssh_host_ed25519_key.
-                Your public key has been saved in /etc/ssh/ssh_host_ed25519_key.pub.
-                The key fingerprint is:
-                SHA256:kehhe0pGYEK5kExrHWQLx5jEqwnNR//33j+0QKwzOYM root@58f21c4424cf
-                The key's randomart image is:
-                +---[RSA 2048]----+
-                |=*B*o            |
-                |o=B++. . .       |
-                | *.= .= o   .    |
-                |o.+ .+.o .   o   |
-                |o. .  =.S . +    |
-                |o    o o.E.B . . |
-                |      .  . .= o .|
-                |            .. o |
-                |           .. ..o|
-                +----[SHA256]-----+
-                ```
+    - ```shell
+        # 查看ssh启动状态
+        [root@43da14944c58 /]# systemctl status sshd
+        ● sshd.service - OpenSSH server daemon
+           Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; vendor preset: enabled)
+           Active: active (running) since Thu 2020-10-15 17:49:32 CST; 11s ago
+             Docs: man:sshd(8)
+                   man:sshd_config(5)
+         Main PID: 209 (sshd)
+           CGroup: /docker/43da14944c58d4181eb4a9bb34ba11657b3b15ffb5176b460c0f60a60d06f738/system.slice/sshd.service
+                   └─209 /usr/sbin/sshd -D
+                   ‣ 209 /usr/sbin/sshd -D
+        
+        Oct 15 17:49:32 43da14944c58 systemd[1]: Starting OpenSSH server daemon...
+        Oct 15 17:49:32 43da14944c58 sshd[209]: Server listening on 0.0.0.0 port 22.
+        Oct 15 17:49:32 43da14944c58 sshd[209]: Server listening on :: port 22.
+        Oct 15 17:49:32 43da14944c58 systemd[1]: Started OpenSSH server daemon.
+        
+        # 使用ssh登录本机，在用户目录下生成.ssh目录
+        [root@43da14944c58 /]# ssh localhost
+        The authenticity of host 'localhost (127.0.0.1)' can't be established.
+        ECDSA key fingerprint is SHA256:01+HeXUKJK7YHgpYTGTbTkSocs43xlGN81B1rRrsufw.
+        ECDSA key fingerprint is MD5:c6:61:36:05:62:fc:1d:c7:0b:71:a0:ed:88:9c:98:77.
+        Are you sure you want to continue connecting (yes/no)? yes
+        Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.
+        root@localhost's password:
+        Permission denied, please try again.
+        root@localhost's password:
+        Permission denied, please try again.
+        root@localhost's password:
+        Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).
+        [root@43da14944c58 /]# cd ~/.ssh
+        
+        # 生成ssh密钥，一路回车就可以
+        [root@43da14944c58 .ssh]# ssh-keygen -t rsa
+        Generating public/private rsa key pair.
+        Enter file in which to save the key (/root/.ssh/id_rsa):
+        Enter passphrase (empty for no passphrase):
+        Enter same passphrase again:
+        Your identification has been saved in /root/.ssh/id_rsa.
+        Your public key has been saved in /root/.ssh/id_rsa.pub.
+        The key fingerprint is:
+        SHA256:uJD26ah4cZ8RlyNcsFbsjr5JBnAMIidtZg7xhjqqho0 root@43da14944c58
+        The key's randomart image is:
+        +---[RSA 2048]----+
+        |=oo   .o.        |
+        |o*=o   oo        |
+        |.*+ o.oo .       |
+        |...o o+.=        |
+        |o   = .*S.       |
+        |.....+oo.        |
+        |oo o o*o         |
+        |Eoo  =+.         |
+        |+.... +.         |
+        +----[SHA256]-----+
+        
+        # 使用cat把ssh公钥追加到authorized_keys中
+        [root@43da14944c58 .ssh]# cat ./id_rsa.pub >> ./authorized_keys
+        
+        # 测试本机免密登录
+        [root@43da14944c58 .ssh]# ssh localhost
+        Last failed login: Thu Oct 15 17:51:14 CST 2020 from localhost on ssh:notty
+        There were 2 failed login attempts since the last successful login.
+        ```
 
     - 编写启动脚本：`vi /root/run.sh`
 
-        - ```shell
-            #!/bin/bash
-            /usr/sbin/sshd -D
-            ```
+        ```shell
+        #!/bin/bash
+        /usr/sbin/sshd -D
+        ```
 
-    - 更改脚本权限：`chmod +x ./run.sh`
+    - 更改脚本权限：`[root@43da14944c58 ~]# chmod +x ./run.sh`
 
-    - 配置免密登陆：
+- 把hadoop复制到容器中：`docker cp hadoop-2.9.2.tar.gz 43da14944c58:/root/apps`
 
-        - `[root@58f21c4424cf ~]# ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa`
+- 把jdk复制到容器中：`docker cp jdk-8u251-linux-x64.tar.gz 43da14944c58:/root/apps`
 
-            - ```
-                Generating public/private rsa key pair.
-                Created directory '/root/.ssh'.
-                Your identification has been saved in /root/.ssh/id_rsa.
-                Your public key has been saved in /root/.ssh/id_rsa.pub.
-                The key fingerprint is:
-                SHA256:42ChXHiThfswBG3ayJLg5HJ+DR6/4smdG7Y6J7ujfOI root@58f21c4424cf
-                The key's randomart image is:
-                +---[RSA 2048]----+
-                |    .o ..        |
-                |..   .=o         |
-                |+. o.**.         |
-                |.o+.*+=o         |
-                |.o oo=o+S        |
-                |  . o.oo..       |
-                |   .  o..        |
-                | ...*+o+         |
-                | .E=BX=.         |
-                +----[SHA256]-----+
-                ```
-
-        - `[root@58f21c4424cf ~]# cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys`
-
-        - `chmod 0600 ~/.ssh/authorized_keys`
-
-    - 配置ssh文件：编辑`/etc/ssh/ssh_config`新增
-
-        - ```
-            StrictHostKeyChecking no
-            UserKnownHostsFile /dev/null
-            ```
-
-- 安装ssh客户端和which：`yum -y install openssh-clients`、`yum -y install which`
-
-- 把hadoop复制到容器中：`sudo docker cp hadoop-2.9.2.tar.gz 58f21c4424cf:/root/apps`
-
-- 把jdk复制到容器中：`sudo docker cp jdk-8u251-linux-x64.tar.gz 58f21c4424cf:/root/apps`
-
-- ```shell
-    [root@58f21c4424cf apps]# ls
+    ```shell
+    [root@43da14944c58 apps]# ls
     hadoop-2.9.2.tar.gz  jdk-8u251-linux-x64.tar.gz
-    [root@58f21c4424cf apps]# tar -xzf jdk-8u251-linux-x64.tar.gz
-    [root@58f21c4424cf apps]# tar -xzf hadoop-2.9.2.tar.gz
-    [root@58f21c4424cf apps]# ls
+    [root@43da14944c58 apps]# tar -xzf jdk-8u251-linux-x64.tar.gz
+    [root@43da14944c58 apps]# tar -xzf hadoop-2.9.2.tar.gz
+    [root@43da14944c58 apps]# ls
     hadoop-2.9.2  hadoop-2.9.2.tar.gz  jdk-8u251-linux-x64.tar.gz  jdk1.8.0_251
     ```
 
 - 配置系统环境变量：修改`~/.bashrc`文件。在文件末尾加入下面配置信息：
 
-    - ```
-        export JAVA_HOME=/root/apps/jdk1.8.0_251
-        export HADOOP_HOME=/root/apps/hadoop-2.9.2
-        export HADOOP_CONFIG_HOME=$HADOOP_HOME/etc/hadoop
-        export PATH=$PATH:$HADOOP_HOME/bin
-        export PATH=$PATH:$HADOOP_HOME/sbin
-        ```
+    ```
+    export JAVA_HOME=/root/apps/jdk1.8.0_251
+    export HADOOP_HOME=/root/apps/hadoop-2.9.2
+    export HADOOP_CONFIG_HOME=$HADOOP_HOME/etc/hadoop
+    export PATH=$PATH:$HADOOP_HOME/bin
+    export PATH=$PATH:$HADOOP_HOME/sbin
+    ```
 
-- 配置环境变量JAVA_HOME：修改文件`/root/apps/hadoop-2.9.2/etc/hadoop/hadoop-env.sh`
+- 配置hadoop的JAVA_HOME：修改文件`/root/apps/hadoop-2.9.2/etc/hadoop/hadoop-env.sh`
 
     - `export JAVA_HOME=/root/apps/jdk1.8.0_251`
 
@@ -709,7 +706,10 @@ HADOOP集群具体来说包含两个集群：
         </configuration>
         ```
 
-    - 创建目录：`mkdir /root/apps/hadoop-2.9.2/namenode`和`mkdir /root/apps/hadoop-2.9.2/datanode `
+    - 创建目录：
+
+        - `mkdir /root/apps/hadoop-2.9.2/namenode`
+        -  `mkdir /root/apps/hadoop-2.9.2/datanode `
 
 - 修改配置文件：`/root/apps/hadoop-2.9.2/etc/hadoop/mapred-site.xml`
 
@@ -745,38 +745,105 @@ HADOOP集群具体来说包含两个集群：
 
     - 退出容器：`exit`
 
-    - 停止运行容器：`sudo docker stop 58f21c4424cf`
+    - 停止运行容器：`docker stop 43da14944c58`
 
-    - 保存当前容器：`sudo docker commit 58f21c4424cf centos7-hadoop-zh:v1.0`
+    - 保存当前容器：`docker commit 43da14944c58 centos7-hadoop-zh:v1.0`
 
-    - 查询镜像：`sudo docker images`
+    - 查询镜像：`docker images`
 
-        - ```
-            REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-            centos7-hadoop-zh   v1.0                bc027e3205d7        2 minutes ago       2.11GB
-            centos              7                   b5b4d78bc90c        2 months ago        203MB
-            ```
+        ```
+        REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+        centos7-hadoop-zh   v1.0                3ef2f5a18237        3 seconds ago       2.12GB
+        centos              centos7             7e6257c9f8d8        2 months ago        203MB
+        ```
 
 ### 4.1.1 创建主节点
 
 - 创建主节点容器
-    - ```shell
-        sudo docker run -d -p 5002:22 -p 9000:9000 -p 50090:50090 --name hdp-node-01 --privileged --restart always --network hadoop_cluster --network-alias hdp-01 \
-        bc027e3205d7 \
-        /bin/sh -c "while true; do sleep 10; done" \
-        /root/run.sh
-        ```
 
-    - `/bin/sh -c "while true; do sleep 10; done"`：防止容器启动后立马退出
+    ```shell
+    docker run -d -p 5002:22 -p 9000:9000 -p 50090:50090 --name hdp-node-01 --privileged --restart always --network hadoop_cluster --network-alias hdp-01 3ef2f5a18237 /usr/sbin/init -c "while true; do sleep 10; done" /root/run.sh
+    ```
 
-- 查看正在运行的容器：`sudo docker ps`
+    - `-c "while true; do sleep 10; done"`：防止容器启动后立马退出
+    - `/usr/sbin/init`和`--privileged`：解决在容器中不能使用systemctl命令的问题
+
+- 查看正在运行的容器：`docker ps`
 
     - ```
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                                                    NAMES
-        8d02d7a51bc4        bc027e3205d7        "/bin/sh -c 'while t…"   17 seconds ago      Up 16 seconds       0.0.0.0:9000->9000/tcp, 0.0.0.0:50090->50090/tcp, 0.0.0.0:5002->22/tcp   hdp-node-01
+        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS
+                              NAMES
+        0fe37eebc9fb        3ef2f5a18237        "/usr/sbin/init -c '…"   11 seconds ago      Up 11 seconds       0.0.0.0:9000->9000/tcp, 0.0.0.0:50090->50090/tcp, 0.0.0.0:5002->22/tcp   hdp-node-01
         ```
 
-- 进入容器hdp-node-01：`sudo docker exec -it 8d02d7a51bc4 bash`
+- 进入容器hdp-node-01：`docker exec -it 0fe37eebc9fb bash`
+
+- 配置ssh：
+
+    ```shell
+    # 查看ssh启动状态
+    [root@0fe37eebc9fb /]# systemctl status sshd
+    ● sshd.service - OpenSSH server daemon
+       Loaded: loaded (/usr/lib/systemd/system/sshd.service; enabled; vendor preset: enabled)
+       Active: active (running) since Fri 2020-10-16 09:04:49 CST; 2min 59s ago
+         Docs: man:sshd(8)
+               man:sshd_config(5)
+     Main PID: 61 (sshd)
+       CGroup: /docker/0fe37eebc9fbc9f759c6d622ec310e2194d50677a6dbb333876a49e11d46f68c/system.slice/sshd.service
+               └─61 /usr/sbin/sshd -D
+               ‣ 61 /usr/sbin/sshd -D
+    
+    Oct 16 09:04:49 0fe37eebc9fb systemd[1]: Starting OpenSSH server daemon...
+    Oct 16 09:04:49 0fe37eebc9fb sshd[61]: Server listening on 0.0.0.0 port 22.
+    Oct 16 09:04:49 0fe37eebc9fb sshd[61]: Server listening on :: port 22.
+    Oct 16 09:04:49 0fe37eebc9fb systemd[1]: Started OpenSSH server daemon.
+    
+    # 进入~/.ssh目录，如果没有该目录，先执行一次ssh localhost
+    [root@0fe37eebc9fb /]# cd ~/.ssh
+    
+    # 删除之前生成的公匙（如果有）
+    [root@0fe37eebc9fb .ssh]# rm ./id_rsa*
+    rm: remove regular file './id_rsa'? y
+    rm: remove regular file './id_rsa.pub'? y
+    
+    # 生成ssh密钥，一路直接回车
+    [root@0fe37eebc9fb .ssh]# ssh-keygen -t rsa
+    Generating public/private rsa key pair.
+    Enter file in which to save the key (/root/.ssh/id_rsa):
+    Enter passphrase (empty for no passphrase):
+    Enter same passphrase again:
+    Your identification has been saved in /root/.ssh/id_rsa.
+    Your public key has been saved in /root/.ssh/id_rsa.pub.
+    The key fingerprint is:
+    SHA256:x4h0CoZqY/qQ6PubUZVOOBWzpBSp6sHs3+HYLf7yx9Q root@0fe37eebc9fb
+    The key's randomart image is:
+    +---[RSA 2048]----+
+    |     oo=.        |
+    |   ...= +        |
+    |  . ++.=.        |
+    | . o o=+ o       |
+    |++.  .o.S +      |
+    |=*. .    o E     |
+    |B .. .  o        |
+    |.=  Boo  o       |
+    | o=*o==+.        |
+    +----[SHA256]-----+
+    
+    # 使用cat把ssh公钥追加到authorized_keys中
+    [root@0fe37eebc9fb .ssh]# cat ./id_rsa.pub >> ./authorized_keys
+    
+    # 测试本机免密登录
+    [root@0fe37eebc9fb .ssh]# ssh localhost
+    Last login: Thu Oct 15 17:56:12 2020 from localhost
+    
+    # 退出ssh登录
+    [root@0fe37eebc9fb ~]# exit
+    logout
+    Connection to localhost closed.
+    [root@0fe37eebc9fb .ssh]#
+    
+    # 在创建好从结点之后，需要把主节点的ssh公钥配置到从节点中
+    ```
 
 - 修改配置文件：`/root/apps/hadoop-2.9.2/etc/hadoop/slaves`
 
@@ -785,7 +852,7 @@ HADOOP集群具体来说包含两个集群：
         hdp-03
         ```
 
-    - 格式化namenode：
+    - 格式化NameNode：
         - `cd /root/apps/hadoop-2.9.2/bin`
         - `hadoop namenode -format`
 
@@ -793,93 +860,249 @@ HADOOP集群具体来说包含两个集群：
 
 - 创建从节点容器：
 
-    - ```shell
-        sudo docker run -d -p 5003:22 --name hdp-node-02 --privileged --restart always --network hadoop_cluster --network-alias hdp-02 \
-        bc027e3205d7 \
-        /bin/sh -c "while true; do sleep 10; done" \
-        /root/run.sh
-        ```
+    ```shell
+    # 创建从节点hdp-node-02
+    PS D:\todo> docker run -d -p 5003:22 --name hdp-node-02 --privileged --restart always --network hadoop_cluster --network-alias hdp-02 3ef2f5a18237 /usr/sbin/init -c "while true; do sleep 10; done" /root/run.sh
+    49abcf5aad570caf369257235609f76eb2d928ab0e3ed7eec60a3969461fa4b8
+    
+    # 创建从节点hdp-node-03
+    PS D:\todo> docker run -d -p 5004:22 --name hdp-node-03 --privileged --restart always --network hadoop_cluster --network-alias hdp-03 3ef2f5a18237 /usr/sbin/init -c "while true; do sleep 10; done" /root/run.sh
+    6f13fa25269a02d7c408a3c237110d5ec50a9eb20a8a9eee4a3bdf684c85cd9f
+    ```
 
-    - ```shell
-        sudo docker run -d -p 5004:22 --name hdp-node-03 --privileged --restart always --network hadoop_cluster --network-alias hdp-03 \
-        bc027e3205d7 \
-        /bin/sh -c "while true; do sleep 10; done" \
-        /root/run.sh
-        ```
+    - `-c "while true; do sleep 10; done"`：防止容器启动后立马退出
+    - `/usr/sbin/init`和`--privileged`：解决在容器中不能使用systemctl命令的问题
 
-    - `/bin/sh -c "while true; do sleep 10; done"`：防止容器启动后立马退出
+- 查看正在运行的容器：`docker ps`
 
-- 查看正在运行的容器：`sudo docker ps`
+    ```shell
+    PS D:\todo> docker ps
+    CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS
+                          NAMES
+    6f13fa25269a        3ef2f5a18237        "/usr/sbin/init -c '…"   4 seconds ago       Up 3 seconds        0.0.0.0:5004->22/tcp
+                          hdp-node-03
+    49abcf5aad57        3ef2f5a18237        "/usr/sbin/init -c '…"   12 seconds ago      Up 11 seconds       0.0.0.0:5003->22/tcp
+                          hdp-node-02
+    0fe37eebc9fb        3ef2f5a18237        "/usr/sbin/init -c '…"   14 minutes ago      Up 14 minutes       0.0.0.0:9000->9000/tcp, 0.0.0.0:50090->50090/tcp, 0.0.0.0:5002->22/tcp   hdp-node-01
+    ```
 
-    - ```
-        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                                                    NAMES
-        62bfae8d8949        bc027e3205d7        "/bin/sh -c 'while t…"   11 seconds ago      Up 10 seconds       0.0.0.0:5004->22/tcp                                                     hdp-node-03
-        eb2dfe7f22d4        bc027e3205d7        "/bin/sh -c 'while t…"   21 seconds ago      Up 20 seconds       0.0.0.0:5003->22/tcp                                                     hdp-node-02
-        8d02d7a51bc4        bc027e3205d7        "/bin/sh -c 'while t…"   2 minutes ago       Up 2 minutes        0.0.0.0:9000->9000/tcp, 0.0.0.0:50090->50090/tcp, 0.0.0.0:5002->22/tcp   hdp-node-01
-        ```
+- 配置主节点的ssh公钥到所有从节点：
 
-- 进入容器：`sudo docker exec -it eb2dfe7f22d4 bash`、`sudo docker exec -it 62bfae8d8949 bash`
-
-- 格式化namenode：
-
-    - `cd /root/apps/hadoop-2.9.2/bin`
-    - `hadoop namenode -format`
+    ```shell
+    # 登录所有从节点，删除之前生成的ssh公匙（如果有）
+    PS D:\todo> docker exec -it 49abcf5aad57 bash
+    [root@49abcf5aad57 /]# cd ~/.ssh
+    [root@49abcf5aad57 .ssh]# rm ./id_rsa*
+    rm: remove regular file './id_rsa'? y
+    rm: remove regular file './id_rsa.pub'? y
+    [root@49abcf5aad57 .ssh]# exit
+    exit
+    PS D:\todo> docker exec -it 6f13fa25269a bash
+    [root@6f13fa25269a /]# cd ~/.ssh
+    [root@6f13fa25269a .ssh]# rm ./id_rsa*
+    rm: remove regular file './id_rsa'? y
+    rm: remove regular file './id_rsa.pub'? y
+    [root@6f13fa25269a .ssh]# exit
+    exit
+    
+    # 登录主节点，把主节点的ssh公钥复制本地，然后从本地复制到所有的从节点
+    PS D:\todo> docker cp hdp-node-01:/root/.ssh/id_rsa.pub ./
+    PS D:\todo> ls
+    
+    
+        目录: D:\todo
+    
+    
+    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    -a----       2020/10/16      9:12            399 id_rsa.pub
+    
+    PS D:\todo> docker cp id_rsa.pub hdp-node-02:/root/.ssh
+    PS D:\todo> docker cp id_rsa.pub hdp-node-03:/root/.ssh
+    
+    # 登录从节点，使用cat把ssh公钥追加到authorized_keys中
+    PS D:\todo> docker exec -it 49abcf5aad57 bash
+    [root@49abcf5aad57 /]# cd ~/.ssh
+    [root@49abcf5aad57 .ssh]# ls
+    authorized_keys  id_rsa.pub  known_hosts
+    [root@49abcf5aad57 .ssh]# cat ./id_rsa.pub >> ./authorized_keys
+    [root@49abcf5aad57 .ssh]# exit
+    exit
+    
+    PS D:\todo> docker exec -it 6f13fa25269a bash
+    [root@6f13fa25269a /]# cd ~/.ssh
+    [root@6f13fa25269a .ssh]# ls
+    authorized_keys  id_rsa.pub  known_hosts
+    [root@6f13fa25269a .ssh]# cat ./id_rsa.pub >> ./authorized_keys
+    [root@6f13fa25269a .ssh]# exit
+    exit
+    
+    # 登录主节点，验证免密登录从节点
+    (base) PS D:\todo> docker exec -it 0fe37eebc9fb bash
+    [root@0fe37eebc9fb /]# ssh root@hdp-02
+    Last failed login: Fri Oct 16 09:32:19 CST 2020 from hdp-node-01.hadoop_cluster on ssh:notty
+    There were 5 failed login attempts since the last successful login.
+    Last login: Thu Oct 15 17:56:12 2020 from localhost
+    [root@49abcf5aad57 ~]# exit
+    logout
+    Connection to hdp-02 closed.
+    [root@0fe37eebc9fb /]# ssh root@hdp-03
+    The authenticity of host 'hdp-03 (172.18.0.4)' can't be established.
+    ECDSA key fingerprint is SHA256:01+HeXUKJK7YHgpYTGTbTkSocs43xlGN81B1rRrsufw.
+    ECDSA key fingerprint is MD5:c6:61:36:05:62:fc:1d:c7:0b:71:a0:ed:88:9c:98:77.
+    Are you sure you want to continue connecting (yes/no)? yes
+    Warning: Permanently added 'hdp-03,172.18.0.4' (ECDSA) to the list of known hosts.
+    Last login: Thu Oct 15 17:56:12 2020 from localhost
+    [root@6f13fa25269a ~]# exit
+    logout
+    Connection to hdp-03 closed.
+    [root@0fe37eebc9fb /]#
+    ```
 
 ### 4.1.3 在主节点启动hadoop
 
-- 进入主节点容器：`sudo docker exec -it 8d02d7a51bc4 bash`
+- 进入主节点容器：`docker exec -it 0fe37eebc9fb bash`
 
-    - ```shell
-        [root08d02d7a51bc4 sbin]# pwd
-        /root/apps/hadoop-2.9.2/sbin
-        ```
+    ```shell
+    PS D:\todo> docker exec -it 0fe37eebc9fb bash
+    [root@0fe37eebc9fb /]# 
+    ```
 
-- 启动HDFS：`[root@8d02d7a51bc4 sbin]# ./start-dfs.sh`
+- 启动HDFS：
 
-    - ```
-        hdp-01: ssh: connect to host hdp-01 port 22: Connection refused
-        hdp-02: ssh: connect to host hdp-02 port 22: Connection refused
-        hdp-03: ssh: connect to host hdp-03 port 22: Connection refused
-        ```
+    ```shell
+    [root@0fe37eebc9fb /]# cd /root/apps/hadoop-2.9.2/sbin
+    [root@0fe37eebc9fb sbin]# ./start-dfs.sh
+    Starting namenodes on [hdp-01]
+    The authenticity of host 'hdp-01 (172.18.0.2)' can't be established.
+    ECDSA key fingerprint is SHA256:01+HeXUKJK7YHgpYTGTbTkSocs43xlGN81B1rRrsufw.
+    ECDSA key fingerprint is MD5:c6:61:36:05:62:fc:1d:c7:0b:71:a0:ed:88:9c:98:77.
+    Are you sure you want to continue connecting (yes/no)? yes
+    hdp-01: Warning: Permanently added 'hdp-01,172.18.0.2' (ECDSA) to the list of known hosts.
+    hdp-01: starting namenode, logging to /root/apps/hadoop-2.9.2/logs/hadoop-root-namenode-0fe37eebc9fb.out
+    localhost: starting datanode, logging to /root/apps/hadoop-2.9.2/logs/hadoop-root-datanode-0fe37eebc9fb.out
+    hdp-03: starting datanode, logging to /root/apps/hadoop-2.9.2/logs/hadoop-root-datanode-6f13fa25269a.out
+    hdp-02: starting datanode, logging to /root/apps/hadoop-2.9.2/logs/hadoop-root-datanode-49abcf5aad57.out
+    Starting secondary namenodes [hdp-01]
+    hdp-01: starting secondarynamenode, logging to /root/apps/hadoop-2.9.2/logs/hadoop-root-secondarynamenode-0fe37eebc9fb.out
+    ```
 
-    - 解决22端口号关闭的问题：
+- 启动YARN：
 
-        - 编辑`/etc/ssh/sshd_config`：
-            - 打开`Port 22`的注释
+  ```shell
+  [root@0fe37eebc9fb sbin]# ./start-yarn.sh
+  starting yarn daemons
+  starting resourcemanager, logging to /root/apps/hadoop-2.9.2/logs/yarn--resourcemanager-0fe37eebc9fb.out
+  localhost: starting nodemanager, logging to /root/apps/hadoop-2.9.2/logs/yarn-root-nodemanager-0fe37eebc9fb.out
+  hdp-03: starting nodemanager, logging to /root/apps/hadoop-2.9.2/logs/yarn-root-nodemanager-6f13fa25269a.out
+  hdp-02: starting nodemanager, logging to /root/apps/hadoop-2.9.2/logs/yarn-root-nodemanager-49abcf5aad57.out
+  ```
 
+  
 
+### 4.1.4 测试Hadoop
 
+#### 4.1.4.1 上传文件到HDFS
 
+```shell
+# 列出hdfs根目录下的文件
+[root@0fe37eebc9fb apps]# hadoop fs -ls /
+# 在hdfs根目录创建文件路径/wordcount/input
+[root@0fe37eebc9fb apps]# hadoop fs -mkdir -p /wordcount/input
+[root@0fe37eebc9fb apps]# hadoop fs -ls /
+Found 1 items
+drwxr-xr-x   - root supergroup          0 2020-10-16 12:26 /wordcount
+# 创建一个文件 内容为一些英文单词,每行一个词
+[root@0fe37eebc9fb apps]# vi somewords.txt
+# 上传此文本文件到hdfs的/wordcount/input目录下
+[root@0fe37eebc9fb apps]# hadoop fs -put somewords.txt /wordcount/input
+[root@0fe37eebc9fb apps]# hadoop fs -ls /wordcount/input
+Found 1 items
+-rw-r--r--   2 root supergroup         23 2020-10-16 12:30 /wordcount/input/somewords.txt
+```
 
+#### 4.1.4.2 运行一个mapreduce程序
 
+```shell
+[root@0fe37eebc9fb mapreduce]# pwd
+/root/apps/hadoop-2.9.2/share/hadoop/mapreduce
 
+[root@0fe37eebc9fb mapreduce]# hadoop jar hadoop-mapreduce-examples-2.9.2.jar wordcount /wordcount/input /wordcount/output
+20/10/16 12:41:32 INFO client.RMProxy: Connecting to ResourceManager at hdp-01/172.18.0.2:8032
+20/10/16 12:41:33 INFO input.FileInputFormat: Total input files to process : 1
+20/10/16 12:41:33 INFO mapreduce.JobSubmitter: number of splits:1
+20/10/16 12:41:33 INFO Configuration.deprecation: yarn.resourcemanager.system-metrics-publisher.enabled is deprecated. Instead, use yarn.system-metrics-publisher.enabled
+20/10/16 12:41:33 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1602816131335_0001
+20/10/16 12:41:34 INFO impl.YarnClientImpl: Submitted application application_1602816131335_0001
+20/10/16 12:41:34 INFO mapreduce.Job: The url to track the job: http://hdp-01:8088/proxy/application_1602816131335_0001/
+20/10/16 12:41:34 INFO mapreduce.Job: Running job: job_1602816131335_0001
+20/10/16 12:41:40 INFO mapreduce.Job: Job job_1602816131335_0001 running in uber mode : false
+20/10/16 12:41:40 INFO mapreduce.Job:  map 0% reduce 0%
+20/10/16 12:41:44 INFO mapreduce.Job:  map 100% reduce 0%
+20/10/16 12:41:48 INFO mapreduce.Job:  map 100% reduce 100%
+20/10/16 12:41:48 INFO mapreduce.Job: Job job_1602816131335_0001 completed successfully
+20/10/16 12:41:48 INFO mapreduce.Job: Counters: 49
+        File System Counters
+                FILE: Number of bytes read=59
+                FILE: Number of bytes written=396887
+                FILE: Number of read operations=0
+                FILE: Number of large read operations=0
+                FILE: Number of write operations=0
+                HDFS: Number of bytes read=136
+                HDFS: Number of bytes written=33
+                HDFS: Number of read operations=6
+                HDFS: Number of large read operations=0
+                HDFS: Number of write operations=2
+        Job Counters
+                Launched map tasks=1
+                Launched reduce tasks=1
+                Data-local map tasks=1
+                Total time spent by all maps in occupied slots (ms)=1623
+                Total time spent by all reduces in occupied slots (ms)=1838
+                Total time spent by all map tasks (ms)=1623
+                Total time spent by all reduce tasks (ms)=1838
+                Total vcore-milliseconds taken by all map tasks=1623
+                Total vcore-milliseconds taken by all reduce tasks=1838
+                Total megabyte-milliseconds taken by all map tasks=1661952
+                Total megabyte-milliseconds taken by all reduce tasks=1882112
+        Map-Reduce Framework
+                Map input records=5
+                Map output records=5
+                Map output bytes=43
+                Map output materialized bytes=59
+                Input split bytes=113
+                Combine input records=5
+                Combine output records=5
+                Reduce input groups=5
+                Reduce shuffle bytes=59
+                Reduce input records=5
+                Reduce output records=5
+                Spilled Records=10
+                Shuffled Maps =1
+                Failed Shuffles=0
+                Merged Map outputs=1
+                GC time elapsed (ms)=75
+                CPU time spent (ms)=900
+                Physical memory (bytes) snapshot=517210112
+                Virtual memory (bytes) snapshot=3962376192
+                Total committed heap usage (bytes)=349700096
+        Shuffle Errors
+                BAD_ID=0
+                CONNECTION=0
+                IO_ERROR=0
+                WRONG_LENGTH=0
+                WRONG_MAP=0
+                WRONG_REDUCE=0
+        File Input Format Counters
+                Bytes Read=23
+        File Output Format Counters
+                Bytes Written=33
+[root@0fe37eebc9fb mapreduce]# hadoop fs -ls /wordcount/output
+Found 2 items
+-rw-r--r--   2 root supergroup          0 2020-10-16 12:41 /wordcount/output/_SUCCESS
+-rw-r--r--   2 root supergroup         33 2020-10-16 12:41 /wordcount/output/part-r-00000
+```
 
+#### 4.1.4.3 当前集群存在的问题TODO
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+**外部客户端可以获取文件元数据信息，可以获取空的文本文件，但是无法获取有内容的文件。应该是不在一个网络的原因，后续需要研究DistributedFileSystem和DFSClient**

@@ -308,8 +308,9 @@ public class ItemsDaoImpl implements ItemsDao{
 
 ## 2.9 web.xml
 
-
 位置：`/springmvc/WebContent/WEB-INF/web.xml`
+
+注意：如果`web.xml`的第一行不是`<?xml version="1.0" encoding="UTF-8"?>`会导致页面无法使用jstl'标签的问题。
 
 
 ```xml

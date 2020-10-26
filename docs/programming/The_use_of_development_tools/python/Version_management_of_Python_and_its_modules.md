@@ -2,8 +2,9 @@
 
 # 1 python版本控制
 ## 1.1 pyenv
-由于 python 拥有众多的版本，以及不同模块也有不同的版本。如果每个版本之间相互都不兼容那也就无所谓什么版本控制了，可是同一机器上各个版本的 python 可以相互兼容并存，而且同一模块不同版本有时需要的 python 版本是不相同的，所以 python 的版本控制显得尤为重要。<br />`pyenv` 是个 shell 脚本，能够轻松得实现各个不同版本 python 的相互间切换，而且各个版本的 python 切换不限于全局切换，甚至不同文件夹都可以拥有不同的 python 版本。<br />下面我们就来看看如何使用 `pyenv`。<br />
+由于 python 拥有众多的版本，以及不同模块也有不同的版本。如果每个版本之间相互都不兼容那也就无所谓什么版本控制了，可是同一机器上各个版本的 python 可以相互兼容并存，而且同一模块不同版本有时需要的 python 版本是不相同的，所以 python 的版本控制显得尤为重要。<br />`pyenv` 是个 shell 脚本，能够轻松得实现各个不同版本 python 的相互间切换，而且各个版本的 python 切换不限于全局切换，甚至不同文件夹都可以拥有不同的 python 版本。下面我们就来看看如何使用 `pyenv`。<br />
 <br />如果你既需要使用 `python2`，也需要使用 `python3`，`pyenv` 将是一个很高效的 python 版本管理工具。<br />由于 `pyenv` 是脚本插件，所以只能在类 UNIX 系统上使用。所以，如果你想在 windows 上安装，那就点击左上角去隔壁 `virtualenv` 瞧瞧。
+
 ### 1.1.1 安装 pyenv（Ubuntu）
 
 1. **确定你想把 `pyenv` 安装在哪。**推荐安装在 `$HOME/.pyenv`，但你也可以安装在任意位置。
@@ -81,14 +82,15 @@ rm -rf $(pyenv root)
 - 使用 `pyenv uninstall ...` 命令。
 - 直接删除 `versions` 文件夹下的对应 python 版本文件夹。
 ### 1.1.7 pyenv 其他操作命令
-参见 [commands.md](https://link.jianshu.com?t=https://github.com/pyenv/pyenv/blob/master/COMMANDS.md)<br />
-<br />
+参见 [commands.md](https://link.jianshu.com?t=https://github.com/pyenv/pyenv/blob/master/COMMANDS.md)
 
 # 2 python模块版本管理 
 使用 `virtualenv` 和 `virtualenvwrapper` 管理 python 虚拟环境，每次都需要手动激活或退出。对于懒癌晚期患者，`pyenv-virtualenv`的自动激活和退出虚拟环境功能简直不能再赞。另外搭配 `pyenv` 食用效果更佳。
 ## 2.1 pyenv-virtualenv
 ### 2.1.1 安装 pyenv-virtualenv（Ubuntu）
-由于 `pyenv-virtualenv` 是 `pyenv` 的一个插件，所以安装之前需要先安装 `pyenv`。<br />**注意：**如果 `pyenv` 的安装目录不是 `$HOME/.pyenv` 需要确保克隆下来的仓库位于你所安装的 `pyenv` 目录下的 `plugin` 文件夹下。<br />接下来就可以执行安装步骤了：
+由于 `pyenv-virtualenv` 是 `pyenv` 的一个插件，所以安装之前需要先安装 `pyenv`。<br />**注意：**如果 `pyenv` 的安装目录不是 `$HOME/.pyenv` 需要确保克隆下来的仓库位于你所安装的 `pyenv` 目录下的 `plugin` 文件夹下。
+
+接下来就可以执行安装步骤了：
 
 1. 克隆 `pyenv-virtual` 仓库到 `plugin` 文件夹下。
 1. （可选/重点）添加 `pyenv virtualenv-init` 到你的 shell 配置文件中，这样进入指定文件夹自动进入虚拟环境，离开文件夹退出虚拟环境。
@@ -127,11 +129,13 @@ $ echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 
 
 ## 2.2 virtualenv
-**安装virtualenv**：`pip3 install virtualenv`**<br />**创建指定Python版本的Python运行环境**：`virtualenv -p /usr/bin/python3 env_name`（env_name为Python运行环境名称）
+**安装virtualenv**：`pip3 install virtualenv`
+
+创建指定Python版本的Python运行环境**：`virtualenv -p /usr/bin/python3 env_name`（env_name为Python运行环境名称）
 
 - 如：`virtualenv -p /home/zh/.pyenv/versions/3.6.10/bin/python ai`
 
-**激活虚拟环境**： `source env_name/bin/activate` （env_name为Python运行环境名称）<br />
+**激活虚拟环境**： `source env_name/bin/activate` （env_name为Python运行环境名称）
 
 - 如果env_name不再当前命令行所在目录，则需要写env_name绝对路径。比如： `source /home/zh/ai/bin/activate`
 

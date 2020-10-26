@@ -330,7 +330,7 @@ public class JedisClientCluster implements JedisClient {
 ```
 
 ### 2.3.2 整合spring
-****注意****：单机版和集群版不能共存，使用单机版时注释集群版的配置。使用集群版，把单机版注释。
+**注意**：单机版和集群版不能共存，使用单机版时注释集群版的配置。使用集群版，把单机版注释。
 applicationContext-redis.xml内容：
 
 ```xml
