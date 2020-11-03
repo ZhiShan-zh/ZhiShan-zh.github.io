@@ -245,8 +245,8 @@
 | 笔记                                                         | 笔记                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [图的定义和术语](./docs/programming/data_structure/graph/Graph_definition_and_terminology.md) | [图的存储结构](./docs/programming/data_structure/graph/graph_storage_structure.md) |
-|                                                              |                                                              |
-|                                                              |                                                              |
+| [图的遍历](./docs/programming/data_structure/graph/traversing_graph.md) | [图的连通性问题](./docs/programming/data_structure/graph/graph_connectivity_problem.md) |
+| [有向无环图及其应用](./docs/programming/data_structure/graph/directed_acycline_graph.md) | [最短路径](./docs/programming/data_structure/graph/shortest_path.md) |
 
 ## 查找（Searching）
 
