@@ -62,7 +62,7 @@
 
 ## 2.1 Python基础
 
-- [Python内置函数之eval()、exec()、compile()函数](./docs/programming/python/Basic_knowledge_of_Python/Functions_eval_exec_compile_in_python.md)
+- [Python内置函数之eval、exec和compile函数](./docs/programming/python/Basic_knowledge_of_Python/Functions_eval_exec_compile_in_python.md)
 
 ## 2.2 Python源码
 

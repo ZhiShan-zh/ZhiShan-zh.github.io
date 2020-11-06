@@ -1,3 +1,5 @@
+[TOC]
+
 # 有向无环图及其应用
 
 有向无环图（directed acycline graph）：简称DAG图，一个无环的有向图。
@@ -78,6 +80,32 @@ $$
 
 针对上述两步操作，我们可采用邻接表作为有向图的存储结构，且在头结点中增加一个存放顶点入度的数组（indegree）。入度为零的顶点即为没有前驱的顶点，删除顶点及以它为尾 的弧的操作，则可换以弧头顶点的入度减1来实现。
 
+求入度数组的算法：
+
+```c
+/*
+    原理：对于有向图的邻接表，以来于每个顶点的弧为以此顶点为弧尾的弧，
+        每个依赖于此顶点的弧存放了弧头顶点的位置，这个位置代表着以此位置顶点为弧头的一条弧，
+        那么弧中这个位置出现的次数，就是以此顶点为弧头的弧的个数
+*/
+void FindInDegree(ALGraph G, int indegree[]){
+    //对各顶点求入度indegree[0..vernum-1]
+    int i;
+    //初始化顶点的入度数组
+    for(i=0; i<G.vexnum; i++){
+        indegree[i] = 0;
+    }
+    ArcNode *p;
+    for(i=0; i<G.vexnum; i++){
+        p = G.vertices[i].firstarc;
+        while (p) {
+            indegree[(*p).adjvex]++;
+            p = (*p).nextarc;
+        }
+    }
+}
+```
+
 为了避免重复检测入度为零的顶点，可另设一栈暂存所有入度为零的顶点，由此可得拓扑排序的算法如下：
 
 ```c
@@ -91,7 +119,8 @@ Status TopologicalSort(ALGraph G){
     }
     count = 0;//对输出顶点计数
     while(!StackEmpty(S)){
-        Pop(S, i); printf(i, G.vertices[i].data); ++count;//输出i号顶点并计数
+        Pop(S, &i); printf(i, G.vertices[i].data); ++count;//输出i号顶点并计数
+        //对以入度为0的顶点为弧尾的弧的弧头顶点的入度减1
         for(p=G.vertices[i].firstarc; p; p = p->nextarc){
             k = p->adjvex;//对i号顶点的每个邻接点的入度减1
             if(!(--indegree[k])) Push(S, k);//若入度减为0，则入栈
@@ -135,28 +164,81 @@ $$
 l(i) = vl(k) -dut(<j, k>)
 $$
 
+示例：
+
+<img src="https://zhishan-zh.github.io/media/dataStructure_graph_20201103161631.png" style="zoom:50%;" />
+
+> 活动$a_3$由弧<1,4>表示，则
+>
+> e(3) = ve(1)
+> l(3) = vl(4) - dut(<1,4>)=vl(4) -5
+
 **求ve(j)和vl(j)需分两步进行**：
 
-1. 从ve(0) = 0开始向前递推
-   $$
-   ve(j) = Max\{ve(i) + dut(<i,j>)\} <i,j> \in T,j=1,2,...,n-1
-   $$
-   其中，T是所有以第j个顶点为头的弧的集合。
+1. 从ve(0) = 0开始向前递推$ve(j) = Max\{ve(i) + dut(<i,j>)\} <i,j> \in T,j=1,2,...,n-1$，其中，T是所有以第j个顶点为头的弧的集合。
+   
+   > 以邻接表存储方式为例：
+   >
+   > ```c
+> //遍历零入度栈S
+   > while(!StackEmpty(*S)){
+   >     Pop(S, &i); Push(T, i); ++count;//入栈i号顶点并计数
+   >     //遍历以当前零入度顶点为弧尾的弧，弧中保存的顶点尾弧头
+   >     for(p=G.vertices[i].firstarc; p; p = p->nextarc){
+   >         k = p->adjvex;
+   >         //对i号顶点的每个邻接点的入度减1
+   >         if(!(--indegree[k])) 
+   >             Push(S, k);//若入度减为0，则入栈
+   >         //如果弧尾顶点的最早发生时间 + 当前弧的持续时间 > 当前弧的弧头顶点的最早放生时间
+   >         if(ve[i] + *(p->info) > ve[k]) ve[k] = ve[i] + *(p->info);
+   >     }//for
+   > }//while
+   > ```
+   
+2. 从vl(n-1)=ve(n-1)起向后递推$vl(j) = Min\{vl(j) - dut(<i,j>)\} <i,j> \in S,i=n-2,...,0$，其中，S是所有以第i个顶点为尾的弧的集合。
 
-2. 从vl(n-1)=ve(n-1)起向后递推
-   $$
-   vl(j) = Min\{vl(j) - dut(<i,j>)\} <i,j> \in S,i=n-2,...,0
-   $$
-   其中，S是所有以第i个顶点为尾的弧的集合。
+   >以邻接表存储方式为例：
+   >
+   >```c
+   >//按拓扑逆序求各顶点的vl值
+   >while(!StackEmpty(*T)){
+   >    //遍历当前顶点的弧
+   >    for(Pop(T, &e), p=G.vertices[e].firstarc; p; p=p->nextarc){ 
+   >        k = p->adjvex; //当前弧的弧头的位置
+   >        int dut = *(p->info);//当前弧的信息，也就是活动持续的时间
+   >        //如果 弧头的最晚发生时间 - 当前弧的持续时间 < 当前弧的弧尾顶点的最晚发生时间
+   >        if(vl[k]-dut<vl[e]) vl[e] = vl[k] - dut;
+   >    }//for
+   >}//while
+   >```
 
 这两个递推公式的计算必须分别在拓扑有序和逆拓扑有序的前提下进行。也就是说，ve(j-1)必须在$v_j$的所有前驱的最早发生时间求得之后才能确定，而vl(j-1)则必须在$v_j$的所有后继的最迟发生时间求得之后才能确定。因此，可以在拓扑排序的基础上计算ve(j-1)和vl(j-1)。
 
 求关键路径的算法：
 
 1. 输入e条弧<j, k>，建立AOE-网的存储结构；
+
 2. 从源$v_0$出发，令ve[0]=0，按拓扑有序求其余各顶点的最早发生时间$ve[i](1 \le i \le i \le n-1)$。如果得到的拓扑有序序列中顶点个数小于网中顶点数n，则说明网中存在环，不能求关键路径，算法终止；否则执行步骤3。
+
 3. 从汇点$v_n$出发，令$vl[n-1] = ve[n-1]$，按逆拓扑有序求其余各顶点的最迟发生时间$vl[i](n-2 \ge i \ge 2)$；
+
 4. 更具各顶点的ve和vl值，求每条弧s的最早开始时间e(s)和最迟开始时间l(s)。若某条弧满足条件$e(s) = l(s)$，则为关键活动。
+
+   > 求关键活动：
+   >
+   > ```c
+   > //求活动最早发生时间ee和活动最晚发生时间el，以及关键活动
+   > for(j=0; j<G.vexnum; ++j){
+   >     for(p=G.vertices[j].firstarc; p; p=p->nextarc){
+   >         k = p->adjvex; dut = *(p->info);
+   >         ee = ve[j]; el = vl[k] -dut;
+   >         //如果最早发生时间和最晚发生时间相等，则为关键活动
+   >         if(ee == el){
+   >             printf("弧<%d, %d>为关键活动,持续时间%d", j, k, dut);
+   >         }
+   >     }
+   > }
+   > ```
 
 如上所述，计算各顶点的ve值是在拓扑排序的过程中进行的，需对拓扑排序的算法作如下修改：
 
