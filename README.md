@@ -146,18 +146,30 @@
 - [队列的常见应用场景](./docs/programming/high_performance_website/high_concurrency/queue/common_application_scenarios_of_Nginx.md)
 - [常见队列类型](./docs/programming/high_performance_website/high_concurrency/queue/common_queue_types.md)
 - [基于Canal实现数据异构](./docs/programming/high_performance_website/high_concurrency/queue/realizing_data_heterogeneity_based_on_Canal.md)
-
-#### 6.2.1.1 消息队列
-
-##### 6.2.1.1.1 RabbitMQ
-
-- [RabbitMQ入门](./docs/programming/high_performance_website/high_concurrency/queue/message_queue/RabbitMQ/Getting_started_with_RabbitMQ.md)
+- 消息队列
+  - RabbitMQ
+    - [RabbitMQ入门](./docs/programming/high_performance_website/high_concurrency/queue/message_queue/RabbitMQ/Getting_started_with_RabbitMQ.md)
 
 ### 6.2.2 并发编程
 
 - [并发编程概述](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Overview.md)
 - [并发编程基础](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Basics_of_concurrent_programming.md)
 - [Future模式](./docs/programming/high_performance_website/high_concurrency/asynchronous_concurrency/Future_mode.md)
+
+### 6.2.3 连接池线程池
+
+- [连接池线程池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/overview.md)
+- [数据库连接池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/database_connection_pool.md)
+- [Http Client连接池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/http_client_connection_pool.md)
+- [线程池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/thread_pool.md)
+
+### 6.2.4 缓存
+
+| 分项       | 笔记                                                         |
+| ---------- | ------------------------------------------------------------ |
+| 应用级缓存 | [应用级缓存简介](./docs/programming/high_performance_website/high_concurrency/application_level_cache/overview.md)\|[缓存命中率](./docs/programming/high_performance_website/high_concurrency/application_level_cache/cache_hit_rate.md)\|[缓存替换算法](./docs/programming/application_level_cache/Cache_algorithm.md) |
+| HTTP缓存   | [HTTP缓存简介](./docs/programming/high_performance_website/high_concurrency/http_cache/overview.md) |
+| 多级缓存   |                                                              |
 
 ## 6.3 高可用
 
@@ -239,6 +251,18 @@
 |      |      |
 |      |      |
 |      |      |
+
+## 栈和队列（Stack&Queue）
+
+| 笔记                                                         | 笔记 |
+| ------------------------------------------------------------ | ---- |
+| [栈](./docs/programming/data_structure/stack_and_queue/stack.md) |      |
+|                                                              |      |
+|                                                              |      |
+
+## 串（String）
+
+- [串的模式匹配算法](./docs/programming/data_structure/string/string_pattern_matching_algorithm.md)
 
 ## 图（Graph）
 

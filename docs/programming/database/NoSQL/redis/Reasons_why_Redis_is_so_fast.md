@@ -2,7 +2,9 @@
 
 # 1 概述
 
-Redis采用的是基于内存的采用的是单进程单线程模型的Key-Value数据库，由C语言编写，官方提供的数据是可以达到100000+的QPS（每秒内查询次数）。这不比采用单进程多线程的同样基于内存的Key-Value数据库Memcached差！可以参考官方的基准程序测试《[How fast is Redis?](https://redis.io/topics/benchmarks)》。
+Redis采用的是基于内存的采用的是**单进程单线程**模型的Key-Value数据库，由C语言编写，官方提供的数据是可以达到100000+的QPS（每秒内查询次数）。这不比采用单进程多线程的同样基于内存的Key-Value数据库Memcached差！可以参考官方的基准程序测试《[How fast is Redis?](https://redis.io/topics/benchmarks)》。
+
+注意：**Redis的单线程指的是执行 Redis 命令的核心模块是单线程的，而不是整个 Redis 实例就一个线程，Redis 其他模块还有各自模块的线程的。**
 
 # 2 Redis为什么这么快？
 
