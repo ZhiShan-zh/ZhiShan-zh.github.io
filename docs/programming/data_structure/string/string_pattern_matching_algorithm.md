@@ -17,7 +17,8 @@
 ```c
 void get_next(SString T, int next[]){
     //求模式串T的next函数值并存入数组next。
-    int i = 1, j = 0; next[1] = 0;
+    int i = 1, j = 0; 
+    next[1] = 0;
     while (i<T[0]) {
         if(j == 0 || T[i] == T[j]) {
             ++i; ++j;
@@ -27,5 +28,24 @@ void get_next(SString T, int next[]){
         }
     }
 }
+```
+
+![](../../../../media/dataStructure_graph_20201117162545.png)
+
+```c
+void get_nextval(SString T, int nextval[]){
+    //求模式串T的next函数修正值并存入数组nextvall。
+    int i = 1, j = 0;
+    nextval[1] = 0;
+    while(i < T[0]){
+        if(j == 0 || T[i] == T[j]){
+            ++i; ++j;
+            if(T[i] != T[j]) nextval[i] = j;
+            else nextval[i] = nextval[j];
+        }else{
+            j = nextval[j];
+        }
+    }
+}//get_nextval
 ```
 

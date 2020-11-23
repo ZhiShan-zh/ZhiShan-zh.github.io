@@ -4,22 +4,16 @@
 
 ## 1.1 Java
 
-| 类别                             | 笔记                                                         |
-| -------------------------------- | ------------------------------------------------------------ |
-| 关键字解释                       | [final](./docs/programming/java/Java_base/final.md)<br />[使用static和abstract共同修饰内部类](./docs/programming/java/Java_base/use_static_and_abstact_to_modify_the_inner_class_together.md) |
-| 类的管理                         | [Java中的SPI机制](./docs/programming/java/Java_base/SPI_specification_in_Java.md)<br />[Java中类的生命周期](./docs/programming/java/Java_base/Life_cycle_of_classes_in_Java.md)<br />[编译时常量和运行时常量](./docs/programming/java/Java_base/compile-constant_and_runtime-constant_in_Java.md)<br />[注解解释](./docs/programming/java/Java_base/Annotation_explanation.md) |
-| 反射机制                         | [Class类](./docs/programming/java/reflection/Class.md)<br />[Java反射机制](./docs/programming/java/reflection/Java_Reflection.md)<br />[JDK动态代理Proxy](./docs/programming/java/reflection/Proxy.md) |
-| 网络编程                         | [网络编程基础：BIO、NIO、AIO](./docs/programming/java/Network_programming/Network_programming_basics.md)<br />[Netty](./docs/programming/java/Network_programming/Netty.md) |
-| Java8新特性                      | [Java8新时间API](./docs/programming/java/java8/Date_and_time_API_in_Java8.md) |
-| Java消息服务Java Message Service | [Java消息服务](./docs/programming/java/Java_base/java_message_service.md) |
+- 关键字解释：[final](./docs/programming/java/Java_base/final.md)|[使用static和abstract共同修饰内部类](./docs/programming/java/Java_base/use_static_and_abstact_to_modify_the_inner_class_together.md)
+- 类的管理：[Java中的SPI机制](./docs/programming/java/Java_base/SPI_specification_in_Java.md)|[Java中类的生命周期](./docs/programming/java/Java_base/Life_cycle_of_classes_in_Java.md)|[编译时常量和运行时常量](./docs/programming/java/Java_base/compile-constant_and_runtime-constant_in_Java.md)|[注解解释](./docs/programming/java/Java_base/Annotation_explanation.md)
+- 反射机制：[Class类](./docs/programming/java/reflection/Class.md)|[Java反射机制](./docs/programming/java/reflection/Java_Reflection.md)|[JDK动态代理Proxy](./docs/programming/java/reflection/Proxy.md)
+- 网络编程：[网络编程基础：BIO、NIO、AIO](./docs/programming/java/Network_programming/Network_programming_basics.md)|[Netty](./docs/programming/java/Network_programming/Netty.md)
+- JAVA8新特性：[Java8新时间API](./docs/programming/java/java8/Date_and_time_API_in_Java8.md)
+- Java消息服务Java Message Service：[Java消息服务](./docs/programming/java/Java_base/java_message_service.md)
 
 ## 1.2 JVM-HotSpot
 
-| 类别           | 笔记                                                         |
-| -------------- | ------------------------------------------------------------ |
-| 虚拟机监控工具 | [虚拟机监控工具概述](./docs/programming/java/jvm/HotSpot/Overview.md)<br />[Attach 机制](./docs/programming/java/jvm/HotSpot/Attach_Mechanism.md)<br />[查看JVM进程](./docs/programming/java/jvm/HotSpot/View_JVM_process.md) |
-|                |                                                              |
-|                |                                                              |
+- 虚拟机监控工具：[虚拟机监控工具概述](./docs/programming/java/jvm/HotSpot/Overview.md)|[Attach 机制](./docs/programming/java/jvm/HotSpot/Attach_Mechanism.md)|[查看JVM进程](./docs/programming/java/jvm/HotSpot/View_JVM_process.md)
 
 ## 1.3 Tomcat
 
@@ -30,33 +24,27 @@
 
 ### 1.4.1 Spring Framework
 
-|          类别 | 笔记列表                                                     |
-| ------------: | ------------------------------------------------------------ |
-|    Spring基础 | [Spring入门](./docs/programming/java/spring/spring_framework/Getting_started_with_Spring.md)<br/>[Spring配置](./docs/programming/java/spring/spring_framework/Spring_configuration.md)<br/>[Spring AOP面向切面编程](./docs/programming/java/spring/spring_framework/Spring_AOP-Aspect_Oriented_Programming.md)<br/>[Spring中整合Junit4测试](./docs/programming/java/spring/spring_framework/Test_with_Junit4_in_Spring.md) |
-|    Spring高级 | [后处理bean的接口BeanPostProcessor和BeanFactoryPostProcessor](./docs/programming/java/spring/spring_framework/Post-processing_bean_interfaces_BeanPostProcessor_and_BeanFactoryPostProcessor.md) |
-| SpringMVC基础 | [SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md)<br/>[SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md)<br />[SpringMVC参数的传递](./docs/programming/java/spring/spring_framework/SpringMVC_parameter.md) |
+- Spring基础：  [Spring入门](./docs/programming/java/spring/spring_framework/Getting_started_with_Spring.md)|[Spring配置](./docs/programming/java/spring/spring_framework/Spring_configuration.md)|[Spring AOP面向切面编程](./docs/programming/java/spring/spring_framework/Spring_AOP-Aspect_Oriented_Programming.md)|[Spring中整合Junit4测试](./docs/programming/java/spring/spring_framework/Test_with_Junit4_in_Spring.md)
+- Spring高级：[后处理bean的接口BeanPostProcessor和BeanFactoryPostProcessor](./docs/programming/java/spring/spring_framework/Post-processing_bean_interfaces_BeanPostProcessor_and_BeanFactoryPostProcessor.md)
+- SpringMVC基础：[SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md)|[SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md)|[SpringMVC参数的传递](./docs/programming/java/spring/spring_framework/SpringMVC_parameter.md)
 
 ### 1.4.2 Spring Boot
 
 [Spring Boot自测](./docs/programming/java/spring/spring_boot/self-test_in_Spring_Boot.md)
 
-|            类别 | 笔记列表                                                     |
-| --------------: | ------------------------------------------------------------ |
-| Spring Boot基础 | [Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md)<br/>[Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md)<br/>[Spring Boot 怎么处理异常](./docs/programming/java/spring/spring_boot/How_SpringBoot_handles_exceptions.md)<br/>[Spring Boot开启CORS跨域支持](./docs/programming/java/spring/spring_boot/Spring_Boot_opens_CORS_cross-domain_support.md) |
-|      整合数据库 | [SpringBoot整合JDBC](./docs/programming/java/spring/spring_boot/database/Using_JDBC_with_Spring_Boot.md)<br/>[SpringBoot中整合SpringDataJPA](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_JPA_with_Spring_Boot.md)<br/>[SpringBoot中整合SpringDataRedis](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_Redis_with_Spring_Boot.md)<br/>[RedisTemplate中的数据传递](./docs/programming/java/spring/spring_boot/database/data_transfer_in_RedisTemplate.md)<br/>[使用SpringCache抽象工具](./docs/programming/java/spring/spring_boot/database/Spring_cache.md) |
-| Spring Boot高级 | [Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md)<br/>[Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md)<br/>[Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md) |
+- 基础：[Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md)|[Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md)|[Spring Boot 怎么处理异常](./docs/programming/java/spring/spring_boot/How_SpringBoot_handles_exceptions.md)|[Spring Boot开启CORS跨域支持](./docs/programming/java/spring/spring_boot/Spring_Boot_opens_CORS_cross-domain_support.md)
+- 整合数据库：[SpringBoot整合JDBC](./docs/programming/java/spring/spring_boot/database/Using_JDBC_with_Spring_Boot.md)|[SpringBoot中整合SpringDataJPA](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_JPA_with_Spring_Boot.md)|[SpringBoot中整合SpringDataRedis](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_Redis_with_Spring_Boot.md)|[RedisTemplate中的数据传递](./docs/programming/java/spring/spring_boot/database/data_transfer_in_RedisTemplate.md)|[使用SpringCache抽象工具](./docs/programming/java/spring/spring_boot/database/Spring_cache.md)
+- Spring Boot高级：[Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md)|[Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md)|[Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md)
 
 ### 1.4.3 Spring Cloud
 
-|             类别 | 笔记列表                                                     |
-| ---------------: | ------------------------------------------------------------ |
-| Spring Cloud基础 | [Spring Cloud介绍](./docs/programming/java/spring/spring_cloud/Introduction_to_Spring_Cloud.md)<br/>[服务调用方式](./docs/programming/java/spring/spring_cloud/Service_calling_method.md) |
-|   服务注册和发现 |                                                              |
-|   软负载均衡调用 | [客户端负载均衡——Ribbon](./docs/programming/java/spring/spring_cloud/Load_balancing-Ribbon.md)<br/>[Ribbon中的负载均衡规则接口IRule](./docs/programming/java/spring/spring_cloud/Load_balancing_rules_interface-IRule_in_Ribbon.md)<br/>[Feign中的负载均衡和服务熔断](./docs/programming/java/spring/spring_cloud/Load_balancing_and_service_fuse_in_Feign.md) |
-|         熔断机制 | [Hystrix 容错机制和数据监控](./docs/programming/java/spring/spring_cloud/Fault_tolerance_mechanism_and_data_monitoring_in_Hystrix.md) |
-|         配置中心 | [配置中心](./docs/programming/java/spring/spring_cloud/Configuration_Center.md)<br/>[Spring Cloud Config](./docs/programming/java/spring/spring_cloud/Spring_Cloud_Config.md) |
-|          API网关 | [Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md)<br/>[查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md) |
-|     服务优化工具 | [Zipkin分布式跟踪系统](./docs/programming/java/spring/spring_cloud/Zipkin-a_distributed_tracing_system.md) |
+- 基础：[Spring Cloud介绍](./docs/programming/java/spring/spring_cloud/Introduction_to_Spring_Cloud.md)|[服务调用方式](./docs/programming/java/spring/spring_cloud/Service_calling_method.md)
+- 服务注册和发现：[服务注册和发现](./docs/programming/java/spring/spring_cloud/service_registration_and_discovery.md)
+- 软负载均衡调用：[客户端负载均衡——Ribbon](./docs/programming/java/spring/spring_cloud/Load_balancing-Ribbon.md)|[Ribbon中的负载均衡规则接口IRule](./docs/programming/java/spring/spring_cloud/Load_balancing_rules_interface-IRule_in_Ribbon.md)|[Feign中的负载均衡和服务熔断](./docs/programming/java/spring/spring_cloud/Load_balancing_and_service_fuse_in_Feign.md)
+- 熔断机制：[Hystrix 容错机制和数据监控](./docs/programming/java/spring/spring_cloud/Fault_tolerance_mechanism_and_data_monitoring_in_Hystrix.md)
+- 配置中心：[配置中心](./docs/programming/java/spring/spring_cloud/Configuration_Center.md)|[Spring Cloud Config](./docs/programming/java/spring/spring_cloud/Spring_Cloud_Config.md)
+- API网关：[Zuul服务网关](./docs/programming/java/spring/spring_cloud/Service_Gateway-Zuul.md)|[查看Zuul中每个过滤器的执行耗时](./docs/programming/java/spring/spring_cloud/View_the_execution_time_of_each_filter_in_Zuul.md)
+- 服务优化工具：[Zipkin分布式跟踪系统](./docs/programming/java/spring/spring_cloud/Zipkin-a_distributed_tracing_system.md)
 
 # 2 Python
 
@@ -112,22 +100,14 @@
 
 ## 4.2 命令集
 
-| 分类     | 命令                                                         |
-| -------- | ------------------------------------------------------------ |
-| 系统管理 | [systemctl](./docs/programming/linux/linux_command_collection/system_management/systemctl.md) |
-|          |                                                              |
-|          |                                                              |
-
-
+- 系统管理：[systemctl](./docs/programming/linux/linux_command_collection/system_management/systemctl.md)
 
 # 5 设计模式
 
-| 类别     | 笔记                                                         |
-| -------- | ------------------------------------------------------------ |
-| 概述     | [设计模式自测](./docs/programming/Design_Patterns/self-test_for_design_pattern.md)<br />[面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md) |
-| 创建模式 | [工厂方法模式](./docs/programming/Design_Patterns/Factory_method_pattern.md)<br />[抽象工厂模式](./docs/programming/Design_Patterns/Abstract_factory_pattern.md)<br />[单例模式](./docs/programming/Design_Patterns/Singleton_pattern.md)<br />[建造者模式](./docs/programming/Design_Patterns/Builder_pattern.md)<br />[原型模式]() |
-| 结构模式 | [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md)<br />[门面模式](./docs/programming/Design_Patterns/Facade_pattern.md)<br />[装饰者模式](./docs/programming/Design_Patterns/Decorator_pattern.md)<br />[桥接模式]()<br />[过滤器模式]()<br />[组合模式]()<br />[享元模式]()<br />[代理模式]() |
-| 行为模式 | [模板方法模式](./docs/programming/Design_Patterns/Template_method_pattern.md)<br />[策略模式](./docs/programming/Design_Patterns/Strategy_pattern.md)<br />[责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md)<br />[观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md)<br />[Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md)<br />[解释器模式]()<br />[命令模式]()<br />[迭代器模式]()<br />[参观者模式]() |
+- 概述：[设计模式自测](./docs/programming/Design_Patterns/self-test_for_design_pattern.md)|[面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md)
+- 创建模式：[工厂方法模式](./docs/programming/Design_Patterns/Factory_method_pattern.md)|[抽象工厂模式](./docs/programming/Design_Patterns/Abstract_factory_pattern.md)|[单例模式](./docs/programming/Design_Patterns/Singleton_pattern.md)|[建造者模式](./docs/programming/Design_Patterns/Builder_pattern.md)|[原型模式]()
+- 结构模式：  [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md)|[门面模式](./docs/programming/Design_Patterns/Facade_pattern.md)|[装饰者模式](./docs/programming/Design_Patterns/Decorator_pattern.md)|[桥接模式]()|[过滤器模式]()|[组合模式]()|[享元模式]()|[代理模式]()
+- 行为模式：[模板方法模式](./docs/programming/Design_Patterns/Template_method_pattern.md)|[策略模式](./docs/programming/Design_Patterns/Strategy_pattern.md)|[责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md)|[观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md)|[Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md)|[解释器模式]()|[命令模式]()|[迭代器模式]()|[参观者模式]()
 
 # 6 高性能网站
 
@@ -147,8 +127,7 @@
 - [常见队列类型](./docs/programming/high_performance_website/high_concurrency/queue/common_queue_types.md)
 - [基于Canal实现数据异构](./docs/programming/high_performance_website/high_concurrency/queue/realizing_data_heterogeneity_based_on_Canal.md)
 - 消息队列
-  - RabbitMQ
-    - [RabbitMQ入门](./docs/programming/high_performance_website/high_concurrency/queue/message_queue/RabbitMQ/Getting_started_with_RabbitMQ.md)
+  - RabbitMQ：[RabbitMQ入门](./docs/programming/high_performance_website/high_concurrency/queue/message_queue/RabbitMQ/Getting_started_with_RabbitMQ.md)
 
 ### 6.2.2 并发编程
 
@@ -158,18 +137,13 @@
 
 ### 6.2.3 连接池线程池
 
-- [连接池线程池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/overview.md)
-- [数据库连接池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/database_connection_pool.md)
-- [Http Client连接池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/http_client_connection_pool.md)
-- [线程池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/thread_pool.md)
+[连接池线程池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/overview.md)|[数据库连接池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/database_connection_pool.md)|[Http Client连接池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/http_client_connection_pool.md)|[线程池](./docs/programming/high_performance_website/high_concurrency/connection_pool_and_thread_pool/thread_pool.md)
 
 ### 6.2.4 缓存
 
-| 分项       | 笔记                                                         |
-| ---------- | ------------------------------------------------------------ |
-| 应用级缓存 | [应用级缓存简介](./docs/programming/high_performance_website/high_concurrency/application_level_cache/overview.md)\|[缓存命中率](./docs/programming/high_performance_website/high_concurrency/application_level_cache/cache_hit_rate.md)\|[缓存替换算法](./docs/programming/application_level_cache/Cache_algorithm.md) |
-| HTTP缓存   | [HTTP缓存简介](./docs/programming/high_performance_website/high_concurrency/http_cache/overview.md) |
-| 多级缓存   |                                                              |
+- 应用级缓存：[应用级缓存简介](./docs/programming/high_performance_website/high_concurrency/application_level_cache/overview.md)|[缓存命中率](./docs/programming/high_performance_website/high_concurrency/application_level_cache/cache_hit_rate.md)|[缓存替换算法](./docs/programming/application_level_cache/Cache_algorithm.md)
+- HTTP缓存：[HTTP缓存简介](./docs/programming/high_performance_website/high_concurrency/http_cache/overview.md)
+- 多级缓存：
 
 ## 6.3 高可用
 
@@ -219,14 +193,7 @@
 
 ## 7.2 非关系型数据库
 
-### 7.2.1 Redis
-
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Redis入门](./docs/programming/database/NoSQL/redis/getting_started_with_redis.md) | [在Spring中整合Redis](./docs/programming/database/NoSQL/redis/Use_redis_in_Spring_Framework.md) |
-| [Redis为什么这么快](./docs/programming/database/NoSQL/redis/Reasons_why_Redis_is_so_fast.md) | [Redis中过期键的删除策略](./docs/programming/database/NoSQL/redis/Deletion_strategy_of_expired_keys_in_Redis.md) |
-| [Redis中的数据逐出策略](./docs/programming/database/NoSQL/redis/Data_eviction_strategy_in_Redis.md) | [Jedis中的管道Pipeline](./docs/programming/database/NoSQL/redis/Jedis_pipeline.md) |
-| [Redis缓存乱码问题](./docs/programming/database/NoSQL/redis/Chinese_garbled_in_Redis.md) |                                                              |
+- Redis：[Redis入门](./docs/programming/database/NoSQL/redis/getting_started_with_redis.md)|[在Spring中整合Redis](./docs/programming/database/NoSQL/redis/Use_redis_in_Spring_Framework.md)|[Redis为什么这么快](./docs/programming/database/NoSQL/redis/Reasons_why_Redis_is_so_fast.md)|[Redis中过期键的删除策略](./docs/programming/database/NoSQL/redis/Deletion_strategy_of_expired_keys_in_Redis.md)|[Redis中的数据逐出策略](./docs/programming/database/NoSQL/redis/Data_eviction_strategy_in_Redis.md)|[Jedis中的管道Pipeline](./docs/programming/database/NoSQL/redis/Jedis_pipeline.md)|[Redis缓存乱码问题](./docs/programming/database/NoSQL/redis/Chinese_garbled_in_Redis.md)
 
 ## 7.3 数据库中间件
 
@@ -244,169 +211,120 @@
 
 # 8 数据结构
 
-## 线性表（linear_list）
+# 8.1 基础知识
 
-| 笔记 | 笔记 |
-| ---- | ---- |
-|      |      |
-|      |      |
-|      |      |
 
-## 栈和队列（Stack&Queue）
 
-| 笔记                                                         | 笔记 |
-| ------------------------------------------------------------ | ---- |
-| [栈](./docs/programming/data_structure/stack_and_queue/stack.md) |      |
-|                                                              |      |
-|                                                              |      |
+## 8.2 线性表（linear_list）
 
-## 串（String）
+
+
+## 8.3 栈和队列（Stack&Queue）
+
+- 栈：[栈](./docs/programming/data_structure/stack_and_queue/stack.md)
+
+## 8.4 串（String）
 
 - [串的模式匹配算法](./docs/programming/data_structure/string/string_pattern_matching_algorithm.md)
 
-## 图（Graph）
+# 8.5 数组和广义表
 
-| 笔记                                                         | 笔记                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [图的定义和术语](./docs/programming/data_structure/graph/Graph_definition_and_terminology.md) | [图的存储结构](./docs/programming/data_structure/graph/graph_storage_structure.md) |
-| [图的遍历](./docs/programming/data_structure/graph/traversing_graph.md) | [图的连通性问题](./docs/programming/data_structure/graph/graph_connectivity_problem.md) |
-| [有向无环图及其应用](./docs/programming/data_structure/graph/directed_acycline_graph.md) | [最短路径](./docs/programming/data_structure/graph/shortest_path.md) |
+# 8.6 树和二叉树
 
-## 查找（Searching）
 
-| 笔记                                                         | 笔记 |
-| ------------------------------------------------------------ | ---- |
-| [动态查找表（Dynamic Search Table）](./docs/programming/data_structure/searching/Dynamic_Search_Table.md) |      |
-|                                                              |      |
-|                                                              |      |
 
-# 9 常用算法
+## 8.7 图（Graph）
 
-- [缓存替换算法](./docs/programming/algorithm/Cache_algorithm.md)
+[图的定义和术语](./docs/programming/data_structure/graph/Graph_definition_and_terminology.md)|[图的存储结构](./docs/programming/data_structure/graph/graph_storage_structure.md)|[图的遍历](./docs/programming/data_structure/graph/traversing_graph.md)|[图的连通性问题](./docs/programming/data_structure/graph/graph_connectivity_problem.md)|[有向无环图及其应用](./docs/programming/data_structure/graph/directed_acycline_graph.md)|[最短路径](./docs/programming/data_structure/graph/shortest_path.md)
 
-# 10 检索技术
+## 8.8 查找（Searching）
 
-## 10.1 Lucene
+[动态查找表（Dynamic Search Table）](./docs/programming/data_structure/searching/Dynamic_Search_Table.md)
 
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Lucene全文检索技术概述](./docs/programming/Retrieval_technology/Lucene/The_overview_of_full-text_search_technology-Lucene.md) | [Lucene入门](./docs/programming/Retrieval_technology/Lucene/Getting_started_with_Lucene.md) |
-| [分词器](./docs/programming/Retrieval_technology/Lucene/Analyzer.md) | [Field域](./docs/programming/Retrieval_technology/Lucene/Field.md) |
-| [索引维护](./docs/programming/Retrieval_technology/Lucene/Index_maintenance.md) | [搜索](./docs/programming/Retrieval_technology/Lucene/Search.md) |
-| [相关度排序](./docs/programming/Retrieval_technology/Lucene/Relevance_ranking.md) |                                                              |
+# 8.9 排序
 
-## 10.2 ElasticSearch
+
+
+# 9 检索技术
 
 [ElasticSearch自测](./docs/programming/Retrieval_technology/ElasticSearch/self-test_of_ElasticSearch.md)
 
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [ElasticSearch入门](./docs/programming/Retrieval_technology/ElasticSearch/Getting_started_with_ElasticSearch.md) | [IK分词器](./docs/programming/Retrieval_technology/ElasticSearch/analysis_ik.md) |
-| [映射](./docs/programming/Retrieval_technology/ElasticSearch/mapping.md) | [在Java中使用ElasticSearch](./docs/programming/Retrieval_technology/ElasticSearch/Using_ElasticSearch_in_Java.md) |
-| [ElasticSearch集群管理](./docs/programming/Retrieval_technology/ElasticSearch/Cluster_management-ElasticSearch.md) | [节点](./docs/programming/Retrieval_technology/ElasticSearch/node-ElasticSearch.md) |
-| [传输模块](./docs/programming/Retrieval_technology/ElasticSearch/transport-ElasticSearch.md) |                                                              |
+- Lucene：|[Lucene入门](./docs/programming/Retrieval_technology/Lucene/Getting_started_with_Lucene.md)|[分词器](./docs/programming/Retrieval_technology/Lucene/Analyzer.md)|[Field域](./docs/programming/Retrieval_technology/Lucene/Field.md)|[索引维护](./docs/programming/Retrieval_technology/Lucene/Index_maintenance.md)|[搜索](./docs/programming/Retrieval_technology/Lucene/Search.md)|[相关度排序](./docs/programming/Retrieval_technology/Lucene/Relevance_ranking.md)
+- ElasticSearch：[ElasticSearch入门](./docs/programming/Retrieval_technology/ElasticSearch/Getting_started_with_ElasticSearch.md)|[IK分词器](./docs/programming/Retrieval_technology/ElasticSearch/analysis_ik.md)|[映射](./docs/programming/Retrieval_technology/ElasticSearch/mapping.md)|[在Java中使用ElasticSearch](./docs/programming/Retrieval_technology/ElasticSearch/Using_ElasticSearch_in_Java.md)|[ElasticSearch集群管理](./docs/programming/Retrieval_technology/ElasticSearch/Cluster_management-ElasticSearch.md)|[节点](./docs/programming/Retrieval_technology/ElasticSearch/node-ElasticSearch.md)|[传输模块](./docs/programming/Retrieval_technology/ElasticSearch/transport-ElasticSearch.md)
 
-# 11 虚拟化
+# 10 虚拟化
 
-## 11.1 Docker
+- Docker：[Docker入门](./docs/programming/Virtualization/Docker/Getting_started_with_Docker.md)|[Docker中的常用命令](./docs/programming/Virtualization/Docker/Common_commands_in_Docker.md)|[在Docker中应用部署](./docs/programming/Virtualization/Docker/Deploy_applications_in_Docker.md)|[迁移与备份——Docker](./docs/programming/Virtualization/Docker/Migration_and_backup-docker.md)|[Dockerfile](./docs/programming/Virtualization/Docker/Dockerfile.md)  [Docker私有仓库](./docs/programming/Virtualization/Docker/private_registry-Docker.md)|[Docker网络模式](./docs/programming/Virtualization/Docker/docker_network_mode.md)|[Docker问题](./docs/programming/Virtualization/Docker/common_error.md)
 
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Docker入门](./docs/programming/Virtualization/Docker/Getting_started_with_Docker.md) | [Docker中的常用命令](./docs/programming/Virtualization/Docker/Common_commands_in_Docker.md) |
-| [在Docker中应用部署](./docs/programming/Virtualization/Docker/Deploy_applications_in_Docker.md) | [迁移与备份——Docker](./docs/programming/Virtualization/Docker/Migration_and_backup-docker.md) |
-| [Dockerfile](./docs/programming/Virtualization/Docker/Dockerfile.md) | [Docker私有仓库](./docs/programming/Virtualization/Docker/private_registry-Docker.md) |
-| [Docker网络模式](./docs/programming/Virtualization/Docker/docker_network_mode.md) | [Docker问题](./docs/programming/Virtualization/Docker/common_error.md) |
-
-# 12 网络爬虫
+# 11 网络爬虫
 
 - [网络爬虫概述](./docs/programming/web_crawler/the_overview_of_web_crawl.md)
+- Webmagic【Java】：[WebMagic架构](./docs/programming/web_crawler/Webmagic/webmagic_architecture.md)|[WebMagic的项目组成](./docs/programming/web_crawler/Webmagic/webmagic_project_composition.md)|[WebMagic入门](./docs/programming/web_crawler/Webmagic/getting_started_with_webmagic.md)|[实现PageProcessor](./docs/programming/web_crawler/Webmagic/PageProcessor.md)  [使用Pipeline保存结果](./docs/programming/web_crawler/Webmagic/Pipeline.md)|[设置代理ProxyProvider](./docs/programming/web_crawler/Webmagic/ProxyProvider.md)|[使用和定制Scheduler](./docs/programming/web_crawler/Webmagic/Scheduler.md)|[URL去重接口DuplicateRemover](./docs/programming/web_crawler/Webmagic/DuplicateRemover.md)
 
-## 12.1 Webmagic——Java
+- Selenium与PhantomJS：[在Python中使用Selenium做爬虫](./docs/programming/web_crawler/Selenium_PhantomJS/Selenium_and_PhantomJS_in_Python.md)
 
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [WebMagic架构](./docs/programming/web_crawler/Webmagic/webmagic_architecture.md) | [WebMagic的项目组成](./docs/programming/web_crawler/Webmagic/webmagic_project_composition.md) |
-| [WebMagic入门](./docs/programming/web_crawler/Webmagic/getting_started_with_webmagic.md) | [实现PageProcessor](./docs/programming/web_crawler/Webmagic/PageProcessor.md) |
-| [使用Pipeline保存结果](./docs/programming/web_crawler/Webmagic/Pipeline.md) | [设置代理ProxyProvider](./docs/programming/web_crawler/Webmagic/ProxyProvider.md) |
-| [使用和定制Scheduler](./docs/programming/web_crawler/Webmagic/Scheduler.md) | [URL去重接口DuplicateRemover](./docs/programming/web_crawler/Webmagic/DuplicateRemover.md) |
-
-## 12.2 Selenium与PhantomJS
-
-- [在Python中使用Selenium做爬虫](./docs/programming/web_crawler/Selenium_PhantomJS/Selenium_and_PhantomJS_in_Python.md)
-
-# 13 人工智能
+# 12 人工智能
 
 - [人工智能概述](./docs/programming/Artificial_Intelligence/The_overview_of_Artificial_Intelligence.md)
 - [机器学习概述](./docs/programming/Artificial_Intelligence/The_overview_of_Machine_learning.md)
 
-## 13.1 基础知识
+## 12.1 基础知识
 
-### 13.1.1 知识表示
+### 12.1.1 知识表示
 
 | 分项                                                         | 分项 |
 | ------------------------------------------------------------ | ---- |
 | [知识和知识表示的相关概念](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/Related_concepts_of_knowledge_and_knowledge_representation.md) |      |
 |                                                              |      |
 
-## 13.2 机器学习算法
+## 12.2 机器学习算法
 
-### 13.2.1 K-近邻算法
+### 12.2.1 K-近邻算法
 
 | 分项                                                         | 分项                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [K-近邻算法概述](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/KNN_overview.md) | [KNN入门](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/Getting_started_with_KNN.md) |
 | [距离度量](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/distance_measure.md) |                                                              |
 
-# 14 开发工具的使用
+# 13 开发工具的使用
 
-## 14.1 VSCode
+## 13.1 VSCode
 
 - [前端插件](./docs/programming/The_use_of_development_tools/VSCode/Front-end_plugin.md)
 
-## 14.2 Sublime
+## 13.2 Sublime
 
 - [多位置同时编辑——Sublime3](./docs/programming/The_use_of_development_tools/Sublime/Simultaneous_editing_in_multiple_locations-Sublime3.md)
 
-## 14.3 Python
+## 13.3 Python
 
 - [pip](./docs/programming/The_use_of_development_tools/python/pip.md)
 - [Python及其模块版本控制](./docs/programming/The_use_of_development_tools/python/Version_management_of_Python_and_its_modules.md)
 
-## 14.4 git
+## 13.4 git
 
 
 
-# 15 TCP/IP协议组
+# 14 TCP/IP协议组
 
-## 15.1 HTTP协议
+## 14.1 HTTP协议
 
-# 16 C和Cplusplus
+# 15 C&C++
 
-## 16.1 C
+- C：[C语言概述](./docs/programming/c_cplusplus/c/the_overview_of_c.md)|[C语言中的数组类型](./docs/programming/c_cplusplus/c/Array_type_in_c_language.md)|[C语言中的结构体](./docs/programming/c_cplusplus/c/struct_and_union_in_c_language.md)|[C语言预处理命令](./docs/programming/c_cplusplus/c/preprocessor_directives_in_c.md)|[C语言中的指针](./docs/programming/c_cplusplus/c/Pointer_in_C_language.md)|[C语言可变参数](./docs/programming/c_cplusplus/c/C_language_variable_parameters.md)|[C程序内存分配管理](./docs/programming/c_cplusplus/c/c_program_memory_allocation_management.md)|[C语言对象特性的实现](./docs/programming/c_cplusplus/c/Realization_of_C_language_object_characteristics.md)
 
-- [C语言概述](./docs/programming/c_cplusplus/c/the_overview_of_c.md)
-- [C语言中的数组类型](./docs/programming/c_cplusplus/c/Array_type_in_c_language.md)
-- [C语言中的结构体](./docs/programming/c_cplusplus/c/struct_and_union_in_c_language.md)
-- [C语言预处理命令](./docs/programming/c_cplusplus/c/preprocessor_directives_in_c.md)
-- [C语言中的指针](./docs/programming/c_cplusplus/c/Pointer_in_C_language.md)
-- [C语言可变参数](./docs/programming/c_cplusplus/c/C_language_variable_parameters.md)
-- [C程序内存分配管理](./docs/programming/c_cplusplus/c/c_program_memory_allocation_management.md)
-- [C语言对象特性的实现](./docs/programming/c_cplusplus/c/Realization_of_C_language_object_characteristics.md)
-
-## 16.2 C++
-
-# 17 Zookeeper
+# 16 Zookeeper
 
 - [Zookeeper概述](./docs/programming/zookeeper/the_overview_of_zookeeper.md)
 
-# 18 大数据
+# 17 大数据
 
-## 18.1 Hadoop
+## 17.1 Hadoop
 
 - [Hadoop概述](./docs/programming/big_data/hadoop/the_overview_of_hadoop.md)
 - [HDFS](./docs/programming/big_data/hadoop/hdfs.md)
 - [mapreduce](./docs/programming/big_data/hadoop/mapreduce.md)
 
-# 19 PowerShell
+# 18 PowerShell
 
 - [PowerShell数据类型](./docs/programming/powershell/data_type.md)
