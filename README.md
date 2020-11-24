@@ -211,7 +211,7 @@
 
 # 8 数据结构
 
-# 8.1 基础知识
+## 8.1 基础知识
 
 
 
@@ -227,13 +227,15 @@
 
 - [串的模式匹配算法](./docs/programming/data_structure/string/string_pattern_matching_algorithm.md)
 
-# 8.5 数组和广义表
+## 8.5 数组和广义表
 
-# 8.6 树和二叉树
+## 8.6 树和二叉树
 
-
+[数和二叉树自测](./docs/programming/data_structure/tree/self_test_for_tree.md)
 
 ## 8.7 图（Graph）
+
+[图的自测](./docs/programming/data_structure/graph/self_test_for_graph.md)
 
 [图的定义和术语](./docs/programming/data_structure/graph/Graph_definition_and_terminology.md)|[图的存储结构](./docs/programming/data_structure/graph/graph_storage_structure.md)|[图的遍历](./docs/programming/data_structure/graph/traversing_graph.md)|[图的连通性问题](./docs/programming/data_structure/graph/graph_connectivity_problem.md)|[有向无环图及其应用](./docs/programming/data_structure/graph/directed_acycline_graph.md)|[最短路径](./docs/programming/data_structure/graph/shortest_path.md)
 
@@ -241,7 +243,7 @@
 
 [动态查找表（Dynamic Search Table）](./docs/programming/data_structure/searching/Dynamic_Search_Table.md)
 
-# 8.9 排序
+## 8.9 排序
 
 
 
