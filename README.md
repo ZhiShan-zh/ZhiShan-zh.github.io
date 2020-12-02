@@ -225,6 +225,8 @@
 
 ## 8.4 串（String）
 
+- [串的自测](./docs/programming/data_structure/string/self_test_for_string.md)
+
 - [串的模式匹配算法](./docs/programming/data_structure/string/string_pattern_matching_algorithm.md)
 
 ## 8.5 数组和广义表
