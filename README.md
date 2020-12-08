@@ -332,3 +332,7 @@
 # 18 PowerShell
 
 - [PowerShell数据类型](./docs/programming/powershell/data_type.md)
+
+# 19 数学
+
+微积分：[微分方程](./docs/math/calculus/differential_equation.md)
