@@ -1,6 +1,12 @@
+[TOC]
+
+
+
 # Spring Boot启动流程
 
-# 1 启动流程
+springboot是基于spring的新型的轻量级框架，最厉害的地方当属自动配置。那我们就可以根据启动流程和相关原理来看看，如何实现传奇的自动配置。
+
+# 1 入口函数main
 
 ```java
 package com.zh.eurekaclient;
@@ -15,6 +21,8 @@ public class EurekaClientApplication {
 	}
 }
 ```
+
+# 2 创建SpringApplication实例
 
 `org.springframework.boot.SpringApplication`
 
@@ -45,16 +53,45 @@ public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySourc
     Assert.notNull(primarySources, "PrimarySources must not be null");
     //保存主类
     this.primarySources = new LinkedHashSet<>(Arrays.asList(primarySources));
-    //获取应用的类型
+    //推断应用的类型
     this.webApplicationType = WebApplicationType.deduceFromClasspath();
-    //加载文件META-INF/spring.factories中配置的org.springframework.context.ApplicationContextInitializer的实现类
+    //加载文件META-INF/spring.factories中配置的org.springframework.context.ApplicationContextInitializer的实现类,并用反射的方式创建对应的实例
     setInitializers((Collection) getSpringFactoriesInstances(ApplicationContextInitializer.class));
-    //加载文件META-INF/spring.factories中配置的org.springframework.context.ApplicationListener实现类
+    //加载文件META-INF/spring.factories中配置的org.springframework.context.ApplicationListener实现类，,并用反射的方式创建对应的实例
     setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));
     //通过new RuntimeException().getStackTrace()得到方法的调用栈的数组，然后通过判断是否为main方法，获取main方法，并以此获取主类名
     this.mainApplicationClass = deduceMainApplicationClass();
 }
 ```
+
+位置：`org/springframework/boot/spring-boot/2.2.5.RELEASE/spring-boot-2.2.5.RELEASE.jar!/META-INF/spring.factories`
+
+```properties
+# Application Context Initializers
+org.springframework.context.ApplicationContextInitializer=\
+org.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer,\
+org.springframework.boot.context.ContextIdApplicationContextInitializer,\
+org.springframework.boot.context.config.DelegatingApplicationContextInitializer,\
+org.springframework.boot.rsocket.context.RSocketPortInfoApplicationContextInitializer,\
+org.springframework.boot.web.context.ServerPortInfoApplicationContextInitializer
+
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+org.springframework.boot.ClearCachesApplicationListener,\
+org.springframework.boot.builder.ParentContextCloserApplicationListener,\
+org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor,\
+org.springframework.boot.context.FileEncodingApplicationListener,\
+org.springframework.boot.context.config.AnsiOutputApplicationListener,\
+org.springframework.boot.context.config.ConfigFileApplicationListener,\
+org.springframework.boot.context.config.DelegatingApplicationListener,\
+org.springframework.boot.context.logging.ClasspathLoggingApplicationListener,\
+org.springframework.boot.context.logging.LoggingApplicationListener,\
+org.springframework.boot.liquibase.LiquibaseServiceLocatorApplicationListener
+```
+
+
+
+## 2.1 推断应用类型：deduceFromClasspath()
 
 `org.springframework.boot.WebApplicationType`的deduceFromClasspath方法：通过判断是否能加载指定的类来判断应用的类型
 
@@ -89,6 +126,8 @@ static WebApplicationType deduceFromClasspath() {
 }
 ```
 
+# 3 `new SpringApplication(primarySources).run(args)`
+
 ```java
 public ConfigurableApplicationContext run(String... args) {
     //StopWatch是位于org.springframework.util包下的一个工具类，通过它可方便的对程序部分代码进行计时(ms级别)，适用于同步单线程代码块。
@@ -97,7 +136,7 @@ public ConfigurableApplicationContext run(String... args) {
     ConfigurableApplicationContext context = null;
     Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList<>();
     configureHeadlessProperty();
-    //加载META-INF/spring.factories文件中SpringApplicationRunListener的实现类
+    //加载META-INF/spring.factories文件中 SpringApplicationRunListener 的实现类，并用反射的方式创建对应的实例
     SpringApplicationRunListeners listeners = getRunListeners(args);
     //调用所有SpringApplicationRunListener中的starting()
     listeners.starting();
@@ -144,6 +183,16 @@ public ConfigurableApplicationContext run(String... args) {
     return context;
 }
 ```
+
+位置：`org/springframework/boot/spring-boot/2.2.5.RELEASE/spring-boot-2.2.5.RELEASE.jar!/META-INF/spring.factories`
+
+```properties
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+org.springframework.boot.context.event.EventPublishingRunListener
+```
+
+
 
 ```java
 private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners listeners,
