@@ -86,15 +86,7 @@
 
 # 4 Linux
 
-## 4.1 Shell
-
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Shell入门](./docs/programming/linux/shell/Getting_startted_with_Shell.md) | [Shell变量](./docs/programming/linux/shell/variable-Shell.md) |
-| [Shell数组](./docs/programming/linux/shell/array_in_Shell.md) | [Shell字符串](./docs/programming/linux/shell/string-Shell.md) |
-| [Shell中流程控制](./docs/programming/linux/shell/Process_control_in_Shell.md) | [Shell中的test](./docs/programming/linux/shell/test-Shell.md) |
-| [Shell文件包含](./docs/programming/linux/shell/Shell_file_contains.md) | [Shell函数](./docs/programming/linux/shell/Functions_in_Shell.md) |
-| [Shell中的()、(())以及{}](./docs/programming/linux/shell/parenthesis_and_double-parenthesis_big-parantheses.md) | [执行Shell脚本的方式sh、bash、./、source](./docs/programming/linux/shell/bash-sh-source.md) |
+Shell：[Shell入门](./docs/programming/linux/shell/Getting_startted_with_Shell.md)|[Shell变量](./docs/programming/linux/shell/variable-Shell.md)|[Shell数组](./docs/programming/linux/shell/array_in_Shell.md)|[Shell字符串](./docs/programming/linux/shell/string-Shell.md)|[Shell中流程控制](./docs/programming/linux/shell/Process_control_in_Shell.md)|  [Shell文件包含](./docs/programming/linux/shell/Shell_file_contains.md)[Shell中的test](./docs/programming/linux/shell/test-Shell.md)|[Shell函数](./docs/programming/linux/shell/Functions_in_Shell.md)|[Shell中的()、(())以及{}](./docs/programming/linux/shell/parenthesis_and_double-parenthesis_big-parantheses.md)|[执行Shell脚本的方式sh、bash、./、source](./docs/programming/linux/shell/bash-sh-source.md)
 
 ### 4.1.1 Shell编程实践
 
@@ -109,7 +101,7 @@
 # 5 设计模式
 
 - 概述：[设计模式自测](./docs/programming/Design_Patterns/self-test_for_design_pattern.md)|[面向对象软件设计SOLID原则](./docs/programming/Design_Patterns/The_principles_of_object-oriented_software_design.md)
-- 创建模式：[工厂方法模式](./docs/programming/Design_Patterns/Factory_method_pattern.md)|[抽象工厂模式](./docs/programming/Design_Patterns/Abstract_factory_pattern.md)|[单例模式](./docs/programming/Design_Patterns/Singleton_pattern.md)|[建造者模式](./docs/programming/Design_Patterns/Builder_pattern.md)|[原型模式]()
+- 创建模式：[工厂方法模式](./docs/programming/Design_Patterns/Factory_method_pattern.md)|[抽象工厂模式](./docs/programming/Design_Patterns/Abstract_factory_pattern.md)|[单例模式](./docs/programming/Design_Patterns/Singleton_pattern.md)|[建造者模式](./docs/programming/Design_Patterns/Builder_pattern.md)|[原型模式](./docs/programming/Design_Patterns/prototype_pattern.md)
 - 结构模式：  [适配器模式](./docs/programming/Design_Patterns/Adapter_pattern.md)|[门面模式](./docs/programming/Design_Patterns/Facade_pattern.md)|[装饰者模式](./docs/programming/Design_Patterns/Decorator_pattern.md)|[桥接模式]()|[过滤器模式]()|[组合模式]()|[享元模式]()|[代理模式]()
 - 行为模式：[模板方法模式](./docs/programming/Design_Patterns/Template_method_pattern.md)|[策略模式](./docs/programming/Design_Patterns/Strategy_pattern.md)|[责任链模式](./docs/programming/Design_Patterns/Chain_of_responsibility_pattern.md)|[观察者模式](./docs/programming/Design_Patterns/Observer_pattern.md)|[Reactor反应堆模式](./docs/programming/Design_Patterns/Reactor_pattern.md)|[解释器模式]()|[命令模式]()|[迭代器模式]()|[参观者模式]()
 
@@ -195,57 +187,23 @@
 
 ## 7.3 数据库中间件
 
-- [读写分离](./docs/programming/database/database_middleware/read_write_split.md)
-- [分库分表](./docs/programming/database/database_middleware/sharding.md)
+基础知识：[读写分离](./docs/programming/database/database_middleware/read_write_split.md)|[分库分表](./docs/programming/database/database_middleware/sharding.md)
 
-### 7.3.1 Apache ShardingSphere
-
-| 分类     | 笔记                                                         |
-| -------- | ------------------------------------------------------------ |
-| 基础     | [ShardingSphere简介](./docs/programming/database/database_middleware/apache_shardingsphere/the_overview_of_apache_shardingsphere.md) |
-| 核心功能 | [ShardingSphere读写分离](./docs/programming/database/database_middleware/apache_shardingsphere/read_write_split.md) |
-
-
+Apache ShardingSphere：[ShardingSphere简介](./docs/programming/database/database_middleware/apache_shardingsphere/the_overview_of_apache_shardingsphere.md)|[ShardingSphere读写分离](./docs/programming/database/database_middleware/apache_shardingsphere/read_write_split.md)
 
 # 8 数据结构
 
-## 8.1 基础知识
+线性表（linear_list）：
 
+栈和队列（Stack&Queue）：[栈](./docs/programming/data_structure/stack_and_queue/stack.md)
 
+串（String）：[串的自测](./docs/programming/data_structure/string/self_test_for_string.md)|[串的模式匹配算法](./docs/programming/data_structure/string/string_pattern_matching_algorithm.md)
 
-## 8.2 线性表（linear_list）
+树和二叉树：[数和二叉树自测](./docs/programming/data_structure/tree/self_test_for_tree.md)
 
+图（Graph）：[图的自测](./docs/programming/data_structure/graph/self_test_for_graph.md)|[图的定义和术语](./docs/programming/data_structure/graph/Graph_definition_and_terminology.md)|[图的存储结构](./docs/programming/data_structure/graph/graph_storage_structure.md)|[图的遍历](./docs/programming/data_structure/graph/traversing_graph.md)|[图的连通性问题](./docs/programming/data_structure/graph/graph_connectivity_problem.md)|[有向无环图及其应用](./docs/programming/data_structure/graph/directed_acycline_graph.md)|[最短路径](./docs/programming/data_structure/graph/shortest_path.md)
 
-
-## 8.3 栈和队列（Stack&Queue）
-
-- 栈：[栈](./docs/programming/data_structure/stack_and_queue/stack.md)
-
-## 8.4 串（String）
-
-- [串的自测](./docs/programming/data_structure/string/self_test_for_string.md)
-
-- [串的模式匹配算法](./docs/programming/data_structure/string/string_pattern_matching_algorithm.md)
-
-## 8.5 数组和广义表
-
-## 8.6 树和二叉树
-
-[数和二叉树自测](./docs/programming/data_structure/tree/self_test_for_tree.md)
-
-## 8.7 图（Graph）
-
-[图的自测](./docs/programming/data_structure/graph/self_test_for_graph.md)
-
-[图的定义和术语](./docs/programming/data_structure/graph/Graph_definition_and_terminology.md)|[图的存储结构](./docs/programming/data_structure/graph/graph_storage_structure.md)|[图的遍历](./docs/programming/data_structure/graph/traversing_graph.md)|[图的连通性问题](./docs/programming/data_structure/graph/graph_connectivity_problem.md)|[有向无环图及其应用](./docs/programming/data_structure/graph/directed_acycline_graph.md)|[最短路径](./docs/programming/data_structure/graph/shortest_path.md)
-
-## 8.8 查找（Searching）
-
-[动态查找表（Dynamic Search Table）](./docs/programming/data_structure/searching/Dynamic_Search_Table.md)
-
-## 8.9 排序
-
-
+查找（Searching）：[动态查找表（Dynamic Search Table）](./docs/programming/data_structure/searching/Dynamic_Search_Table.md)
 
 # 9 检索技术
 
@@ -272,40 +230,18 @@
 
 ## 12.1 基础知识
 
-### 12.1.1 知识表示
-
-| 分项                                                         | 分项 |
-| ------------------------------------------------------------ | ---- |
-| [知识和知识表示的相关概念](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/Related_concepts_of_knowledge_and_knowledge_representation.md) |      |
-|                                                              |      |
+知识表示：[知识和知识表示的相关概念](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/Related_concepts_of_knowledge_and_knowledge_representation.md)
 
 ## 12.2 机器学习算法
 
-### 12.2.1 K-近邻算法
-
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [K-近邻算法概述](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/KNN_overview.md) | [KNN入门](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/Getting_started_with_KNN.md) |
-| [距离度量](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/distance_measure.md) |                                                              |
+K-近邻算法：[K-近邻算法概述](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/KNN_overview.md)|[KNN入门](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/Getting_started_with_KNN.md)|[距离度量](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/distance_measure.md)
 
 # 13 开发工具的使用
 
-## 13.1 VSCode
-
-- [前端插件](./docs/programming/The_use_of_development_tools/VSCode/Front-end_plugin.md)
-
-## 13.2 Sublime
-
-- [多位置同时编辑——Sublime3](./docs/programming/The_use_of_development_tools/Sublime/Simultaneous_editing_in_multiple_locations-Sublime3.md)
-
-## 13.3 Python
-
-- [pip](./docs/programming/The_use_of_development_tools/python/pip.md)
-- [Python及其模块版本控制](./docs/programming/The_use_of_development_tools/python/Version_management_of_Python_and_its_modules.md)
-
-## 13.4 git
-
-
+- VSCode：[前端插件](./docs/programming/The_use_of_development_tools/VSCode/Front-end_plugin.md)
+- Sublime：[多位置同时编辑——Sublime3](./docs/programming/The_use_of_development_tools/Sublime/Simultaneous_editing_in_multiple_locations-Sublime3.md)
+- Python：[pip](./docs/programming/The_use_of_development_tools/python/pip.md)|[Python及其模块版本控制](./docs/programming/The_use_of_development_tools/python/Version_management_of_Python_and_its_modules.md)
+- Maven：[Maven错误文件清理工具（Pyhton实现）](./docs/programming/The_use_of_development_tools/clean_repository_maven.md)
 
 # 14 TCP/IP协议组
 
@@ -313,7 +249,7 @@
 
 # 15 C&C++
 
-- C：[C语言概述](./docs/programming/c_cplusplus/c/the_overview_of_c.md)|[C语言中的数组类型](./docs/programming/c_cplusplus/c/Array_type_in_c_language.md)|[C语言中的结构体](./docs/programming/c_cplusplus/c/struct_and_union_in_c_language.md)|[C语言预处理命令](./docs/programming/c_cplusplus/c/preprocessor_directives_in_c.md)|[C语言中的指针](./docs/programming/c_cplusplus/c/Pointer_in_C_language.md)|[C语言可变参数](./docs/programming/c_cplusplus/c/C_language_variable_parameters.md)|[C程序内存分配管理](./docs/programming/c_cplusplus/c/c_program_memory_allocation_management.md)|[C语言对象特性的实现](./docs/programming/c_cplusplus/c/Realization_of_C_language_object_characteristics.md)
+【C】[C语言概述](./docs/programming/c_cplusplus/c/the_overview_of_c.md)|[C语言中的数组类型](./docs/programming/c_cplusplus/c/Array_type_in_c_language.md)|[C语言中的结构体](./docs/programming/c_cplusplus/c/struct_and_union_in_c_language.md)|[C语言预处理命令](./docs/programming/c_cplusplus/c/preprocessor_directives_in_c.md)|[C语言中的指针](./docs/programming/c_cplusplus/c/Pointer_in_C_language.md)|[C语言可变参数](./docs/programming/c_cplusplus/c/C_language_variable_parameters.md)|[C程序内存分配管理](./docs/programming/c_cplusplus/c/c_program_memory_allocation_management.md)|[C语言对象特性的实现](./docs/programming/c_cplusplus/c/Realization_of_C_language_object_characteristics.md)
 
 # 16 Zookeeper
 
@@ -321,11 +257,7 @@
 
 # 17 大数据
 
-## 17.1 Hadoop
-
-- [Hadoop概述](./docs/programming/big_data/hadoop/the_overview_of_hadoop.md)
-- [HDFS](./docs/programming/big_data/hadoop/hdfs.md)
-- [mapreduce](./docs/programming/big_data/hadoop/mapreduce.md)
+【Hadoop】[Hadoop概述](./docs/programming/big_data/hadoop/the_overview_of_hadoop.md)|[HDFS](./docs/programming/big_data/hadoop/hdfs.md)|[mapreduce](./docs/programming/big_data/hadoop/mapreduce.md)
 
 # 18 PowerShell
 
