@@ -758,7 +758,31 @@ public class HdfsClient {
 
 ### 6.1.5 通过流的方式访问HDFS
 
-# 7 当前集群存在的问题TODO
+# 7 在idea中远程调试docker的hadoop项目
 
 **外部客户端可以获取文件元数据信息，可以获取空的文本文件，但是无法获取有内容的文件。应该是不在一个网络的原因，后续需要研究DistributedFileSystem和DFSClient**
+
+## 7.1 spring boot项目打包maven插件
+
+```xml
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+</plugin>
+```
+
+## 7.2 DockerFile
+
+位置：和`pom.xml`位置相同
+
+```
+FROM java:8
+VOLUME /opt/mydockerwork/docker-test-work
+#为jar包起别名
+ADD docker-test-1.0-SNAPSHOT.jar /docker-test.jar
+#暴露调试端口，容器内部
+EXPOSE 60006
+#下面的address和上面的EXPOSE一致
+ENTRYPOINT ["java","-jar","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=60006","-Dspring.profiles.active=sit","/docker-test.jar"]
+```
 

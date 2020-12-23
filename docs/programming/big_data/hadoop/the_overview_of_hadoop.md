@@ -851,6 +851,7 @@ SSH免密登录原理：每台主机`authorized_keys`文件里面包含的主机
         hdp-02
         hdp-03
         hdp-04
+        ```
 ```
         
     - 格式化NameNode：
@@ -869,7 +870,7 @@ SSH免密登录原理：每台主机`authorized_keys`文件里面包含的主机
     # 创建从节点hdp-node-03
     PS D:\todo> docker run -d -p 5004:22 --name hdp-node-03 --privileged --restart always --network hadoop_cluster --network-alias hdp-03 3ef2f5a18237 /usr/sbin/init -c "while true; do sleep 10; done" /root/run.sh
     6f13fa25269a02d7c408a3c237110d5ec50a9eb20a8a9eee4a3bdf684c85cd9f
-    ```
+```
 
     - `-c "while true; do sleep 10; done"`：防止容器启动后立马退出
     - `/usr/sbin/init`和`--privileged`：解决在容器中不能使用systemctl命令的问题
