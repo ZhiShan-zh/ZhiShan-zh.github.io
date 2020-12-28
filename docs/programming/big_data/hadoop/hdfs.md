@@ -573,7 +573,7 @@ HDFS在生产应用中主要是客户端的开发，其核心步骤是从HDFS提
 
 ### 6.1.1 搭建开发环境
 
-1. 在idea中使用maven创建简单的java项目
+1. 在idea中使用Spring Initializr工具创建Spring Boot项目
 
    ![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_20201019102936.png)
 
@@ -581,9 +581,17 @@ HDFS在生产应用中主要是客户端的开发，其核心步骤是从HDFS提
 
    ![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_20201019103116.png)
 
-3. pom文件中加入hadoop的依赖：
+3. 选择依赖项：这里只选择web以来，一边提供调用接口
 
-   ![](../../../../media/hadoop_hdfs_java_20201019103637.png)
+   ![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012281435.png)
+
+4. 添加项目名称
+
+   ![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012281438.png)
+
+5. pom文件中加入hadoop的依赖：
+
+   ![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_20201019103637.png)
 
    ```xml
    <dependency>
@@ -594,18 +602,6 @@ HDFS在生产应用中主要是客户端的开发，其核心步骤是从HDFS提
    ```
 
 注：如需手动引入jar包，hdfs的jar包在hadoop的安装目录的share下
-
-### 6.1.4 windows下hadoop开发环境配置
-
-建议在Linux下进行Hadoop应用的开发，不会存在兼容性问题。
-
-如在window上做客户端应用开发，需要设置以下环境：
-
-1. 在windows的某个目录下解压一个hadoop的安装包：路径为`D:\programs\hadoop\hadoop-2.9.2`
-2. 将安装包下的bin目录用对应windows版本平台编译的本地库替换;
-   - 下载hadoop对应版本的windown平台编译的本地库（下载地址：https://github.com/cdarlint/winutils）
-3. 在window系统中配置HADOOP_HOME环境变量，指向你解压的安装包：`D:\programs\hadoop\hadoop-2.9.2`
-4. 在windows系统的path变量中加入hadoop的bin目录。
 
 ### 6.1.3 获取api中的客户端对象
 
@@ -786,3 +782,4 @@ EXPOSE 60006
 ENTRYPOINT ["java","-jar","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=60006","-Dspring.profiles.active=sit","/docker-test.jar"]
 ```
 
+./jdk1.8.0_251/bin/java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -Dspring.profiles.active=sit hdfs-0.0.1-SNAPSHOT.jar

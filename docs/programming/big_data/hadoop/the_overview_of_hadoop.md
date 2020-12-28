@@ -967,35 +967,36 @@ SSH免密登录原理：每台主机`authorized_keys`文件里面包含的主机
 
 ```shell
 # 创建从节点hdp-node-04
-PS D:\todo> docker run -d -p 5005:22 -p 14020:5005 --name hdp-node-04 --privileged --restart always --network hadoop_cluster --network-alias hdp-04 3ef2f5a18237 /usr/sbin/init -c "while true; do sleep 10; done" /root/run.sh
-0f0583eced4580cd47209fb587470f9a18537afd435bb65a4d2921ea85b4ab05
+PS D:\todo> docker run -d -p 5005:22 -p 14020:5005 -p 8080:8080 --name hdp-node-04 --privileged --restart always --network hadoop_cluster --network-alias hdp-04 3ef2f5a18237 /usr/sbin/init -c "while true; do sleep 10; done" /root/run.sh
+a138996be1a3b583c0733e9bbcb64fcc59642c6da8af3467d88fa09d989ad5d9
 ```
 
 - `-c "while true; do sleep 10; done"`：防止容器启动后立马退出
 - `/usr/sbin/init`和`--privileged`：解决在容器中不能使用systemctl命令的问题
 - `-p 14020:5005`：远程调式端口，以便在主机上进行docker代码调试
+- `-p 8080:8080`：接口调用端口
 
 查看正在运行的容器：`docker ps`
 
 ```
-CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS
-                                                           NAMES
-0f0583eced45        3ef2f5a18237        "/usr/sbin/init -c '…"   About a minute ago   Up About a minute   0.0.0.0:5005->22/tcp, 0.0.0.0:14020->5005/tcp                            hdp-node-04
-6f13fa25269a        3ef2f5a18237        "/usr/sbin/init -c '…"   2 months ago         Up 4 minutes        0.0.0.0:5004->22/tcp                                                     hdp-node-03
-49abcf5aad57        3ef2f5a18237        "/usr/sbin/init -c '…"   2 months ago         Up 4 minutes        0.0.0.0:5003->22/tcp                                                     hdp-node-02
-0fe37eebc9fb        3ef2f5a18237        "/usr/sbin/init -c '…"   2 months ago         Up 4 minutes        0.0.0.0:9000->9000/tcp, 0.0.0.0:50090->50090/tcp, 0.0.0.0:5002->22/tcp   hdp-node-01
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS
+                                                          NAMES
+a138996be1a3        3ef2f5a18237        "/usr/sbin/init -c '…"   7 seconds ago       Up 6 seconds        0.0.0.0:5005->22/tcp, 0.0.0.0:14020->5005/tcp                            hdp-node-04
+6f13fa25269a        3ef2f5a18237        "/usr/sbin/init -c '…"   2 months ago        Up About an hour    0.0.0.0:5004->22/tcp                                                     hdp-node-03
+49abcf5aad57        3ef2f5a18237        "/usr/sbin/init -c '…"   2 months ago        Up About an hour    0.0.0.0:5003->22/tcp                                                     hdp-node-02
+0fe37eebc9fb        3ef2f5a18237        "/usr/sbin/init -c '…"   2 months ago        Up About an hour    0.0.0.0:9000->9000/tcp, 0.0.0.0:50090->50090/tcp, 0.0.0.0:5002->22/tcp   hdp-node-01
 ```
 
 配置主节点的ssh公钥到所有从节点：
 
 ```shell
 # 登录当前从节点，删除之前生成的ssh公匙（如果有）
-PS D:\todo> docker exec -it 0f0583eced45 bash
-[root@0f0583eced45 /]# cd ~/.ssh
-[root@0f0583eced45 .ssh]# rm ./id_rsa*
+PS D:\todo> docker exec -it a138996be1a3 bash
+[root@a138996be1a3 /]# cd ~/.ssh
+[root@a138996be1a3 .ssh]# rm ./id_rsa*
 rm: remove regular file './id_rsa'? y
 rm: remove regular file './id_rsa.pub'? y
-[root@0f0583eced45 .ssh]# exit
+[root@a138996be1a3 .ssh]# exit
 exit
 # 登录主节点，把主节点的ssh公钥复制本地，然后从本地复制到所有的从节点
 PS D:\todo> docker cp hdp-node-01:/root/.ssh/id_rsa.pub ./
@@ -1012,12 +1013,12 @@ Mode                LastWriteTime         Length Name
 PS D:\todo> docker cp id_rsa.pub hdp-node-04:/root/.ssh
 
 # 登录从节点，使用cat把ssh公钥追加到authorized_keys中
-PS D:\todo> docker exec -it 0f0583eced45 bash
-[root@0f0583eced45 /]# cd ~/.ssh
-[root@0f0583eced45 .ssh]# ls
+PS D:\todo> docker exec -it a138996be1a3 bash
+[root@a138996be1a3 /]# cd ~/.ssh
+[root@a138996be1a3 .ssh]# ls
 authorized_keys  id_rsa.pub  known_hosts
-[root@0f0583eced45 .ssh]# cat ./id_rsa.pub >> ./authorized_keys
-[root@0f0583eced45 .ssh]# exit
+[root@a138996be1a3 .ssh]# cat ./id_rsa.pub >> ./authorized_keys
+[root@a138996be1a3 .ssh]# exit
 exit
 
 # 登录主节点，验证免密登录从节点
@@ -1029,7 +1030,7 @@ ECDSA key fingerprint is MD5:c6:61:36:05:62:fc:1d:c7:0b:71:a0:ed:88:9c:98:77.
 Are you sure you want to continue connecting (yes/no)? yes
 Warning: Permanently added 'hdp-04,172.18.0.5' (ECDSA) to the list of known hosts.
 Last login: Thu Oct 15 17:56:12 2020 from localhost
-[root@0f0583eced45 ~]# exit
+[root@a138996be1a3 ~]# exit
 logout
 Connection to hdp-04 closed.
 [root@0fe37eebc9fb /]#

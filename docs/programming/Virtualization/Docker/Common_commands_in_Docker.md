@@ -462,3 +462,16 @@ docker rm 容器名称（容器ID）
 - 然后就可以其他加入到test_network的容器中通过网络别名访问当前容器了。
 
     - 进入容器：`ping s-zoo`
+
+# 3 构建镜像
+
+`docker build`命令用于从Dockerfile构建镜像。
+
+**典型用法**：`docker build  -t ImageName:TagName dir`
+
+**选项**
+
+- `-t` − 给镜像加一个Tag
+- `ImageName` − 给镜像起的名称
+- `TagName` − 给镜像的Tag名
+- `Dir` − Dockerfile所在目录

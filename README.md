@@ -228,9 +228,7 @@ Apache ShardingSphere：[ShardingSphere简介](./docs/programming/database/datab
 - [人工智能概述](./docs/programming/Artificial_Intelligence/The_overview_of_Artificial_Intelligence.md)
 - [机器学习概述](./docs/programming/Artificial_Intelligence/The_overview_of_Machine_learning.md)
 
-## 12.1 基础知识
-
-知识表示：[知识和知识表示的相关概念](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/Related_concepts_of_knowledge_and_knowledge_representation.md)
+【知识表示】[知识和知识表示的相关概念](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/Related_concepts_of_knowledge_and_knowledge_representation.md)|[一阶谓词逻辑表示法](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/first-order_predicate_logic_notation.md)
 
 ## 12.2 机器学习算法
 
