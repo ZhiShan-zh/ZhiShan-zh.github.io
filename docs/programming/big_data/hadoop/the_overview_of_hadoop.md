@@ -961,7 +961,7 @@ SSH免密登录原理：每台主机`authorized_keys`文件里面包含的主机
     [root@0fe37eebc9fb /]#
     ```
 
-### 4.1.3 创建从节点附带客户端功能【待完成】
+### 4.1.3 创建从节点附带客户端功能（主要是开启调试和项目端口）
 
 创建从节点容器：
 
@@ -1075,7 +1075,6 @@ Connection to hdp-04 closed.
   hdp-02: starting nodemanager, logging to /root/apps/hadoop-2.9.2/logs/yarn-root-nodemanager-49abcf5aad57.out
   ```
 
-  
 
 ### 4.1.5 测试Hadoop
 
@@ -1179,7 +1178,3 @@ Found 2 items
 -rw-r--r--   2 root supergroup          0 2020-10-16 12:41 /wordcount/output/_SUCCESS
 -rw-r--r--   2 root supergroup         33 2020-10-16 12:41 /wordcount/output/part-r-00000
 ```
-
-#### 4.1.5.3 当前集群存在的问题TODO
-
-**外部客户端可以获取文件元数据信息，可以获取空的文本文件，但是无法获取有内容的文件。应该是不在一个网络的原因，后续需要研究DistributedFileSystem和DFSClient**

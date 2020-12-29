@@ -146,11 +146,23 @@ drwxr-xr-x   - root supergroup          0 2020-10-16 12:41 /wordcount
   drwxr-xr-x   - root supergroup          0 2020-10-16 12:41 /wordcount
   ```
 
-- `-`：
+- `-cat`：显示文件内容
 
-- `-`：
+  ```shell
+  [root@0fe37eebc9fb sbin]# hadoop fs -cat /a2/test.txt
+  ```
 
-- `-`：
+- `-tail`：显示一个文件的末尾
+
+  ```shell
+  [root@0fe37eebc9fb sbin]# hadoop fs -tail /a2/test.txt
+  ```
+
+- `-text`：以字符形式打印一个文件的内容
+
+  ```shell
+  [root@0fe37eebc9fb sbin]# hadoop fs -text /a2/test.txt
+  ```
 
 - `-`：
 
@@ -603,6 +615,58 @@ HDFS在生产应用中主要是客户端的开发，其核心步骤是从HDFS提
 
 注：如需手动引入jar包，hdfs的jar包在hadoop的安装目录的share下
 
+完整的pom文件内容为：
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.1</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.lifeng</groupId>
+    <artifactId>hdfs</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>hdfs</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-client</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+```
+
 ### 6.1.3 获取api中的客户端对象
 
 在java中操作hdfs，首先要获得一个客户端实例：
@@ -621,142 +685,172 @@ FileSystem fileSystem = FileSystem.get(config);
 
     ```java
     Configuration config = new Configuration();
-    config.set("fs.defaultFS", "hdfs://localhost:9000");
+    config.set("fs.defaultFS", "hdfs://hdp-01:9000");
     FileSystem fileSystem = FileSystem.get(config);//这里还有问题，请往下看
     ```
 
-### 6.1.4 文件的增删改查
+### 6.1.4 文件的增删改查接口
 
 ```java
-package com.lifeng;
+package com.lifeng.hdfs.controller;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
-import org.junit.Before;
-import org.junit.Test;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URI;
 
-public class HdfsClient {
-    FileSystem fs = null;
+/**
+ * @Author: ZhangHai
+ * @Date: 2020/12/28 15:26
+ */
+@Controller
+@RequestMapping("/hdfs")
+public class HdfsClientTestController {
 
-    @Before
-    public void init() throws Exception{
+    private FileSystem getFileSystem(){
+        try {
         /*
-            构造一个配置参数对象，设置一个参数：我们要访问的hdfs的URI,从而FileSystem.get(conf)方法就知道应该是去构造一个访问hdfs文件系统的客户端，以及hdfs的访问地址
-            创建配置对象（new Configuration();）的时候，它就会去加载jar包中的hdfs-default.xml，然后再加载classpath下的hdfs-site.xml
-            参数优先级： 1、客户端代码中设置的值 2、classpath下的用户自定义配置文件 3、然后是服务器的默认配置
+            构造一个配置参数对象，设置一个参数：我们要访问的hdfs的URI,从而FileSystem.get(conf)方法就知道应该是去构造一个访问hdfs文件系统的客户端，
+            以及hdfs的访问地址创建配置对象（new Configuration();）的时候，它就会去加载jar包中的hdfs-default.xml，
+            然后再加载classpath下的hdfs-site.xml参数优先级：
+                1、客户端代码中设置的值
+                2、classpath下的用户自定义配置文件
+                3、然后是服务器的默认配置
          */
-        Configuration conf = new Configuration();
-//        conf.set("fs.defaultFS", "hdfs://localhsot:9000");
-        conf.set("dfs.replication", "2");
+            Configuration conf = new Configuration();
+            conf.set("fs.defaultFS", "hdfs://hdp-01:9000");
+            conf.set("dfs.replication", "2");
 
-        // 获取一个hdfs的访问客户端，根据参数，这个实例应该是DistributedFileSystem的实例
-        // fs = FileSystem.get(conf);
+            // 获取一个hdfs的访问客户端，根据参数，这个实例应该是DistributedFileSystem的实例
+            // fs = FileSystem.get(conf);
 
-        // 如果这样去获取，那conf里面就可以不要配"fs.defaultFS"参数，而且这个客户端的身份标识已经是root用户
-        fs = FileSystem.get(new URI("hdfs://localhost:9000"), conf, "root");
+            // 如果这样去获取，那conf里面就可以不要配"fs.defaultFS"参数，而且这个客户端的身份标识已经是root用户
+            return FileSystem.get(new URI("hdfs://hdp-01:9000"), conf, "root");
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
      * 上传文件
-     * @throws Exception
      */
-    @Test
-    public void testAddFileToHdfs() throws Exception{
-        // 要上传的文件所在的本地路径
-        Path src = new Path("D:/todo/testFile.txt");
-        // 要上传到hdfs的目标路径，这个路径需要在hdfs中已经存在
-        Path dst = new Path("/aaa");
-        fs.copyFromLocalFile(src, dst);
-        fs.close();
+    @RequestMapping("/addFileToHdfs")
+    public String addFileToHdfs(){
+        try {
+            // 要上传的文件所在的本地路径
+            Path src = new Path("/root/apps/test.txt");
+            // 要上传到hdfs的目标路径，这个路径需要在hdfs中已经存在
+            Path dst = new Path("/a2");
+            FileSystem fs = getFileSystem();
+            fs.copyFromLocalFile(src, dst);
+            fs.close();
+            return "yes";
+        }catch (Exception e){
+            e.printStackTrace();
+            return "false";
+        }
     }
 
     /**
      * 从hdfs下载文件到本地
-     * @throws IllegalArgumentException
-     * @throws IOException
      */
-    @Test
-    public void testDownloadFileToLocal() throws IllegalArgumentException, IOException {
-        fs.copyToLocalFile(new Path("/aaa/testFile.txt"), new Path("D:\\todo\\testFile_fromHdfs.txt"));
-        fs.close();
+    @RequestMapping("/testDownloadFileToLocal")
+    public String testDownloadFileToLocal(){
+        try {
+            FileSystem fs = getFileSystem();
+            fs.copyToLocalFile(new Path("/a2/test.txt"), new Path("/root/apps/test_download.txt"));
+            fs.close();
+            return "yes";
+        }catch (Exception e){
+            e.printStackTrace();
+            return "false";
+        }
     }
 
     /**
      * 在hdfs上迭代创建目录，删除目录和重命名目录
-     * @throws IllegalArgumentException
-     * @throws IOException
      */
-    @Test
-    public void testMkdirAndDeleteAndRename() throws IllegalArgumentException, IOException {
-        // 创建目录
-        fs.mkdirs(new Path("/a1/b1/c1"));
-        // 删除文件夹 ，如果是非空文件夹，参数2必须给值true
-        fs.delete(new Path("/aaa"), true);
-        // 重命名文件或文件夹
-        fs.rename(new Path("/a1"), new Path("/a2"));
+    @RequestMapping("/testMkdirAndDeleteAndRename")
+    public String testMkdirAndDeleteAndRename(){
+        try {
+            FileSystem fs = getFileSystem();
+            // 创建目录
+            fs.mkdirs(new Path("/a1/b1/c1"));
+            // 删除文件夹 ，如果是非空文件夹，参数2必须给值true
+            fs.delete(new Path("/aaa"), true);
+            // 重命名文件或文件夹
+            fs.rename(new Path("/a1"), new Path("/a2"));
+            fs.close();
+            return "yes";
+        }catch (Exception e){
+            e.printStackTrace();
+            return "false";
+        }
     }
 
     /**
      * 查看目录信息，只显示文件
-     *
-     * @throws IOException
-     * @throws IllegalArgumentException
-     * @throws FileNotFoundException
      */
-    @Test
-    public void testListFiles() throws FileNotFoundException, IllegalArgumentException, IOException {
-
-        // 返回迭代器
-        RemoteIterator<LocatedFileStatus> listFiles = fs.listFiles(new Path("/"), true);
-
-        while (listFiles.hasNext()) {
-            LocatedFileStatus fileStatus = listFiles.next();
-            System.out.println(fileStatus.getPath().getName());
-            System.out.println(fileStatus.getBlockSize());
-            System.out.println(fileStatus.getPermission());
-            System.out.println(fileStatus.getLen());
-            BlockLocation[] blockLocations = fileStatus.getBlockLocations();
-            for (BlockLocation bl : blockLocations) {
-                System.out.println("block-length:" + bl.getLength() + "--" + "block-offset:" + bl.getOffset());
-                String[] hosts = bl.getHosts();
-                for (String host : hosts) {
-                    System.out.println(host);
+    @RequestMapping("/testListFiles")
+    public String testListFiles(){
+        try {
+            FileSystem fs = getFileSystem();
+            // 返回迭代器
+            RemoteIterator<LocatedFileStatus> listFiles = fs.listFiles(new Path("/"), true);
+            while (listFiles.hasNext()) {
+                LocatedFileStatus fileStatus = listFiles.next();
+                System.out.println(fileStatus.getPath().getName());
+                System.out.println(fileStatus.getBlockSize());
+                System.out.println(fileStatus.getPermission());
+                System.out.println(fileStatus.getLen());
+                BlockLocation[] blockLocations = fileStatus.getBlockLocations();
+                for (BlockLocation bl : blockLocations) {
+                    System.out.println("block-length:" + bl.getLength() + "--" + "block-offset:" + bl.getOffset());
+                    String[] hosts = bl.getHosts();
+                    for (String host : hosts) {
+                        System.out.println(host);
+                    }
                 }
+                System.out.println("--------------分割线--------------");
             }
-            System.out.println("--------------分割线--------------");
+            fs.close();
+            return "yes";
+        }catch (Exception e){
+            e.printStackTrace();
+            return "false";
         }
     }
 
     /**
      * 查看文件及文件夹信息
-     *
-     * @throws IOException
-     * @throws IllegalArgumentException
-     * @throws FileNotFoundException
      */
-    @Test
-    public void testListAll() throws FileNotFoundException, IllegalArgumentException, IOException {
+    @RequestMapping("/testListAll")
+    public String testListAll(){
+        try {
+            FileSystem fs = getFileSystem();
+            FileStatus[] listStatus = fs.listStatus(new Path("/"));
 
-        FileStatus[] listStatus = fs.listStatus(new Path("/"));
-
-        String flag = "目录：";
-        for (FileStatus fstatus : listStatus) {
-            if (fstatus.isFile())  flag = "文件：";
-            System.out.println(flag + fstatus.getPath().getName());
+            String flag = "目录：";
+            for (FileStatus fstatus : listStatus) {
+                if (fstatus.isFile())  flag = "文件：";
+                System.out.println(flag + fstatus.getPath().getName());
+            }
+            fs.close();
+            return "yes";
+        }catch (Exception e){
+            e.printStackTrace();
+            return "false";
         }
     }
 }
 ```
 
-### 6.1.5 通过流的方式访问HDFS
+
 
 # 7 在idea中远程调试docker的hadoop项目
-
-**外部客户端可以获取文件元数据信息，可以获取空的文本文件，但是无法获取有内容的文件。应该是不在一个网络的原因，后续需要研究DistributedFileSystem和DFSClient**
 
 ## 7.1 spring boot项目打包maven插件
 
@@ -767,19 +861,87 @@ public class HdfsClient {
 </plugin>
 ```
 
-## 7.2 DockerFile
+## 7.2 配置SpringBoot项目的远程调试启动方式
 
-位置：和`pom.xml`位置相同
+![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012291028.png)
+
+**注意**：这里的14020端口不是固定的，可以自己设置，这里设置的14020端口已经设置映射于容器的5005端口。
+
+## 7.3 使用maven打包项目
+
+![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012291034.png)
+
+## 7.4 上传SpringBoot项目到目标docker
+
+```shell
+# 使用docker复制命令复制项目到docker
+PS D:\todo> docker cp .\hdfs-0.0.1-SNAPSHOT.jar hdp-node-04:/root/apps
+# 进入容器 hdp-node-04 进行查看
+PS D:\todo> docker exec -it a138996be1a3 bash
+[root@a138996be1a3 /]# cd root/apps/
+[root@a138996be1a3 apps]# ls
+hadoop-2.9.2         hdfs-0.0.1-SNAPSHOT.jar     jdk1.8.0_251
+hadoop-2.9.2.tar.gz  jdk-8u251-linux-x64.tar.gz  test.txt
+[root@a138996be1a3 apps]#
+```
+
+## 7.5 在docker容器中以可远程调试的方式启动项目
 
 ```
-FROM java:8
-VOLUME /opt/mydockerwork/docker-test-work
-#为jar包起别名
-ADD docker-test-1.0-SNAPSHOT.jar /docker-test.jar
-#暴露调试端口，容器内部
-EXPOSE 60006
-#下面的address和上面的EXPOSE一致
-ENTRYPOINT ["java","-jar","-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=60006","-Dspring.profiles.active=sit","/docker-test.jar"]
+[root@a138996be1a3 apps]# ./jdk1.8.0_251/bin/java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -Dspring.profiles.active=sit hdfs-0.0.1-SNAPSHOT.jar
+Listening for transport dt_socket at address: 5005
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/root/apps/hdfs-0.0.1-SNAPSHOT.jar!/BOOT-INF/lib/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/root/apps/hdfs-0.0.1-SNAPSHOT.jar!/BOOT-INF/lib/slf4j-log4j12-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.1)
+
+2020-12-29 10:13:43.476  INFO 634 --- [           main] com.lifeng.hdfs.HdfsApplication          : Starting HdfsApplication v0.0.1-SNAPSHOT using Java 1.8.0_251 on a138996be1a3 with PID 634 (/root/apps/hdfs-0.0.1-SNAPSHOT.jar started by root in /root/apps)
+2020-12-29 10:13:43.479  INFO 634 --- [           main] com.lifeng.hdfs.HdfsApplication          : The following profiles are active: sit
+2020-12-29 10:13:44.644  INFO 634 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-12-29 10:13:44.657  INFO 634 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-12-29 10:13:44.658  INFO 634 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2020-12-29 10:13:44.718  INFO 634 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-12-29 10:13:44.718  INFO 634 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1187 ms
+2020-12-29 10:13:44.915  INFO 634 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-12-29 10:13:45.198  INFO 634 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-12-29 10:13:45.209  INFO 634 --- [           main] com.lifeng.hdfs.HdfsApplication          : Started HdfsApplication in 2.23 seconds (JVM running for 2.725)
 ```
 
-./jdk1.8.0_251/bin/java -jar -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005 -Dspring.profiles.active=sit hdfs-0.0.1-SNAPSHOT.jar
+命令参数：
+
+- dt_socket：使用的通信方式
+
+- server：是主动连接调试器还是作为服务器等待调试器连接
+
+- suspend：是否在启动JVM时就暂停，并等待调试器连接
+
+- address：地址和端口，地址可以省略，两者用冒号分隔
+
+## 7.6 在idea中以调试方式启动项目
+
+**注意**：一定要先启动容器中的项目，在启动idea中的项目
+
+![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012291047.png)
+
+![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012291048.png)
+
+## 7.7 调试接口
+
+如果容器已经和本机映射了项目的端口号，则可以在本机进行调用接口，如果没有映射，可以使用curl命令在容器命令行进行调用接口。
+
+要在idea中调试远程项目接口，需要在调用接口之前在idea中对应接口打上断点。
+
+```shell
+# 在容器命令行使用curl调用接口
+[root@a138996be1a3 apps]# curl -H "Content-Length:0" -X GET  "http://localhost:8080/hdfs/addFileToHdfs"
+```
+

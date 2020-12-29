@@ -230,6 +230,8 @@ Apache ShardingSphere：[ShardingSphere简介](./docs/programming/database/datab
 
 【知识表示】[知识和知识表示的相关概念](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/Related_concepts_of_knowledge_and_knowledge_representation.md)|[一阶谓词逻辑表示法](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/first-order_predicate_logic_notation.md)
 
+【不确定性推理方法】[不确定性推理中的基本问题](./docs/programming/Artificial_Intelligence/basic_knowledge/reasoning_method/basic_problems_in_uncertainty_reasoning.md)
+
 ## 12.2 机器学习算法
 
 K-近邻算法：[K-近邻算法概述](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/KNN_overview.md)|[KNN入门](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/Getting_started_with_KNN.md)|[距离度量](./docs/programming/Artificial_Intelligence/algorithm-Machine_learning/KNN/distance_measure.md)
