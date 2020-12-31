@@ -257,7 +257,7 @@ K-近邻算法：[K-近邻算法概述](./docs/programming/Artificial_Intelligen
 
 # 17 大数据
 
-【Hadoop】[Hadoop概述](./docs/programming/big_data/hadoop/the_overview_of_hadoop.md)|[HDFS](./docs/programming/big_data/hadoop/hdfs.md)|[mapreduce](./docs/programming/big_data/hadoop/mapreduce.md)
+【Hadoop】[Hadoop概述](./docs/programming/big_data/hadoop/the_overview_of_hadoop.md)|[HDFS](./docs/programming/big_data/hadoop/hdfs.md)|[MapReduce](./docs/programming/big_data/hadoop/mapreduce.md)|[Hive](./docs/programming/big_data/hadoop/hive.md)
 
 # 18 PowerShell
 
