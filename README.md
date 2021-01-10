@@ -62,39 +62,19 @@
 
 # 3 JavaScript
 
-- [Javascript闭包](./docs/programming/JavaScript/Closures_in_JavaScript.md)
-- [ES6](./docs/programming/JavaScript/ES6.md)
-- [模块化相关规范](./docs/programming/JavaScript/Module_Definition_Specifications.md)
-- [JavaScript中的小括号](./docs/programming/JavaScript/parentheses_in_JavaScript.md)
-- [JavaScript 自执行函数表达式](./docs/programming/JavaScript/self-executing_function_expression-JavaScript.md)
-- [跨域](./docs/programming/JavaScript/Cross-domain.md)
+JavaScript基础：[Javascript闭包](./docs/programming/JavaScript/Closures_in_JavaScript.md)|[ES6](./docs/programming/JavaScript/ES6.md)|[模块化相关规范](./docs/programming/JavaScript/Module_Definition_Specifications.md)|[JavaScript中的小括号](./docs/programming/JavaScript/parentheses_in_JavaScript.md)|[JavaScript 自执行函数表达式](./docs/programming/JavaScript/self-executing_function_expression-JavaScript.md)|[跨域](./docs/programming/JavaScript/Cross-domain.md)
 
-## 3.1 NodeJS
+NodeJS：[Nodejs入门](./docs/programming/JavaScript/nodejs/Getting_started_with_nodejs.md)|[NodeJS包资源管理器NPM](./docs/programming/JavaScript/nodejs/Node_Package_Manager-NPM.md)|[前端资源加载、打包工具——Webpack](./docs/programming/JavaScript/nodejs/Front-end_resource_loading_and_packaging_tools-Webpack.md)
 
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Nodejs入门](./docs/programming/JavaScript/nodejs/Getting_started_with_nodejs.md) | [NodeJS包资源管理器NPM](./docs/programming/JavaScript/nodejs/Node_Package_Manager-NPM.md) |
-| [前端资源加载、打包工具——Webpack](./docs/programming/JavaScript/nodejs/Front-end_resource_loading_and_packaging_tools-Webpack.md) |                                                              |
-
-## 3.2 VueJS
-
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [VueJS入门](./docs/programming/JavaScript/VueJS/Getting_started_with_VueJS.md) | [VueJS常用指令](./docs/programming/JavaScript/VueJS/Common_commands-VueJS.md) |
-| [Vue实例的声明周期](./docs/programming/JavaScript/VueJS/Vue_instance_life_cycle.md) | [VueJS中的Ajax](./docs/programming/JavaScript/VueJS/Ajax_in_VueJS.md) |
-| [路由框架vue-router](./docs/programming/JavaScript/VueJS/vue-router.md) |                                                              |
+VueJS：[VueJS入门](./docs/programming/JavaScript/VueJS/Getting_started_with_VueJS.md)|[VueJS常用指令](./docs/programming/JavaScript/VueJS/Common_commands-VueJS.md)|[Vue实例的声明周期](./docs/programming/JavaScript/VueJS/Vue_instance_life_cycle.md)|[VueJS中的Ajax](./docs/programming/JavaScript/VueJS/Ajax_in_VueJS.md)|[路由框架vue-router](./docs/programming/JavaScript/VueJS/vue-router.md)
 
 # 4 Linux
 
 Shell：[Shell入门](./docs/programming/linux/shell/Getting_startted_with_Shell.md)|[Shell变量](./docs/programming/linux/shell/variable-Shell.md)|[Shell数组](./docs/programming/linux/shell/array_in_Shell.md)|[Shell字符串](./docs/programming/linux/shell/string-Shell.md)|[Shell中流程控制](./docs/programming/linux/shell/Process_control_in_Shell.md)|  [Shell文件包含](./docs/programming/linux/shell/Shell_file_contains.md)[Shell中的test](./docs/programming/linux/shell/test-Shell.md)|[Shell函数](./docs/programming/linux/shell/Functions_in_Shell.md)|[Shell中的()、(())以及{}](./docs/programming/linux/shell/parenthesis_and_double-parenthesis_big-parantheses.md)|[执行Shell脚本的方式sh、bash、./、source](./docs/programming/linux/shell/bash-sh-source.md)
 
-### 4.1.1 Shell编程实践
+Shell编程实践：[使用Shell进行批量压缩](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_compression.md)|[使用Shell进行迭代重命名](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_renaming.md)|[便利使用virtualenv](./docs/programming/linux/shell/Shell_programming_practice/Easy_to_use_virtualenv.md)
 
-- [使用Shell进行批量压缩](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_compression.md)
-- [使用Shell进行迭代重命名](./docs/programming/linux/shell/Shell_programming_practice/Use_Shell_for_batch_renaming.md)
-- [便利使用virtualenv](./docs/programming/linux/shell/Shell_programming_practice/Easy_to_use_virtualenv.md)
-
-## 4.2 命令集
+命令集：
 
 - 系统管理：[systemctl](./docs/programming/linux/linux_command_collection/system_management/systemctl.md)
 
@@ -274,3 +254,7 @@ K-近邻算法：[K-近邻算法概述](./docs/programming/Artificial_Intelligen
 # 21 编译原理
 
 [文法和语言](./docs/programming/compiler/grammar_and_language.md)
+
+# 22 系统架构
+
+[层次架构设计](./docs/programming/system_architecture_design/hierarchical_architecture_design.md)
