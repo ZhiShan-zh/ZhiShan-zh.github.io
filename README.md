@@ -37,6 +37,7 @@
 
 - 基础：[Spring Boot入门](./docs/programming/java/spring/spring_boot/Getting_started_with_Spring_Boot.md)|[Spring Boot整合JSP](./docs/programming/java/spring/spring_boot/Use_JSP_in_Spring_Boot.md)|[Spring Boot 怎么处理异常](./docs/programming/java/spring/spring_boot/How_SpringBoot_handles_exceptions.md)|[Spring Boot开启CORS跨域支持](./docs/programming/java/spring/spring_boot/Spring_Boot_opens_CORS_cross-domain_support.md)
 - 整合数据库：[SpringBoot整合JDBC](./docs/programming/java/spring/spring_boot/database/Using_JDBC_with_Spring_Boot.md)|[SpringBoot中整合SpringDataJPA](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_JPA_with_Spring_Boot.md)|[SpringBoot中整合SpringDataRedis](./docs/programming/java/spring/spring_boot/database/Using_Spring_Data_Redis_with_Spring_Boot.md)|[RedisTemplate中的数据传递](./docs/programming/java/spring/spring_boot/database/data_transfer_in_RedisTemplate.md)|[使用SpringCache抽象工具](./docs/programming/java/spring/spring_boot/database/Spring_cache.md)
+- 整合安全框架：[Spring Boot 整合Shiro](./docs/programming/java/spring/spring_boot/security/shiro.md)
 - Spring Boot高级：[Spring Boot启动流程](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process.md)|[Spring Boot启动流程监听器SpringApplicationRunListener](./docs/programming/java/spring/spring_boot/Spring_Boot_startup_process_monitor-SpringApplicationRunListener.md)|[Spring Boot中的自动装载](./docs/programming/java/spring/spring_boot/Automatic_loading_mechanism_in_Spring_Boot.md)
 - Spring Boot原理：
 
@@ -211,6 +212,8 @@ Apache ShardingSphere：[ShardingSphere简介](./docs/programming/database/datab
 【知识表示】[知识和知识表示的相关概念](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/Related_concepts_of_knowledge_and_knowledge_representation.md)|[一阶谓词逻辑表示法](./docs/programming/Artificial_Intelligence/basic_knowledge/knowledge_representation/first-order_predicate_logic_notation.md)
 
 【不确定性推理方法】[不确定性推理中的基本问题](./docs/programming/Artificial_Intelligence/basic_knowledge/reasoning_method/basic_problems_in_uncertainty_reasoning.md)
+
+【自然语言理解】[自然语言理解概述](./docs/programming/Artificial_Intelligence/basic_knowledge/natural_language_understanding/overview.md)|[词法分析](./docs/programming/Artificial_Intelligence/basic_knowledge/natural_language_understanding/lexical_analysis.md)|[句法分析](./docs/programming/Artificial_Intelligence/basic_knowledge/natural_language_understanding/syntax_analysis.md)
 
 ## 12.2 机器学习算法
 
