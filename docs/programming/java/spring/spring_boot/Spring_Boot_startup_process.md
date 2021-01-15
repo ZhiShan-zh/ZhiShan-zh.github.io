@@ -89,6 +89,51 @@ org.springframework.boot.context.logging.LoggingApplicationListener,\
 org.springframework.boot.liquibase.LiquibaseServiceLocatorApplicationListener
 ```
 
+解释：
+
+- `org.springframework.boot.context.ConfigurationWarningsApplicationContextInitializer`：report warnings for common misconfiguration mistakes
+  - 在其`initialize(ConfigurableApplicationContext context)`方法中在context加入BeanFactoryPostProcessor的方法来实现
+
+- `org.springframework.boot.context.ContextIdApplicationContextInitializer`：sets the Spring ApplicationContext ID，The `spring.application.name` property is used to create the ID.
+  - 通过environment实例过去`spring.application.name`属性的值。
+- `org.springframework.boot.context.config.DelegatingApplicationContextInitializer`：delegates to other initializers that are specified under a literal `context.initializer.classes` environment property
+- `org.springframework.boot.rsocket.context.RSocketPortInfoApplicationContextInitializer`：sets Environment properties for the ports that RSocketServer servers are actually listening on. 
+- `org.springframework.boot.web.context.ServerPortInfoApplicationContextInitializer`：sets Environment properties for the ports that WebServer servers are actually listening on.
+  - 实现：`applicationContext.addApplicationListener(this)`
+- `org.springframework.boot.ClearCachesApplicationListener`：to cleanup caches once the context is loaded.
+- `org.springframework.boot.builder.ParentContextCloserApplicationListener`：closes the application context if its parent is closed.
+- `org.springframework.boot.cloud.CloudFoundryVcapEnvironmentPostProcessor`：
+- `org.springframework.boot.context.FileEncodingApplicationListener`：halts application startup if the system file encoding does not match an expected value set in the environment.
+- `org.springframework.boot.context.config.AnsiOutputApplicationListener`：configures AnsiOutput depending on the value of the property `spring.output.ansi.enabled`.
+- `org.springframework.boot.context.config.ConfigFileApplicationListener`：configures the context environment by loading properties from well known file locations.
+- `org.springframework.boot.context.config.DelegatingApplicationListener`：delegates to other listeners that are specified under a `context.listener.classes` environment property.
+- `org.springframework.boot.context.logging.ClasspathLoggingApplicationListener`：reacts to ApplicationEnvironmentPreparedEvent environment prepared events and to ApplicationFailedEvent failed events by logging the classpath of the thread context class loader (TCCL) at DEBUG level.
+- `org.springframework.boot.context.logging.LoggingApplicationListener`：configures the LoggingSystem.
+- `org.springframework.boot.liquibase.LiquibaseServiceLocatorApplicationListener`：replaces the liquibase ServiceLocator with a version that works with Spring Boot executable archives.
+
+
+
+位置：`org/springframework/boot/spring-boot-autoconfigure/2.2.5.RELEASE/spring-boot-autoconfigure-2.2.5.RELEASE.jar!/META-INF/spring.factories`
+
+```properties
+# Initializers
+org.springframework.context.ApplicationContextInitializer=\
+org.springframework.boot.autoconfigure.SharedMetadataReaderFactoryContextInitializer,\
+org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener
+
+# Application Listeners
+org.springframework.context.ApplicationListener=\
+org.springframework.boot.autoconfigure.BackgroundPreinitializer
+```
+
+解释：
+
+- `org.springframework.boot.autoconfigure.SharedMetadataReaderFactoryContextInitializer`：create a shared CachingMetadataReaderFactory between the ConfigurationClassPostProcessor and Spring Boot.
+  - 实现：`applicationContext.addBeanFactoryPostProcessor(new CachingMetadataReaderFactoryPostProcessor());`
+- `org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener`：writes the ConditionEvaluationReport to the log.
+  - 实现：`applicationContext.addApplicationListener(new ConditionEvaluationReportListener());`
+- `org.springframework.boot.autoconfigure.BackgroundPreinitializer`：trigger early initialization in a background thread of time consuming tasks.
+
 
 
 ## 2.1 推断应用类型：deduceFromClasspath()
@@ -128,13 +173,17 @@ static WebApplicationType deduceFromClasspath() {
 
 # 3 `new SpringApplication(primarySources).run(args)`
 
+
+
 ```java
+// 运行spring应用，创建和更新一个新的ApplicationContext
 public ConfigurableApplicationContext run(String... args) {
     //StopWatch是位于org.springframework.util包下的一个工具类，通过它可方便的对程序部分代码进行计时(ms级别)，适用于同步单线程代码块。
     StopWatch stopWatch = new StopWatch();
     stopWatch.start();
     ConfigurableApplicationContext context = null;
     Collection<SpringBootExceptionReporter> exceptionReporters = new ArrayList<>();
+    // 配置java.awt.headless参数
     configureHeadlessProperty();
     //加载META-INF/spring.factories文件中 SpringApplicationRunListener 的实现类，并用反射的方式创建对应的实例
     SpringApplicationRunListeners listeners = getRunListeners(args);
@@ -184,6 +233,23 @@ public ConfigurableApplicationContext run(String... args) {
 }
 ```
 
+## 3.1 configureHeadlessProperty
+
+```java
+private void configureHeadlessProperty() {
+    System.setProperty(SYSTEM_PROPERTY_JAVA_AWT_HEADLESS,
+                       System.getProperty(SYSTEM_PROPERTY_JAVA_AWT_HEADLESS, Boolean.toString(this.headless)));
+}
+```
+
+Headless模式是系统的一种配置模式。在该模式下，系统缺少了显示设备、键盘或鼠标。
+
+Headless模式虽然不是我们愿意见到的，但事实上我们却常常需要在该模式下工作，尤其是服务器端程序开发者。因为服务器（如提供Web服务的主机）往往可能缺少前述设备，但又需要使用他们提供的功能，生成相应的数据，以提供给客户端（如浏览器所在的配有相关的显示设备、键盘和鼠标的主机）。
+
+一般是在程序开始激活headless模式，告诉程序，现在你要工作在Headless mode下，就不要指望硬件帮忙了，你得自力更生，依靠系统的计算能力模拟出这些特性来
+
+## 3.2 spring.factories：Run Listeners
+
 位置：`org/springframework/boot/spring-boot/2.2.5.RELEASE/spring-boot-2.2.5.RELEASE.jar!/META-INF/spring.factories`
 
 ```properties
@@ -192,18 +258,30 @@ org.springframework.boot.SpringApplicationRunListener=\
 org.springframework.boot.context.event.EventPublishingRunListener
 ```
 
+- `org.springframework.boot.context.event.EventPublishingRunListener`：to publish  SpringApplicationEvent
+  - 内部有一个容器，用来存储Listeners
 
+## 3.3 prepareEnvironment
+
+查找并设置配置文件信息
 
 ```java
 private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners listeners,
                                                    ApplicationArguments applicationArguments) {
-    // 根据应用类型创建不同类型的环境
+    // 根据应用类型，创建应用环境：如得到系统的参数、JVM及Servlet等参数，等
     // Create and configure the environment
     ConfigurableEnvironment environment = getOrCreateEnvironment();
+    //将 defaultProperties、commandLine及active-prifiles 属性加载到环境中
+    //commandLine 在 args 中配置
+    //其它参数可在如下4个路径中配置：servletConfigInitParams、servletContextInitParams、systemProperties、systemEnvironment
     configureEnvironment(environment, applicationArguments.getSourceArgs());
+    // 将ConfigurationPropertySource放入environment的propertysource中的第一个
     ConfigurationPropertySources.attach(environment);
+    //发布ConfigurableEnvironment准备完毕事件
     listeners.environmentPrepared(environment);
+    //绑定ConfigurableEnvironment到当前的SpringApplication实例中
     bindToSpringApplication(environment);
+    // 非SpringMVC项目的处理，暂时不研究
     if (!this.isCustomEnvironment) {
         environment = new EnvironmentConverter(getClassLoader()).convertEnvironmentIfNecessary(environment,
                                                                                                deduceEnvironmentClass());
@@ -213,7 +291,9 @@ private ConfigurableEnvironment prepareEnvironment(SpringApplicationRunListeners
 }
 ```
 
-根据应用类型创建不同类型的环境。
+### 3.3.1 getOrCreateEnvironment
+
+根据应用类型创建不同类型的环境
 
 ```java
 private ConfigurableEnvironment getOrCreateEnvironment() {
@@ -231,16 +311,41 @@ private ConfigurableEnvironment getOrCreateEnvironment() {
 }
 ```
 
+### 3.3.2 configureEnvironment
+
 ```java
 protected void configureEnvironment(ConfigurableEnvironment environment, String[] args) {
+    // 是否配置类型转换接口
     if (this.addConversionService) {
         ConversionService conversionService = ApplicationConversionService.getSharedInstance();
         environment.setConversionService((ConfigurableConversionService) conversionService);
     }
+    // Add, remove or re-order any PropertySources in this application environment.
     configurePropertySources(environment, args);
+    // Configure which profiles are active (or active by default) for this application environment.
     configureProfiles(environment, args);
 }
 ```
+
+### 3.3.3 ConfigurationPropertySources.attach(environment)
+
+```java
+public static void attach(Environment environment) {
+    Assert.isInstanceOf(ConfigurableEnvironment.class, environment);
+    MutablePropertySources sources = ((ConfigurableEnvironment) environment).getPropertySources();
+    PropertySource<?> attached = sources.get(ATTACHED_PROPERTY_SOURCE_NAME);
+    if (attached != null && attached.getSource() != sources) {
+        sources.remove(ATTACHED_PROPERTY_SOURCE_NAME);
+        attached = null;
+    }
+    if (attached == null) {
+        sources.addFirst(new ConfigurationPropertySourcesPropertySource(ATTACHED_PROPERTY_SOURCE_NAME,
+                                                                        new SpringConfigurationPropertySources(sources)));
+    }
+}
+```
+
+## 3.4 createApplicationContext()
 
 根据应用类型，创建ConfigurableApplicationContext
 
@@ -268,6 +373,184 @@ protected ConfigurableApplicationContext createApplicationContext() {
     return (ConfigurableApplicationContext) BeanUtils.instantiateClass(contextClass);
 }
 ```
+
+## 3.5 prepareContext
+
+```java
+private void prepareContext(ConfigurableApplicationContext context, ConfigurableEnvironment environment,
+                            SpringApplicationRunListeners listeners, ApplicationArguments applicationArguments, Banner printedBanner) {
+    // 把environment注入到ApplicationContext实例中
+    context.setEnvironment(environment);
+    // Apply any relevant post processing the {@link ApplicationContext}.
+    postProcessApplicationContext(context);
+    // Apply any {@link ApplicationContextInitializer}s to the context before it is refreshed.
+    applyInitializers(context);
+    // listeners处理context
+    listeners.contextPrepared(context);
+    // 打印启动日志
+    if (this.logStartupInfo) {
+        logStartupInfo(context.getParent() == null);
+        logStartupProfileInfo(context);
+    }
+    // Add boot specific singleton beans
+    ConfigurableListableBeanFactory beanFactory = context.getBeanFactory();
+    beanFactory.registerSingleton("springApplicationArguments", applicationArguments);
+    if (printedBanner != null) {
+        beanFactory.registerSingleton("springBootBanner", printedBanner);
+    }
+    if (beanFactory instanceof DefaultListableBeanFactory) {
+        ((DefaultListableBeanFactory) beanFactory)
+        .setAllowBeanDefinitionOverriding(this.allowBeanDefinitionOverriding);
+    }
+    if (this.lazyInitialization) {
+        context.addBeanFactoryPostProcessor(new LazyInitializationBeanFactoryPostProcessor());
+    }
+    // Load the sources
+    Set<Object> sources = getAllSources();
+    Assert.notEmpty(sources, "Sources must not be empty");
+    // Load beans into the application context.
+    load(context, sources.toArray(new Object[0]));
+    listeners.contextLoaded(context);
+}
+```
+
+### 3.5.1 load
+
+```java
+/**
+ * Load beans into the application context.
+ * @param context the context to load beans into
+ * @param sources the sources to load
+ */
+protected void load(ApplicationContext context, Object[] sources) {
+    if (logger.isDebugEnabled()) {
+        logger.debug("Loading source " + StringUtils.arrayToCommaDelimitedString(sources));
+    }
+    BeanDefinitionLoader loader = createBeanDefinitionLoader(getBeanDefinitionRegistry(context), sources);
+    if (this.beanNameGenerator != null) {
+        loader.setBeanNameGenerator(this.beanNameGenerator);
+    }
+    if (this.resourceLoader != null) {
+        loader.setResourceLoader(this.resourceLoader);
+    }
+    if (this.environment != null) {
+        loader.setEnvironment(this.environment);
+    }
+    loader.load();
+}
+```
+
+
+
+```java
+/**
+ * Get the bean definition registry.
+ * @param context the application context
+ * @return the BeanDefinitionRegistry if it can be determined
+ */
+private BeanDefinitionRegistry getBeanDefinitionRegistry(ApplicationContext context) {
+    if (context instanceof BeanDefinitionRegistry) {
+        return (BeanDefinitionRegistry) context;
+    }
+    if (context instanceof AbstractApplicationContext) {
+        return (BeanDefinitionRegistry) ((AbstractApplicationContext) context).getBeanFactory();
+    }
+    throw new IllegalStateException("Could not locate BeanDefinitionRegistry");
+}
+```
+
+
+
+createBeanDefinitionLoader:
+
+```java
+/**
+ * Factory method used to create the {@link BeanDefinitionLoader}.
+ * @param registry the bean definition registry
+ * @param sources the sources to load
+ * @return the {@link BeanDefinitionLoader} that will be used to load beans
+ */
+protected BeanDefinitionLoader createBeanDefinitionLoader(BeanDefinitionRegistry registry, Object[] sources) {
+    return new BeanDefinitionLoader(registry, sources);
+}
+```
+
+
+
+```java
+/**
+ * Create a new {@link BeanDefinitionLoader} that will load beans into the specified
+ * {@link BeanDefinitionRegistry}.
+ * @param registry the bean definition registry that will contain the loaded beans
+ * @param sources the bean sources
+ */
+BeanDefinitionLoader(BeanDefinitionRegistry registry, Object... sources) {
+    Assert.notNull(registry, "Registry must not be null");
+    Assert.notEmpty(sources, "Sources must not be empty");
+    this.sources = sources;
+    // 注解
+    this.annotatedReader = new AnnotatedBeanDefinitionReader(registry);
+    //xml
+    this.xmlReader = new XmlBeanDefinitionReader(registry);
+    // groovy
+    if (isGroovyPresent()) {
+        this.groovyReader = new GroovyBeanDefinitionReader(registry);
+    }
+    // scanner
+    this.scanner = new ClassPathBeanDefinitionScanner(registry);
+    this.scanner.addExcludeFilter(new ClassExcludeFilter(sources));
+}
+```
+
+
+
+```java
+/**
+ * Load the sources into the reader.
+ * @return the number of loaded beans
+ */
+int load() {
+    int count = 0;
+    for (Object source : this.sources) {
+        count += load(source);
+    }
+    return count;
+}
+
+private int load(Object source) {
+    Assert.notNull(source, "Source must not be null");
+    if (source instanceof Class<?>) {
+        return load((Class<?>) source);
+    }
+    if (source instanceof Resource) {
+        return load((Resource) source);
+    }
+    if (source instanceof Package) {
+        return load((Package) source);
+    }
+    if (source instanceof CharSequence) {
+        return load((CharSequence) source);
+    }
+    throw new IllegalArgumentException("Invalid source type " + source.getClass());
+}
+
+private int load(Class<?> source) {
+    if (isGroovyPresent() && GroovyBeanDefinitionSource.class.isAssignableFrom(source)) {
+        // Any GroovyLoaders added in beans{} DSL can contribute beans here
+        GroovyBeanDefinitionSource loader = BeanUtils.instantiateClass(source, GroovyBeanDefinitionSource.class);
+        load(loader);
+    }
+    if (isComponent(source)) {
+        this.annotatedReader.register(source);
+        return 1;
+    }
+    return 0;
+}
+```
+
+
+
+## 3.6 refreshContext
 
 加载bean，启动内置web容器：
 

@@ -29,7 +29,7 @@
 - Spring基础：  [Spring入门](./docs/programming/java/spring/spring_framework/Getting_started_with_Spring.md)|[Spring配置](./docs/programming/java/spring/spring_framework/Spring_configuration.md)|[Spring AOP面向切面编程](./docs/programming/java/spring/spring_framework/Spring_AOP-Aspect_Oriented_Programming.md)|[Spring中整合Junit4测试](./docs/programming/java/spring/spring_framework/Test_with_Junit4_in_Spring.md)
 - Spring高级：[后处理bean的接口BeanPostProcessor和BeanFactoryPostProcessor](./docs/programming/java/spring/spring_framework/Post-processing_bean_interfaces_BeanPostProcessor_and_BeanFactoryPostProcessor.md)
 - SpringMVC基础：[SpringMVC入门](./docs/programming/java/spring/spring_framework/Getting_started_with_SpringMVC.md)|[SpringMVC架构](./docs/programming/java/spring/spring_framework/SpringMVC_architecture.md)|[SpringMVC参数的传递](./docs/programming/java/spring/spring_framework/SpringMVC_parameter.md)
-- Spring原理：[BeanFactory](./docs/programming/java/spring/BeanFactory.md)|[BeanDefinition](./docs/programming/java/spring/BeanDefinition.md)|[ApplicationContext](./docs/programming/java/spring/ApplicationContext.md)
+- Spring原理：[BeanFactory](./docs/programming/java/spring/BeanFactory.md)|[BeanDefinition](./docs/programming/java/spring/BeanDefinition.md)|[ApplicationContext](./docs/programming/java/spring/ApplicationContext.md)|[Environment](./docs/programming/java/spring/environment.md)|
 
 ### 1.4.2 Spring Boot
 
