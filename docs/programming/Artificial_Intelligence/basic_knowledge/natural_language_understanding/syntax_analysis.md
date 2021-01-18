@@ -186,6 +186,48 @@ ATN的每个结点都有一个寄存器。每个寄存器由两部分组成：
 
 **原理**：ATN就是用上下文无关文法的扩充来实现上下文相关文法，它用一组寄存器存放语法分析信息，每走一步都要测试一下当前情况，并根据测试结果决定做什么动作，最后把寄存器中的信息综合起来，即得到被分析句子的语法结构。
 
+例如：一个简单的名词短语的扩充转移网络：
+
+![](http://ZhiShan-zh.github.io/media/artificialIntelligence_naturalLanguageUnderstanding_20210118122740.png)
+
+网络中弧上的条件C和操作A如下所示：
+
+> $NP-1: f \xrightarrow{det.} g$：当前词为限定词，网络状态由f转移至g
+>
+> $A: Number \leftarrow *.Number$：使NP的特征“数”的特征值等于当前，输入限定词的特征“数”的特征值
+>
+> $NP-2: f \xrightarrow{jump} g$：网络状态直接由f转移至g，不对应句法成分和输入词汇
+>
+> $NP-3: g \xrightarrow{adj} g$：当前词为形容词，进入子网络，本层网络状态不变
+>
+> $NP-4: g \xrightarrow{noun} h$：当前词为名词网络状态由g转移至h
+>
+> $C: Number = *.Number \quad or \quad \oslash$：如果当前名词数与NP的数相同或者NP的数为空
+>
+> $A: Number \leftarrow *.Number$：使NP的特征“数”的特征值等于当前输入名词的特征“数”的特征值
+>
+> $NP-5: f \xrightarrow{pronoun} h$：当前词为代词，网络状态由f转移至h
+>
+> $C: Number = *.Number \quad or \quad \oslash$：如果当前名词数与NP的数相同或者NP的数为空
+>
+> $A: Number \leftarrow *.Number$：使NP的特征“数”的特征值等于当前输入代词的特征“数”的特征值
+>
+> $NP-6: f \xrightarrow{proper} h$：当前词为专用词，网络状态由f转移至h
+>
+> $A: Number \leftarrow *.Number$：使NP的特征“数”的特征值等于当前输入专用词的特征“数”的特征值
+>
+> $NP-7: h \xrightarrow{pp} h$：进入子网络，介词短语网络，本层网络状态不变，使网络具有递归性
+>
+> 注：
+>
+> - 该扩充转移网络的网络名为NP，用来检查其中的数的一致问题。
+> - 其中用到的特征值Number(数)，它的两个值singular(单数)和plural(复数)，缺省值是$\oslash$（空）。
+> - C是弧上的条件， A是弧上的操作，\*是系统当前正在处理的词，proper是专有名词，det是限定词，PP是介词短语，$*.Number$是当前词的“数”
+
+网络NP可以是其他网络的一个子网络，也可以包含其他网络，如其中的PP就是一个子网络，这就是**网络的递归性**。
+
+
+
 **BNF描述**：ATN有一种描述语言，该语言不仅刻画了转移网络的结构，并且指明了每一步应该做什么。该语言的BNF描述大致如下：
 
 ```

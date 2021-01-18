@@ -213,7 +213,7 @@ Apache ShardingSphere：[ShardingSphere简介](./docs/programming/database/datab
 
 【不确定性推理方法】[不确定性推理中的基本问题](./docs/programming/Artificial_Intelligence/basic_knowledge/reasoning_method/basic_problems_in_uncertainty_reasoning.md)
 
-【自然语言理解】[自然语言理解概述](./docs/programming/Artificial_Intelligence/basic_knowledge/natural_language_understanding/overview.md)|[词法分析](./docs/programming/Artificial_Intelligence/basic_knowledge/natural_language_understanding/lexical_analysis.md)|[句法分析](./docs/programming/Artificial_Intelligence/basic_knowledge/natural_language_understanding/syntax_analysis.md)
+【自然语言理解】[自然语言理解概述](./docs/programming/Artificial_Intelligence/basic_knowledge/natural_language_understanding/overview.md)|[词法分析](./docs/programming/Artificial_Intelligence/basic_knowledge/natural_language_understanding/lexical_analysis.md)|[句法分析](./docs/programming/Artificial_Intelligence/basic_knowledge/natural_language_understanding/syntax_analysis.md)|[语义分析](./docs/programming/Artificial_Intelligence/basic_knowledge/natural_language_understanding/semantic_analysis.md)
 
 ## 12.2 机器学习算法
 
