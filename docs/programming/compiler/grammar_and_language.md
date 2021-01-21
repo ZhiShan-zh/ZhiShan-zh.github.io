@@ -62,3 +62,28 @@ $$
 Σ^+ = ΣΣ^* = Σ^*Σ
 $$
 $Σ^*$具有可数的无穷数量的元素。
+
+使用一般集合论的表示符号：若x是$Σ^*$中的元素，则表示为$x \in Σ^*$，否则$x \not\in Σ^*$。对于所有的$Σ$，有$\varepsilon \in Σ^*$ 。
+
+# 3 文法和语言的形式定义
+
+**规则**，也称重写规则、**产生式**或**生成式**，是形如$\alpha \rightarrow \beta$或$\alpha ::= \beta$的$(\alpha, \beta)$有序对，其中$\alpha$称为规则的左部，$\beta$称为规则的右部。这里使用的符号$\rightarrow(::=)$读作“定义为”。
+
+文法G定义为四元组$(V_N, V_T, P, S)$。
+
+- $V_N$：为非终结符（或语法实体，或变量）集，这些符号是专门用来描述文法的，不能出现在最终生成的句子中；
+- $V_T$：为终结符集，终结符是指被定义的那个语言的词（或符号）；
+- $P$：为规则（$\alpha \rightarrow \beta$）的集合，$\alpha \in (V_N \cup V_T)^*$ ，且至少包含一个非终结符，$\beta \in (V_N \cup V_T)^*$
+- $S$：称作识别符或开始符，它是一个非终结符，至少要在一条规则中作为左部出现。
+
+注：
+
+- $V_N$、$V_T$、$P$是非空有穷集。
+- $V_N$和$V_T$不含公共元素，即$V_N \cap V_T = \varnothing$
+- 通常用V表示$V_N \cup V_T$，V称为文法G的**字母表**或字汇表。
+
+很多时候，不用将文法G的四元组显式地表示出来，而只将产生式写出。一般约定，第一条产生式的左部是识别符；用尖括号括起来的是非终结符，不用尖括号括起来的是终结符，或者大写字母表示非终结符，小写字母表示终结符。另外，也有一种习惯写法，将G写成G[S]，其中S是识别符。
+
+设$\alpha \rightarrow \beta$是文法$G = (V_N, V_T, P, S)$的规则（或说是P中的一个产生式），$\gamma$和$\delta$是$V^*$中任意符号，若有符号串v、w满足$\nu = \gamma\alpha\delta, \omega = \gamma\beta\delta$，则说$\nu$（应用规则$\alpha \rightarrow \beta$）直接产生$\omega$，或说$\omega$是$\nu$的直接推导，或说$\omega$直接归约到$\nu$记作$\nu \Rightarrow \omega$。
+
+如果存在直接推导的序列：$\nu = \omega_0 \Rightarrow \omega_1  \Rightarrow \omega_2  \Rightarrow ... \Rightarrow \omega_n = \omega (n > 0)$，则称$\nu$推导出（产生）$\omega$（推导长度为n），或称w归约到v，记作$\nu \xRightarrow{+} \omega$
