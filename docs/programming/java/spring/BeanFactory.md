@@ -18,9 +18,9 @@ BeanFactory的功能：
 - Bean容器（BeanFactory）的启动阶段；
 - 容器中bean的实例化阶段。
 
-BeanFactory【接口】
 
-- 
+
+
 
 # 1 BeanFactory
 
@@ -103,11 +103,6 @@ public interface BeanFactory {
 	 * but may also be translated into a conventional by-name lookup based on the name
 	 * of the given type. For more extensive retrieval operations across sets of beans,
 	 * use {@link ListableBeanFactory} and/or {@link BeanFactoryUtils}.
-	 * @param requiredType type the bean must match; can be an interface or superclass
-	 * @return an instance of the single bean matching the required type
-	 * @throws NoSuchBeanDefinitionException if no bean of the given type was found
-	 * @throws NoUniqueBeanDefinitionException if more than one bean of the given type was found
-	 * @throws BeansException if the bean could not be created
 	 * @since 3.0
 	 * @see ListableBeanFactory
 	 */
@@ -124,11 +119,6 @@ public interface BeanFactory {
 	 * @param requiredType type the bean must match; can be an interface or superclass
 	 * @param args arguments to use when creating a bean instance using explicit arguments
 	 * (only applied when creating a new instance as opposed to retrieving an existing one)
-	 * @return an instance of the bean
-	 * @throws NoSuchBeanDefinitionException if there is no such bean definition
-	 * @throws BeanDefinitionStoreException if arguments have been given but
-	 * the affected bean isn't a prototype
-	 * @throws BeansException if the bean could not be created
 	 * @since 4.1
 	 */
 	<T> T getBean(Class<T> requiredType, Object... args) throws BeansException;
@@ -301,16 +291,6 @@ public interface BeanFactory {
 ```
 
 
-
-# 1 Bean容器（BeanFactory）的启动阶段
-
-## 1.1 XML方式
-
-读取bean的xml配置文件，然后解析xml文件中的各种bean的定义，将xml文件中的每一个`<bean />`元素分别转换成一个BeanDefinition对象，其中保存了从配置文件中读取到的该bean的各种信息：
-
-
-
-## 1.2 注解方式
 
 
 
