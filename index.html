@@ -47,28 +47,23 @@
       coverpage: 'docs/cover.md',
       loadSidebar: true,
       subMaxLevel: 4,
-      search: 'auto', // default
       alias: {
         '/.*/.*/summary': 'summary.md',
         '/.*/_sidebar.md': '/_sidebar.md'
       },
+      search: {
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto',
+        placeholder: '搜索',
+        noData: '没有记录！',
+        // Headline depth, 1 - 6
+        depth: 6
+      }
       pagination: {
         previousText: '上一篇',
         nextText: '下一篇',
         crossChapter: true,
         crossChapterText: true
-      },
-      search: {
-        maxAge: 1800000,
-        paths: [],
-        placeholder: 'Type to search',
-
-        noData: 'No Results!',
-
-        // Headline depth, 1 - 6
-        depth: 6,
-
-        hideOtherSidebarContent: false // whether or not to hide other sidebar content
       },
       darkMode: {
         light: {
