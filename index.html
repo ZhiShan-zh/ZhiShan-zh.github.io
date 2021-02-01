@@ -50,11 +50,13 @@
         '/.*/_sidebar.md': '/_sidebar.md'
       },
       search: {
-        maxAge: 86400000,               // 过期时间，单位毫秒，默认一天
-        paths: [],                      // or 'auto'，匹配文件路径
+        maxAge: 1800000,               // 过期时间，单位毫秒
+        paths: [
+          "/docs/programming/"
+        ],                      // or 'auto'，匹配文件路径
         placeholder: 'Type to search',  // 搜索提示框文字， 支持本地化，例子在下面
         noData: 'No Results!',          // 找不到结果文字提示，支持本地化，例子在下面
-        depth: 2,                       // 搜索标题的最大程级, 1 - 6
+        depth: 3,                       // 搜索标题的最大程级, 1 - 6
       },
       pagination: {
         previousText: '上一篇',
