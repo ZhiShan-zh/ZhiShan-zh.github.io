@@ -18,17 +18,17 @@
 </head>
 <body>
 	
-<!--   <nav>
+  <nav>
     <ul>
-      <li>分类
-        <ul>
+      <li><a href="#/?id=开发笔记">开发笔记</a>
+<!--         <ul>
           <li><a href="#/?id=开发笔记">开发笔记</a></li>
           <li><a href="#/?id=音乐">音乐</a></li>
           <li><a href="#/?id=编程">编程</a></li>
-        </ul>
+        </ul> -->
       </li>
     </ul>
-  </nav> -->
+  </nav>
   <div id="app">本系列知识笔记由开发爱好者张海发布</div>
   <script>
   	// markdown脑图 begin
@@ -45,7 +45,8 @@
       auto2top: true,
       coverpage: 'docs/cover.md',
       loadSidebar: true,
-      subMaxLevel: 3,
+      subMaxLevel: n,
+      mergeNavbar: true,
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md'
       },
