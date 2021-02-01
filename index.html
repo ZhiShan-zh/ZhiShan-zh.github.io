@@ -67,34 +67,34 @@
         light: {
           toggleBtnBg: '#42b983'
         }
-      },
-      plugins: [
-        function (hook, vm) {
-          hook.beforeEach(function (html) {
-            const en = vm.route.file.indexOf('README_EN') > -1
-            if (/githubusercontent\.com/.test(vm.route.file)) {
-              url = vm.route.file
-                .replace('raw.githubusercontent.com', 'github.com')
-                .replace(/\/master/, '/blob/master')
-            } else {
-              url = 'https://github.com/ZhiShan-zh/ZhiShan-zh.github.io/master/' + vm.route.file
-            }
-            const edit = en ? 'Edit on GitHub' : '在 GitHub 编辑'
-            const editHtml = `[:memo: ${edit}](${url})\n`
-            return editHtml + html
-          })
+      }
+      // plugins: [
+      //   function (hook, vm) {
+      //     hook.beforeEach(function (html) {
+      //       const en = vm.route.file.indexOf('README_EN') > -1
+      //       if (/githubusercontent\.com/.test(vm.route.file)) {
+      //         url = vm.route.file
+      //           .replace('raw.githubusercontent.com', 'github.com')
+      //           .replace(/\/master/, '/blob/master')
+      //       } else {
+      //         url = 'https://github.com/ZhiShan-zh/ZhiShan-zh.github.io/master/' + vm.route.file
+      //       }
+      //       const edit = en ? 'Edit on GitHub' : '在 GitHub 编辑'
+      //       const editHtml = `[:memo: ${edit}](${url})\n`
+      //       return editHtml + html
+      //     })
 
-          hook.afterEach(function (html) {
-            const footer = [
-              '<hr/>',
-              '<footer>',
-              '<span>Copyright © 2018-2020 <a href="https://zhishan-zh.github.io/" target="_blank">zhishan-zh</a>. All rights reserved.',
-              '</footer>'
-            ].join('')
-            return html + footer
-          })
-        }
-      ]
+      //     hook.afterEach(function (html) {
+      //       const footer = [
+      //         '<hr/>',
+      //         '<footer>',
+      //         '<span>Copyright © 2018-2020 <a href="https://zhishan-zh.github.io/" target="_blank">zhishan-zh</a>. All rights reserved.',
+      //         '</footer>'
+      //       ].join('')
+      //       return html + footer
+      //     })
+      //   }
+      // ]
       // markdown脑图 begin
      //  markdown: {
   	  //   renderer: {
@@ -118,7 +118,7 @@
   <script src="//unpkg.com/prismjs/components/prism-json.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-java.min.js"></script>
   <script src="//unpkg.com/prismjs/components/prism-python.min.js"></script>
-  <script src="//unpkg.com/docsify-copy-code"></script>
+  <script src="//unpkg.com/docsify-copy-code@2.1.1/dist/docsify-copy-code.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/emoji.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
