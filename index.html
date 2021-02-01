@@ -18,17 +18,17 @@
 </head>
 <body>
 	
-  <nav>
+<!--   <nav>
     <ul>
       <li>分类
         <ul>
           <li><a href="#/?id=开发笔记">开发笔记</a></li>
-<!--           <li><a href="#/?id=音乐">音乐</a></li>
-          <li><a href="#/?id=编程">编程</a></li> -->
+          <li><a href="#/?id=音乐">音乐</a></li>
+          <li><a href="#/?id=编程">编程</a></li>
         </ul>
       </li>
     </ul>
-  </nav>
+  </nav> -->
   <div id="app">本系列知识笔记由开发爱好者张海发布</div>
   <script>
   	// markdown脑图 begin
@@ -96,20 +96,20 @@
             return html + footer
           })
         }
-      ],
+      ]
       // markdown脑图 begin
-      markdown: {
-  	    renderer: {
-  	      code: function(code, lang) {
-  	        if (lang === "mermaid") {
-  	          return (
-  	            '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
-  	          );
-  	        }
-  	        return this.origin.code.apply(this, arguments);
-  	      }
-  	    }
-  	  }
+     //  markdown: {
+  	  //   renderer: {
+  	  //     code: function(code, lang) {
+  	  //       if (lang === "mermaid") {
+  	  //         return (
+  	  //           '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+  	  //         );
+  	  //       }
+  	  //       return this.origin.code.apply(this, arguments);
+  	  //     }
+  	  //   }
+  	  // }
   	  // markdown脑图 end
     }
   </script>
