@@ -45,7 +45,9 @@
       auto2top: true,
       coverpage: true,
       coverpage: 'docs/cover.md',
-      loadSidebar: 'sidebar.md',
+      loadSidebar: true,
+      subMaxLevel: 4,
+      search: 'auto', // default
       alias: {
         '/.*/.*/summary': 'summary.md',
         '/.*/_sidebar.md': '/_sidebar.md'
@@ -101,7 +103,6 @@
         }
       ]
       // markdown脑图 begin
-      /*
       markdown: {
   	    renderer: {
   	      code: function(code, lang) {
@@ -114,7 +115,6 @@
   	      }
   	    }
   	  }
-      */
   	  // markdown脑图 end
     }
   </script>
