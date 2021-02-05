@@ -144,6 +144,8 @@ Shell编程实践：[使用Shell进行批量压缩](./docs/programming/linux/she
 
 ### 6.3.3 限流
 
+[限流](./docs/programming/high_performance_website/high_availability/limit.md)
+
 ### 6.3.4 降级
 
 ### 6.3.5 超时和重试机制
@@ -265,3 +267,6 @@ K-近邻算法：[K-近邻算法概述](./docs/programming/Artificial_Intelligen
 # 22 系统架构
 
 [层次架构设计](./docs/programming/system_architecture_design/hierarchical_architecture_design.md)
+
+# 23 Lua
+
