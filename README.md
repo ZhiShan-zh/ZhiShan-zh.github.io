@@ -124,19 +124,11 @@ Shell编程实践：[使用Shell进行批量压缩](./docs/programming/linux/she
 
 ## 6.3 高可用
 
-### 6.3.1 负载均衡与反向代理
+负载均衡与反向代理：[负载均衡与反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)|[LVS](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/LVS.md)|[LVS+Nginx+Keepalived](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/LVS+Nginx+Keepalived.md)
 
-- [负载均衡与反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/load_balancing_and_reverse_proxy.md)
-- [LVS](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/LVS.md)
-- [LVS+Nginx+Keepalived](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/LVS+Nginx+Keepalived.md)
+Nginx：[Nginx入门](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Getting_started_with_nginx.md)|[在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md)|[在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_proxy_in_Nginx.md)|[Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md)|[Nginx负载均衡算法](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Load_balancing_algorithm-Nginx.md)
 
-#### 6.3.1.1 Nginx
-
-| 分项                                                         | 分项                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Nginx入门](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Getting_started_with_nginx.md) | [在Nginx中设置虚拟主机](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Set_up_virtual_hosts_in_Nginx.md) |
-| [在Nginx设置负载均衡和反向代理](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/the_configuration_of_load_balancing_and_reverse_proxy_in_Nginx.md) | [Nginx高可用](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Nginx_high_availability.md) |
-| [Nginx负载均衡算法](./docs/programming/high_performance_website/high_availability/load_balancing_and_reverse_proxy/nginx/Load_balancing_algorithm-Nginx.md) |                                                              |
+OpenResty：
 
 ### 6.3.2 隔离
 

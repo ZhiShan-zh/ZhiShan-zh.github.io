@@ -131,9 +131,8 @@ drwxr-xr-x. 2 root root 4096 Mar 30 20:34 sbin
 先关闭后启动。
 
 - 
-刷新配置文件：
+  刷新配置文件：
 
-  - 
 ```shell
 [root@localhost sbin]# ./nginx -s reload
 ```
