@@ -670,6 +670,7 @@ public class MyAdvice2 {
 	 * 		则下边每个注解括号里边的【"MyAdvice.myPc()"】都要配置
 	 * 		【"execution(* com.zh.springaop.service..*ServiceImpl.*(..))"】
 	 */
+    //@Pointcut("@annotation(com.zh.springaop.annotation.MyPointCut)")//自定义注解切点
 	@Pointcut("execution(* com.zh.springaop.service..*ServiceImpl.*(..))")
 	public void myPc() {}
 
@@ -719,6 +720,31 @@ public class MyAdvice2 {
 	}
 }
 ```
+
+##### 2.3.3.3.1 配置注解切点
+
+1. 自定义注解
+2. 配置自定义注解切点
+3. 使用注解标注需要拦截的方法
+
+```java
+package com.zh.springaop.annotation;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * @Author: ZhangHai
+ * @Date: 2021/2/1 16:54
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MyPointCut {
+    String value() default "";
+}
+```
+
 
 
 #### 2.3.3.4 Spring配置文件
