@@ -35,7 +35,51 @@ ngx_lua提供了与Nginx交互的很多API，对于开发人员来说只需要�
 
 ## 1.4 OpenResty生态
 
-OpenResty提供了常用的ngx_lua开发模块，如
+OpenResty提供了常用的ngx_lua开发模块，如：
+
+- `lua-resty-memcached`：memcached
+- `lua-resty-mysql`：mysql
+- `lua-resty-redis`：redis
+- `lua-resty-dns`：dns
+- `lua-resty-traffic`：限流
+- `lua-resty-template`：模板渲染
+
+## 1.5 OpenResty使用场景
+
+目前CDN厂商使用OpenResty较多。
+
+- **Web应用**：会进行一些业务逻辑处理，甚至进行耗CPU的模板渲染，一般流程包括MySQL、Redis、HTTP获取数据、业务处理、产生Json、XML、模板渲染内容，比如京东的列表页、商品详情页。
+- **接入网关**：实现如数据校验前置、缓存前置、数据过滤、API请求聚合、A/B测试、灰度发布、降级、监控等功能，比如，京东的交易大Nginx节点、无线部门正在开发的无线网关、单品页统一服务、实时价格、动态服务。
+- **Web防火墙**：可以进行IP、URL、UserAgent、Referer黑名单、限流等功能。
+- **缓存服务器**：可以对相应内容进行缓存，减少到达后端的请求，从而提升性能。
+- **其他**：如静态资源服务器、消息推送服务、缩略图剪裁等。
 
 # 2 OpenResty常用架构
+
+## 2.1 架构模式
+
+### 2.1.1 负载均衡
+
+![](https://ZhiShan-zh.github.io/media/nginx_openresty_20210208131408.png)
+
+基本流程：
+
+- LVS+HAProxy将流量转发给核心Nginx1和核心Nginx2，实现流量负载均衡，此处可以使用如轮询、一致性哈希等调度算法来实现负载的转发。
+
+- 核心Nginx会根据请求特征如“Host:item.jd.com”，转发给相应的业务Nginx节点，如单品页Nginx1。
+  - 核心Nginx层是无状态的，可以在这一层实现：
+    - 流量分组：内网和外网隔离、爬虫和非爬虫流量隔离
+    - 内容缓存
+    - 请求头过滤
+    - 故障切换：机房故障切换到其他机房
+    - 限流
+    - 防火墙
+  - 业务Nginx：这一层的Nginx和业务有关联，实现业务的一些通用逻辑，如单品页Nginx
+    - 业务逻辑
+    - 反向代理到如Tomcat
+    - 内容压缩：放在这一层的目的是减少核心Nginx的CPU压力，将压力分散到各业务Nginx
+    - A/B测试
+    - 降级
+
+## 2.2 关键节点解释
 
