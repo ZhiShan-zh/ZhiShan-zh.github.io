@@ -258,6 +258,8 @@ K-近邻算法：[K-近邻算法概述](./docs/programming/Artificial_Intelligen
 
 [层次架构设计](./docs/programming/system_architecture_design/hierarchical_architecture_design.md)
 
+[面向切面编程](./docs/programming/system_architecture_design/aspect_oriented_programming.md)
+
 # 23 Nginx
 
 Nginx：[Nginx入门](./docs/programming/nginx/Getting_started_with_nginx.md)▣[在Nginx中设置虚拟主机](./docs/programming/nginx/Set_up_virtual_hosts_in_Nginx.md)▣[在Nginx设置负载均衡和反向代理](./docs/programming/nginx/the_configuration_of_load_balancing_and_reverse_proxy_in_Nginx.md)▣[Nginx高可用](./docs/programming/nginx/Nginx_high_availability.md)▣[Nginx负载均衡算法](./docs/programming/nginx/Load_balancing_algorithm-Nginx.md)
