@@ -256,9 +256,13 @@ K-近邻算法：[K-近邻算法概述](./docs/programming/Artificial_Intelligen
 
 # 22 系统架构
 
+[软件架构设计](./docs/programming/system_architecture_design/software_architecture_design.md)
+
 [层次架构设计](./docs/programming/system_architecture_design/hierarchical_architecture_design.md)
 
 [面向切面编程](./docs/programming/system_architecture_design/aspect_oriented_programming.md)
+
+[面向构件的软件设计](./docs/programming/system_architecture_design/component-oriented_software_design.md)
 
 # 23 Nginx
 
