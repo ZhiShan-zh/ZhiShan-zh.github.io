@@ -88,9 +88,10 @@ Shell编程实践：[使用Shell进行批量压缩](./docs/programming/linux/she
 
 # 6 高性能网站
 
-## 6.1 概述
+- 架构 
+  - 分布式架构常见问题：[分布式session](./docs/programming/high_performance_website/architecture/distributed_session.md)
 
-- [分布式和集群系统下的身份认证](./docs/programming/java/Java_base/Identity_authentication_in_distributed_and_cluster_systems.md)
+## 6.1 概述
 
 ### 6.1.1 架构
 
@@ -182,8 +183,8 @@ Apache ShardingSphere：[ShardingSphere简介](./docs/programming/database/datab
 
 [ElasticSearch自测](./docs/programming/Retrieval_technology/ElasticSearch/self-test_of_ElasticSearch.md)
 
-- Lucene：|[Lucene入门](./docs/programming/Retrieval_technology/Lucene/Getting_started_with_Lucene.md)▣[分词器](./docs/programming/Retrieval_technology/Lucene/Analyzer.md)▣[Field域](./docs/programming/Retrieval_technology/Lucene/Field.md)▣[索引维护](./docs/programming/Retrieval_technology/Lucene/Index_maintenance.md)▣[搜索](./docs/programming/Retrieval_technology/Lucene/Search.md)▣[相关度排序](./docs/programming/Retrieval_technology/Lucene/Relevance_ranking.md)
-- ElasticSearch：[ElasticSearch入门](./docs/programming/Retrieval_technology/ElasticSearch/Getting_started_with_ElasticSearch.md)▣[IK分词器](./docs/programming/Retrieval_technology/ElasticSearch/analysis_ik.md)▣[映射](./docs/programming/Retrieval_technology/ElasticSearch/mapping.md)▣[在Java中使用ElasticSearch](./docs/programming/Retrieval_technology/ElasticSearch/Using_ElasticSearch_in_Java.md)▣[ElasticSearch集群管理](./docs/programming/Retrieval_technology/ElasticSearch/Cluster_management-ElasticSearch.md)▣[节点](./docs/programming/Retrieval_technology/ElasticSearch/node-ElasticSearch.md)▣[传输模块](./docs/programming/Retrieval_technology/ElasticSearch/transport-ElasticSearch.md)
+- Lucene：[Lucene入门](./docs/programming/Retrieval_technology/Lucene/Getting_started_with_Lucene.md)▣[分词器](./docs/programming/Retrieval_technology/Lucene/Analyzer.md)▣[Field域](./docs/programming/Retrieval_technology/Lucene/Field.md)▣[索引维护](./docs/programming/Retrieval_technology/Lucene/Index_maintenance.md)▣[搜索](./docs/programming/Retrieval_technology/Lucene/Search.md)▣[相关度排序](./docs/programming/Retrieval_technology/Lucene/Relevance_ranking.md)
+- ElasticSearch：[ElasticSearch入门](./docs/programming/Retrieval_technology/ElasticSearch/Getting_started_with_ElasticSearch.md)▣[ElasticSearch插件](./docs/programming/Retrieval_technology/ElasticSearch/plugins.md)▣[映射](./docs/programming/Retrieval_technology/ElasticSearch/mapping.md)▣[在Java中使用ElasticSearch](./docs/programming/Retrieval_technology/ElasticSearch/Using_ElasticSearch_in_Java.md)▣[ElasticSearch集群管理](./docs/programming/Retrieval_technology/ElasticSearch/Cluster_management-ElasticSearch.md)▣[节点](./docs/programming/Retrieval_technology/ElasticSearch/node-ElasticSearch.md)▣[传输模块](./docs/programming/Retrieval_technology/ElasticSearch/transport-ElasticSearch.md)
 
 # 10 虚拟化
 
@@ -232,7 +233,7 @@ K-近邻算法：[K-近邻算法概述](./docs/programming/Artificial_Intelligen
 
 # 16 Zookeeper
 
-- [Zookeeper概述](./docs/programming/zookeeper/the_overview_of_zookeeper.md)
+- [Zookeeper概述](./docs/programming/zookeeper/the_overview_of_zookeeper.md)▣[ZAB原子消息广播协议](./docs/programming/zookeeper/zookeeper_zab.md)
 
 # 17 大数据
 

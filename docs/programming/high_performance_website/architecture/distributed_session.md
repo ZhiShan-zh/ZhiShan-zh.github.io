@@ -1,8 +1,8 @@
-# 分布式和集群系统下的身份认证
+# 分布式Session
 
 # 1 概述
 
-## 1.1 为什么需要分布式和集群系统下的身份认证解决方案？
+## 1.1 为什么需要分布式Session解决方案？
 
 服务内部默认的会话id，只在同一个服务器之间生效，不同服务器都一个不同会话id，那么会导致会话不一致，这显然不适合当前分布式和集群系统环境，所以分布式和集群系统下的身份认证解决方案很必要也很重要。
 
@@ -11,8 +11,8 @@
 
 1. 使用session内部共享机制，session同步，实现复杂；
 2. 使用数据库存储sessionID；
-4. 使用redis，可靠性比较高；
-5. 客户端cookie加密。
+3. 使用redis，可靠性比较高；
+4. 客户端cookie加密。
 5. JWT（Json web token）
 
 # 1 Session工作原理
@@ -235,10 +235,10 @@ public void add(Session session) {
 
 
 - 硬件：常见的有NetScaler、F5、Radware和Array等
-   - 价格比较高昂，但也提供了高可用性和高稳定性，同时还提供了专业的技术服务。没有专业IT团队的大企业采用。
+  - 价格比较高昂，但也提供了高可用性和高稳定性，同时还提供了专业的技术服务。没有专业IT团队的大企业采用。
 - 软件：流行的有LVS、haproxy、nginx
-   - 三种软件负载均衡器都为开源软件。
-   - 小企业、互联网公司必选。
+  - 三种软件负载均衡器都为开源软件。
+  - 小企业、互联网公司必选。
 
 # 4 Session丢失问题
 
@@ -276,10 +276,12 @@ public void add(Session session) {
 
 
 1. 修改`server.xml`中的Cluster节点；
+
 > 打开所有需要Session复制Tomcat配置文件server.xml中的`<Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>`配置（也就是取消注释）
 
 
 2. 修改应用`web.xml`，增加节点`<distributable/>`
+
 > 在应用的`web.xml`的根标签web-app下增加一个`<distributable/>`空标签。
 
 ### 5.2.2 服务器Session复制优缺点
@@ -502,7 +504,7 @@ maven：
 
 
 1. 将要保存的Javabean转换成Json字符串；
-2. 使用des加密Json字符串；
+2. 使用DES（对称加密算法）加密Json字符串；
 3. 设置到根域名的cookie中：`cookie.setDomain("zh.com");`
 
 #### 5.5.1.2 解析过程
@@ -510,9 +512,14 @@ maven：
 
 1. 遍历所有cookie；
 2. 找到对应的cookie；
-3. 使用des解密Json字符串；
+3. 使用DES解密Json字符串；
 4. 把Json字符串还原成Javabean。
 
-## 5.6 JWT
+## 5.6 JWT(JsonWebToken)
 
-（待续）
+JSON Web Token (JWT)是一个开放标准(RFC 7519)，它定义了一种紧凑的、自包含的方式，用于作为JSON对象在各方之间安全地传输信息。该信息可以被验证和信任，因为它是数字签名的。
+
+使用场景：
+
+- Authorization (授权) : 这是使用JWT的最常见场景。一旦用户登录，后续每个请求都将包含JWT，允许用户访问该令牌允许的路由、服务和资源。单点登录是现在广泛使用的JWT的一个特性，因为它的开销很小，并且可以轻松地跨域使用。
+- Information Exchange (信息交换) : 对于安全的在各方之间传输信息而言，JWT无疑是一种很好的方式。因为JWT可以被签名，例如，用公钥/私钥对，你可以确定发送人就是它们所说的那个人。另外，由于签名是使用头和有效负载计算的，您还可以验证内容没有被篡改。
