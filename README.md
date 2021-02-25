@@ -88,7 +88,7 @@ Shell编程实践：[使用Shell进行批量压缩](./docs/programming/linux/she
 
 # 6 高性能网站
 
-- 架构 
+- **架构** 
   - 分布式架构常见问题：[分布式session](./docs/programming/high_performance_website/architecture/distributed_session.md)
 
 ## 6.1 概述
