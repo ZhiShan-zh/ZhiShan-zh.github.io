@@ -150,7 +150,7 @@ $$
 
 Lookup表的典型结构如下表所示。
 
-![](https://ZhiShan-zh.github.io/media/artificialIntelligence_evolutionaryalgorithms_20210126125901.png)
+![](./media/artificialIntelligence_evolutionaryalgorithms_20210126125901.png)
 
 注：
 

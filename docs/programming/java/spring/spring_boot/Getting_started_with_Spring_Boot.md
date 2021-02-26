@@ -11,7 +11,7 @@ Spring Boot的设计目的是用来简化Spring应用的初始搭建以及开发
 Spring Boot默认配置了很多框架的使用方式，就像Maven整合了所有的jar包，Spring Boot整合了所有的框架，通过少量的代码就能创建一个独立的、产品级别的Spring应用。
 
 简单理解Spring Boot是一个集成了Spring各种组件的快速开发框架。
-![image.png](https://zhishan-zh.github.io/media/1583722936665-daa1a9c7-8852-45b0-b274-9b065b4bbed6.png)
+![image.png](./media/1583722936665-daa1a9c7-8852-45b0-b274-9b065b4bbed6.png)
 
 ## 1.2 Spring Boot特点
 
@@ -38,7 +38,7 @@ Spring Boot默认配置了很多框架的使用方式，就像Maven整合了所�
 
 # 2 入门案例
 ## 2.1 新建Maven Project，打包方式jar
-![image.png](https://zhishan-zh.github.io/media/1583719653571-63d4db13-4b96-43a9-a2ba-343f8875776b.png)
+![image.png](./media/1583719653571-63d4db13-4b96-43a9-a2ba-343f8875776b.png)
 
 初始pom文件内容：
 
@@ -241,4 +241,4 @@ server:
 
 1. 启动beginspringboot项目。
 1. 访问测试接口（[http://localhost:9090/student/findAll](http://localhost:9090/student/findAll)）。
-1. ![image.png](https://zhishan-zh.github.io/media/1583721561763-d34f0408-5843-4be6-a8ce-9d709c766f2d.png)
+1. ![image.png](./media/1583721561763-d34f0408-5843-4be6-a8ce-9d709c766f2d.png)

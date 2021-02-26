@@ -46,7 +46,7 @@ d = 1.4142    2.8284    4.2426    1.4142    2.8284    1.4142
 
 在曼哈顿街区要从一个十字路口开车到另一个十字路口，驾驶距离显然不是两点间的直线距离。这个实际驾驶距离就是“曼哈顿距离（Manhattan Distance）”。曼哈顿距离也称为“城市街区距离”（City Block distance）。
 
-![img](https://zhishan-zh.github.io/media/Machine-learning-2020060419415.jpg)
+![img](./media/Machine-learning-2020060419415.jpg)
 
 **二维平面上点$a(x_1,y_1)$与$b(x_2,y_2)$间的曼哈顿距离**：
 $$
@@ -72,7 +72,7 @@ d =   2     4     6     2     4     2
 
 国际象棋中，国王可以直行、横行、斜行，所以国王走一步可以移动到相邻8个方格中的任意一个。国王从格子(x1,y1)走到格子(x2,y2)最少需要多少步？这个距离就叫切比雪夫距离（Chebyshev Distance）。
 
-![image-20191225113241813](https://zhishan-zh.github.io/media/Machine-learning-2020060419416.jpg)
+![image-20191225113241813](./media/Machine-learning-2020060419416.jpg)
 
 **二维平面上点$a(x_1,y_1)$与$b(x_2,y_2)$间的切比雪夫距离**：
 $$
@@ -196,7 +196,7 @@ d =   0.9487    0.9191   -0.5145    0.9965   -0.7593   -0.8107
   The Hamming distance between "toned" and "roses" is 3.
 ```
 
-![image-20190213184508110](https://zhishan-zh.github.io/media/Machine-learning-2020060419417.jpg)
+![image-20190213184508110](./media/Machine-learning-2020060419417.jpg)
 
 ```
 随堂练习：
@@ -248,7 +248,7 @@ d =   0.5000    0.5000    1.0000
 
 下图有两个正态分布图，它们的均值分别为a和b，但方差不一样，则图中的A点离哪个总体更近？或者说A有更大的概率属于谁？显然，A离左边的更近，A属于左边总体的概率更大，尽管A与a的欧式距离远一些。这就是马氏距离的直观解释。
 
-![image-20190213183101699](https://zhishan-zh.github.io/media/Machine-learning-2020060419418.jpg)
+![image-20190213183101699](./media/Machine-learning-2020060419418.jpg)
 
 马氏距离(Mahalanobis Distance)是基于样本分布的一种距离。
 
@@ -280,7 +280,7 @@ $$
 
 **欧式距离&马氏距离：**
 
-![img](https://zhishan-zh.github.io/media/Machine-learning-2020060419419.jpg)
+![img](./media/Machine-learning-2020060419419.jpg)
 
 举例：
 
@@ -305,7 +305,7 @@ $$
 
 这种相对于分散性的距离判断就是马氏距离。
 
-![image-20190316192851778](https://zhishan-zh.github.io/media/Machine-learning-2020060419420.jpg)
+![image-20190316192851778](./media/Machine-learning-2020060419420.jpg)
 
 # 3 “连续属性”和“离散属性”的距离计算
 

@@ -378,9 +378,9 @@ appendfilename "appendonly.aof"
 
 # 5 Redis分布式集群的搭建
 ## 5.1 redis-cluster架构图
-![image.png](https://zhishan-zh.github.io/media/1583816149040-9337e6fb-ce6b-40e9-af1f-a712795914af.png)
+![image.png](./media/1583816149040-9337e6fb-ce6b-40e9-af1f-a712795914af.png)
 **redis-cluster投票:容错**
-![image.png](https://zhishan-zh.github.io/media/1583816206390-da66fb51-140e-4d2d-ac29-9fc0c9d6081d.png)
+![image.png](./media/1583816206390-da66fb51-140e-4d2d-ac29-9fc0c9d6081d.png)
 
 
 **架构细节:**
@@ -402,7 +402,7 @@ appendfilename "appendonly.aof"
 ## 5.2 Redis集群保存数据和定位数据的原理
 
 Redis 集群中内置了 16384 个哈希槽，当需要在 Redis 集群中放置一个 key-value 时，redis 先对 key 使用 CRC16 算法算出一个结果，然后把结果对 16384 求余数，这样每个 key 都会对应一个编号在 0-16383 之间的哈希槽，redis 会根据节点数量大致均等的将哈希槽映射到不同的节点
-![image.png](https://zhishan-zh.github.io/media/1583816825023-8d466400-49c8-4c2f-bbca-98a205fa265a.png)
+![image.png](./media/1583816825023-8d466400-49c8-4c2f-bbca-98a205fa265a.png)
 
 ## 5.3 Redis集群的搭建
 **指出**：

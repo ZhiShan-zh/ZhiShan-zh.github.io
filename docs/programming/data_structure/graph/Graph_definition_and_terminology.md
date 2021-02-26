@@ -106,9 +106,9 @@ ADT Graph{
 
 假设有两个图$G=(V,{E})$和$G`=(V`,{E`})$，如果$V`\subseteq{V}$且$E`\subseteq{E}$则称G\`为G的**子图（Subgraph）**。如：
 
-![image-20201007225039291](https://zhishan-zh.github.io/media/datestruct_graph_20201007225039291.png)
+![image-20201007225039291](./media/datestruct_graph_20201007225039291.png)
 
-![image-20201007230436704](https://zhishan-zh.github.io/media/datestruct_graph_20201007230436704.png)
+![image-20201007230436704](./media/datestruct_graph_20201007230436704.png)
 
 对于无向图$G=(V,{E})$，如果边$(v, v`)\in{E}$，则称顶点v和v\`互为**邻接点（Adjacent）**，即v和v\`相邻接。边$(v, v`)$**依附（Incident）**于顶点v和v\`，或者说$(v, v`)$和顶点v和v\`**相关联**。顶点v的**度（degree）**是和v相关联的边的数目，记为TD(V)。例如，$G_2$中顶点$v_3$的度为3。对于有向图$G=(V,{A})$，如果弧$(v, v`)\in{A}$，则称顶点v邻接到顶点v\`，顶点v\`临接自顶点v。弧$(v, v`)$和顶点v和v\`相关联。以顶点v为头的弧的数目称为v的**入度（InDegree）**，记为ID(v)；以v为尾的弧的数目称为v的**出度（Outdegree）**，记为OD(v)；顶点v的度为TD(v)=ID(V)+OD(v)。一般地，如果顶点$v_i$的度记为$TD(v_i)$，那么一个有n个顶点，e条边或弧的图，满足如下关系：
 $$

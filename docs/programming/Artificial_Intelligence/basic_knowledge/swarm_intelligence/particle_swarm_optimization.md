@@ -49,4 +49,4 @@ PSO算法与其他进化算法相似，也是基于群体的，根据对环境�
 
 粒子群优化算法的流程图如下：
 
-![](htts://ZhiShan-zh.github.io/media/artificialIntelligence_swarmintelligence_20210127012601.png)
+![](./media/artificialIntelligence_swarmintelligence_20210127012601.png)

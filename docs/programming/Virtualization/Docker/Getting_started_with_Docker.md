@@ -44,7 +44,7 @@ Docker还鼓励面向服务的体系结构和微服务架构。Docker推荐单�
 
 下面的图片比较了 Docker 和传统虚拟化方式的不同之处，可见容器是在操作系统层面上实现虚拟化，直接复用本地主机的操作系统，而传统方式则是在硬件层面实现。
 
-![](https://zhishan-zh.github.io/media/docker-1591082400.png)
+![](./media/docker-1591082400.png)
 
 与传统的虚拟机相比，Docker优势体现为启动速度快、占用体积小。
 
@@ -54,7 +54,7 @@ Docker还鼓励面向服务的体系结构和微服务架构。Docker推荐单�
 
 ​	Docker是一个客户端-服务器（C/S）架构程序。Docker客户端只需要向Docker服务器或者守护进程发出请求，服务器或者守护进程将完成所有工作并返回结果。Docker提供了一个命令行工具Docker以及一整套RESTful API。你可以在同一台宿主机上运行Docker守护进程和客户端，也可以从本地的Docker客户端连接到运行在另一台宿主机上的远程Docker守护进程。
 
-![](https://zhishan-zh.github.io/media/docker-1591082528.png)
+![](./media/docker-1591082528.png)
 
 ### 1.5.2 Docker镜像与容器
 

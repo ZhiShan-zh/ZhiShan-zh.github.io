@@ -1,12 +1,10 @@
-[TOC]
-
 # 有向无环图及其应用
 
 有向无环图（directed acycline graph）：简称DAG图，一个无环的有向图。
 
 DAG图是一类较有向树更一般的特殊的有向图：
 
-![](https://zhishan-zh.github.io/media/dataStructure_graph_20201103095406.png)
+![](./media/dataStructure_graph_20201103095406.png)
 
 **检查一个有向图是否存在环要比无向图复杂**：
 
@@ -14,7 +12,7 @@ DAG图是一类较有向树更一般的特殊的有向图：
 - **对于有向图来说**，若深度优先遍历过程中遇到回边（即指向已访问过的顶点的边），这条回边有可能是指向深度优先生成森林中另一颗生成树上的顶点的弧。
   - 但是，如果从有向图上某个顶点v出发的遍历，在$dfs(v)$结束之前出现一条从顶点u到顶点v的回边，由于u在生成树上是v的子孙，则有向图中必定存在包含顶点v和u的环。
 
-![](https://zhishan-zh.github.io/media/dataStructure_graph_20201103102401.png)
+![](./media/dataStructure_graph_20201103102401.png)
 
 **有向无环图是描述含有公共子式的表达式的有效工具**：例如下图，分别用二叉树和有向无环图分别描述表达式：
 $$
@@ -29,7 +27,7 @@ $$
 $$
 
 
-![](https://zhishan-zh.github.io/media/dataStructure_graph_20201103095705.png)
+![](./media/dataStructure_graph_20201103095705.png)
 
 从上图可知，若利用有向无环图可实现对相同子式的共享，从而节省存储空间。
 
@@ -59,7 +57,7 @@ $$
 
 **直观地看，偏序指集合中仅有部分成员之间可比较，而全序指集合中全体成员之间均可比较**。
 
-![](https://zhishan-zh.github.io/media/dataStructure_graph_20201103105650.png)
+![](./media/dataStructure_graph_20201103105650.png)
 
 若在上图(a)的有向图上认为地加上一个表示$v_2 \le v_3$的弧（符号$\le$表示$v_2$领先于$v_3$），则称(a)表示的亦为全序，且这个全序称为**拓扑有序（Topological Order）**，而由偏序定义得到拓扑有序的操作便是**拓扑排序**。
 
@@ -76,7 +74,7 @@ $$
 2. 从图中删除该顶点和所有以它为尾的弧。
 3. 重复上述两步，直至全部顶点均已输出，或者当前图中不存在无前驱的顶点为止。后一种情况则说明有向图中存在环。
 
-![](https://zhishan-zh.github.io/media/dataStructure_graph_20201103143028.png)
+![](./media/dataStructure_graph_20201103143028.png)
 
 针对上述两步操作，我们可采用邻接表作为有向图的存储结构，且在头结点中增加一个存放顶点入度的数组（indegree）。入度为零的顶点即为没有前驱的顶点，删除顶点及以它为尾 的弧的操作，则可换以弧头顶点的入度减1来实现。
 
@@ -147,7 +145,7 @@ Status TopologicalSort(ALGraph G){
 
 例如，下图是一个假象的有11项活动的AOE-网。其中有9个事件$v_1$、$v_2$、$v_3$、...、$v_9$，每个事件表示在它之前的活动已经完成，在它之后的活动可以开始。如$v_1$表示整个工程开始，$v_9$表示整个工程结束，$v_5$表示$a_4$和$a_5$已经完成，$a_7$和$a_8$可以开始。与每个活动相联系的数是执行该活动所需的时间。比如，活动$a_1$需要6天，$a_2$需要4天等。
 
-![](https://zhishan-zh.github.io/media/dataStructure_graph_20201103161631.png)
+![](./media/dataStructure_graph_20201103161631.png)
 
 由于整个工程只有一个开始点和一个完成点，故在正常的情况（无环）下，网中只有一个入度为零的点（称作**源点**）和一个出度为零的点（叫做**汇点**）。
 
@@ -166,7 +164,7 @@ $$
 
 示例：
 
-<img src="https://zhishan-zh.github.io/media/dataStructure_graph_20201103161631.png" style="zoom:50%;" />
+![](./media/dataStructure_graph_20201103161631.png)
 
 > 活动$a_3$由弧<1,4>表示，则
 >
@@ -180,21 +178,20 @@ $$
    > 以邻接表存储方式为例：
    >
    > ```c
-> //遍历零入度栈S
+   > //遍历零入度栈S
    > while(!StackEmpty(*S)){
-   >     Pop(S, &i); Push(T, i); ++count;//入栈i号顶点并计数
-   >     //遍历以当前零入度顶点为弧尾的弧，弧中保存的顶点尾弧头
-   >     for(p=G.vertices[i].firstarc; p; p = p->nextarc){
-   >         k = p->adjvex;
-   >         //对i号顶点的每个邻接点的入度减1
-   >         if(!(--indegree[k])) 
-   >             Push(S, k);//若入度减为0，则入栈
-   >         //如果弧尾顶点的最早发生时间 + 当前弧的持续时间 > 当前弧的弧头顶点的最早放生时间
-   >         if(ve[i] + *(p->info) > ve[k]) ve[k] = ve[i] + *(p->info);
-   >     }//for
+   > Pop(S, &i); Push(T, i); ++count;//入栈i号顶点并计数
+   > //遍历以当前零入度顶点为弧尾的弧，弧中保存的顶点尾弧头
+   > for(p=G.vertices[i].firstarc; p; p = p->nextarc){
+   >   k = p->adjvex;
+   >   //对i号顶点的每个邻接点的入度减1
+   >   if(!(--indegree[k])) 
+   >       Push(S, k);//若入度减为0，则入栈
+   >   //如果弧尾顶点的最早发生时间 + 当前弧的持续时间 > 当前弧的弧头顶点的最早放生时间
+   >   if(ve[i] + *(p->info) > ve[k]) ve[k] = ve[i] + *(p->info);
+   > }//for
    > }//while
    > ```
-   
 2. 从vl(n-1)=ve(n-1)起向后递推$vl(j) = Min\{vl(j) - dut(<i,j>)\} <i,j> \in S,i=n-2,...,0$，其中，S是所有以第i个顶点为尾的弧的集合。
 
    >以邻接表存储方式为例：

@@ -148,10 +148,10 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 创建空的project：
 
 
-![image-20200416084103748.png](https://zhishan-zh.github.io/media/tomcat-9b74-8d066434a1e9.png)
+![image-20200416084103748.png](./media/tomcat-9b74-8d066434a1e9.png)
 
 把项目拷贝到idea空工程`zh_empty_project`（`/run/media/zh/data/projects/tomcat2/zh_empty_project/`）目录下
-![image-20200415222812196.png](https://zhishan-zh.github.io/media/tomcat-bfb2-f92db9b8e94e.png)
+![image-20200415222812196.png](./media/tomcat-bfb2-f92db9b8e94e.png)
 
 **第五步：在idea中配置启动类， 配置 MainClass（`org.apache.catalina.startup.Bootstrap`） ， 并配置 VM 参数。**
 
@@ -159,7 +159,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 虽然说Tomcat是服务器，但是任何Java项目，在进行运行的时候的它的入口main方法。
 
 
-![image-20200416101256442.png](https://zhishan-zh.github.io/media/tomcat-ac02-d1c33e642aca.png)
+![image-20200416101256442.png](./media/tomcat-ac02-d1c33e642aca.png)
 
 
 ```properties
@@ -168,12 +168,12 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
 -Djava.util.logging.config.file=/run/media/zh/data/projects/tomcat2/zh_empty_project/apache-tomcat-8.5.42-src/home/conf/logging.properties
 ```
-![image-20200416101305860.png](https://zhishan-zh.github.io/media/tomcat-bcb0-7f8c6f3fa9bf.png)
+![image-20200416101305860.png](./media/tomcat-bcb0-7f8c6f3fa9bf.png)
 
 
 
 **第六步：启动主方法， 运行Tomcat ， 访问Tomcat 。**
-![image-20200416101435698.png](https://zhishan-zh.github.io/media/tomcat-89bd-5c0266dd45e0.png)
+![image-20200416101435698.png](./media/tomcat-89bd-5c0266dd45e0.png)
 
 ```
 /usr/lib/jvm/java-8-openjdk/bin/java -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:58743,suspend=y,server=n -Dcatalina.home=/run/media/zh/data/projects/tomcat2/zh_empty_project/apache-tomcat-8.5.42-src/home -（此处省略N行打印信息）16-Apr-2020 10:52:46.509 信息 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
@@ -189,7 +189,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 页面访问：http://localhost:8080/，页面输出报错信息
 
 
-![image-20200416110025320.png](https://zhishan-zh.github.io/media/tomcat-8a29-b57eab2d0ae7.png)
+![image-20200416110025320.png](./media/tomcat-8a29-b57eab2d0ae7.png)
 
 **出现上述异常的原因**，是我们直接启动`org.apache.catalina.startup.Bootstrap`的时候没有加载JasperInitializer，从而无法编译JSP。
 
@@ -197,10 +197,10 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 **解决办法**是在tomcat的源码`org.apache.catalina.startup.ContextConfig`中的configureStart函数中手动将JSP解析器初始化：`context.addServletContainerInitializer(new JasperInitializer(), null);`
 
 
-![image-20200416110643444.png](https://zhishan-zh.github.io/media/tomcat-495c-b7cf-b564bb525f51.png)
+![image-20200416110643444.png](./media/tomcat-495c-b7cf-b564bb525f51.png)
 
 
 重启tomcat就可以正常访问了。
 
 
-![image-20200416111002968.png](https://zhishan-zh.github.io/media/tomcat-9ca1-d8e465191b75.png)
+![image-20200416111002968.png](./media/tomcat-9ca1-d8e465191b75.png)

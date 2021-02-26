@@ -22,9 +22,9 @@ Mapreduce核心功能是将用户编写的业务逻辑代码和自带默认组�
 
 ## 1.3 MapReduce的工作流程
 
-![](https://zhishan-zh.github.io/media/hadoop_mapreduce_202010201659.png)
+![](./media/hadoop_mapreduce_202010201659.png)
 
-![](https://zhishan-zh.github.io/media/hadoop_mapreduce_202010201702.png)
+![](./media/hadoop_mapreduce_202010201702.png)
 
 1. 一个MapReduce程序启动的时候，最先启动的是MRAppMaster，MRAppMaster启动后根据本次job的描述信息，计算出需要的maptask实例数量，然后向集群申请机器启动相应数量的maptask进程；
 2. 客户端将每个block块切片（逻辑切分），每个切片都对应一个map任务，默认一个block块对应一个切片和一个map任务。split包含的信息：分片的元数据信息，包含起始位置，长度，和所在节点列表等；
@@ -994,7 +994,7 @@ public class FlowCount {
 
 MapReduce支持的压缩编码：
 
-![](https://zhishan-zh.github.io/media/hadoop_mapreduce_java_20201231142722145.png)
+![](./media/hadoop_mapreduce_java_20201231142722145.png)
 
 ### 4.3.1 Reducer输出压缩
 

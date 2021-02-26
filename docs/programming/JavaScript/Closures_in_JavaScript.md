@@ -118,7 +118,7 @@ fr();
 调用顺序是：先本级查找，如果没有找到，在到上级作用域查找。
 
 
-![var_scope.png](https://zhishan-zh.github.io/media/1585654025127-f74db3bc-2cab-4e02-b85e-26c8b60091fc.png)
+![var_scope.png](./media/1585654025127-f74db3bc-2cab-4e02-b85e-26c8b60091fc.png)
 
 
 # 2 JS中的闭包

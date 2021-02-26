@@ -48,7 +48,7 @@ $$
 
 在类型层次中，为了解释ATN的意义，动词具有关键的作用。因此可以使用格文法，通过动作实施的工具或手段描述动作主体（agent）的动作。例如，动词laugh可以通过动作主体的嘴唇来描述一个动作，可以带给子集或他人乐趣。因此，laugh可以表示为如下图的格框架。
 
-![](https://ZhiShan-zh.github.io/media/artificialIntelligence_naturalLanguageUnderstanding_20210119124101.png)
+![](./media/artificialIntelligence_naturalLanguageUnderstanding_20210119124101.png)
 
 注：矩形表示世界的描述，两个矩形之间的关系用椭圆表示。
 

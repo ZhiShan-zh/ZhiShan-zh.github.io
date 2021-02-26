@@ -92,7 +92,7 @@ UIP的组件主要负责的功能：
 
 实现思路：用XML生成配置文件及界面所需的元数据，按不同需求生成界面元素及软件界面。
 
-![](https://ZhiShan-zh.github.io/media/system_architecture_202101101046.png)
+![](./media/system_architecture_202101101046.png)
 
 基于XML界面管理技术，包括界面配置、界面动态生成和界面定制三部分：
 

@@ -54,17 +54,17 @@ keepalived主要有三个模块，分别是core、check和VRRP。
 
 1. **初始状态**：
 
-![lu6087rggw61_tmp_2f78cda0909c407c.png](https://zhishan-zh.github.io/media/1586368063974-22dbf901-a600-4c6e-a424-adfdff1ed4fd.png)
+![lu6087rggw61_tmp_2f78cda0909c407c.png](./media/1586368063974-22dbf901-a600-4c6e-a424-adfdff1ed4fd.png)
 
 
 2. **主机宕机**：
 
-![lu6087rggw61_tmp_fd8bac4e8681e92.png](https://zhishan-zh.github.io/media/1586368084645-deca2c96-0968-435b-a3e2-17faa8bb163b.png)
+![lu6087rggw61_tmp_fd8bac4e8681e92.png](./media/1586368084645-deca2c96-0968-435b-a3e2-17faa8bb163b.png)
 
 
 3. **主机恢复**：
 
-![lu6087rggw61_tmp_a1cc8886635dc56b.png](https://zhishan-zh.github.io/media/1586368124409-637b7e44-a06c-44b7-bcb9-a0cd440c0b93.png)
+![lu6087rggw61_tmp_a1cc8886635dc56b.png](./media/1586368124409-637b7e44-a06c-44b7-bcb9-a0cd440c0b93.png)
 
 ## 2.4 安装keepalived
 

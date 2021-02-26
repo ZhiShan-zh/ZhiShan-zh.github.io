@@ -39,7 +39,7 @@ JMS即Java消息服务（Java Message Service）应用程序接口，是一个Ja
 
 ## 1.6 RabbitMQ的工作原理
 
-![](https://zhishan-zh.github.io/media/image-rabbitmq-20200508153335374.png#align=left&display=inline&margin=%5Bobject%20Object%5D&originHeight=312&originWidth=994&status=done&style=none)
+![](./media/image-rabbitmq-20200508153335374.png)
 **组成部分说明**：
 
 - Broker：消息队列服务进程，此进程包括两个部分：Exchange和Queue。

@@ -136,7 +136,7 @@
 > $$
 > 对应得句法分析树如图：
 >
-> ![](https://ZhiShan-zh.github.io/media/artificialIntelligence_naturalLanguageUnderstanding_20210115122634.png)
+> ![](./media/artificialIntelligence_naturalLanguageUnderstanding_20210115122634.png)
 
 上述例子描了一个**自上向下的推导**过程：从初始符号S开始，然后不断地选择合适的重写规则，用该规则的右部代替左部，最后得到完整的句子。
 
@@ -153,13 +153,13 @@
 
 用转移网络分析一个句子，首先从句子S开始启动。如果句子的表示形式和转移网络的部分结构（NP）匹配，那么控制会转移到和NP相关的网络部分。这样，转移网络进入中间状态，然后检查VP短语。在VP的转移网络中，假设整个VP匹配成功，则控制会转移到终止状态，并结束。
 
-![](https://ZhiShan-zh.github.io/media/artificialIntelligence_naturalLanguageUnderstanding_20210115122639.png)
+![](./media/artificialIntelligence_naturalLanguageUnderstanding_20210115122639.png)
 
 例如，
 
 > 句子The man laughed.的状态转移网络如图：
 >
-> ![](https://ZhiShan-zh.github.io/media/artificialIntelligence_naturalLanguageUnderstanding_20210115122640.png)
+> ![](./media/artificialIntelligence_naturalLanguageUnderstanding_20210115122640.png)
 >
 > 注：图中的虚线段表示网络中状态的控制流。
 >
@@ -188,7 +188,7 @@ ATN的每个结点都有一个寄存器。每个寄存器由两部分组成：
 
 例如：一个简单的名词短语的扩充转移网络：
 
-![](http://ZhiShan-zh.github.io/media/artificialIntelligence_naturalLanguageUnderstanding_20210118122740.png)
+![](./media/artificialIntelligence_naturalLanguageUnderstanding_20210118122740.png)
 
 网络中弧上的条件C和操作A如下所示：
 

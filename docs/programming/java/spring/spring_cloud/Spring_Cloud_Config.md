@@ -21,7 +21,7 @@ Spring Cloud Config通过服务端可以为多个客户端提供配置服务。S
 
 # 2 入门案例——本地配置中心
 ## 2.1 创建Maven Module
-![image.png](https://zhishan-zh.github.io/media/spring-cloud-config-1583666188166-25db98d3.png)
+![image.png](./media/spring-cloud-config-1583666188166-25db98d3.png)
 
 初始pom文件内容：
 ```xml
@@ -99,7 +99,7 @@ public class NativeConfigServerApplication {
 
 ## 2.6 创建客户端读取本地配置中心的配置文件
 ### 2.6.1 创建Maven Module
-![image.png](https://zhishan-zh.github.io/media/spring-cloud-config-1e8778338037.png)
+![image.png](./media/spring-cloud-config-1e8778338037.png)
 
 初始pom文件内容：
 ```xml
@@ -194,14 +194,14 @@ public class NativeConfigHandler {
 1. 依次启动注册中心（eurekaserver）、本地配置中心（nativeconfigserver)、本地配置中心客户端（nativeconfigclient）。
 1. 访问注册中心（[http://localhost:8761/](http://localhost:8761/)），查看服务注册情况。
    1. 发现本地配置中心（nativeconfigserver)和本地配置中心客户端（nativeconfigclient）都没有注册到注册中心（eurekaserver）。
-   1. ![image.png](https://zhishan-zh.github.io/media/spring-cloud-config-a25b582c5d5b.png)
+   1. ![image.png](./media/spring-cloud-config-a25b582c5d5b.png)
 3. 访问本地配置中心客户端（nativeconfigclient）的接口（[http://localhost:8070/native/index](http://localhost:8070/native/index)）。
    1. 这里的端口号8070是本地配置中心（nativeconfigserver)中`/nativeconfigserver/src/main/resources/shared/configclient-dev.yml`配置的端口号。
-   1. ![image.png](https://zhishan-zh.github.io/media/spring-cloud-config-8830-dafe46797df6.png)
+   1. ![image.png](./media/spring-cloud-config-8830-dafe46797df6.png)
 
 # 3 入门案例——远程配置中心
 
-![image.png](https://zhishan-zh.github.io/media/spring-cloud-config-183b7fe568e5.png)
+![image.png](./media/spring-cloud-config-183b7fe568e5.png)
 
 ## 3.1 创建配置文件
 
@@ -225,7 +225,7 @@ spring:
 
 ## 3.2 创建配置中心（Config Server）Maven Module
 
-![image.png](https://zhishan-zh.github.io/media/spring-cloud-config-f39e49ae5b86.png)
+![image.png](./media/spring-cloud-config-f39e49ae5b86.png)
 
 初始pom文件内容：
 
@@ -308,7 +308,7 @@ public class ConfigServerApplication {
 
 ### 3.6.1 新建Maven Module
 
-![image.png](https://zhishan-zh.github.io/media/spring-cloud-config-afc2-eef4076a1c9f.png)
+![image.png](./media/spring-cloud-config-afc2-eef4076a1c9f.png)
 
 初始pom文件内容：
 
@@ -413,11 +413,11 @@ public class HelloHandler {
 1. 依次启动注册中心（eurekaserver）、远程配置中心（configserver）、远程配置中心客户端（configclient）。
 2. 访问注册中心（[http://localhost:8761/](http://localhost:8761/)），查看服务注册情况。
     1. 发现远程配置中心（configserver）和远程配置中心客户端（configclient）都没有注册到注册中心（eurekaserver）。
-    1. ![image.png](https://zhishan-zh.github.io/media/spring-cloud-config-9585-dce9dd4562d0.png)
+    1. ![image.png](./media/spring-cloud-config-9585-dce9dd4562d0.png)
 3. 访问远程配置中心客户端（configclient）的接口（[http://localhost:8070/hello/index](http://localhost:8070/native/index)）。
     1. 这里的端口号`https://github.com/ZhiShan-zh/Spring-Cloud-learning/blob/master/zhspringcloud-parent/config/configclient.yml`配置的端口号
-    1. ![image.png](https://zhishan-zh.github.io/media/spring-cloud-config-b723-773679fb6d8c.png)
-    1. ![image.png](https://zhishan-zh.github.io/media/spring-cloud-config-ab06-f30781b072a9.png)
+    1. ![image.png](./media/spring-cloud-config-b723-773679fb6d8c.png)
+    1. ![image.png](./media/spring-cloud-config-ab06-f30781b072a9.png)
 
 # 4 配置中心高可用
 
@@ -537,7 +537,7 @@ SpringCloud中也有对应的解决方案，SpringCloud Bus 将分布式的节�
 
 ### 6.2.1 某个微服务承担配置刷新的职责
 
-![](https://zhishan-zh.github.io/media/spring_cloud_bus_20200616002944.png)
+![](./media/spring_cloud_bus_20200616002944.png)
 
 1. 提交配置并发送POST请求调用客户端A的`/bus/refresh`接口；
 2. 客户端A收到请求从配置中心Server端更新配置并且发送给Spring Cloud Bus消息总线；
@@ -556,7 +556,7 @@ SpringCloud中也有对应的解决方案，SpringCloud Bus 将分布式的节�
 
 ### 6.2.2 配置中心Server端承担起配置刷新的职责
 
-![](https://zhishan-zh.github.io/media/spring_cloud_bus_20200616004359.png)
+![](./media/spring_cloud_bus_20200616004359.png)
 
 1. 提交配置发送POST请求调用配置中心Server端的`/bus-refresh`接口；
 2. 配置中心Server端收到请求后发送给Spring Cloud Bus消息总线；

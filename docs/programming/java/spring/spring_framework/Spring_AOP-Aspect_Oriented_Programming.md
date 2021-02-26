@@ -24,19 +24,19 @@ AOP 是对⾯向对象编程的⼀个补充，在运⾏时，动态地将代码�
 #### 1.2.1.1 过滤器
 
 
-![aop_filter.png](https://zhishan-zh.github.io/media/1585288512812-812c9545-121d-4183-a1d6-2ba8c9293d1c.png)
+![aop_filter.png](./media/1585288512812-812c9545-121d-4183-a1d6-2ba8c9293d1c.png)
 
 
 #### 1.2.1.2 动态代理
 
 
-![aop_agent.png](https://zhishan-zh.github.io/media/1585288527804-67be8c50-44fb-4d11-87e9-9cbed0651d24.png)
+![aop_agent.png](./media/1585288527804-67be8c50-44fb-4d11-87e9-9cbed0651d24.png)
 
 
 #### 1.2.1.3 拦截器
 
 
-![aop_interceptor.png](https://zhishan-zh.github.io/media/1585288537388-3f6c76cf-052e-4161-a944-41ed1906bea4.png)
+![aop_interceptor.png](./media/1585288537388-3f6c76cf-052e-4161-a944-41ed1906bea4.png)
 
 
 ## 1.3 AOP优点

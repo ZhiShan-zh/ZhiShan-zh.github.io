@@ -2,9 +2,9 @@
 
 由于图的结构比较复杂，任意两个顶点之间都可能存在联系，因此无法以数据元素在存储区中的物理位置来表示元素之间的关系，即图没有顺序映像的存储结构，但可以借助数组的数据类型表示元素之间的关系。另一方面，用多重链表表视图是自然的事，它是一种最简单的链式映像结构，即以一个由一个数据域和多个指针域组成的节点表示图中的一个顶点，其中数据域存储该顶点的信息，指针域存储指向其邻接点的指针。
 
-![image-20201007225039291](https://zhishan-zh.github.io/media/datestruct_graph_20201007225039291.png)
+![image-20201007225039291](./media/datestruct_graph_20201007225039291.png)
 
-![](https://zhishan-zh.github.io/media/datestruct_graph_2020100921342101.png)
+![](./media/datestruct_graph_2020100921342101.png)
 
 # 1 数组表示法
 
@@ -62,7 +62,7 @@ A[i][j] = \left\{
 	\end{array}
 \right.
 $$
-![](https://zhishan-zh.github.io/media/datestruct_graph_20201010090701.png)
+![](./media/datestruct_graph_20201010090701.png)
 $$
 \left[
     \begin{array}{cccc} 
@@ -120,7 +120,7 @@ typedef struct {
   - 在所有链表中其邻接点域的值为i的结点的个数是顶点$v_i$的入度。
   - 有时，为了便于确定顶点的入度或以顶点$v_i$为头的弧，可以建立一个有向图的**逆邻接表**，即对每个顶点$v_i$建立一个链接以$v_i$为头的弧的表。
 
-![](https://zhishan-zh.github.io/media/dataStructure_graph_20201027153702.png)
+![](./media/dataStructure_graph_20201027153702.png)
 
 **建立邻接表或逆邻接表的时间复杂度**：
 
@@ -149,7 +149,7 @@ typedef struct {
 
 若将有向图的邻接矩阵看成是稀疏矩阵的话，则十字链表也可以看成是邻接矩阵的链表存储结构，在图的十字链表中，弧结点所在的链表非循环链表，结点之间相对位置自然形成，不一定按顶点需要有序，表头结点即顶点结点，它们之间不是链接，而是顺序存储。
 
-![](https://zhishan-zh.github.io/media/dataStructure_graph_20201027183030.png)
+![](./media/dataStructure_graph_20201027183030.png)
 
 ```c
 //----------有向图的十字链表存储表示----------
@@ -212,7 +212,7 @@ Status CreateDG(OLGraph &G){
 - data：存储和该顶点相关的信息；
 - firstedge：指示第一条依附于该顶点的边。
 
-![](https://zhishan-zh.github.io/media/dataStructure_graph_20201027212759.png)
+![](./media/dataStructure_graph_20201027212759.png)
 
 在邻接多重表中，所有依附于同一顶点的边串联在同一链表中，由于每条边依附于两个顶点，则每个边结点同时链接在两个链表中。可见，对无向图而言，其邻接多重表和邻接表的差别，仅仅在于同一条边在邻接表中用两个结点表示，而在邻接多重表中只有一个结点。因此，除了在边结点中增加一个标志域外，邻接多重表所需的存储量和邻接表相同。在邻接多重表上，各种基本操作的实现亦和邻接表相似。
 

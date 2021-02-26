@@ -4,7 +4,7 @@
 网关相当于一个网络服务架构的入口，所有网络请求必须通过网关转发到具体的服务。
 
 Spring Cloud 集成了 Zuul 组件，实现服务网关。
-![image.png](https://zhishan-zh.github.io/media/1583643233144-108f06da-b2de-4615-8705-0a562f3c70f7.png)
+![image.png](./media/1583643233144-108f06da-b2de-4615-8705-0a562f3c70f7.png)
 
 ## 1.1 什么是Zuul
 Zuul 是 Netflix 提供的一个开源的 API 网关服务器，是客户端和网站后端所有请求的中间层，对外开放一个 API，将所有请求导入统一的入口，屏蔽了服务端的具体实现逻辑，Zuul 可以实现反向代理的功能，在网关内部实现动态路由、身份认证、IP 过滤、数据监控等。
@@ -42,7 +42,7 @@ Zuul可以和Eureka，Ribbon，Hystrix等组件配合使用。
 
 # 2 入门案例
 ## 2.1 创建Maven Module项目
-![image.png](https://zhishan-zh.github.io/media/1583646039418-7f324890-3011-4668-854a-268209296c22.png)
+![image.png](./media/1583646039418-7f324890-3011-4668-854a-268209296c22.png)
 初始pom文件：
 
 ```xml
@@ -123,9 +123,9 @@ public class ZuulApplication {
 1. 依次启动注册中心EurekaServer、服务提供者EurekaClient、启动网关zuul。
 1. 访问注册中心（[http://localhost:8761/](http://localhost:8761/)），查看服务注册情况。
 1. 访问服务提供者接口（[http://localhost:8010/student/findAll](http://localhost:8010/student/findAll)）。
-  1. ![image.png](https://zhishan-zh.github.io/media/1583647682132-285bf4d7-2480-48b5-815f-acf376cb2ca3.png)
+  1. ![image.png](./media/1583647682132-285bf4d7-2480-48b5-815f-acf376cb2ca3.png)
 4. 通过网关访问服务提供者接口（[http://localhost:8030/p/student/findAll](http://localhost:8030/p/student/findAll)）。
-  1. ![image.png](https://zhishan-zh.github.io/media/1583647808150-4d8095ef-986c-4709-b533-84bb52a632d5.png)
+  1. ![image.png](./media/1583647808150-4d8095ef-986c-4709-b533-84bb52a632d5.png)
 ## 2.6 Zuul 自带了负载均衡功能，修改 provider 的代码
 修改服务提供者接口，增加一个返回当前服务提供者端口号的方法。
 `/eurekaClient/src/main/java/com/zh/eurekaclient/controller/StudentHandler.java` 增加内容如下：
@@ -197,18 +197,18 @@ public class StudentHandler {
 
 1. 启动注册中心eurekaserver、服务提供者eurekaClient。
 1. 访问服务中心（[http://localhost:8761/](http://localhost:8761/)），查看服务注册情况。
-  1. ![image.png](https://zhishan-zh.github.io/media/1583648843731-a41497b4-ecab-4601-ad3f-30229b96a25b.png)
+  1. ![image.png](./media/1583648843731-a41497b4-ecab-4601-ad3f-30229b96a25b.png)
 3. 等服务提供者eurekaClient启动完成之后，修改`application.yml`配置文件的服务端口号为8011.
 3. 在服务提供者eurekaClient中复制一个启动类，该一下名字为`EurekaClientApplication2.java`，其他内容不变，然后启动这个启动类。
 3. 访问服务中心（[http://localhost:8761/](http://localhost:8761/)），查看服务注册情况。
-  1. ![image.png](https://zhishan-zh.github.io/media/1583648930921-eb958219-78ac-4020-9955-cca1e57c7991.png)
+  1. ![image.png](./media/1583648930921-eb958219-78ac-4020-9955-cca1e57c7991.png)
 6. 测试服务提供者eurekaClient返回端口号的接口（[http://localhost:8010/student/index](http://localhost:8010/student/index)，[http://localhost:8011/student/index](http://localhost:8011/student/index)）
-  1. ![image.png](https://zhishan-zh.github.io/media/1583649092691-4c276876-e55f-4699-b964-221d2d4a6c72.png)
-  1. ![image.png](https://zhishan-zh.github.io/media/1583649112750-752384de-f4b4-4b2f-a80c-39c30074dd23.png)
+  1. ![image.png](./media/1583649092691-4c276876-e55f-4699-b964-221d2d4a6c72.png)
+  1. ![image.png](./media/1583649112750-752384de-f4b4-4b2f-a80c-39c30074dd23.png)
 7. 启动网关zuul，实现负载均衡。
 7. 通过网关访问服务提供者eurekaClient中返回当前端口号的服务（[http://localhost:8030/p/student/index](http://localhost:8030/p/student/index)），查看负载均衡效果。
-  1. ![image.png](https://zhishan-zh.github.io/media/1583649332499-a5a540c9-928c-47da-85f7-733839506bde.png)
-  1. ![image.png](https://zhishan-zh.github.io/media/1583649348597-e2e2df48-b699-4fa9-8032-09f4b4e64e13.png)
+  1. ![image.png](./media/1583649332499-a5a540c9-928c-47da-85f7-733839506bde.png)
+  1. ![image.png](./media/1583649348597-e2e2df48-b699-4fa9-8032-09f4b4e64e13.png)
 
 # 3 服务映射地址规则
 

@@ -2,7 +2,7 @@
 
 # 1 Lucene准备
 
-<br />Lucene可以在官网上下载。这里使用的是4.10.3版本，文件位置如下图：<br />![](https://zhishan-zh.github.io/media/lucene-1586504930106-2eb85015-f0cb-45f6-8e29-58ebe0218a10.png)<br />
+<br />Lucene可以在官网上下载。这里使用的是4.10.3版本，文件位置如下图：<br />![](./media/lucene-1586504930106-2eb85015-f0cb-45f6-8e29-58ebe0218a10.png)<br />
 <br />因为这里使用的数据是MySQL数据库的数据，所以还需要MySQL的连接包（`mysql-connector-java-5.1.7-bin.jar`）。<br />
 
 # 2 开发环境
@@ -37,14 +37,14 @@ insert into `book` (`id`, `name`, `price`, `pic`, `description`) values('5','sol
 ```
 
 <br />导入到MySQL效果如下图：<br />
-<br />![](https://zhishan-zh.github.io/media/lucene-1586504967723-9b783517-0600-4bec-97eb-66582ccb40e3.png)<br />
+<br />![](./media/lucene-1586504967723-9b783517-0600-4bec-97eb-66582ccb40e3.png)<br />
 
 # 3 入门示例
 
 
 ## 3.1 创建Java Project
 
-<br />![](https://zhishan-zh.github.io/media/lucene-1586504977464-ec63b00f-d999-4444-be77-a137db82d8e2.png)<br />
+<br />![](./media/lucene-1586504977464-ec63b00f-d999-4444-be77-a137db82d8e2.png)<br />
 
 ## 3.2 加入依赖
 
@@ -326,7 +326,7 @@ public class IndexManagerTest {
 
 <br />和索引过程的分词一样，这里要对用户输入的关键字进行分词，一般情况索引和搜索使用的分词器一致。<br />
 比如：在搜索引擎中输入搜索关键字“java学习”，分词后为java和学习两个词，与java和学习有关的内容都搜索出来了，如下：<br />
-<br />![image-20200410153036908.png](https://zhishan-zh.github.io/media/lucene-1586505076040-9ca8bcae-6bc8-4004-bcb8-e2b0e03d8de1.png)<br />
+<br />![image-20200410153036908.png](./media/lucene-1586505076040-9ca8bcae-6bc8-4004-bcb8-e2b0e03d8de1.png)<br />
 
 ### 3.4.3 代码实现
 

@@ -20,7 +20,7 @@
 
 读写分离的**基本原理是将数据库的读写操作分散到不同的节点上**，基本架构如下图所示：
 
-![](https://zhishan-zh.github.io/media/database_readwriteseparation_20200713165919.png)
+![](./media/database_readwriteseparation_20200713165919.png)
 
 通过一主多从的配置方式，可以将查询请求均匀的分散到多个数据副本，能够进一步的提升系统的处理能力。
 
@@ -28,7 +28,7 @@
 
 与将数据根据分片键打散至各个数据节点的水平分片不同，**读写分离则是根据SQL语义的分析，将读操作和写操作分别路由至主库与从库。**
 
-![读写分离通过SQL语句语义分析分离读写数据库操作](https://zhishan-zh.github.io/media/database_read-write-split.png)
+![读写分离通过SQL语句语义分析分离读写数据库操作](./media/database_read-write-split.png)
 
 # 2 读写分离基本实现
 

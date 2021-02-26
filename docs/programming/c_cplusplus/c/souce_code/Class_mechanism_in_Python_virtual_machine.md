@@ -233,7 +233,7 @@ Python中还有一个特殊的class对象——`<class 'object'>`，在Python中
 (<class 'object'>,)
 ```
 
-![image-20201006165049958](https://zhishan-zh.github.io/media/python_source_code_20201006165301.png)
+![image-20201006165049958](./media/python_source_code_20201006165301.png)
 
 如上图所示，中间一列的class对象有一种类似于“波粒二相性”的特殊性质，我们说Python中的对象分为class对象和instance对象，但中间这一列的对象即是class对象，又是instance对象。说它是class对象，因为它可以通过实例化的动作创建新的instance对象；说它是instance对象，因为它确实是metaclass对象经过实例化得到的。
 

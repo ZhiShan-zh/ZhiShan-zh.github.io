@@ -12,7 +12,7 @@
 
 由（式-1）和（式-2）推出下列等式：（式-3）'$p_1p_2...p_{k-1}$' ='$p_{j-k+1}p_{j-k+2}...p_{j-1}$'
 
-![](../../../../media/dataStructure_graph_20201113204742.png)
+![](./media/dataStructure_string_20201113204742.png)
 
 ```c
 void get_next(SString T, int next[]){
@@ -30,7 +30,7 @@ void get_next(SString T, int next[]){
 }
 ```
 
-![](../../../../media/dataStructure_graph_20201117162545.png)
+![](./media/dataStructure_string_20201117162545.png)
 
 ```c
 void get_nextval(SString T, int nextval[]){

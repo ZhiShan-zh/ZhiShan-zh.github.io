@@ -15,7 +15,7 @@ Zipkin：
 官网默认Zipkin Server的地址为：[http://127.0.0.1:9411/](http://127.0.0.1:9411/)，这个地址需要在Zipkin Client中配置。
 
 ### 2.1.1 创建Maven Module项目
-![image.png](https://zhishan-zh.github.io/media/spring-cloud-zipkin-97b0-fb44b114ca4c.png)
+![image.png](./media/spring-cloud-zipkin-97b0-fb44b114ca4c.png)
 
 初始pom文件内容：
 
@@ -86,7 +86,7 @@ public class ZipkinApplication {
 
 ## 2.2 创建 Zipkin Client
 ### 2.2.1 创建Maven Module项目
-![image.png](https://zhishan-zh.github.io/media/spring-cloud-zipkin-a346-2ed34edb47b1.png)
+![image.png](./media/spring-cloud-zipkin-a346-2ed34edb47b1.png)
 
 初始pom文件内容：
 
@@ -186,10 +186,10 @@ public class ZipkinHandler {
 
 1. 依次启动注册中心（eurekaserver）、Zipkin Server（zipkin）、Zipkin Client（zipkinclient）。
 1. 访问注册中心（[http://localhost:8761/](http://localhost:8761/)），查看服务注册情况。
-   1. ![image.png](https://zhishan-zh.github.io/media/spring-cloud-zipkin-84a6-79c3015a2ecd.png)
+   1. ![image.png](./media/spring-cloud-zipkin-84a6-79c3015a2ecd.png)
 3. 访问zipkin可视化的UI（[http://127.0.0.1:9411/](http://127.0.0.1:9411/)zipkin）
-   1. ![image.png](https://zhishan-zh.github.io/media/spring-cloud-zipkin-9c0f-a79dfe124b4c.png)
+   1. ![image.png](./media/spring-cloud-zipkin-9c0f-a79dfe124b4c.png)
 4. 访问Zipkin Client客户端zipkinclient客户端接口（[http://127.0.0.1:8090/zipkin/index](http://127.0.0.1:8090/zipkin/index)）后，然后在访问访问zipkin可视化的UI（[http://127.0.0.1:9411/](http://127.0.0.1:9411/)zipkin），并单击`Find Traces`按钮
-   1. ![image.png](https://zhishan-zh.github.io/media/spring-cloud-zipkin-8306-ca51b829d250.png)
-   1. ![image.png](https://zhishan-zh.github.io/media/spring-cloud-zipkin-9741-4e326589bf9f.png)
-   1. ![image.png](https://zhishan-zh.github.io/media/spring-cloud-zipkin-b0be-9604d6179490.png)
+   1. ![image.png](./media/spring-cloud-zipkin-8306-ca51b829d250.png)
+   1. ![image.png](./media/spring-cloud-zipkin-9741-4e326589bf9f.png)
+   1. ![image.png](./media/spring-cloud-zipkin-b0be-9604d6179490.png)

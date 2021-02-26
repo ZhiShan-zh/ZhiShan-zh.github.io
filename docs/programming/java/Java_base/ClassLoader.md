@@ -4,7 +4,7 @@
 
 我们编写的”.java“扩展名的源代码文件中存储者要执行的程序逻辑，这些文件需要经过java编译器编译成”.class“文件。”.class“文件中存放者编译后虚拟机指令的二进制信息。当需要用到某个类时，虚拟机将会加载它，并在内存中创建对应的class对象，这个过程称之为类加载。一个类的生命周期从类加载，连接和初始化开始，只有在虚拟机内存中，我们的java程序才可以使用它。整个过程如下图所示：
 
-![classloader.png](https://zhishan-zh.github.io/media/java_base-bc2c-762a4b027ed5.png)
+![classloader.png](./media/java_base-bc2c-762a4b027ed5.png)
 
 # 2 类加载器
 
@@ -148,7 +148,7 @@ public class ClassLoaderTest {
 
 注意：双亲委派机制的父子关系并非面向对象程序涉及中的继承关系，而是通过使用组合模式来复用父类加载器代码。这种机制如下图所示：
 
-![classloeaderorder.png](https://zhishan-zh.github.io/media/java_base-9fb1-226a850219a6.png)
+![classloeaderorder.png](./media/java_base-9fb1-226a850219a6.png)
 
 测试父子加载器：
 
@@ -662,7 +662,7 @@ public class MyFileClassLoader extends ClassLoader{
 
 虽然这种加载类的方式破坏了双亲委托模型，但它使得Java类加载器变得更加灵活。
 
-![contextclassloader.png](https://zhishan-zh.github.io/media/java_base-a708-3f800df19ca1.png)
+![contextclassloader.png](./media/java_base-a708-3f800df19ca1.png)
 
 比如JDBC中有一个类`java.sql.DriverManager`，它是`rt.jar`中的类，用来注册实现了`java.sql.Driver`接口的驱动类，而`java.sql.Driver`的实现位于数据库的驱动jar包中的。
 

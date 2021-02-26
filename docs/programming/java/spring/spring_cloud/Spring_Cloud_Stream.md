@@ -15,7 +15,7 @@ Spring Cloud Stream由一个中间件中立的核组成。应用通过Spring Clo
 
 通道与外界交流。通道通过指定中间件的Binder实现与外部代理连接。业务开发者不再关注具体消息中间件，只需关注Binder对应用程序提供的抽象概念来使用消息中间件实现业务即可。
 
-![spring_cloud_stream_20200615203911](https://zhishan-zh.github.io/media/spring_cloud_stream_20200615203911.png)
+![spring_cloud_stream_20200615203911](./media/spring_cloud_stream_20200615203911.png)
 
 **说明**：最底层是消息服务中间件，中间层是绑定层，绑定层和底层的消息服务中间件进行绑定，顶层是消息生产者和消息消费者，顶层可以向绑定层生产消息和和获取消息消费。
 
@@ -41,7 +41,7 @@ Spring Cloud Stream支持各种binder实现，下表包含GitHub项目的链接�
 
 在Spring Cloud Stream中的消息通信方式遵循了发布-订阅模式，当一条消息被投递到消息中间件之后，它会通过共享的 Topic 主题进行广播，消息消费者在订阅的主题中收到它并触发自身的业务逻辑处理。这里所提到的 Topic 主题是Spring Cloud Stream中的一个抽象概念，用来代表发布共享消息给消费者的地方。在不同的消息中间件中， Topic 可能对应着不同的概念，比如：在RabbitMQ中的它对应了Exchange、而在Kakfa中则对应了Kafka中的Topic。
 
-![spring_cloud_stream_20200615205129](https://zhishan-zh.github.io/media/spring_cloud_stream_20200615205129.png)
+![spring_cloud_stream_20200615205129](./media/spring_cloud_stream_20200615205129.png)
 
 # 2 入门案例
 
@@ -237,7 +237,7 @@ interface OrderProcessor {
 
 通常在生产环境，我们的每个服务都不会以单节点的方式运行在生产环境，当同一个服务启动多个实例的时候，这些实例都会绑定到同一个消息通道的目标主题（Topic）上。默认情况下，当生产者发出一条消息到绑定通道上，这条消息会产生多个副本被每个消费者实例接收和处理，但是有些业务场景之下，我们希望生产者产生的消息只被其中一个实例消费，这个时候我们需要为这些消费者设置消费组来实现这样的功能。
 
-![SCSt groups](https://zhishan-zh.github.io/media/spring_cloud_stream_SCSt-groups.png)
+![SCSt groups](./media/spring_cloud_stream_SCSt-groups.png)
 
 实现的方式非常简单，我们只需要在服务消费者端设置
 `spring.cloud.stream.bindings.input.group` 属性即可，比如：
@@ -272,7 +272,7 @@ spring:
 
 有一些场景需要满足，同一个特征的数据被同一个实例消费，比如同一个id的传感器监测数据必须被同一个实例统计计算分析，否则可能无法获取全部的数据。又比如部分异步任务，首次请求启动task，二次请求取消task，此场景就必须保证两次请求至同一实例。
 
-![SCSt-partitioning](https://zhishan-zh.github.io/media/spring_cloud_stream_SCSt-partitioning.png)
+![SCSt-partitioning](./media/spring_cloud_stream_SCSt-partitioning.png)
 
 消息消费者配置：
 

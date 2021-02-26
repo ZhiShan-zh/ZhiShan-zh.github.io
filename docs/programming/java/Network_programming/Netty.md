@@ -27,7 +27,7 @@ Netty是一个NIO client-server(客户端服务器)框架，使用Netty可以快
 ## 1.3 Netty架构组成
 
 
-![20200305-191808.png](https://zhishan-zh.github.io/media/1583465183881-6c2c9040-b477-463b-9f62-bfc0c5a5be20.png)
+![20200305-191808.png](./media/1583465183881-6c2c9040-b477-463b-9f62-bfc0c5a5be20.png)
 ## 1.4 Netty特性
 |  **Development Area** | **Netty Features**                                           |
 | --------------------: | :----------------------------------------------------------- |

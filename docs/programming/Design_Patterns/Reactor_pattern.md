@@ -23,7 +23,7 @@ Reactor pattern（反应器设计模式）是一种为处理并发服务请求�
 
 ### 2.1.1 一对一线程方案实现
 
-![这里写图片描述](https://zhishan-zh.github.io/media/20161113202529139)
+![](./media/20161113202529139)
 
 ```java
 class Server implements Runnable {
@@ -79,7 +79,7 @@ class Server implements Runnable {
 
 单线程版的Reactor模式如下图所示。对于客户端的所有请求，都有一个专门的线程去进行处理，这个线程无限循环去监听是否有客户的请求到来，一旦收到客户端的请求，就将其分发给相应的处理器进行处理。
 
-![这里写图片描述](https://zhishan-zh.github.io/media/20161113190318103)
+![](./media/20161113190318103)
 
 ```java
 package com.zh.reactormode;
@@ -253,7 +253,7 @@ class Handler implements Runnable {
 
 将Handler处理器的执行放入线程池，多线程进行业务处理。
 
-![image-20200521164246079](https://zhishan-zh.github.io/media/image-20200521164246079.png)
+![image-20200521164246079](./media/reactor_20200521164225.png)
 
 ```java
 package com.zh.reactormode;
@@ -359,7 +359,7 @@ class MthreadHandler implements Runnable {
 
 ##  2.5 优化方案：一个Reactor多个Selector
 
-![image-20200521171515953](https://zhishan-zh.github.io/media/image-20200521171515953.png)
+![image-20200521171515953](./media/reactor_20200521171456.png) 
 
 - 将不同的处理程序绑定到不同的IO事件
 - 可能需要仔细同步以进行协调

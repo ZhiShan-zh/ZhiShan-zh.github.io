@@ -53,15 +53,15 @@ Gossip协议基本思想就是：一个节点想要分享一些信息给网络�
 
 逻辑结构：
 
-![](https://zhishan-zh.github.io/media/elasticsearch-20200531162827.png)
+![](./media/elasticsearch-20200531162827.png)
 
 单Node多分片物理结构：
 
-![A cluster with one node and three primary shards](https://zhishan-zh.github.io/media/elasticsearch-0202.png)
+![A cluster with one node and three primary shards](./media/elasticsearch-0202.png)
 
 3个Node ，3个主分片和1个复制分片物理结构：
 
-![A cluster with three nodes](https://zhishan-zh.github.io/media/elasticsearch-0204.png)
+![A cluster with three nodes](./media/elasticsearch-0204.png)
 
 物理存储单元：
 

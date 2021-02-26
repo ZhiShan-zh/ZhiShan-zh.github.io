@@ -26,7 +26,7 @@ Elasticsearch隐藏了Lucene的复杂性，对外提供Restful 接口来操作�
 
 ### 1.4.1 索引结构
 
-![](https://zhishan-zh.github.io/media/ElasticSearch-20200527165557.png)
+![](./media/ElasticSearch-20200527165557.png)
 
 逻辑结构部分是一个倒排索引表：
 
@@ -69,7 +69,7 @@ ElasticSearch提供 RESTful API接口进行索引、搜索，并且支持多种�
 
 Elasticsearch使用的是标准的RESTful API和JSON。此外，Elasticsearch还构建和维护了很多其他语言的客户端，例如Java、Python、.NET和PHP。与此同时，其社区也贡献了很多的客户端。
 
-![](https://zhishan-zh.github.io/media/ElasticSearch-20200527221649.png)
+![](./media/ElasticSearch-20200527221649.png)
 
 1. 用户在前端搜索关键字
 2. 项目前端通过http方式请求项目服务端
@@ -269,7 +269,7 @@ npm run start
 
 浏览器访问：http://localhost:9100/
 
-![](https://zhishan-zh.github.io/media/ElasticSearch-20200527235552.png)
+![](./media/ElasticSearch-20200527235552.png)
 
 ## 3.3 报错：Origin null is not allowed by Access-Control-Allow-Origin
 

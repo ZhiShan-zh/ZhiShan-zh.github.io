@@ -9,7 +9,7 @@
 决定哪台PC机可以上网
 
 
-![image-20200408232023600.png](https://zhishan-zh.github.io/media/1586360562239-0bb2e2bb-d4d5-4618-8bc9-5938e7cd44b9.png)
+![image-20200408232023600.png](./media/1586360562239-0bb2e2bb-d4d5-4618-8bc9-5938e7cd44b9.png)
 
 ## 1.2 反向代理
 
@@ -18,7 +18,7 @@
 - 返回代理服务器不提供服务器。
 - 也是请求的转发。
 
-![image-20200408232630082.png](https://zhishan-zh.github.io/media/1586360571263-11359499-3087-40c2-b639-39bb05c71e53.png)
+![image-20200408232630082.png](./media/1586360571263-11359499-3087-40c2-b639-39bb05c71e53.png)
 
 
 # 2 Nginx实现反向代理
@@ -31,7 +31,7 @@
   - 两个域名是`www.sian.com.cn`和`www.sohu.com`
   - nginx服务器使用虚拟机`192.168.25.148`
 
-![image-20200408233442832.png](https://zhishan-zh.github.io/media/1586360614807-9830983a-0075-4aac-85a3-1d365176d405.png)
+![image-20200408233442832.png](./media/1586360614807-9830983a-0075-4aac-85a3-1d365176d405.png)
 
 
 ## 2.2 配置步骤

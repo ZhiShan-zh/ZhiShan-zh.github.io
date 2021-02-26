@@ -221,7 +221,7 @@ HDFS的内部工作机制对客户端保持透明，客户端请求访问HDFS都
   - 第二个副本和第一个副本位于相同机架，随机节点。
   - 第三个副本位于不同机架，随机节点。
 
-![](https://zhishan-zh.github.io/media/hadoop_hdfs_20201016163150.png)
+![](./media/hadoop_hdfs_20201016163150.png)
 
 ## 3.2 网络拓扑–节点距离计算
 
@@ -231,7 +231,7 @@ HDFS的内部工作机制对客户端保持透明，客户端请求访问HDFS都
 
 在配置好机架感知后，NameNode就可以画出如下图所示的DataNode 网络拓扑图，根据此图就可以进行节点距离的计算了，集群$c_1$、$c_2$和机架$r_1$、$r_2$、$r_3$、$r_4$、$r_5$、$r_6$对应的是交换机，节点$n_0$、$n_1$、$n_2$对应的是DataNode，那么集群$c_1$中的机架$r_1$中的节点$n_0$就可以表示为`/c1/r1/n0`，有了这些信息就可以计算出任意两台datanode之间的距离。
 
-![](https://zhishan-zh.github.io/media/hadoop_hdfs_20201016172717.png)
+![](./media/hadoop_hdfs_20201016172717.png)
 
 距离计算示例：
 
@@ -252,7 +252,7 @@ HDFS的内部工作机制对客户端保持透明，客户端请求访问HDFS都
 - 首先要跟NameNode通信以确认可以写文件并获得接收文件block的DataNode；
 - 然后，客户端按顺序将文件逐个block传递给相应DataNode，并由接收到block的DataNode负责向其他DataNode复制block的副本。
 
-![](https://zhishan-zh.github.io/media/hadoop_hdfs_20201016185700.png)
+![](./media/hadoop_hdfs_20201016185700.png)
 
 1. 客户端通过Distributed FileSystem模块向NameNode请求上传文件，NameNode检查目标文件是否已存在，父目录是否存在。
 
@@ -275,7 +275,7 @@ HDFS的内部工作机制对客户端保持透明，客户端请求访问HDFS都
 
 客户端将要读取的文件路径发送给NameNode，NameNode获取文件的元信息（主要是block的存放位置信息）返回给客户端，客户端根据返回的信息找到相应DataNode逐个获取文件的block并在客户端本地进行数据追加合并从而获得整个文件。
 
-![](https://zhishan-zh.github.io/media/hadoop_hdfs_20201016192000.png)
+![](./media/hadoop_hdfs_20201016192000.png)
 
 1. 客户端通过Distributed FileSystem向NameNode请求下载文件，NameNode通过查询元数据，找到文件块所在的DataNode地址，并将每个block的DataNode地址返回客户端。
 
@@ -499,7 +499,7 @@ NameNode和SecondaryNameNode的工作目录存储结构完全相同，所以，�
 
 ## 5.1 DataNode的工作机制
 
-![](https://zhishan-zh.github.io/media/hadoop_hdfs_20201019092548.png)
+![](./media/hadoop_hdfs_20201019092548.png)
 
 1. 一个数据块在DataNode上以文件的形式存储在磁盘上，包括两个文件，一个是数据本身，一个元数据（包括数据块的长度、块数据的校验和、以及时间戳 （这个时候是安全机制））；
 
@@ -587,23 +587,23 @@ HDFS在生产应用中主要是客户端的开发，其核心步骤是从HDFS提
 
 1. 在idea中使用Spring Initializr工具创建Spring Boot项目
 
-   ![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_20201019102936.png)
+   ![](./media/hadoop_hdfs_java_20201019102936.png)
 
 2. 配置项目信息：
 
-   ![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_20201019103116.png)
+   ![](./media/hadoop_hdfs_java_20201019103116.png)
 
 3. 选择依赖项：这里只选择web以来，一边提供调用接口
 
-   ![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012281435.png)
+   ![](./media/hadoop_hdfs_java_202012281435.png)
 
 4. 添加项目名称
 
-   ![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012281438.png)
+   ![](./media/hadoop_hdfs_java_202012281438.png)
 
 5. pom文件中加入hadoop的依赖：
 
-   ![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_20201019103637.png)
+   ![](./media/hadoop_hdfs_java_20201019103637.png)
 
    ```xml
    <dependency>
@@ -863,13 +863,13 @@ public class HdfsClientTestController {
 
 ## 7.2 配置SpringBoot项目的远程调试启动方式
 
-![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012291028.png)
+![](./media/hadoop_hdfs_java_202012291028.png)
 
 **注意**：这里的14020端口不是固定的，可以自己设置，这里设置的14020端口已经设置映射于容器的5005端口。
 
 ## 7.3 使用maven打包项目
 
-![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012291034.png)
+![](./media/hadoop_hdfs_java_202012291034.png)
 
 ## 7.4 上传SpringBoot项目到目标docker
 
@@ -930,9 +930,9 @@ SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorSta
 
 **注意**：一定要先启动容器中的项目，在启动idea中的项目
 
-![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012291047.png)
+![](./media/hadoop_hdfs_java_202012291047.png)
 
-![](https://zhishan-zh.github.io/media/hadoop_hdfs_java_202012291048.png)
+![](./media/hadoop_hdfs_java_202012291048.png)
 
 ## 7.7 调试接口
 

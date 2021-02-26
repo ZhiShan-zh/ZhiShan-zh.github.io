@@ -30,7 +30,7 @@ protected TokenStreamComponents createComponents(final String fieldName, final R
 <br />Tokenizer就是分词器，负责将reader转换为语汇单元即进行分词处理，Lucene提供了很多的分词器，也可以使用第三方的分词，比如IKAnalyzer一个中文分词器。<br />
 <br />TokenFilter是分词过滤器，负责对语汇单元进行过滤，TokenFilter可以是一个过滤器链儿，Lucene提供了很多的分词器过滤器，比如大小写转换、去除停用词等。<br />
 <br />如下图是语汇单元的生成过程：<br />
-<br />![image-20200410160551272.png](https://zhishan-zh.github.io/media/lucene-1586507982916-94e1b835-b771-401b-bb43-d32ef1c27edb.png)<br />
+<br />![image-20200410160551272.png](./media/lucene-1586507982916-94e1b835-b771-401b-bb43-d32ef1c27edb.png)<br />
 <br />从一个Reader字符流开始，创建一个基于Reader的Tokenizer分词器，经过三个TokenFilter生成语汇单元Token。<br />
 <br />比如下边的文档经过分析器分析如下：原文档内容为`Lucene is a Java full-test search engine.`，分析后得到的多个语汇单元`lucene、java、full、text、search、engine`。<br />
 
@@ -40,7 +40,7 @@ protected TokenStreamComponents createComponents(final String fieldName, final R
 ## 2.1 索引时使用Analyzer
 
 <br />输入关键字进行搜索，当需要让该关键字与文档域内容所包含的词进行匹配时需要对文档域内容进行分析，需要经过Analyzer分析器处理生成语汇单元（Token）。分析器分析的对象是文档中的Field域。当Field的属性tokenized（是否分词）为true时会对Field值进行分析，如下图：<br />
-<br />![image-20200410161013785.png](https://zhishan-zh.github.io/media/lucene-1586508006099-c10c75e7-117a-413c-8724-58358746aaeb.png)<br />
+<br />![image-20200410161013785.png](./media/lucene-1586508006099-c10c75e7-117a-413c-8724-58358746aaeb.png)<br />
 <br />一些Field可以不用分析：<br />
 
 1. 不作为查询条件的内容，比如文件路径；

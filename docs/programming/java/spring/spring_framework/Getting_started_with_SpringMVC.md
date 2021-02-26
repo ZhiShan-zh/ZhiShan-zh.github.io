@@ -18,7 +18,7 @@ SpringMVC是Spring组织出品的一个前端表现层框架。
 ## 1.3 SpringMVC处理流程
 
 
-![springmvc1.png](https://zhishan-zh.github.io/media/1586166588890-d29ca180-2447-4a2b-8676-f6b1aebcd167.png)
+![springmvc1.png](./media/1586166588890-d29ca180-2447-4a2b-8676-f6b1aebcd167.png)
 
 
 ## 1.4 SpringMVC和Struts2对比
@@ -34,9 +34,9 @@ SpringMVC是Spring组织出品的一个前端表现层框架。
 
 ## 2.1 新建Dynamic Web project
 
-![javawebproject1.png](https://zhishan-zh.github.io/media/1586166603219-bca5d5c3-1bf9-4b04-a289-1f1a24b981fc.png)
-![javawebproject2.png](https://zhishan-zh.github.io/media/1586166620775-e96aef73-5022-4e18-a1e8-40e90e39fcd3.png)
-![javawebproject3.png](https://zhishan-zh.github.io/media/1586166696642-b69d11b8-a48d-4010-8c29-873ae5b8e2e0.png)
+![javawebproject1.png](./media/1586166603219-bca5d5c3-1bf9-4b04-a289-1f1a24b981fc.png)
+![javawebproject2.png](./media/1586166620775-e96aef73-5022-4e18-a1e8-40e90e39fcd3.png)
+![javawebproject3.png](./media/1586166696642-b69d11b8-a48d-4010-8c29-873ae5b8e2e0.png)
 
 
 ## 2.2 导包
@@ -352,17 +352,17 @@ public class ItemsDaoImpl implements ItemsDao{
 
 1. 把项目springmvc加入到tomcat中
 
-![springmvcservers1.png](https://zhishan-zh.github.io/media/1586166737050-45886820-2698-4acc-96f8-a5089ef965a7.png)
-![springmvcservers2.png](https://zhishan-zh.github.io/media/1586166748549-3fbf6c00-9530-4e4b-a58e-30ec3b182757.png)
-![springmvcservers3.png](https://zhishan-zh.github.io/media/1586166762023-15ab71a3-94f0-4c55-8079-2ce196c043da.png)
-![springmvcservers4.png](https://zhishan-zh.github.io/media/1586166773805-681d004d-6830-437e-b532-1272d536e948.png)
+![springmvcservers1.png](./media/1586166737050-45886820-2698-4acc-96f8-a5089ef965a7.png)
+![springmvcservers2.png](./media/1586166748549-3fbf6c00-9530-4e4b-a58e-30ec3b182757.png)
+![springmvcservers3.png](./media/1586166762023-15ab71a3-94f0-4c55-8079-2ce196c043da.png)
+![springmvcservers4.png](./media/1586166773805-681d004d-6830-437e-b532-1272d536e948.png)
 
 2. 启动项目:debug或Run
 
 
 
-![startwebproject.png](https://zhishan-zh.github.io/media/1586166814428-b8b0a56b-fc34-4c4a-bab4-0d442650a4fc.png)
+![startwebproject.png](./media/1586166814428-b8b0a56b-fc34-4c4a-bab4-0d442650a4fc.png)
 
 3. 测试项目：在浏览器访问测试接口（http://localhost:8080/springmvc/list.action）
 
-![testwebproject.png](https://zhishan-zh.github.io/media/1586166846459-e6784111-b415-4601-b775-10d179e8a8b9.png)
+![testwebproject.png](./media/1586166846459-e6784111-b415-4601-b775-10d179e8a8b9.png)

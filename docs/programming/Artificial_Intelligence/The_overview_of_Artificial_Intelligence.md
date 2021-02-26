@@ -73,9 +73,9 @@
 
 **发展历史：**
 
-![img](https://zhishan-zh.github.io/media/artificialIntelligence-2020060418341.png)
+![img](./media/artificialIntelligence-2020060418341.png)
 
-![image-20190218130007824](https://zhishan-zh.github.io/media/artificialIntelligence-2020060418342.jpg)
+![image-20190218130007824](./media/artificialIntelligence-2020060418342.jpg)
 
 ## 5.3 语音识别
 
@@ -91,7 +91,7 @@
 
 发展历史：
 
-![img](https://zhishan-zh.github.io/media/artificialIntelligence-audio-2020060418342.png)
+![img](./media/artificialIntelligence-audio-2020060418342.png)
 
 ## 5.4 文本挖掘/分类
 
@@ -105,7 +105,7 @@
 
 **发展历史：**
 
-![img](https://zhishan-zh.github.io/media/artificialIntelligence-2020060418344.png)
+![img](./media/artificialIntelligence-2020060418344.png)
 
 ## 5.5 机器翻译
 
@@ -121,7 +121,7 @@
 
 发展历史：
 
-![img](https://zhishan-zh.github.io/media/artificialIntelligence-2020060418345.png)
+![img](./media/artificialIntelligence-2020060418345.png)
 
 ## 5.6 机器人
 
@@ -137,4 +137,4 @@
 
 **发展历史**：
 
-![img](https://zhishan-zh.github.io/media/artificialIntelligence-rebot-history-2020060418342.png)
+![img](./media/artificialIntelligence-rebot-history-2020060418342.png)

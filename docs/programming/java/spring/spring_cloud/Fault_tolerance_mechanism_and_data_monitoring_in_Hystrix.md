@@ -17,7 +17,7 @@ Hystrix 数据监控需要结合 Spring Boot Actuator 来使用，Actuator 提�
 
 # 2 入门案例
 ## 2.1 创建Maven Module
-![image.png](https://zhishan-zh.github.io/media/1583661256880-6f61a7f3-d33b-4a58-8f49-6863c4b8ca6e.png)
+![image.png](./media/1583661256880-6f61a7f3-d33b-4a58-8f49-6863c4b8ca6e.png)
 
 初始pom内容：
 
@@ -193,17 +193,17 @@ public class HystrixHandler {
 
 1. 依次启动注册中心（eurekaserver）、服务提供者（eurekaClient）、数据监控（hystrix）。
 1. 访问注册中心（[http://localhost:8761/](http://localhost:8761/)），查看服务注册情况。
-  1. ![image.png](https://zhishan-zh.github.io/media/1583664274390-07d07ebf-fbf6-4a15-9b8f-0f6c96b32c13.png)
+  1. ![image.png](./media/1583664274390-07d07ebf-fbf6-4a15-9b8f-0f6c96b32c13.png)
 3. 访问Hystrix数据监控中心（[http://localhost:8060/actuator/hystrix.stream](http://localhost:8060/actuator/hystrix.stream)）。
-  1. ![image.png](https://zhishan-zh.github.io/media/1583664502972-963e8224-2cb6-4b4b-8f4c-b775f6cbc222.png)
+  1. ![image.png](./media/1583664502972-963e8224-2cb6-4b4b-8f4c-b775f6cbc222.png)
   1. 数据监控中心是一直在刷新。
 4. 调用监控中心的服务接口（[http://localhost:8060/actuator/hystrix.stream](http://localhost:8060/actuator/hystrix.stream)）
-  1. ![image.png](https://zhishan-zh.github.io/media/1583664629552-c9111ff5-9878-4096-a02c-18efbb93b7e6.png)
+  1. ![image.png](./media/1583664629552-c9111ff5-9878-4096-a02c-18efbb93b7e6.png)
 5. 再次查看数据监控中心（[http://localhost:8060/actuator/hystrix.stream](http://localhost:8060/actuator/hystrix.stream)），看网页后边。
-  1. ![image.png](https://zhishan-zh.github.io/media/1583664789780-9ee92929-fa78-4efa-8b59-30dbc091a268.png)
+  1. ![image.png](./media/1583664789780-9ee92929-fa78-4efa-8b59-30dbc091a268.png)
   1. 这个监控中心是以json字符串展示的。
 6. 访问Hystrix可视化数据监控中心（[http://localhost:8060/hystrix](http://localhost:8060/hystrix)）。
-  1. ![image.png](https://zhishan-zh.github.io/media/1583664961153-000f0832-a2e0-4512-8f54-eb6e975f24a0.png)
+  1. ![image.png](./media/1583664961153-000f0832-a2e0-4512-8f54-eb6e975f24a0.png)
 7. 然后在搜索栏中输入数据监控中心的网址（[http://localhost:8060/actuator/hystrix.stream](http://localhost:8060/actuator/hystrix.stream)），并在Title栏中写入一个监控数据的名字，还可以
-  1. ![image.png](https://zhishan-zh.github.io/media/1583665252845-90232ff4-924d-40ae-a600-c50008494bb7.png)
-  1. ![image.png](https://zhishan-zh.github.io/media/1583665375971-cfb78be7-278e-4710-8cbf-bd63997cc8bd.png)
+  1. ![image.png](./media/1583665252845-90232ff4-924d-40ae-a600-c50008494bb7.png)
+  1. ![image.png](./media/1583665375971-cfb78be7-278e-4710-8cbf-bd63997cc8bd.png)

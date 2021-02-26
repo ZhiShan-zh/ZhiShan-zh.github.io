@@ -2,8 +2,8 @@
 
 # 1 新建Maven Project
 模板选择`org.apache.maven.archetypes:maven-archetype-webapp`.
-![image.png](https://zhishan-zh.github.io/media/1583722275037-91bef1ba-c09a-435f-a679-52a38666ec6e.png)
-![image.png](https://zhishan-zh.github.io/media/1583722312945-61f8cb5a-c963-497b-807c-1ced86129ab7.png)
+![image.png](./media/1583722275037-91bef1ba-c09a-435f-a679-52a38666ec6e.png)
+![image.png](./media/1583722312945-61f8cb5a-c963-497b-807c-1ced86129ab7.png)
 
 初始pom文件内容：
 
@@ -188,8 +188,8 @@ public class Application {
 
 1. 以Spring Boot App的方式启动项目。
 1. 访问测试返回模型的接口（[http://localhost:8181/hello/index](http://localhost:8181/hello/index)）。
-1. ![image.png](https://zhishan-zh.github.io/media/1583725788939-1c838fbd-e962-4a59-b885-5765ca243460.png)
-1. 控制台也有输出：![image.png](https://zhishan-zh.github.io/media/1583725837652-3611bbdb-808d-41e9-827f-8670596e44fc.png)
+1. ![image.png](./media/1583725788939-1c838fbd-e962-4a59-b885-5765ca243460.png)
+1. 控制台也有输出：![image.png](./media/1583725837652-3611bbdb-808d-41e9-827f-8670596e44fc.png)
 
 # 7 创建实体类
 
@@ -344,7 +344,7 @@ public class HelloHandler {
 
 删除这个index.jsp，然后在相同位置使用jsp的模板新建一个jsp。
 位置：`/jspspringboot/src/main/webapp/index.jsp`
-![image.png](https://zhishan-zh.github.io/media/1583726625868-9b5ea908-4c73-4024-9b6d-78414d001c2a.png)
+![image.png](./media/1583726625868-9b5ea908-4c73-4024-9b6d-78414d001c2a.png)
 
 ```html
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -455,4 +455,4 @@ public class HelloHandler {
 
 1. 以Spring Boot App的方式启动项目。
 1. 访问测试返回模型的接口（[http://localhost:8181/hello/index](http://localhost:8181/hello/index)）。
-1. ![image.png](https://zhishan-zh.github.io/media/1583727900482-bab3234b-cbd8-4919-aa3b-712588b2f891.png)
+1. ![image.png](./media/1583727900482-bab3234b-cbd8-4919-aa3b-712588b2f891.png)

@@ -36,7 +36,7 @@ Hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文�
 
 ## 1.4 Hive架构
 
-![image-20201231163232922](http://ZhiShan-zh.github.io/media/hadoop_hive_20201231163232922.png)
+![image-20201231163232922](./media/hadoop_hive_20201231163232922.png)
 
 - Jobtracker是hadoop1.x中的组件，它的功能相当于： Resourcemanager+AppMaster
 
@@ -58,13 +58,13 @@ Hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文�
 
 Hive利用HDFS存储数据，利用MapReduce查询数据
 
-![image-20201231164128441](http://ZhiShan-zh.github.io/media/hadoop_hive_20201231164128441.png)
+![image-20201231164128441](./media/hadoop_hive_20201231164128441.png)
 
 ## 1.6 Hive与传统数据库对比
 
 hive具有sql数据库的外表，但应用场景完全不同，hive只适合用来做批量数据统计分析
 
-![image-20201231164304974](http://ZhiShan-zh.github.io/media/hadoop_hive_20201231164304974.png)
+![image-20201231164304974](./media/hadoop_hive_20201231164304974.png)
 
 ## 1.7 Hive的数据存储
 

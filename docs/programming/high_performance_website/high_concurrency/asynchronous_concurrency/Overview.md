@@ -7,6 +7,6 @@
   - 协程：Java不支持协程，虽然有些Java框架号称支持，但还是高层API的封装。
   - 异步：Java开源框架HttpAsyncClient、Dubbo、Thrift等。
 
-![asynchronous_concurrency20200520174743](https://zhishan-zh.github.io/media/asynchronous_concurrency20200520174743.png)
+![asynchronous_concurrency20200520174743](./media/asynchronous_concurrency20200520174743.png)
 
 在开发应用系统过程中，通过异步并发并不能使响应变得更快，更多是为了提升吞吐量、对请求更细粒度控制，或是通过多依赖服务并发调用降低服务响应时间。当一个线程在处理任务时，通过Fork多个线程来处理任务并等待这些线程的处理结果，这种应用并不是真正的异步。异步是针对CPU和IO的，当IO没有就绪时要让出CPU来处理其他任务，这才是异步。

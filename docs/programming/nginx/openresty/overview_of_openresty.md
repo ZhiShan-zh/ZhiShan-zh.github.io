@@ -60,7 +60,7 @@ OpenResty提供了常用的ngx_lua开发模块，如：
 
 ### 2.1.1 负载均衡
 
-![](https://ZhiShan-zh.github.io/media/nginx_openresty_20210208131408.png)
+![](./media/nginx_openresty_20210208131408.png)
 
 基本流程：
 
@@ -83,7 +83,7 @@ OpenResty提供了常用的ngx_lua开发模块，如：
 
 不管是核心Nginx还是业务Nginx，都应该是无状态设计，可以水平扩容。
 
-![](https://ZhiShan-zh.github.io/media/nginx_openresty_20210224110525.png)
+![](./media/nginx_openresty_20210224110525.png)
 
 业务Nginx一般会把请求直接转发给后端的业务应用，如Tomcat、PHP，即将请求内部转发到相应的业务应用。当有的Tomcat出现问题时，可以在这一层摘掉。或者有的业务路径变了在这一层进行重写。或者有的后端Tomcat压力太大也可以在这一层降级，减少对后端的冲击。或者业务需要灰度发布时，也可以在这一层Nginx上控制。
 
@@ -91,7 +91,7 @@ OpenResty提供了常用的ngx_lua开发模块，如：
 
 所谓单机闭环即所有想要的数据都能从本服务器中直接获取，在大多数时候无需通过网络去其他服务器获取。
 
-![](https://ZhiShan-zh.github.io/media/nginx_openresty_20210224145510.png)
+![](./media/nginx_openresty_20210224145510.png)
 
 - 左图的应用场景是Nginx应用谁也不依赖。直接使用lua处理一些请求。
 - 中图的应用场景是读取本机文件系统，如静态资源合并。

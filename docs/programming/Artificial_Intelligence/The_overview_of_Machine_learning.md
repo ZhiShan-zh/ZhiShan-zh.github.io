@@ -4,11 +4,11 @@
 
 机器学习是从**数据**中**自动分析获得模型**，并利用**模型**对未知数据进行预测。
 
-![image-20190222232402795](https://zhishan-zh.github.io/media/Machine-learning-202006041941.png)
+![image-20190222232402795](./media/Machine-learning-202006041941.png)
 
 # 2 机器学习工作流程
 
-![img](https://zhishan-zh.github.io/media/Machine-learning-202006041942.png)
+![img](./media/Machine-learning-202006041942.png)
 
 - 机器学习工作流程总结
   - **1.获取数据**
@@ -65,17 +65,17 @@
 - 特征提取
   - 将任意数据（如文本或图像）转换为可用于机器学习的数字特征
 
-![image-20190222233231189](https://zhishan-zh.github.io/media/Machine-learning-202006041943.png)
+![image-20190222233231189](./media/Machine-learning-202006041943.png)
 
 - 特征预处理
   - 通过**一些转换函数**将特征数据**转换成更加适合算法模型**的特征数据过程
 
-![image-20190222233258027](https://zhishan-zh.github.io/media/Machine-learning-202006041944.png)
+![image-20190222233258027](./media/Machine-learning-202006041944.png)
 
 - 特征降维
   - 指在某些限定条件下，**降低随机变量（特征）个数**，得到**一组“不相关”主变量**的过程
 
-![image-20190222233316042](https://zhishan-zh.github.io/media/Machine-learning-202006041945.png)
+![image-20190222233316042](./media/Machine-learning-202006041945.png)
 
 ## 2.4 机器学习算法分类
 
@@ -103,7 +103,7 @@
 
 例如：根据肿瘤特征判断良性还是恶性，得到的是结果是“良性”或者“恶性”，是离散的。
 
-![肿瘤预测](https://zhishan-zh.github.io/media/Machine-learning-202006041946.png)
+![肿瘤预测](./media/Machine-learning-202006041946.png)
 
 ### 2.4.2 无监督学习
 
@@ -114,7 +114,7 @@
 
 举例：
 
- ![image-20190218141011486](https://zhishan-zh.github.io/media/Machine-learning-202006041947.jpg)
+ ![image-20190218141011486](./media/Machine-learning-202006041947.jpg)
 
 - **有监督，无监督算法对比：**
   - 监督学习
@@ -133,11 +133,11 @@
 
 - **监督学习训练方式：**
 
-![image-20190218141132463](https://zhishan-zh.github.io/media/Machine-learning-202006041948.png)
+![image-20190218141132463](./media/Machine-learning-202006041948.png)
 
 - **半监督学习训练方式**
 
-![image-20190218141154743](https://zhishan-zh.github.io/media/Machine-learning-202006041949.png)
+![image-20190218141154743](./media/Machine-learning-202006041949.png)
 
 ### 2.4.4 强化学习
 
@@ -152,7 +152,7 @@
 
 主要包含五个元素：agent, action, reward, environment, observation；
 
-![image-20190218141450790](https://zhishan-zh.github.io/media/Machine-learning-2020060419410.png)
+![image-20190218141450790](./media/Machine-learning-2020060419410.png)
 
 强化学习的目标就是**获得最多的累计奖励**。
 
@@ -196,7 +196,7 @@
 
 ### 2.5.1 分类模型评估
 
-![img](https://zhishan-zh.github.io/media/Machine-learning-2020060419411.png)
+![img](./media/Machine-learning-2020060419411.png)
 
 - 准确率
   - 预测正确的数占样本总数的比例。
@@ -204,7 +204,7 @@
 
 ### 2.5.2 回归模型评估
 
-![img](https://zhishan-zh.github.io/media/Machine-learning-2020060419412.png)
+![img](./media/Machine-learning-2020060419412.png)
 
 **均方根误差（Root Mean Squared Error，RMSE）**
 
@@ -251,7 +251,7 @@ $$
 
 #### 2.5.3.1 欠拟合
 
-![image-20190312213119759](https://zhishan-zh.github.io/media/Machine-learning-2020060419413.png)
+![image-20190312213119759](./media/Machine-learning-2020060419413.png)
 
 因为机器学习到的天鹅特征太少了，导致区分标准太粗糙，不能准确识别出天鹅。
 
@@ -259,7 +259,7 @@ $$
 
 #### 2.5.3.2 过拟合
 
-![过拟合](https://zhishan-zh.github.io/media/Machine-learning-2020060419414.png)
+![过拟合](./media/Machine-learning-2020060419414.png)
 
 机器已经基本能区别天鹅和其他动物了。然后，很不巧已有的天鹅图片全是白天鹅的，于是机器经过学习后，会认为天鹅的羽毛都是白的，以后看到羽毛是黑的天鹅就会认为那不是天鹅。
 

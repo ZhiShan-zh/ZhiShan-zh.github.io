@@ -26,7 +26,7 @@ RestTemplate默认依赖JDK提供http连接的能力（HttpURLConnection），�
 此测试项目不属于严格意义上的服务消费者，因为服务消费者也需要在注册中心上进行注册。
 ## 2.1 创建Maven Module项目
 此项目基于《[Spring Cloud Eureka服务治理、服务发现](https://www.yuque.com/zhishan/bttt5g/wox6l8)》父工程的子项目。
-![image.png](https://zhishan-zh.github.io/media/1583636535345-482256ea-d24b-45f5-bd2b-3e620941fdd6.png)
+![image.png](./media/1583636535345-482256ea-d24b-45f5-bd2b-3e620941fdd6.png)
 初始pom文件内容：
 
 ```xml

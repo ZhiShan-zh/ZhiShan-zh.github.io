@@ -7,7 +7,7 @@ Spring Data JPA不是对JPA规范的具体实现，本身是一个抽象层。
 
 # 2 入门案例
 ## 2.1 新建Maven project
-![image.png](https://zhishan-zh.github.io/media/1583752728693-f5117f3e-adf8-4004-939d-d2f2027ae9dd.png)
+![image.png](./media/1583752728693-f5117f3e-adf8-4004-939d-d2f2027ae9dd.png)
 初始pom文件内容：
 
 ```xml

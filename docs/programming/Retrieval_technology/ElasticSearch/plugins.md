@@ -190,9 +190,9 @@ Failed to clone 'jieba-analysis' a second time, aborting
 
 用idea打开插件项目：
 
-![](https://ZhiShan-zh.github.io/media/elasticsearch_plugin_jieba_20210223125742.png)
+![](./media/elasticsearch_plugin_jieba_20210223125742.png)
 
-![](https://ZhiShan-zh.github.io/media/elasticsearch_plugin_jieba_20210223130009.png)
+![](./media/elasticsearch_plugin_jieba_20210223130009.png)
 
 **依赖下载失败问题**：结巴分词插件使用的是Gradle管理项目的，如果发现gradle下载依赖失败的情况，可以把插件项目（和子项目）的`build.gradle`文件中的maven地址的协议名改为https。
 
@@ -207,7 +207,7 @@ repositories {
 
 使用idea或者作者提供的方法进行编译，这里使用idea的gradle插件进行编译：
 
-![](https://ZhiShan-zh.github.io/media/elasticsearch_plugin_jieba_20210223131007.png)
+![](./media/elasticsearch_plugin_jieba_20210223131007.png)
 
 **无法找到主类的问题**：`错误: 找不到或无法加载主类 org.gradle.wrapper.GradleWrapperMain`
 

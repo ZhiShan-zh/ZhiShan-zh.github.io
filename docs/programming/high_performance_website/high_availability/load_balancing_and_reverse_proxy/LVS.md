@@ -40,7 +40,7 @@ Real Server处理完数据后，需要返回给Diretor Server，然后Diretor se
 
 由此可以看出，用户的请求和返回都要经过Diretor Server，如果数据过多，Diretor Server肯定会不堪重负。
 
-  ![img](https://zhishan-zh.github.io/media/lvs_557ef25508f0d0f3.png)
+  ![img](./media/lvs_557ef25508f0d0f3.png)
 
 ### 1.4.2 VS/TUN
 
@@ -56,7 +56,7 @@ VS/DR（Virtual Server via Direct Routing），即用直接路由技术实现虚
 
 这种方式是三种负载调度机制中性能最高最好的，但是必须要求Director Server与Real Server都有一块网卡连在同一物理网段上。
 
-![img](https://zhishan-zh.github.io/media/lvs_46743f3d8e1ff89d.png)
+![img](./media/lvs_46743f3d8e1ff89d.png)
 
 # 2 安装LVS
 
@@ -145,11 +145,11 @@ chmod 755 lvs_dr.sh
 ./lvs-dr.sh  start
 ```
 
-![image-20200606160314652](https://zhishan-zh.github.io/media/lvs-20200606160314652.png)
+![image-20200606160314652](./media/lvs-20200606160314652.png)
 
 **查看**：`ipvsadm –ln`
 
-![image-20200606160525359](https://zhishan-zh.github.io/media/lvs-20200606160525359.png)
+![image-20200606160525359](./media/lvs-20200606160525359.png)
 
 看到上面信息说明ipvsadm启动成功。
 

@@ -2,7 +2,7 @@
 
 # 1 概述
 Future模式有点类似于商品订单。比如在网购时，当看中某一见商品时，就可以提交订单，当订单处理完成后，在家里等待商品送货上门即可。或者说更形象的我们发送Ajax请求的时候，页面是异步地进行后台处理，用户无须一直等待请求的结果，可以继续浏览或操作其它内容。
-![image.png](https://zhishan-zh.github.io/media/1587547631719-cdf31aa6-f956-4ed8-a436-8c4a285d3b9a.png)
+![image.png](./media/1587547631719-cdf31aa6-f956-4ed8-a436-8c4a285d3b9a.png)
 
 # 2 Future模式实现
 ## 2.1 FutureClient
@@ -705,7 +705,7 @@ public class CompletableFutureAnyOfSample {
 
 #### 3.5.7.1 场景一：三个服务异步并发调用，然后对结果合并处理，不阻塞主线程
 
-![image-20200520221915867](https://zhishan-zh.github.io/media/image-20200520221915867.png)
+![image-20200520221915867](./media/image-20200520221915867.png)
 
 ```java
 public static void test1() throws Exception {
@@ -748,7 +748,7 @@ public static void test1() throws Exception {
 
 #### 3.5.7.3 场景三：服务1执行完成后，结果并发执行服务2和服务3，然后消费相关结果，不阻塞主线程
 
-![image-20200520224333112](https://zhishan-zh.github.io/media/image-20200520224333112.png)
+![image-20200520224333112](./media/image-20200520224333112.png)
 
 ```java
 public static void test1() throws Exception {

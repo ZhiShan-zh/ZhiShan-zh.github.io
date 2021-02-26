@@ -12,7 +12,7 @@ CAP理论由 Eric Brewer 在ACM研讨会上提出，而后CAP被奉为分布式�
 
 
 CAP定理又称CAP原则，指的是在一个分布式系统中， Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），三者不可得兼。
-![image.png](https://zhishan-zh.github.io/media/1588127828343-98b4746e-4c6f-4fdc-bd66-6a91ec43d424.png)
+![image.png](./media/1588127828343-98b4746e-4c6f-4fdc-bd66-6a91ec43d424.png)
 
 | **选择** | **说明** |
 | :---: | :---: |

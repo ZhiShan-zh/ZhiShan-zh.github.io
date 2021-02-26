@@ -262,15 +262,23 @@ public void add(Session session) {
 
 
 - 服务器重启会造成session丢失；
+
+  - session时存储在服务器的，当服务器重启，session自然丢失。
 - 水平扩展过程中也会造成部分session丢失；
+
+  - 因为对客户ip进行hash之后需要对服务器集群中服务器数量取模来确定目标服务器，在服务器变化前后，取模运算的结果将发生变化，从而导致客户访问的服务器不一样而导致session丢失。
 - 客户机ip变化的话会造成session丢失；
+
+  - 因为ip_hash是根据ip来确定业务服务器的，当用户ip变化，会导致用户ip变化前后访问的服务器不一样，从而导致session丢失。
 - 存在单点负载高的风险
+
+  - hash算法并不是一个绝对均衡分配的算法
 
 ## 5.2 服务器session复制
 
 小型分布式环境下首选。
 
-![image-20200409180355626.png](https://zhishan-zh.github.io/media/java_session-a1af-0ae08d9cc035.png)
+![image-20200409180355626.png](./media/java_session-a1af-0ae08d9cc035.png)
 
 ### 5.2.1 启用Tomcat的Session复制
 
@@ -312,7 +320,7 @@ Tomcat使用组播进行不同服务器之间的session复制。
 
 224.0.1.0~228.255.255.255为用户可用的组播地址。
 
-![image-20200412103456544.png](https://zhishan-zh.github.io/media/java_session-86fd-7b096efab36c.png)
+![image-20200412103456544.png](./media/java_session-86fd-7b096efab36c.png)
 
 ## 5.3 session统一缓存
 
@@ -320,7 +328,7 @@ Tomcat使用组播进行不同服务器之间的session复制。
 
 使用memcached，效率比redis高。但是在秒杀场景中中不适用memecached，memecached进行decr和incr时，传递数量值大于库存的时候，默认为0。
 
-![image-20200412104855342.png](https://zhishan-zh.github.io/media/java_session-a5b2-6daf49c4d16b.png)
+![image-20200412104855342.png](./media/java_session-a5b2-6daf49c4d16b.png)
 
 ### 5.3.1 统一缓存实现原理
 
@@ -328,7 +336,7 @@ Tomcat使用组播进行不同服务器之间的session复制。
 
 那我们可用把Tomcat生成的request替换成我们的自己实现的request，再提供给业务代码使用，在我们自己实现的request中实现自己的session的生成、存取、失效操作。
 
-![image-20200412111834973.png](https://zhishan-zh.github.io/media/java_session-8fce-bb77791437d3.png)
+![image-20200412111834973.png](./media/java_session-8fce-bb77791437d3.png)
 
 ### 5.3.2 使用redis作为统一缓存
 

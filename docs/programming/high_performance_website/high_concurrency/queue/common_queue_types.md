@@ -12,7 +12,7 @@
 
 如下图所示，使用缓冲队列应对突发流量时，并不能使处理速度变快，而是使处理速度变平滑，从而不会因瞬间压力太大而压垮应用。
 
-![](https://zhishan-zh.github.io/media/queue_20200508172233.png)
+![](./media/queue_20200508172233.png)
 
 通过缓冲区队列可以实现批量处理、异步处理和平滑流量。
 
@@ -46,7 +46,7 @@
 
 一般我们会在应用系统中采用双写模式，同时写DB和MQ，然后异构系统可以订阅MQ进行业务处理（如下图）。因为在双写模式下没有事务保证，所以会出现数据不一致的情况，如果对一致性要求没有那么严格，则这种模式是没有问题的，而且在实际应用中这种模式也非常多。
 
-![](https://zhishan-zh.github.io/media/queue_20200508174443.png)
+![](./media/queue_20200508174443.png)
 
 如下代码是双写示例，事务成功后发MQ。
 
@@ -75,7 +75,7 @@ public OrderDTO create(final OrderDTO order) throws OrderException{
 
 ## 3.3 把消息写入本地数据库，后台定时任务发送消息
 
-![](https://zhishan-zh.github.io/media/queue_20200508180659.png)
+![](./media/queue_20200508180659.png)
 
 1. 把消息写入本地数据库的消息表，与订单操作放在一个事务里面。
 2. 一个定时执行的后台程序，从消息表中获取发送状态为“未发送”的消息发送给消息队列，消息状态改为“已发送”。
@@ -85,7 +85,7 @@ public OrderDTO create(final OrderDTO order) throws OrderException{
 
 也可以采用订阅数据库日志机制来实现数据库变更捕获，这样生产系统只需要单写DB，然后通过如Canal订阅数据binlog实现数据数据变更捕获，然后业务端订阅Cannal进行业务处理。这种方式可以保证一致性。
 
-![image-20200508183628556](https://zhishan-zh.github.io/media/image-20200508183628556.png)
+![image-20200508183628556](./media/image-20200508183628556.png)
 
 # 4 请求队列
 
@@ -97,7 +97,7 @@ public OrderDTO create(final OrderDTO order) throws OrderException{
 
 如下图所示，这里使用请求队列来实现漏斗模式，对请求进行排队、过滤、限流，经过这些步骤后，流入业务系统的流量就非常小了，这样业务系统就不会被突发的大量请求搞垮。队列限流可以通过队列大小（如果队列满了，就抛弃新的请求）和排队超时（队列里的请求很长时间没被处理）实现，如果失败了，则返回让客户端重新排队或者重试。使用这种机制可以很好地保护系统不会收到突发流量的冲击。这种机制一般用于前端入口。
 
-![image-20200508190107274](https://zhishan-zh.github.io/media/image-20200508190107274.png)
+![image-20200508190107274](./media/image-20200508190107274.png)
 
 # 5 数据总线队列
 
@@ -105,11 +105,11 @@ public OrderDTO create(final OrderDTO order) throws OrderException{
 
 可以通过otter订阅某个DB的某些表，然后同步到另一个数据库中。如果系统中存在一些基础数据，则可以使用这种方式进行同步（如下图）。
 
-![image-20200508191506098](https://zhishan-zh.github.io/media/image-20200508191506098.png)
+![image-20200508191506098](./media/image-20200508191506098.png)
 
 # 6 混合队列
 
-![image-20200508193017004](https://zhishan-zh.github.io/media/image-20200508193017004.png)
+![image-20200508193017004](./media/image-20200508193017004.png)
 
 此处MQ是使用京东自主研发的JMQ，消息是可靠持久化存储的。应用会按照不同的维度发布消息到JMQ。下游应用接受到该消息后会将其放入Redis中，使用Redis List来存储这些任务。应用将Redis消息消费处理后，会按照不同的维度聚合商品消息，然后再次发送出去。
 

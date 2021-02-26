@@ -4,7 +4,7 @@
 
 Environment体系：
 
-![](https://ZhiShan-zh.github.io/media/springboot_environment_202101151127.png)
+![](./media/springboot_environment_202101151127.png)
 
 - PropertyResolver：提供属性访问功能。
 - ConfigurablePropertyResolver：继承自PropertyResolver，主要提供属性类型转换(基于org.springframework.core.convert.ConversionService)功能。

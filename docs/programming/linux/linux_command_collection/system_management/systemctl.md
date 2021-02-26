@@ -54,7 +54,7 @@ Systemd 可以管理所有系统资源，不同的资源统称为 Unit（单位�
 
 ## 2.2 systemd架构
 
-![systemd](https://zhishan-zh.github.io/media/linux_systemd_20170822152214591.png)
+![systemd](./media/linux_systemd_20170822152214591.png)
 
 # 3 systemd的unit文件
 

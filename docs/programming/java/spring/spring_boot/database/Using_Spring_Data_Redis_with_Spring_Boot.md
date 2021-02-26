@@ -52,7 +52,7 @@ Spring-data-redis是spring大家族的一部分，提供了在srping应用中通
 
 # 2 入门案例
 ## 2.1 新建Maven project
-![image.png](https://zhishan-zh.github.io/media/spring-data-redis-a434-a96046c6daef.png)
+![image.png](./media/spring-data-redis-a434-a96046c6daef.png)
 
 初始pom文件内容：
 

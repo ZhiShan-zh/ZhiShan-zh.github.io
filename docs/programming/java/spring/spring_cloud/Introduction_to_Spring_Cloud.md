@@ -2,7 +2,7 @@
 
 # 1 Spring Cloud 概述
 Spring Cloud是一系列框架的有序集合（业界也戏称为“肯德基缤纷全家桶”）。它利用Spring Boot的开发便利性巧妙地简化了分布式系统基础实施的开发，如服务注册发现、配置中心、消息总线、负载均衡、断路器、数据监控等，都可以用Spring Boot的开发风格做到一键启动和部署。Spring并没有重复制造轮子，它只是将目前各家公司开发的比较成熟、经得起实际考验的服务框架组合起来，通过Spring Boot分割进行在封装屏蔽掉了复杂的配置和实现原理，最终给开发者留出了一套简单易懂、易部署和易维护的分布式系统开发工具包。
-![image.png](https://zhishan-zh.github.io/media/1583723078875-e4b77c9d-9554-4355-94e8-9688cb01c2c5.png)
+![image.png](./media/1583723078875-e4b77c9d-9554-4355-94e8-9688cb01c2c5.png)
 
 
 # 2 Spring Cloud特点
@@ -35,7 +35,7 @@ Spring cloud实现了一套完整的微服务流程，各个方面考虑周全�
 针对这些问题，API网关顺势而生。
 
 **API网关**直面意思是将所有API调用统一接入到API网关层，由网关层统一接入和输出。一个网关的基本功能有：统一接入、安全防护、协议适配、流量管控、长短链接支持、容错能力。有了网关之后，各个API服务提供团队可以专注于自己的的业务逻辑处理，而API网关更专注于安全、流量、路由等问题。
-![image.png](https://zhishan-zh.github.io/media/1588129234131-e0ecdec5-634d-4f18-b2ca-4f03a16350ee.png)
+![image.png](./media/1588129234131-e0ecdec5-634d-4f18-b2ca-4f03a16350ee.png)
 
 # 3 Spring Cloud组成
 Spring Cloud的子项目，大致可分为两类，一类是对现有成熟框架“Spring Boot化”的封装和抽象，也是数量最多的项目；第二类是开发了一部分分布式系统的基础设施的实现，如Spring Cloud Stream扮演的就是kafka，ActiveMQ这样的角色。对于我们想快速实践微服务的开发者来说，第一类子项目就已经足够使用，如：
@@ -76,7 +76,7 @@ Spring Cloud的本质是在 Spring Boot 的基础上，增加了一堆微服务�
 
 
 ## 4.2 Spring Cloud的体系结构
-![image.png](https://zhishan-zh.github.io/media/1588134805141-60706907-b6f5-4081-affb-6fd4c9173478.png)
+![image.png](./media/1588134805141-60706907-b6f5-4081-affb-6fd4c9173478.png)
 从上图可以看出SpringCloud各个组件相互配合，合作支持了一套完整的微服务架构。
 
 

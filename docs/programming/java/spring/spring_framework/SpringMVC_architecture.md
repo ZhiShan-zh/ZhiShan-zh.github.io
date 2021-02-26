@@ -3,7 +3,7 @@
 # 1 SpringMVC架构流程
 
 
-![springmvcframework.png](https://zhishan-zh.github.io/media/1586181099400-8747cdd1-8356-4ecc-808c-665a1225433d.png)
+![springmvcframework.png](./media/1586181099400-8747cdd1-8356-4ecc-808c-665a1225433d.png)
 
 
 1. 用户发送请求至前端控制器DispatcherServlet

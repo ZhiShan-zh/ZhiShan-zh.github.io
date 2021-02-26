@@ -19,7 +19,7 @@ Basic Authentication Filter 用来认证用户的身份，一个在Spring Securi
 
 # 2 入门案例
 ## 2.1 新建Maven project
-![image.png](https://zhishan-zh.github.io/media/spring-boot-security-ab29-cac6eaa2faf6.png)
+![image.png](./media/spring-boot-security-ab29-cac6eaa2faf6.png)
 
 初始pom文件内容：
 
@@ -120,12 +120,12 @@ public class Application {
 1. 以Spring Boot App的方式启动项目。
 1. 访问测试接口（[http://localhost:8080/index](http://localhost:8080/login)）
    1. 发现页面直接跳转到了登录页面（[http://localhost:8080/login](http://localhost:8080/login)）
-   1. ![image.png](https://zhishan-zh.github.io/media/spring-boot-security-8ebd-b425fdaa4ad0.png)
+   1. ![image.png](./media/spring-boot-security-8ebd-b425fdaa4ad0.png)
    1. 这个页面是security提供的登录页面，并不是我们自己定义的。
    1. 用户名默认是user，密码是自动生成的，会在会在项目控制台打印出来：`Using generated security password: 9ae80c8d-403b-4f44-aec1-23ad1cbe9602`
-   1. ![image.png](https://zhishan-zh.github.io/media/spring-boot-security-4fb8-80dc-930f1a000a91.png)
+   1. ![image.png](./media/spring-boot-security-4fb8-80dc-930f1a000a91.png)
 3. 使用Security用户名和密码登录之后，便可以显出出来我们访问的页面了。
-   1. ![image.png](https://zhishan-zh.github.io/media/spring-boot-security-84a8-fa96739c3ddb.png)
+   1. ![image.png](./media/spring-boot-security-84a8-fa96739c3ddb.png)
 
 ## 2.8 自定义用户名和密码
 需要在application.yml文件中加入相应配置：

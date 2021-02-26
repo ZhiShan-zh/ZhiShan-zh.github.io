@@ -14,7 +14,7 @@
 # 2 类的生命周期
 当我们编写一个Java的源文件后，经过编译会生成一个后缀名为class的文件，这种文件叫做字节码文件，只有这种字节码文件才能够在java虚拟机中运行，**Java类的生命周期**就是指一个class文件从加载到卸载的全过程。<br />一个Java类的完整的生命周期会经历加载、连接、初始化、使用、和卸载五个阶段，当然也有在加载或者连接之后没有被初始化就直接被使用的情况，如图所示：
 
-![image.png](https://zhishan-zh.github.io/media/java_base-7225d6ea4dc9.png)
+![image.png](./media/java_base-7225d6ea4dc9.png)
 
 下面我们就依次来说一说这五个阶段。
 

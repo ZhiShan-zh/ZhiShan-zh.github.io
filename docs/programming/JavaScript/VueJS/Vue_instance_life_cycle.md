@@ -10,7 +10,7 @@
 
 ## 1.2 主要的生命周期函数分类
 
-![img](https://zhishan-zh.github.io/media/vuejs-15343009153430015.png)
+![img](./media/vuejs-15343009153430015.png)
 
 - **创建期间的生命周期函数**
   - `beforeCreate`：实例刚在内存中被创建出来，此时，还没有初始化好 data 和 methods 属性

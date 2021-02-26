@@ -63,7 +63,7 @@
 
 ### 2.3.1 数据处理流程图
 
-![image-20200721171618305](https://zhishan-zh.github.io/media/bigdata_Data_processing_flow_20200721171618305.png)
+![image-20200721171618305](./media/bigdata_Data_processing_flow_20200721171618305.png)
 
 1. 数据采集：定制开发采集程序，或使用开源框架Flume
 2. 数据预处理：定制开发MapReduce程序运行于hadoop集群
@@ -74,7 +74,7 @@
 
 ### 2.3.2 项目技术架构图
 
-![image-20200721172108890](https://zhishan-zh.github.io/media/bigdata_technology_20200721172108890.png)
+![image-20200721172108890](./media/bigdata_technology_20200721172108890.png)
 
 # 3 Hadoop配置
 

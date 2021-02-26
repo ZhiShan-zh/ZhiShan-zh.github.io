@@ -9,7 +9,7 @@
     力，而并非实现一个全新的关系型数据库。
 - Apache ShardingSphere 5.x 版本开始致力于可插拔架构，项目的功能组件能够灵活的以可插拔的方式进行扩展。
 
-![ShardingSphere Scope](https://zhishan-zh.github.io/media/shardingsphere-scope_cn.png)
+![ShardingSphere Scope](./media/shardingsphere-scope_cn.png)
 
 **核心功能**：
 
@@ -38,7 +38,7 @@
 - 支持任何第三方的数据库连接池，如：DBCP, C3P0, BoneCP, Druid, HikariCP 等。
 - 支持任意实现 JDBC 规范的数据库，目前支持 MySQL，Oracle，SQLServer，PostgreSQL 以及任何遵循 SQL92 标准的数据库。
 
-![ShardingSphere-JDBC Architecture](https://zhishan-zh.github.io/media/shardingsphere-jdbc-brief.png)
+![ShardingSphere-JDBC Architecture](./media/shardingsphere-jdbc-brief.png)
 
 ## 2.2 入门案例
 
@@ -75,7 +75,7 @@ DataSource dataSource = ShardingDataSourceFactory.createDataSource(dataSourceMap
 - 向应用程序完全透明，可直接当做 MySQL/PostgreSQL 使用。
 - 适用于任何兼容 MySQL/PostgreSQL 协议的的客户端。
 
-![ShardingSphere-Proxy Architecture](https://zhishan-zh.github.io/media/shardingsphere-proxy-brief.png)
+![ShardingSphere-Proxy Architecture](./media/shardingsphere-proxy-brief.png)
 
 ## 3.2 入门案例
 

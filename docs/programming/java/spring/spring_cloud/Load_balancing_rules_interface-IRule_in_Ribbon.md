@@ -4,7 +4,7 @@
 
 Ribbon是客户端负载均衡，它内部提供了一个叫做ILoadBalance的接口负责负载均衡器的操作。`com.netflix.loadbalancer.ILoadBalance`的继承关系如下：
 
-![image-20200519105746340](https://zhishan-zh.github.io/media/image-20200519105746340.png)
+![image-20200519105746340](./media/image-20200519105746340.png)
 
 Ribbon通过`ILoadBalancer`接口对外提供统一的选择服务器(Server)的功能，此接口会根据不同的负载均衡策略（IRule）选择合适的Server返回给使用者。
 
@@ -36,7 +36,7 @@ public interface IRule{
 }
 ```
 
-![image-20200519110501462](https://zhishan-zh.github.io/media/image-20200519110501462.png)
+![image-20200519110501462](./media/image-20200519110501462.png)
 
 # 2 Ribbon负载均衡策略
 

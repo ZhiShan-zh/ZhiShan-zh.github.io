@@ -23,7 +23,7 @@ Shiro 致力在所有应用环境下实现上述功能，小到命令行应用�
 
 ## 1.3 shiro的特性
 
-![](../../../../../../media/springboot_shiro_ShiroFeatures_202101141504.png)
+![](./media/springboot_shiro_ShiroFeatures_202101141504.png)
 
 应用安全的四大基石:
 
@@ -34,7 +34,7 @@ Shiro 致力在所有应用环境下实现上述功能，小到命令行应用�
 
 ## 1.4 shiro的高级概述
 
-![](../../../../../../media/springboot_shiro_ShiroBasicArchitecture_202101141509.png)
+![](./media/springboot_shiro_ShiroBasicArchitecture_202101141509.png)
 
 在概念层，Shiro 架构包含三个主要的理念：
 
@@ -47,9 +47,9 @@ Shiro 致力在所有应用环境下实现上述功能，小到命令行应用�
 
 ## 2.1 新建简单Maven project
 
-![](https://ZhiShan-zh.github.io/media/springboot_shiro_20210114152416.jpg)
+![](./media/springboot_shiro_20210114152416.jpg)
 
-![](https://ZhiShan-zh.github.io/media/springboot_shiro_20210114152559.jpg)
+![](./media/springboot_shiro_20210114152559.jpg)
 
 初始pom文件内容：
 

@@ -53,7 +53,7 @@
 
 # 2 Java普通项目整合Spring入门案例
 ## 2.1 新建Java Project
-![深度截图_选择区域_20200324211343.png](https://zhishan-zh.github.io/media/1585055714436-f5031479-75d7-4222-a866-26456fe7aa75.png)
+![深度截图_选择区域_20200324211343.png](./media/1585055714436-f5031479-75d7-4222-a866-26456fe7aa75.png)
 
 
 
@@ -124,15 +124,15 @@ public class User {
 
 1. 在applicationcontext.xml中书写跟元素<beans></beans>，然后把xml的视图切换到Design视图（设计视图）
 1. 选中beans，然后单击右键选择Edit Namespaces…选择Add勾选xsi，添加xsi命名空间（这是一个使用Spring XML约束必导的命名空间）
-1. ![image.png](https://zhishan-zh.github.io/media/1585056741366-691ee50f-c554-4efb-bd4c-702e150a55a5.png)
-1. ![image.png](https://zhishan-zh.github.io/media/1585056765809-bde16351-db31-4a00-abc3-41a5e6e83bd3.png)
+1. ![image.png](./media/1585056741366-691ee50f-c554-4efb-bd4c-702e150a55a5.png)
+1. ![image.png](./media/1585056765809-bde16351-db31-4a00-abc3-41a5e6e83bd3.png)
 1. 然后把Spring的xsd约束文件导入到eclipse中，这里以spring-framework-4.2.4.RELEASE\schema\beans下的spring-beans-4.2.xsd为例：
-1. ![image.png](https://zhishan-zh.github.io/media/1585057284491-d43f3657-2052-4bcb-864d-6fac5f6ef181.png)
-1. ![image.png](https://zhishan-zh.github.io/media/1585057298007-1c203448-6ab4-4cee-bc59-e468a86a741d.png)
+1. ![image.png](./media/1585057284491-d43f3657-2052-4bcb-864d-6fac5f6ef181.png)
+1. ![image.png](./media/1585057298007-1c203448-6ab4-4cee-bc59-e468a86a741d.png)
 1. 然后回到XML设计视图，选中beans，单击右键还是选中Edit Namespaces… 选择Add 选中Specify New Namespace  单击Browse… 选中Select XML Catalog entry，然后选中刚才导入的spring-beans-4.2.xsd 单击OK
-1. ![image.png](https://zhishan-zh.github.io/media/1585057353643-fc9e6161-ed11-4270-a4c7-788b663bf22b.png)
+1. ![image.png](./media/1585057353643-fc9e6161-ed11-4270-a4c7-788b663bf22b.png)
 1. 复制Location Hint框中中beans之前的内容到Namespace Name框中，然后单击OK
-1. ![image.png](https://zhishan-zh.github.io/media/1585057379245-ed7e02ea-bed5-4836-8625-4e9cd3edf10e.png)
+1. ![image.png](./media/1585057379245-ed7e02ea-bed5-4836-8625-4e9cd3edf10e.png)
 1. 测试是否导入成功：然后回到XML的Source视图，输入<看是否有该有的提示，有则配置成功。
 
 
@@ -179,7 +179,7 @@ com.zh.springstart.testclass.User@4cf777e8
 
 # 3 Java Maven整合Spring入门案例
 ## 3.1 创建Maven Project
-![image.png](https://zhishan-zh.github.io/media/1585098124488-50c95e68-30c2-4e00-9112-4337bd091632.png)
+![image.png](./media/1585098124488-50c95e68-30c2-4e00-9112-4337bd091632.png)
 
 
 初始pom文件内容：

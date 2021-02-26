@@ -13,7 +13,7 @@ WebMagic的设计目标是尽量的模块化，并体现爬虫的功能特点。
 
 WebMagic的结构分为Downloader、PageProcessor、Scheduler、Pipeline四大组件，并由Spider将它们彼此组织起来。这四大组件对应爬虫生命周期中的下载、处理、管理和持久化等功能。而Spider则将这几个组件组织起来，让它们可以互相交互，流程化的执行，可以认为Spider是一个大的容器，它也是WebMagic逻辑的核心。
 
-![webmagic](https://zhishan-zh.github.io/media/webmagic.png)
+![webmagic](./media/webmagic.png)
 
 # 2 四大组件
 
@@ -41,7 +41,7 @@ Pipeline负责抽取结果的处理，包括计算、持久化到文件、数据
 
 # 3 用于数据流转的对象
 
-![webmagic](https://zhishan-zh.github.io/media/webmagic.png)
+![webmagic](./media/webmagic.png)
 
 ## 3.1 Request
 
@@ -63,7 +63,7 @@ Page是WebMagic抽取过程的核心对象，它提供一些方法可供抽取�
 
 # 4 控制爬虫运转的引擎--Spider
 
-![webmagic](https://zhishan-zh.github.io/media/webmagic.png)
+![webmagic](./media/webmagic.png)
 
 Spider是WebMagic内部流程的核心。Downloader、PageProcessor、Scheduler、Pipeline都是Spider的一个属性，这些属性是可以自由设置的，通过设置这个属性可以实现不同的功能。Spider也是WebMagic操作的入口，它封装了爬虫的创建、启动、停止、多线程等功能。
 
