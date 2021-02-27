@@ -215,3 +215,147 @@ repositories {
 
 插件作者提供的教程：https://github.com/sing1ee/elasticsearch-jieba-plugin
 
+
+
+### 1.2.5 结巴分析器
+
+结巴分词插件提供3个分析器：
+
+- jieba_index: 用于索引分词，分词粒度较细；
+
+- jieba_search: 用于查询分词，分词粒度较粗；
+
+- jieba_other: 全角转半角、大写转小写、字符分词；
+
+### 1.2.4 结巴分词的使用（python）
+
+测试ElasticSearch版本：7.11.0
+
+```python
+from elasticsearch import Elasticsearch
+import requests
+
+def create_index():
+    """
+    创建索引库和映射
+    :return:
+    """
+    es = Elasticsearch()
+    body = {
+        "settings": {
+            "analysis": {
+                "filter": {
+                    "jieba_stop": {# 停用词过滤器
+                        "type": "stop",
+                        "stopwords_path": "stopwords/stopwords.txt" # config目录下
+                    },
+                    "jieba_synonym": {# 同义词词元过滤器
+                        "type": "synonym",
+                        "synonyms_path": "synonyms/synonyms.txt" # config目录下
+                    }
+                },
+                "analyzer": {
+                    "my_jieba_index": {# jieba分词器别名
+                        "tokenizer": "jieba_index",
+                        "filter": [
+                            "lowercase",
+                            "jieba_stop",
+                            "jieba_synonym"
+                        ]
+                    },
+                    "my_jieba_search": {  # jieba分词器别名
+                        "tokenizer": "jieba_search",
+                        "filter": [
+                            "lowercase",
+                            "jieba_stop",
+                            "jieba_synonym"
+                        ]
+                    },
+                }
+            }
+        },
+        "mappings":{# 映射配置
+            "properties":{
+                "source": {
+                    "type": "text",# 字段类型
+                    "index": True,# 进行此字段索引
+                    "analyzer": "my_jieba_index",# 分词器
+                    "search_analyzer": "my_jieba_search"# 查询分词器
+                },
+                "title": {
+                    "type": "text",
+                    "index": True,
+                    "analyzer": "my_jieba_index",
+                    "search_analyzer": "my_jieba_search"
+                },
+            }
+        }
+    }
+    res = es.indices.create(index="jieba_index", body=body)
+    print("创建索引：", res)
+
+def delete_index():
+    es = Elasticsearch()
+    res = es.indices.delete(index="jieba_index")
+    print("删除索引：", res)
+
+def insert_document():
+    """
+    插入文档
+    :param document:
+    :return:
+    """
+    es = Elasticsearch()
+    document = {
+        "source": "错误：文件尚未成功从目录中写入库",
+        "title": "出现问题了"
+    }
+    res = es.index(index="jieba_index", body=document)
+    print("插入文档：", res, document)
+
+def search():
+    """
+    查询
+    :param search_body:
+    :return:
+    """
+    es = Elasticsearch()
+    search_body = {
+        "query": {
+            "match": {
+                "source": {
+                    "query": "好像错误",
+                    "operator": "or"
+                }
+            }
+        }
+    }
+    res = es.search(index="jieba_index", body=search_body)
+    print("查询结果", res)
+
+def test_jieba():
+    """
+    测试结巴分词效果
+    :return:
+    """
+    params = {
+          "analyzer" : "my_jieba_index",# 结巴分词自定义别名
+          "text" : "黄河之水天上来"
+        }
+    res = requests.post(url='http://localhost:9200/jieba_index/_analyze', json=params)
+    print(res.json())
+
+def get_mapping():
+    """
+    获取所有索引库的映射
+    :return:
+    """
+    res = requests.get(url='http://localhost:9200/_mapping')
+    print(res.json())
+
+
+if __name__ == "__main__":
+    search()
+
+```
+

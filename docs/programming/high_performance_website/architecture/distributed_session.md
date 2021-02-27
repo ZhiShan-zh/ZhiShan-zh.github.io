@@ -326,7 +326,7 @@ Tomcat使用组播进行不同服务器之间的session复制。
 
 大型分布式环境下首选。
 
-使用memcached，效率比redis高。但是在秒杀场景中中不适用memecached，memecached进行decr和incr时，传递数量值大于库存的时候，默认为0。
+使用memcached，效率比redis高。但是在秒杀场景中不适用memecached，memecached进行decr和incr时，传递数量值大于库存的时候，默认为0。
 
 ![image-20200412104855342.png](./media/java_session-a5b2-6daf49c4d16b.png)
 
