@@ -320,27 +320,51 @@ def search():
     :return:
     """
     es = Elasticsearch()
+    # search_body = {
+    #     "query": {
+    #         "match": {
+    #             "source": {
+    #                 "query": "好像错误",
+    #                 "operator": "or"
+    #             }
+    #         }
+    #     }
+    # }
     search_body = {
-        "query": {
-            "match": {
-                "source": {
-                    "query": "好像错误",
-                    "operator": "or"
-                }
+        "query":{
+            "bool":{
+                "should":[
+                    {
+                        "match":{
+                            "source":{
+                                "query":"错误了",
+                                "operator": "or"
+                            }
+                        }
+                    },
+                    {
+                        "match": {
+                            "title": {
+                                "query": "了",
+                                "operator": "or"
+                            }
+                        }
+                    }
+                ]
             }
         }
     }
     res = es.search(index="jieba_index", body=search_body)
     print("查询结果", res)
 
-def test_jieba():
+def test_jieba(text):
     """
     测试结巴分词效果
     :return:
     """
     params = {
           "analyzer" : "my_jieba_index",# 结巴分词自定义别名
-          "text" : "黄河之水天上来"
+          "text" : text
         }
     res = requests.post(url='http://localhost:9200/jieba_index/_analyze', json=params)
     print(res.json())
@@ -353,9 +377,32 @@ def get_mapping():
     res = requests.get(url='http://localhost:9200/_mapping')
     print(res.json())
 
+def add_mapping():
+    """
+    添加新的映射
+    :return:
+    """
+    es = Elasticsearch()
+    body = {
+        "properties": {
+            "new_colum": {
+                "type": "text",# 字段类型
+                "index": True,# 进行此字段索引
+                "analyzer": "my_jieba_index",# 分词器
+                "search_analyzer": "my_jieba_search"# 查询分词器
+            }
+        }
+    }
+    res = es.indices.put_mapping(index="jieba_index", body=body)
+    print("添加映射:", res)
 
 if __name__ == "__main__":
-    search()
+    # test_jieba("错误了")
+    # test_jieba("了")
+    # search()
+    get_mapping()
+    add_mapping()
+    get_mapping()
 
 ```
 

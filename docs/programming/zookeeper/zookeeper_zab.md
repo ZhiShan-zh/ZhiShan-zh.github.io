@@ -116,3 +116,69 @@ ZAB（ZooKeeper Atomic Broadcast ）原子消息广播协议是专门为Zookeepe
 Zookeeper根据ZAB协议建立了主备模型完成Zookeeper集群中数据的同步。这里所说的主备系统架构模型是指，在Zookeeper集群中，只有一台leader负责处理外部客户端的事物请求(或写操作)，然后leader服务器将客户端的写操作数据同步到所有的follower节点中。
 
 ZAB的协议核心是在整个Zookeeper集群中只有一个节点即Leader将客户端的写操作转化为事物(或提议proposal)。Leader节点在数据写完之后，将向所有的follower节点发送数据广播请求(或数据复制)，等待所有的follower节点反馈。在ZAB协议中，只要超过半数follower节点反馈OK，Leader节点就会向所有的follower服务器发送commit消息。即将leader节点上的数据同步到follower节点之上。
+
+## 2.1 基本概念
+
+- serverId：服务器ID 即 myid
+  - 比如有三台服务器，编号分别是1,2,3。
+  - 编号越大在选择算法中的权重越大。
+
+- zxid：最新的事物ID 既 LastLoggedZxid
+  - 服务器中存放的最大数据ID。
+  - ID值越大说明数据越新，在选举算法中数据越新权重越大。
+
+- epoch：逻辑时钟 既 PeerEpoch
+  - 每个服务器都会给自己投票，或者叫投票次数，同一轮投票过程中的逻辑时钟值是相同的。
+  - 每投完一次票这个数据就会增加，然后与接收到的其它服务器返回的投票信息中的数值相比。
+  - 如果收到低于当前轮次的投票结果，该投票无效，需更新到当前轮次和当前的投票结果。
+
+## 2.1 协议状态
+
+- LOOKING：不确定Leader的“寻找”状态，即当前节点认为集群中没有Leader，进而发起选举；
+- LEADING：“领导”状态，即当前节点就是Leader，并维护与Follower和Observer的通信；
+- FOLLOWING：“跟随”状态，即当前节点是Follower，且正在保持与Leader的通信；
+- OBSERVING：“观察”状态，即当前节点是Observer，且正在保持与Leader的通信，但是不参与Leader选举。
+
+ZooKeeper启动时所有节点初始状态为Looking，这时集群会尝试选举出一个Leader节点，选举出的Leader节点切换为Leading状态；当节点发现集群中已经选举出Leader则该节点会切换到Following状态，然后和Leader节点保持同步；当Follower节点与Leader失去联系时Follower节点则会切换到Looking状态，开始新一轮选举；在ZooKeeper的整个生命周期中每个节点都会在Looking、Following、Leading状态间不断转换；
+
+选举出Leader节点后ZAB进入原子广播阶段，这时Leader为和自己同步的每个节点Follower创建一个操作序列，一个时期一个Follower只能和一个Leader保持同步，Leader节点与Follower节点使用心跳检测来感知对方的存在；当Leader节点在超时时间内收到来自Follower的心跳检测那Follower节点会一直与该节点保持连接；若超时时间内Leader没有接收到来自过半Follower节点的心跳检测或TCP连接断开，那Leader会结束当前周期的领导，切换到Looking状态，所有Follower节点也会放弃该Leader节点切换到Looking状态，然后开始新一轮选举；
+
+## 2.2 算法阶段
+
+ZAB协议定义了选举（election）、发现（discovery）、同步（sync）、广播(Broadcast)四个阶段。ZAB选举（election）时当Follower存在ZXID（事务ID）时判断所有Follower节点的事务日志，只有lastZXID的节点才有资格成为Leader，这种情况下选举出来的Leader总有最新的事务日志，基于这个原因所以ZooKeeper实现的时候把发现（discovery）与同步（sync）合并为恢复（recovery）阶段；
+
+ZAB协议中使用ZXID作为事务编号，ZXID为64位数字，低32位为一个递增的计数器，每一个客户端的一个事务请求时Leader产生新的事务后该计数器都会加1，高32位为Leader周期epoch编号，当新选举出一个Leader节点时Leader会取出本地日志中最大事务Proposal的ZXID解析出对应的epoch把该值加1作为新的epoch，将低32位从0开始生成新的ZXID；ZAB使用epoch来区分不同的Leader周期。
+
+- Election：在Looking状态中选举出Leader节点，Leader的lastZXID总是最新的；
+
+- Discovery：Follower节点向准Leader推送FOllOWERINFO，该信息中包含了上一周期的epoch，接受准Leader的NEWLEADER指令，检查newEpoch有效性，准Leader要确保Follower的epoch与ZXID小于或等于自身的；
+
+- sync：将Follower与Leader的数据进行同步，由Leader发起同步指令，最终保持集群数据的一致性；
+
+- Broadcast：Leader广播Proposal与Commit，Follower接受Proposal与Commit；
+
+- Recovery：在Election阶段选举出Leader后本阶段主要工作就是进行数据的同步，使Leader具有highestZXID，集群保持数据的一致性；
+
+### 2.2.1 选举（Election）
+
+Election阶段必须确保选出的Leader具有highestZXID，否则在Recovery阶段没法保证数据的一致性，Recovery阶段Leader要求Follower向自己同步数据没有Follower要求Leader保持数据同步，所有选举出来的Leader要具有最新的ZXID；
+
+在选举的过程中会对每个Follower节点的ZXID进行对比只有highestZXID的Follower才可能当选Leader；
+
+
+
+- electionEpoch：“选民”的选举轮次，在每个节点中以逻辑时钟logicalclock的形式存储。每发起一轮新的选举，该值会加1。若节点重启，此值会归零。
+- sid：“选民”自己的服务器ID，是一个正整数，由各个ZK实例中的$dataDir/myid指定。
+- state：“选民”的状态。
+- votedLeaderSid：这一票推选的“候选人”的服务器ID。在代码中直接命名为leader，为了防止混淆，这里稍作更改。
+- votedLeaderZxid：这一票推选的“候选人”的事务ID。所谓事务ID即写操作的proposal ID，其高32位是Leader纪元值，低32位是当前Leader纪元下的操作序号，亦即zxid肯定是单调递增的。在代码中直接命名为zxid，为了防止混淆，这里稍作更改。
+- recvset：“选民”的票箱，其中存储有自己的和其他节点的选票。注意，每张选票都包含上述的electionEpoch、sid、state、leader和zxid信息，并且票箱中都只会记录每个“选民”的最近一次投票信息。
+
+
+
+选举流程：
+
+　　1. 每个Follower都向其他节点发送选自身为Leader的Vote投票请求，等待回复；
+　　2. Follower接受到的Vote如果比自身的大（ZXID更新）时则投票，并更新自身的Vote，否则拒绝投票；
+　　3. 每个Follower中维护着一个投票记录表，当某个节点收到过半的投票时，结束投票并把该Follower选为Leader，投票结束；
+
