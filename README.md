@@ -233,7 +233,7 @@ K-近邻算法：[K-近邻算法概述](./docs/programming/Artificial_Intelligen
 
 # 16 Zookeeper
 
-- [Zookeeper概述](./docs/programming/zookeeper/the_overview_of_zookeeper.md)▣[ZAB原子消息广播协议](./docs/programming/zookeeper/zookeeper_zab.md)
+- [Zookeeper概述](./docs/programming/zookeeper/the_overview_of_zookeeper.md)▣[ZAB原子消息广播协议](./docs/programming/zookeeper/zookeeper_zab.md)▣[分布式一致性](./docs/programming/zookeeper/distributed_consensus.md)
 
 # 17 大数据
 
