@@ -1,6 +1,6 @@
 
 
-Raft:http://thesecretlivesofdata.com/raft/
+Raft cartoon:http://thesecretlivesofdata.com/raft/
 
 Raft is a protocol for implementing distributed consensus.
 
